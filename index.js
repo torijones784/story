@@ -9,6 +9,9 @@ const app = express();
 const port = 3000;
 let part_one_trigger = "no";
 
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+
 app.use(express.json());
 app.use(express.static("public"));
 
@@ -20,7 +23,7 @@ app.get("/about", (req, res) => {
     res.sendFile(path.join(__dirname, "about.html"));
 });
 
-app.get("/mvp", (req, res) => {
+app.get("/chapterone", (req, res) => {
     res.render("mvp.ejs", {part_one_trigger});
 });
 
