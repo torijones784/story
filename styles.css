@@ -29,6 +29,10 @@ footer {
     border-bottom-color: #818181;
     }
 
+body {
+    background-color: blue;
+}
+
 /* Home Page */
 /* body .home_page {
     /* background-image: url('/public/images/background_three.jpg'); */
