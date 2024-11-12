@@ -29,7 +29,7 @@ footer {
     }
 
 /* Home Page */
-.home_page {
+body.home_page {
     background-image: url('/public/images/background_three.jpg');
     background-size: cover;
     background-position: center;
