@@ -5,6 +5,7 @@ header {
     padding-left: 1rem;
     padding-right: 1rem;
     background-size: cover;
+    background-color: aquamarine;
     }
 
 footer {
@@ -36,7 +37,6 @@ body .home_page {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-blend-mode: darken;
-    background-color: red;
     /* background-color: rgba(0, 0, 0, 0.5); */
     }
 
