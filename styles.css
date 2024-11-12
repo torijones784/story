@@ -5,7 +5,6 @@ header {
     padding-left: 1rem;
     padding-right: 1rem;
     background-size: cover;
-    background-color: aquamarine;
     }
 
 footer {
@@ -30,7 +29,7 @@ footer {
     }
 
 /* Home Page */
-body .home_page {
+.home_page {
     background-image: url('/public/images/background_three.jpg');
     background-size: cover;
     background-position: center;
