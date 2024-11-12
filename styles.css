@@ -30,8 +30,7 @@ footer {
 
 /* Home Page */
 body .home_page {
-    background-color: red;
-    /* background-image: url('public/images/background_three.jpg'); */
+    background-image: url('public/images/background_three.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
