@@ -56,14 +56,14 @@ footer {
     text-shadow: 0px 0px 3px #EEEEEE;
     line-height: 1.05;
     background-color: rgba(0, 0, 0, 0.5);
-    justify-content: flex-start;
     }
 
 .under_tagline {
     color:#EEEEEE;
     font-family: "Roboto", sans-serif;
-    align-self: flex-start;
+    align-self: center;
     font-size: 19px;
+    background-color: rgba(0, 0, 0, 1);
 }
 
 .tagline_box {
