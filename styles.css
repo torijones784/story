@@ -30,7 +30,7 @@ footer {
 
 /* Home Page */
 body.home_page {
-    background-image: url('/public/images/background_three.jpg');
+    background-image: url('images/background_three.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -38,6 +38,16 @@ body.home_page {
     background-blend-mode: darken;
     background-color: rgba(0, 0, 0, 0.5);
 }
+
+.blur_animate {
+    animation: blurEffect 2s infinite;
+  }
+
+@keyframes blurEffect {
+    0% { filter: blur(0px); }
+    50% { filter: blur(4px); }
+    100% { filter: blur(0px); }
+  }
 
 .tagline {
     font-size: 80px;
