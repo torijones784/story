@@ -29,25 +29,15 @@ footer {
     }
 
 /* Home Page */
-.video-container {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-  }
-  
-  video {
-    position: absolute;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: -1;
-    object-fit: cover;
-  }
+body.home_page {
+    background-image: url('/public/images/background_three.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-blend-mode: darken;
+    background-color: rgba(0, 0, 0, 0.5);
+}
 
 .tagline {
     font-size: 80px;
@@ -55,7 +45,6 @@ footer {
     font-family: "Source Serif 4", serif;
     text-shadow: 0px 0px 3px #EEEEEE;
     line-height: 1.05;
-    background-color: rgba(0, 0, 0, 0.5);
     }
 
 .under_tagline {
@@ -63,7 +52,6 @@ footer {
     font-family: "Roboto", sans-serif;
     align-self: center;
     font-size: 19px;
-    background-color: rgba(0, 0, 0, 0.6);
 }
 
 .tagline_box {
