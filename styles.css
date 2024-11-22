@@ -46,7 +46,15 @@ body.home_page {
 
 @keyframes blurEffect {
     0% { filter: blur(0px); }
+    10% { filter: blur(0.8px); }
+    20% { filter: blur(1.6px); }
+    30% { filter: blur(2.4px); }
+    40% { filter: blur(3.2px); }
     50% { filter: blur(4px); }
+    60% { filter: blur(3.2px); }
+    70% { filter: blur(2.4px); }
+    80% { filter: blur(1.6px); }
+    90% { filter: blur(0.8px); }
     100% { filter: blur(0px); }
   }
 
