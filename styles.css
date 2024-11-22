@@ -40,7 +40,8 @@ body.home_page {
 }
 
 .blur_animate {
-    animation: blurEffect 2s infinite;
+    animation: blurEffect 5s infinite;
+    font-style: italic;
   }
 
 @keyframes blurEffect {
