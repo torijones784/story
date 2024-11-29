@@ -117,8 +117,41 @@ function initScrollTrigger() {
 
     const textChangesTopTwo = [
         {
-            
-        }
+            elementId: `changing-text-10`,
+            newText: `Fuck this.`  
+        },
+        {
+            elementId: `changing-text-27`,
+            newText: `You're vacuuming up pieces of glass. Your daughter is screaming. Your living room is a mess. This home was not the one you were promised when your husband was down there, on one knee. That home was supposed to be everything you didn't have when you were growing up. That home was supposed to feel safe.`
+        },
+        {
+            elementId: `changing-text`,
+            newText: ``
+        },
+        {
+            elementId: `changing-text-28`,
+            newText: ``
+        },
+        {
+            elementId: `changing-text-29`,
+            newText: `Something feels wrong.`
+        },
+        {
+            elementId: `changing-text-30`,
+            newText: `A chill creeps up your spine. You need to sit down, just for a second. You set the vacuum against the island and sit on the couch. The fan's on high, the sound of it's blades a hypnotic woosh, woosh, woosh. It feels so good to stop, just for a second, and feel the breeze on your face.`
+        },
+        {
+            elementId: `changing-text-31`,
+            newText: `You twist your engagement ring around on your finger—you should take it off, but you don't. You actually like your life now, but you don't.`
+        },
+        {
+            elementId: `changing-text-32`,
+            newText: `You went up to him all those years ago, in that bar on Wells St. that has since been rightfully condemned. He was standing against the wall, comfortable not being a part of the sweaty throng of 20-somethings grinding on the dance floor. He seemed so cool, so mature, and there was something different about him, in a familiar sort of way. It didn't make sense, but it didn't have to back then. You were hungry for your love story.`
+        },
+        {
+            elementId: `changing-text-33`,
+            newText: `You grinned at your friends, pointing at this then-stranger. Mine.`
+        },
     ];
 
     function checkScroll() { 
@@ -188,7 +221,24 @@ function initScrollTrigger() {
         }
 
         if (scrollPercentage > 50 && hasTriggered === true && roundTwo === true) {
-            
+            textChangesTopTwo.forEach(change => {
+                const element = document.getElementById(change.elementId);
+                if (element) {
+                    element.textContent = change.newText;
+                }
+            });
+
+            fetch('/api/trigger-state', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ trigger: 'yes' })
+            })
+            .then(response => response.json())
+            .catch(error => {
+                console.error('Error updating server:', error);
+            });
         }
     } 
 
