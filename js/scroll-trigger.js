@@ -188,7 +188,7 @@ function initScrollTrigger() {
         }
 
         if (scrollPercentage > 50 && hasTriggered === true && roundTwo === true) {
-
+            
         }
     } 
 
