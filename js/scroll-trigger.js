@@ -141,24 +141,24 @@ function initScrollTrigger() {
         },
     ];
 
-    function updateServerState() {
-        return fetch('/api/trigger-state?trigger=yes', {
-            method: 'GET',
-            headers: {
-                'Accept': 'application/json'
-            }
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return response.json();
-        })
-        .catch(error => {
-            console.warn('Warning: Server update failed:', error);
-            return null;
-        });
-    }
+    // function updateServerState() {
+    //     return fetch('/api/trigger-state?trigger=yes', {
+    //         method: 'GET',
+    //         headers: {
+    //             'Accept': 'application/json'
+    //         }
+    //     })
+    //     .then(response => {
+    //         if (!response.ok) {
+    //             throw new Error(`HTTP error! status: ${response.status}`);
+    //         }
+    //         return response.json();
+    //     })
+    //     .catch(error => {
+    //         console.warn('Warning: Server update failed:', error);
+    //         return null;
+    //     });
+    // }
 
     function checkScroll() { 
         const timeSpent = Date.now() - pageLoadTime;
@@ -189,19 +189,19 @@ function initScrollTrigger() {
                 // Change back
             }
 
-            fetch('/api/trigger-state', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ trigger: 'yes' })
-            })
-            .then(response => response.json())
-            .catch(error => {
-                console.error('Error updating server:', error);
-            });
+            // fetch('/api/trigger-state', {
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'application/json',
+            //     },
+            //     body: JSON.stringify({ trigger: 'yes' })
+            // })
+            // .then(response => response.json())
+            // .catch(error => {
+            //     console.error('Error updating server:', error);
+            // });
 
-            updateServerState();
+            // updateServerState();
         }
 
         if (scrollPercentage < 50 && hasTriggered === true && !roundTwo) { 
@@ -217,19 +217,19 @@ function initScrollTrigger() {
                 }
             });
 
-            fetch('/api/trigger-state', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ trigger: 'yes' })
-            })
-            .then(response => response.json())
-            .catch(error => {
-                console.error('Error updating server:', error);
-            });
+            // fetch('/api/trigger-state', {
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'application/json',
+            //     },
+            //     body: JSON.stringify({ trigger: 'yes' })
+            // })
+            // .then(response => response.json())
+            // .catch(error => {
+            //     console.error('Error updating server:', error);
+            // });
 
-            updateServerState();
+            // updateServerState();
         }
 
         if (scrollPercentage > 50 && hasTriggered === true && roundTwo === true) {
@@ -241,19 +241,19 @@ function initScrollTrigger() {
                 }
             });
 
-            fetch('/api/trigger-state', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ trigger: 'yes' })
-            })
-            .then(response => response.json())
-            .catch(error => {
-                console.error('Error updating server:', error);
-            });
+            // fetch('/api/trigger-state', {
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'application/json',
+            //     },
+            //     body: JSON.stringify({ trigger: 'yes' })
+            // })
+            // .then(response => response.json())
+            // .catch(error => {
+            //     console.error('Error updating server:', error);
+            // });
 
-            updateServerState();
+            // updateServerState();
         }
     } 
 
