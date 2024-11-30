@@ -109,8 +109,16 @@ const textChangesTopTwo = [
             newText: `Fuck this.`  
         },
         {
-            elementId: `changing-text-4`,
+            elementId: `changing-text-2`,
             newText: ` You're vacuuming up pieces of glass. Your daughter is screaming. Your living room is a mess. This home was not the one you were promised when your husband was down there, on one knee. That home was supposed to be everything you didn't have when you were growing up. That home was supposed to feel safe.`
+        },
+        {
+            elementId: `changing-text-3`,
+            newText: ``
+        },
+        {
+            elementId: `changing-text-4`,
+            newText: ``
         },
         {
             elementId: `changing-text-5`,
@@ -143,14 +151,6 @@ const textChangesTopTwo = [
         const scrollPosition = window.scrollY + window.innerHeight;
         const totalHeight = document.documentElement.scrollHeight;
         const scrollPercentage = (scrollPosition / totalHeight) * 100;
-
-        console.log({
-            scrollPercentage,
-            hasTriggered,
-            hasReachedBottom,
-            roundTwo,
-            scrollY: window.scrollY
-        });
 
         if (scrollPercentage > 99 && !hasTriggered) { 
             console.log('First trigger activated');
