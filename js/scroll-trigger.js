@@ -163,7 +163,7 @@ const textChangesTopTwo = [
             }
         }
 
-        if (scrollPercentage < 50 && hasTriggered === true && !roundTwo) { 
+        if (scrollPercentage < 30 && hasTriggered === true && !roundTwo) { 
             console.log('Second trigger activated');
             roundTwo = true;
             const closingQuestion = document.getElementById('closing_question');
@@ -177,7 +177,7 @@ const textChangesTopTwo = [
             });
         }
 
-        if (scrollPercentage > 50 && hasTriggered === true && roundTwo === true) {
+        if (scrollPercentage > 70 && hasTriggered === true && roundTwo === true) {
             console.log('Third trigger activated');
             textChangesTopTwo.forEach(change => {
                 const element = document.getElementById(change.elementId);
