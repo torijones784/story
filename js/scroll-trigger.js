@@ -1,6 +1,5 @@
 function initScrollTrigger() {
     let hasTriggered = false;
-    let darknessInitiated = false;
     let roundTwo = false;
     let pageLoadTime = Date.now();
     const MINIMUM_TIME = 30000; 
@@ -153,6 +152,7 @@ function initScrollTrigger() {
         const scrollPercentage = (scrollPosition / totalHeight) * 100;
 
         if (scrollPercentage > 99 && !hasTriggered) { 
+            console.log('First trigger activated');
             hasTriggered = true;
             
             textChangesTop.forEach(change => {
@@ -183,7 +183,7 @@ function initScrollTrigger() {
         }
 
         if (scrollPercentage < 50 && hasTriggered === true && !roundTwo) { 
-            
+            console.log('Second trigger activated');
             roundTwo = true;
 
             closingQuestion.classList.remove('visible');
@@ -209,6 +209,7 @@ function initScrollTrigger() {
         }
 
         if (scrollPercentage > 50 && hasTriggered === true && roundTwo === true) {
+            console.log('Third trigger activated');
             textChangesTopTwo.forEach(change => {
                 const element = document.getElementById(change.elementId);
                 if (element) {
