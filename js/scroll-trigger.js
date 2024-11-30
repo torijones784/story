@@ -237,12 +237,24 @@ const textChangesTopTwo = [
             newText: ``
         },
         {
+            elementId: `changing-text-55`,
+            newText: ``
+        },
+        {
             elementId: `changing-text-56`,
             newText: `There's nothing to be afraid of.`
         },
         {
+            elementId: `changing-text-57`,
+            newText: ``
+        },
+        {
             elementId: `changing-text-58`,
             newText: `Nothing to see, in the shadows.`
+        },
+        {
+            elementId: `changing-text-59`,
+            newText: ``
         },
         {
             elementId: `changing-text-60`,
