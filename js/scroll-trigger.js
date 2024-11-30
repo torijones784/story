@@ -69,18 +69,6 @@ function initScrollTrigger() {
             elementId: `changing-text-6`,
             newText: `own. It knows something's wrong, and it's not that you can't find her, there's something else. A possibility you refuse to place. Putting that on the board is an omen in itself.`
         },
-        // {
-        //     elementId: `changing-text-7`,
-        //     newText: `There's nothing to be afraid of.` 
-        // },
-        // {
-        //     elementId: `changing-text-8`,
-        //     newText: `Nothing to see, in the shadows.` 
-        // },
-        // {
-        //     elementId: `changing-text-9`,
-        //     newText: `Isn't it?`  
-        // },
         {
             elementId: `changing-text-19`,
             newText: `If you're not careful, your sentimentality will get to you.`  
@@ -194,7 +182,7 @@ function initScrollTrigger() {
             });
         }
 
-        if (scrollPercentage < 50 && hasTriggered === true) { 
+        if (scrollPercentage < 50 && hasTriggered === true && !roundTwo) { 
             
             roundTwo = true;
 
