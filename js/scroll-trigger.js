@@ -110,16 +110,12 @@ const textChangesTopTwo = [
         },
         {
             elementId: `changing-text-2`,
-            newText: ` You're vacuuming up pieces of glass. Your daughter is screaming. Your living room is a mess. This home was not the one you were promised when your husband was down there, on one knee, looking up at you like you held his entire future in his hands. That home was supposed to be everything you didn't have when you were growing up. That home was supposed to feel safe. And fuck it, at least things were real now, but there was still a part of you that was so, so angry that you got so, so close to what you'd never had.`
+            newText: ` You're vacuuming up pieces of glass. Your daughter is screaming. Your living room is a mess. This home was not the one you were promised when your husband was down there, on one knee, looking up at you like you held his entire future in his hands. That home was supposed to be everything you didn't have when you were growing up. That home was supposed to feel safe. And fuck it, at least things were real now, but there was still a part of you that was angry that you got so close to what you'd never had.`
         },
-        // {
-        //     elementId: `changing-text-3`,
-        //     newText: ``
-        // },
-        // {
-        //     elementId: `changing-text-4`,
-        //     newText: ``
-        // },
+        {
+            elementId: `changing-text-4`,
+            newText: ``
+        },
         {
             elementId: `changing-text-5`,
             newText: `Something feels wrong.`
@@ -139,6 +135,18 @@ const textChangesTopTwo = [
         {
             elementId: `changing-text-13`,
             newText: `You grinned at your friends, pointing at this then-stranger. Mine.`
+        },
+        {
+            elementId: `changing-text-17`,
+            newText: `You grinned at your friends, pointing at this then-stranger. Mine.`
+        },
+        {
+            elementId: `changing-text-20`,
+            newText: `And just like that, he was. He held the door for you, actually cared if you texted him when you got home, paid for your drinks when you went out. He wasn’t the bad boy with a past. He was from Elmhurst, for fuck’s sake. The three years you spent before getting married were a rush—of believing this was real, that was happening, that you were picked for this life. You were so, so desperate to be picked.`
+        },
+        {
+            elementId: `changing-text-22`,
+            newText: `Where is your daughter?`
         },
     ];
 
