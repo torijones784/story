@@ -198,13 +198,6 @@ const textChangesTopTwo = [
         }
     } 
 
-    window.addEventListener('scroll', () => {
-        const scrollPosition = window.scrollY + window.innerHeight;
-        const totalHeight = document.documentElement.scrollHeight;
-        const scrollPercentage = (scrollPosition / totalHeight) * 100;
-        console.log('Scroll position:', scrollPercentage);
-    });
-
     let ticking = false;
     window.addEventListener('scroll', () => {
         if (!ticking) {
