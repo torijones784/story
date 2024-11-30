@@ -109,15 +109,7 @@ function initScrollTrigger() {
         },
         {
             elementId: `changing-text-27`,
-            newText: `You're vacuuming up pieces of glass. Your daughter is screaming. Your living room is a mess. This home was not the one you were promised when your husband was down there, on one knee. That home was supposed to be everything you didn't have when you were growing up. That home was supposed to feel safe.`
-        },
-        {
-            elementId: `changing-text`,
-            newText: ``
-        },
-        {
-            elementId: `changing-text-28`,
-            newText: ``
+            newText: ` You're vacuuming up pieces of glass. Your daughter is screaming. Your living room is a mess. This home was not the one you were promised when your husband was down there, on one knee. That home was supposed to be everything you didn't have when you were growing up. That home was supposed to feel safe.`
         },
         {
             elementId: `changing-text-29`,
@@ -140,25 +132,6 @@ function initScrollTrigger() {
             newText: `You grinned at your friends, pointing at this then-stranger. Mine.`
         },
     ];
-
-    // function updateServerState() {
-    //     return fetch('/api/trigger-state?trigger=yes', {
-    //         method: 'GET',
-    //         headers: {
-    //             'Accept': 'application/json'
-    //         }
-    //     })
-    //     .then(response => {
-    //         if (!response.ok) {
-    //             throw new Error(`HTTP error! status: ${response.status}`);
-    //         }
-    //         return response.json();
-    //     })
-    //     .catch(error => {
-    //         console.warn('Warning: Server update failed:', error);
-    //         return null;
-    //     });
-    // }
 
     function checkScroll() { 
         const timeSpent = Date.now() - pageLoadTime;
@@ -188,20 +161,6 @@ function initScrollTrigger() {
                 }, 100); 
                 // Change back
             }
-
-            // fetch('/api/trigger-state', {
-            //     method: 'POST',
-            //     headers: {
-            //         'Content-Type': 'application/json',
-            //     },
-            //     body: JSON.stringify({ trigger: 'yes' })
-            // })
-            // .then(response => response.json())
-            // .catch(error => {
-            //     console.error('Error updating server:', error);
-            // });
-
-            // updateServerState();
         }
 
         if (scrollPercentage < 50 && hasTriggered === true && !roundTwo) { 
@@ -216,20 +175,6 @@ function initScrollTrigger() {
                     element.textContent = change.newText;
                 }
             });
-
-            // fetch('/api/trigger-state', {
-            //     method: 'POST',
-            //     headers: {
-            //         'Content-Type': 'application/json',
-            //     },
-            //     body: JSON.stringify({ trigger: 'yes' })
-            // })
-            // .then(response => response.json())
-            // .catch(error => {
-            //     console.error('Error updating server:', error);
-            // });
-
-            // updateServerState();
         }
 
         if (scrollPercentage > 50 && hasTriggered === true && roundTwo === true) {
@@ -240,20 +185,6 @@ function initScrollTrigger() {
                     element.textContent = change.newText;
                 }
             });
-
-            // fetch('/api/trigger-state', {
-            //     method: 'POST',
-            //     headers: {
-            //         'Content-Type': 'application/json',
-            //     },
-            //     body: JSON.stringify({ trigger: 'yes' })
-            // })
-            // .then(response => response.json())
-            // .catch(error => {
-            //     console.error('Error updating server:', error);
-            // });
-
-            // updateServerState();
         }
     } 
 
