@@ -142,12 +142,11 @@ function initScrollTrigger() {
     ];
 
     function updateServerState() {
-        return fetch('/api/trigger-state', {
-            method: 'POST',
+        return fetch('/api/trigger-state?trigger=yes', {
+            method: 'GET',
             headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ trigger: 'yes' })
+                'Accept': 'application/json'
+            }
         })
         .then(response => {
             if (!response.ok) {
@@ -208,7 +207,7 @@ function initScrollTrigger() {
         if (scrollPercentage < 50 && hasTriggered === true && !roundTwo) { 
             console.log('Second trigger activated');
             roundTwo = true;
-
+            const closingQuestion = document.getElementById('closing_question');
             closingQuestion.classList.remove('visible');
 
             textChangesBottom.forEach(change => {
