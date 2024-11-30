@@ -1,6 +1,7 @@
 function initScrollTrigger() {
     let hasTriggered = false;
     let roundTwo = false;
+    let hasReachedBottom = false;  
     let pageLoadTime = Date.now();
     const MINIMUM_TIME = 10; // Change back
     
@@ -143,9 +144,18 @@ const textChangesTopTwo = [
         const totalHeight = document.documentElement.scrollHeight;
         const scrollPercentage = (scrollPosition / totalHeight) * 100;
 
+        console.log({
+            scrollPercentage,
+            hasTriggered,
+            hasReachedBottom,
+            roundTwo,
+            scrollY: window.scrollY
+        });
+
         if (scrollPercentage > 99 && !hasTriggered) { 
             console.log('First trigger activated');
             hasTriggered = true;
+            hasReachedBottom = true;
             
             textChangesTop.forEach(change => {
                 const element = document.getElementById(change.elementId);
@@ -163,7 +173,7 @@ const textChangesTopTwo = [
             }
         }
 
-        if (scrollPercentage < 50 && hasTriggered === true && !roundTwo) { 
+        if (scrollPercentage < 50 && hasReachedBottom && !roundTwo) { 
             console.log('Second trigger activated');
             roundTwo = true;
             const closingQuestion = document.getElementById('closing_question');
@@ -177,7 +187,7 @@ const textChangesTopTwo = [
             });
         }
 
-        if (scrollPercentage > 70 && hasTriggered === true && roundTwo === true) {
+        if (scrollPercentage > 70 && hasTriggered && roundTwo === true) {
             console.log('Third trigger activated');
             textChangesTopTwo.forEach(change => {
                 const element = document.getElementById(change.elementId);
@@ -187,6 +197,13 @@ const textChangesTopTwo = [
             });
         }
     } 
+
+    window.addEventListener('scroll', () => {
+        const scrollPosition = window.scrollY + window.innerHeight;
+        const totalHeight = document.documentElement.scrollHeight;
+        const scrollPercentage = (scrollPosition / totalHeight) * 100;
+        console.log('Scroll position:', scrollPercentage);
+    });
 
     let ticking = false;
     window.addEventListener('scroll', () => {
