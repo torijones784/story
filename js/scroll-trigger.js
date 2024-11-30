@@ -155,6 +155,98 @@ const textChangesTopTwo = [
         {
             elementId: `changing-text-26`,
             newText: `You call out her name. Again. Again. You hate the bitter ice filling your mouth as you say it. It's a spell that does nothing to subside the sinking feeling rooting within your chest.`
+        },
+        {
+            elementId: `changing-text-28`,
+            newText: `You see her, and within seconds, your arms are around her, your perfect girl.`
+        },
+        {
+            elementId: `changing-text-30`,
+            newText: `You don't see the shadows moving, because you don't want to. The truth is never what you wanted, not really.`
+        },
+        {
+            elementId: `changing-text-32`,
+            newText: ``
+        },
+        {
+            elementId: `changing-text-33`,
+            newText: ``
+        },
+        {
+            elementId: `changing-text-34`,
+            newText: ``
+        },
+        {
+            elementId: `changing-text-35`,
+            newText: ``
+        },
+        {
+            elementId: `changing-text-36`,
+            newText: ``
+        },
+        {
+            elementId: `changing-text-37`,
+            newText: ``
+        },
+        {
+            elementId: `changing-text-38`,
+            newText: ``
+        },
+        {
+            elementId: `changing-text-39`,
+            newText: ``
+        },
+        {
+            elementId: `changing-text-41`,
+            newText: ``
+        },
+        {
+            elementId: `changing-text-42`,
+            newText: ``
+        },
+        {
+            elementId: `changing-text-44`,
+            newText: ``
+        },
+        {
+            elementId: `changing-text-45`,
+            newText: ``
+        },
+        {
+            elementId: `changing-text-47`,
+            newText: ``
+        },
+        {
+            elementId: `changing-text-48`,
+            newText: ``
+        },
+        {
+            elementId: `changing-text-49`,
+            newText: ``
+        },
+        {
+            elementId: `changing-text-52`,
+            newText: ``
+        },
+        {
+            elementId: `changing-text-53`,
+            newText: ``
+        },
+        {
+            elementId: `changing-text-54`,
+            newText: ``
+        },
+        {
+            elementId: `changing-text-56`,
+            newText: `There's nothing to be afraid of.`
+        },
+        {
+            elementId: `changing-text-58`,
+            newText: `Nothing to see, in the shadows.`
+        },
+        {
+            elementId: `changing-text-60`,
+            newText: `Isn't it?`
         }
     ];
 
