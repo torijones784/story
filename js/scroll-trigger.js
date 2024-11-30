@@ -141,6 +141,26 @@ function initScrollTrigger() {
         },
     ];
 
+    function updateServerState() {
+        return fetch('/api/trigger-state', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ trigger: 'yes' })
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .catch(error => {
+            console.warn('Warning: Server update failed:', error);
+            return null;
+        });
+    }
+
     function checkScroll() { 
         const timeSpent = Date.now() - pageLoadTime;
         if (timeSpent < MINIMUM_TIME) {
@@ -181,6 +201,8 @@ function initScrollTrigger() {
             .catch(error => {
                 console.error('Error updating server:', error);
             });
+
+            updateServerState();
         }
 
         if (scrollPercentage < 50 && hasTriggered === true && !roundTwo) { 
@@ -207,6 +229,8 @@ function initScrollTrigger() {
             .catch(error => {
                 console.error('Error updating server:', error);
             });
+
+            updateServerState();
         }
 
         if (scrollPercentage > 50 && hasTriggered === true && roundTwo === true) {
@@ -229,6 +253,8 @@ function initScrollTrigger() {
             .catch(error => {
                 console.error('Error updating server:', error);
             });
+
+            updateServerState();
         }
     } 
 
