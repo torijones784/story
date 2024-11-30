@@ -2,7 +2,7 @@ function initScrollTrigger() {
     let hasTriggered = false;
     let roundTwo = false;
     let pageLoadTime = Date.now();
-    const MINIMUM_TIME = 30000; 
+    const MINIMUM_TIME = 10; // Change back
     
     const textChangesTop = [
         {
@@ -166,7 +166,8 @@ function initScrollTrigger() {
             if (closingQuestion) {
                 setTimeout(() => {
                     closingQuestion.classList.add('visible');
-                }, 17000);
+                }, 100); 
+                // Change back
             }
 
             fetch('/api/trigger-state', {
