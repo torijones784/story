@@ -138,16 +138,24 @@ const textChangesTopTwo = [
         },
         {
             elementId: `changing-text-17`,
-            newText: `You grinned at your friends, pointing at this then-stranger. Mine.`
+            newText: `And just like that, he was. He held the door for you, actually cared if you texted him when you got home, paid for your drinks when you went out. He wasn’t the bad boy with a past. He was from Elmhurst, for fuck’s sake. The three years you spent before getting married were a rush—of believing this was real, that was happening, that you were picked for this life. You were so, so desperate to be picked.`
         },
         {
             elementId: `changing-text-20`,
-            newText: `And just like that, he was. He held the door for you, actually cared if you texted him when you got home, paid for your drinks when you went out. He wasn’t the bad boy with a past. He was from Elmhurst, for fuck’s sake. The three years you spent before getting married were a rush—of believing this was real, that was happening, that you were picked for this life. You were so, so desperate to be picked.`
+            newText: `Did his parents know who he was? Were they all in on it, sitting at the dinner table the first time you met them? Were there knowing glances over the rims of wine glasses that you missed? When you grabbed his hand, did they smile because you loved him, or because of what he'd use her to bring onto the world?`
         },
         {
             elementId: `changing-text-22`,
             newText: `Where is your daughter?`
         },
+        {
+            elementId: `changing-text-23`,
+            newText: `Her playmat is empty. You blink at the patterns she drew on the papers flung around the floor, at the cut on your finger, at the broken picture frame of your mom.`
+        },
+        {
+            elementId: `changing-text-26`,
+            newText: `You call out her name. Again. Again. You hate the bitter ice filling your mouth as you say it. It's a spell that does nothing to subside the sinking feeling rooting within your chest.`
+        }
     ];
 
     function checkScroll() { 
