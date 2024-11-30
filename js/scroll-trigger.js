@@ -166,15 +166,15 @@ const textChangesTopTwo = [
         },
         {
             elementId: `changing-text-32`,
-            newText: ``
+            newText: `Everything is good.`
         },
         {
             elementId: `changing-text-33`,
-            newText: ``
+            newText: `Everything is okay.`
         },
         {
             elementId: `changing-text-34`,
-            newText: ``
+            newText: `Everything is safe.`
         },
         {
             elementId: `changing-text-35`,
