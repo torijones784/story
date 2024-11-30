@@ -6,129 +6,129 @@ function initScrollTrigger() {
     
     const textChangesTop = [
         {
-            elementId: `changing-text`,
+            elementId: `changing-text-3`,
             newText: `for the rest of your life,`
         },
         {
-            elementId: `changing-text-2`,
+            elementId: `changing-text-11`,
             newText: `morphed`
         },
         {
-            elementId: `changing-text-3`,
+            elementId: `changing-text-14`,
             newText: `It spawned. Your`
         },
         {
-            elementId: `changing-text-4`,
+            elementId: `changing-text-16`,
             newText: `plague`
         },
         {
-            elementId: `changing-text-5`,
+            elementId: `changing-text-29`,
             newText: `drunk with power.`
         },
         {
-            elementId: `changing-text-10`,
+            elementId: `changing-text-1`,
             newText: `Fuck you're tired.`
         },
         {
-            elementId: `changing-text-11`,
+            elementId: `changing-text-7`,
             newText: `This is your world.`
         },
         {
-            elementId: `changing-text-12`,
+            elementId: `changing-text-8`,
             newText: `mother, who, if she was here, wouldn't be able to even look at you.`
         },
         {
-            elementId: `changing-text-13`,
+            elementId: `changing-text-10`,
             newText: `your own personal Prince Charming.`
         },
         {
-            elementId: `changing-text-14`,
+            elementId: `changing-text-15`,
             newText: `, too much like her father,`
         },
         {
-            elementId: `changing-text-15`,
+            elementId: `changing-text-19`,
             newText: `today is just not your day, babe.`
         },
         {
-            elementId: `changing-text-16`,
+            elementId: `changing-text-21`,
             newText: `things`
         },
         {
-            elementId: `changing-text-17`,
+            elementId: `changing-text-24`,
             newText: `. It's not safe here.`
         },
         {
-            elementId: `changing-text-18`,
+            elementId: `changing-text-25`,
             newText: `You don't notice that things are different now.`
         }
     ];
 
     const textChangesBottom = [
         {
-            elementId: `changing-text-6`,
+            elementId: `changing-text-43`,
             newText: `own. It knows something's wrong, and it's not that you can't find her, there's something else. A possibility you refuse to place. Putting that on the board is an omen in itself.`
         },
         {
-            elementId: `changing-text-19`,
+            elementId: `changing-text-27`,
             newText: `If you're not careful, your sentimentality will get to you.`  
         },
         {
-            elementId: `changing-text-20`,
+            elementId: `changing-text-30`,
             newText: `No, he did not.`
         },
         {
-            elementId: `changing-text-21`,
+            elementId: `changing-text-32`,
             newText: ``
         },
         {
-            elementId: `changing-text-22`,
+            elementId: `changing-text-39`,
             newText: `Something inside you knows.`
         },
         {
-            elementId: `changing-text-23`,
+            elementId: `changing-text-41`,
             newText: `When will you learn?`
         },
         {
-            elementId: `changing-text-24`,
+            elementId: `changing-text-42`,
             newText: `When will you listen?`
         },
         {
-            elementId: `changing-text-25`,
+            elementId: `changing-text-46`,
             newText: `your mind`
         },
         {
-            elementId: `changing-text-26`,
+            elementId: `changing-text-51`,
             newText: `your world.`
         }
-    ]; 
+    ];
 
-    const textChangesTopTwo = [
+const textChangesTopTwo = [
         {
-            elementId: `changing-text-10`,
+            elementId: `changing-text-1`,
             newText: `Fuck this.`  
         },
         {
-            elementId: `changing-text-27`,
+            elementId: `changing-text-4`,
             newText: ` You're vacuuming up pieces of glass. Your daughter is screaming. Your living room is a mess. This home was not the one you were promised when your husband was down there, on one knee. That home was supposed to be everything you didn't have when you were growing up. That home was supposed to feel safe.`
         },
         {
-            elementId: `changing-text-29`,
+            elementId: `changing-text-5`,
             newText: `Something feels wrong.`
         },
         {
-            elementId: `changing-text-30`,
+            elementId: `changing-text-6`,
             newText: `A chill creeps up your spine. You need to sit down, just for a second. You set the vacuum against the island and sit on the couch. The fan's on high, the sound of it's blades a hypnotic woosh, woosh, woosh. It feels so good to stop, just for a second, and feel the breeze on your face.`
         },
         {
-            elementId: `changing-text-31`,
+            elementId: `changing-text-9`,
             newText: `You twist your engagement ring around on your finger—you should take it off, but you don't. You actually like your life now, but you don't.`
         },
         {
-            elementId: `changing-text-32`,
+            elementId: `changing-text-12`,
             newText: `You went up to him all those years ago, in that bar on Wells St. that has since been rightfully condemned. He was standing against the wall, comfortable not being a part of the sweaty throng of 20-somethings grinding on the dance floor. He seemed so cool, so mature, and there was something different about him, in a familiar sort of way. It didn't make sense, but it didn't have to back then. You were hungry for your love story.`
         },
         {
-            elementId: `changing-text-33`,
+            elementId: `changing-text-13`,
             newText: `You grinned at your friends, pointing at this then-stranger. Mine.`
         },
     ];
