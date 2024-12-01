@@ -324,8 +324,8 @@ const textChangesTopTwo = [
         }
 
         if (scrollPercentage < 30 && hasTriggered && roundTwo === true) {
-            console.log('Third trigger activated');
-            textChangesTopTwo.forEach(change => {
+            console.log('Fourth trigger activated');
+            textChangesBottomTwo.forEach(change => {
                 const element = document.getElementById(change.elementId);
                 if (element) {
                     element.textContent = change.newText;
