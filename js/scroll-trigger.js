@@ -110,7 +110,11 @@ const textChangesTopTwo = [
         },
         {
             elementId: `changing-text-2`,
-            newText: ` You're vacuuming up pieces of glass. Your daughter is screaming. Your living room is a mess. This home was not the one you were promised when your husband was down there, on one knee, looking up at you like you held his entire future in his hands. That home was supposed to be everything you didn't have when you were growing up. That home was supposed to feel safe. And fuck it, at least things were real now, but there was still a part of you that was angry that you got so close to what you'd never had.`
+            newText: ` Your daughter is screaming. Your living room is a mess. You're vacuuming up pieces of glass and wondering how you got here. This house was not the one you were promised when your husband was down there, on one knee, looking up at you like you held his entire future in his hands. That house was supposed to be what you never had growing up. That house was supposed to feel safe. And fuck it, things were at least real now, but there was still a part of you that was angry that you got so close to what you'd never had.`
+        },
+        {
+            elementId: `changing-text-3`,
+            newText: ``
         },
         {
             elementId: `changing-text-4`,
@@ -122,7 +126,7 @@ const textChangesTopTwo = [
         },
         {
             elementId: `changing-text-6`,
-            newText: `A chill creeps up your spine. You need to sit down, just for a second. Let yourself be catch-able, just for a second. You set the vacuum against the island and sink into the couch. The fan's on high, the sound of its blades a hypnotic whoosh, whoosh, whoosh. It feels so good to stop, just for a second, and feel the breeze on your face.`
+            newText: `A chill creeps up your spine. You're so tired. You need to sit down, just for a second. Let yourself rest, be catch-able, just for a second. You set the vacuum against the island and sink into the couch. The fan's on high, the sound of its blades a hypnotic whoosh whoosh whoosh. It feels so good to stop, just for a second, and feel the breeze on your face.`
         },
         {
             elementId: `changing-text-9`,
@@ -130,11 +134,11 @@ const textChangesTopTwo = [
         },
         {
             elementId: `changing-text-12`,
-            newText: `You went up to him all those years ago, in that bar on Wells St. that has since been rightfully condemned. He was standing against the wall, comfortable not being a part of the sweaty throng of 20-somethings grinding on the dance floor. He seemed so cool, so mature, and there was something different about him, in a familiar sort of way. It didn't make sense, but it didn't have to back then. You were hungry for your love story.`
+            newText: `The truth is, you're the one who went up to him all those years ago, in that bar on Wells St. that has since been rightfully condemned. He was standing against the wall, comfortable not being a part of the sweaty throng of 20-somethings grinding on the dance floor. He seemed so cool, so mature, and there was something different about him, in a familiar sort of way. It didn't make sense, but it didn't have to back then. You were hungry for your love story.`
         },
         {
             elementId: `changing-text-13`,
-            newText: `You grinned at your friends, pointing at this then-stranger. Mine.`
+            newText: `You remember grinning at your friends, pointing at this then-stranger. Mine.`
         },
         {
             elementId: `changing-text-17`,
@@ -142,43 +146,43 @@ const textChangesTopTwo = [
         },
         {
             elementId: `changing-text-20`,
-            newText: `Did his parents know who he was? Were they all in on it, sitting at the dinner table the first time you met them? Were there knowing glances over the rims of wine glasses that you missed? When you grabbed his hand, did they smile because you loved him, or because of what he'd use her to bring onto the world?`
+            newText: `Not even your mother knew. That's how you console yourself.`
         },
         {
             elementId: `changing-text-22`,
-            newText: `Where is your daughter?`
+            newText: `Did his parents know who he was? Were they all in on it, sitting at the dinner table the first time you met them? Were there knowing glances over the rims of wine glasses that you missed? When you grabbed his hand, did they smile because you loved him, or because of what he'd use her to bring onto the world?`
         },
         {
             elementId: `changing-text-23`,
-            newText: `Her playmat is empty. You blink at the patterns she drew on the papers flung around the floor, at the cut on your finger, at the broken picture frame of your mom.`
+            newText: `Where is your daughter?`
         },
         {
             elementId: `changing-text-26`,
-            newText: `You call out her name. Again. Again. You hate the bitter ice filling your mouth as you say it. It's a spell that does nothing to subside the sinking feeling rooting within your chest.`
+            newText: `Her playmat is empty. You blink at the patterns she drew on the papers flung around the floor, at the cut on your finger, at the broken picture frame of your mom.`
         },
         {
             elementId: `changing-text-28`,
-            newText: `You see her, and within seconds, your arms are around her, your perfect girl.`
+            newText: `You call out her name. Again. Again. You hate the bitter ice filling your mouth as you say it. It's a spell that does nothing to subside the sinking feeling rooting within your chest.`
         },
         {
             elementId: `changing-text-30`,
-            newText: `You don't see the shadows moving, because you don't want to. The truth is never what you wanted, not really.`
+            newText: `You see her, and within seconds, your arms are around her, your perfect girl.`
         },
         {
             elementId: `changing-text-32`,
-            newText: `Everything is good.`
+            newText: `You don't see the shadows moving, because you don't want to. The truth is never what you wanted, not really.`
         },
         {
             elementId: `changing-text-33`,
-            newText: `Everything is okay.`
+            newText: `Everything is good.`
         },
         {
             elementId: `changing-text-34`,
-            newText: `Everything is safe.`
+            newText: `Everything is okay.`
         },
         {
             elementId: `changing-text-35`,
-            newText: ``
+            newText: `Everything is safe.`
         },
         {
             elementId: `changing-text-36`,
@@ -234,6 +238,10 @@ const textChangesTopTwo = [
         },
         {
             elementId: `changing-text-54`,
+            newText: ``
+        },
+        {
+            elementId: `changing-text-55`,
             newText: ``
         },
         {
