@@ -166,35 +166,35 @@ const textChangesTopTwo = [
         },
         {
             elementId: `changing-text-30`,
-            newText: `You see her, and within seconds, your arms are around her, your perfect girl.`
+            newText: `A part of you knows.`
         },
         {
             elementId: `changing-text-32`,
-            newText: `You don't see the shadows moving, because you don't want to. The truth is never what you wanted, not really.`
+            newText: `But you never listen.`
         },
         {
             elementId: `changing-text-33`,
-            newText: `Everything is good.`
+            newText: `You never learn.`
         },
         {
             elementId: `changing-text-34`,
-            newText: `Everything is okay.`
+            newText: `You tear your house apart until you see her, and within seconds, your arms are around her, your perfect girl.`
         },
         {
             elementId: `changing-text-35`,
-            newText: `Everything is safe.`
+            newText: `You don't see the shadows moving, because you don't want to. The truth is never what you wanted, not really.`
         },
         {
             elementId: `changing-text-36`,
-            newText: ``
+            newText: `Everything is good.`
         },
         {
             elementId: `changing-text-37`,
-            newText: ``
+            newText: `Everything is okay.`
         },
         {
             elementId: `changing-text-38`,
-            newText: ``
+            newText: `Everything is safe.`
         },
         {
             elementId: `changing-text-39`,
@@ -238,10 +238,6 @@ const textChangesTopTwo = [
         },
         {
             elementId: `changing-text-54`,
-            newText: ``
-        },
-        {
-            elementId: `changing-text-55`,
             newText: ``
         },
         {
