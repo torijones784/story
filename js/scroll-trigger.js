@@ -126,7 +126,7 @@ const textChangesTopTwo = [
         },
         {
             elementId: `changing-text-6`,
-            newText: `A chill creeps up your spine. You're so tired. You need to sit down, just for a second. Let yourself rest, be catch-able, just for a second. You set the vacuum against the island and sink into the couch. The fan's on high, the sound of its blades a hypnotic whoosh whoosh whoosh. It feels so good to stop, just for a second, and feel the breeze on your face.`
+            newText: `A chill creeps up your spine. You're so tired. You need to sit down, just for a second. Let yourself rest, be catch-able, just for a second. You set the vacuum against the island and sink into the couch. The fan's on high, the sound of its blades a hypnotic whoosh whoosh whoosh. You have to close your eyes. It feels so good to feel the breeze on your face.`
         },
         {
             elementId: `changing-text-9`,
@@ -150,7 +150,7 @@ const textChangesTopTwo = [
         },
         {
             elementId: `changing-text-22`,
-            newText: `Did his parents know who he was? Were they all in on it, sitting at the dinner table the first time you met them? Were there knowing glances over the rims of wine glasses that you missed? When you grabbed his hand, did they smile because you loved him, or because of what he'd use her to bring onto the world?`
+            newText: `Did his parents know who he was? Were they all in on it, sitting at the dinner table the first time you met them? Were there knowing glances over the rims of wine glasses that you missed? When you grabbed his hand, did they smile because you were so in love with him, or because of what he'd use you to bring onto the world?`
         },
         {
             elementId: `changing-text-23`,
@@ -158,7 +158,7 @@ const textChangesTopTwo = [
         },
         {
             elementId: `changing-text-26`,
-            newText: `Her playmat is empty. You blink at the patterns she drew on the papers flung around the floor, at the cut on your finger, at the broken picture frame of your mom.`
+            newText: `You jerk upright. Her playmat is empty. Your eyes snag on the patterns she drew on the papers flung around the floor, at the cut on your finger, at the broken picture frame of your mom.`
         },
         {
             elementId: `changing-text-28`,
@@ -178,7 +178,7 @@ const textChangesTopTwo = [
         },
         {
             elementId: `changing-text-34`,
-            newText: `You tear your house apart until you see her, and within seconds, your arms are around her, your perfect girl.`
+            newText: `You tear your house apart until you see her, and within seconds, your arms are around her, your perfect girl. It was only a minute. You'd only looked away for a minute.`
         },
         {
             elementId: `changing-text-35`,
