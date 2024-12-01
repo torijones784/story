@@ -167,7 +167,9 @@ const textChangesTopTwo = [
         {
             elementId: `changing-text-30`,
             newText: `A part of you knows.`
-        },
+        }
+    ];
+    const textChangesBottomTwo = [
         {
             elementId: `changing-text-32`,
             newText: `But you never listen.`
@@ -312,6 +314,16 @@ const textChangesTopTwo = [
         }
 
         if (scrollPercentage > 70 && hasTriggered && roundTwo === true) {
+            console.log('Third trigger activated');
+            textChangesTopTwo.forEach(change => {
+                const element = document.getElementById(change.elementId);
+                if (element) {
+                    element.textContent = change.newText;
+                }
+            });
+        }
+
+        if (scrollPercentage < 30 && hasTriggered && roundTwo === true) {
             console.log('Third trigger activated');
             textChangesTopTwo.forEach(change => {
                 const element = document.getElementById(change.elementId);
