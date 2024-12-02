@@ -312,7 +312,7 @@ const textChangesTopTwo = [
             });
         }
 
-        if (scrollPercentage > 70 && hasTriggered && roundTwo === true) {
+        if (scrollPercentage > 80 && hasTriggered && roundTwo === true) {
             console.log('Third trigger activated');
             textChangesTopTwo.forEach(change => {
                 const element = document.getElementById(change.elementId);
