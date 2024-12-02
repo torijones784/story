@@ -278,7 +278,7 @@ const textChangesTopTwo = [
         const totalHeight = document.documentElement.scrollHeight;
         const scrollPercentage = (scrollPosition / totalHeight) * 100;
 
-        if (scrollPercentage > 99 && !hasTriggered) { 
+        if (scrollPercentage > 80 && !hasTriggered) { 
             console.log('First trigger activated');
             hasTriggered = true;
             hasReachedBottom = true;
