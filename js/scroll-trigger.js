@@ -15,6 +15,10 @@ function initScrollTrigger() {
             newText: `morphed`
         },
         {
+            elementId: `changing-text-12`,
+            newText: `Who's laughing now?`
+        },
+        {
             elementId: `changing-text-14`,
             newText: `It spawned. Your`
         },
@@ -322,7 +326,7 @@ const textChangesTopTwo = [
             });
         }
 
-        if (scrollPercentage < 30 && hasTriggered && roundTwo === true) {
+        if (scrollPercentage < 30 && hasTriggered && roundTwo === true) { 
             console.log('Fourth trigger activated');
             textChangesBottomTwo.forEach(change => {
                 const element = document.getElementById(change.elementId);
