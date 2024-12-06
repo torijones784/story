@@ -456,14 +456,16 @@ const textChangesTopTwo = [
 
         if (scrollPercentage > 50 && hasTriggered && roundThreeTop === true) { 
             console.log('Fifth trigger activated');
-
-            roundThreeTop = true;
+            setTimeout(() => {
+                roundThreeTop = true;
             textChangesTopThree.forEach(change => {
                 const element = document.getElementById(change.elementId);
                 if (element) {
                     element.textContent = change.newText;
                 }
             });
+            }, 1000); 
+            
         }
     } 
 
