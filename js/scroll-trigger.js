@@ -442,7 +442,7 @@ const textChangesTopTwo = [
             });
         }
 
-        if (scrollPercentage > 80 && hasTriggered && roundTwoTop === true) {
+        if (scrollPercentage > 80 && hasTriggered && roundTwoTop) {
             console.log('Third trigger activated');
 
             roundTwoBottom = true;
@@ -454,7 +454,7 @@ const textChangesTopTwo = [
             });
         }
 
-        if (scrollPercentage < 50 && hasTriggered && roundTwoBottom === true) { 
+        if (scrollPercentage < 50 && hasTriggered && roundTwoBottom && !roundThreeTop) { 
             console.log('Fourth trigger activated');
 
             roundThreeTop = true;
@@ -466,7 +466,7 @@ const textChangesTopTwo = [
             });
         }
 
-        if (scrollPercentage > 50 && hasTriggered && roundThreeTop === true) { 
+        if (scrollPercentage > 50 && hasTriggered && roundThreeTop) { 
             console.log('Fifth trigger activated');
             setTimeout(() => {
                 roundThreeTop = true;
