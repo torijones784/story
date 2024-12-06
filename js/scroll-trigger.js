@@ -2,6 +2,7 @@ function initScrollTrigger() {
     let hasTriggered = false;
     let roundTwoTop = false;
     let roundTwoBottom = false;
+    let roundThreeTop = false;
     let hasReachedBottom = false;  
     let pageLoadTime = Date.now();
     const MINIMUM_TIME = 10; // Change back
@@ -281,6 +282,110 @@ const textChangesTopTwo = [
         }
     ];
 
+    const textChangesTopThree = [
+        {
+            elementId: `changing-text-1`,
+            newText: `Fuck.`
+        },
+        {
+            elementId: `changing-text-2`,
+            newText: ``
+        },
+        {
+            elementId: `changing-text-3`,
+            newText: ``
+        },
+        {
+            elementId: `changing-text-4`,
+            newText: ``
+        },
+        {
+            elementId: `changing-text-5`,
+            newText: `What is even happening? You feel like you're losing your mind—everything is blending, changing, rearraging and it doesn't make sense. None of this makes sense.`
+        },
+        {
+            elementId: `changing-text-6`,
+            newText: `You need to get a grip. You are a mother. The days of waking up mid-afternoon, lost in last night's haze are behind you. You can't lose it anymore, you can't be the one who doesn't know anymore. You gave that up, willingly and knowingly, when you had her. Your daughter needs to be able to look to you and you need to be able to hold the ship steady.`
+        },
+        {
+            elementId: `changing-text-9`,
+            newText: `Those eyes. Those eyes. Those eyes.`
+        },
+        {
+            elementId: `changing-text-11`,
+            newText: ``
+        },
+        {
+            elementId: `changing-text-12`,
+            newText: `Get a grip.`
+        },
+        {
+            elementId: `changing-text-13`,
+            newText: `Something's not right.`
+        },
+        {
+            elementId: `changing-text-17`,
+            newText: `But the thing is, you like your life now.`
+        },
+        {
+            elementId: `changing-text-20`,
+            newText: `Sure, laundry piles, dishes towered, there's glass on the floor.`
+        },
+        {
+            elementId: `changing-text-22`,
+            newText: `What aren't you seeing?`
+        },
+        // Time delay and change to "You just wanted to scream at it all" -> moment later when she screams
+        {
+            elementId: `changing-text-23`, 
+            newText: `You just wanted your daughter to scream at it all.`
+        },
+        {
+            elementId: `changing-text-26`, 
+            newText: `That fan will not stop squeaking. Something about the sound lodges directly into your brain, you can feel it tapping against the inside of your skull.`
+        },
+        {
+            elementId: `changing-text-28`, 
+            newText: `You miss your husband.`
+        },
+        {
+            elementId: `changing-text-30`, 
+            newText: `There's something wrong. You can feel it. This isn't going how it's supposed to.`
+        },
+        {
+            elementId: `changing-text-32`, 
+            newText: `What aren't you seeing?`
+        },
+        {
+            elementId: `changing-text-33`, 
+            newText: `When will you learn?`
+        },
+        {
+            elementId: `changing-text-34`, 
+            newText: `You're kneeling on the gravel driveway, and you should feel safe. This is your world, after all. But it's drawing closer. You can feel it. The truth is never what you wanted, but that never made it less true.`
+        },
+        {
+            elementId: `changing-text-35`, 
+            newText: `Something you thought you'd banished.`
+        },
+        {
+            elementId: `changing-text-38`, 
+            newText: `Something you thought you'd run from.`
+        },
+        {
+            elementId: `changing-text-39`, 
+            newText: `Your daughter lifts her head up from your chest and turns to look over her shoulder.`
+        },
+        {
+            elementId: `changing-text-41`, 
+            newText: `You turn your gaze to the shadows you can't ignore.`
+        },
+        {
+            elementId: `changing-text-42`, 
+            newText: `You're very, very afraid.`
+        },
+    ];
+
     function checkScroll() { 
         const timeSpent = Date.now() - pageLoadTime;
         if (timeSpent < MINIMUM_TIME) {
@@ -340,7 +445,20 @@ const textChangesTopTwo = [
         if (scrollPercentage < 50 && hasTriggered && roundTwoBottom === true) { 
             console.log('Fourth trigger activated');
 
+            roundThreeTop = true;
             textChangesBottomTwo.forEach(change => {
+                const element = document.getElementById(change.elementId);
+                if (element) {
+                    element.textContent = change.newText;
+                }
+            });
+        }
+
+        if (scrollPercentage > 50 && hasTriggered && roundThreeTop === true) { 
+            console.log('Fifth trigger activated');
+
+            roundThreeTop = true;
+            textChangesTopThree.forEach(change => {
                 const element = document.getElementById(change.elementId);
                 if (element) {
                     element.textContent = change.newText;
