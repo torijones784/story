@@ -328,7 +328,7 @@ const textChangesTopTwo = [
             });
         }
 
-        if (scrollPercentage < 30 && hasTriggered && roundTwo === true) { 
+        if (scrollPercentage < 30 && hasTriggered && roundTwoBottom === true) { 
             console.log('Fourth trigger activated');
             textChangesBottomTwo.forEach(change => {
                 const element = document.getElementById(change.elementId);
