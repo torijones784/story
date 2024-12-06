@@ -319,6 +319,12 @@ const textChangesTopTwo = [
 
         if (scrollPercentage > 80 && hasTriggered && roundTwoTop === true) {
             console.log('Third trigger activated');
+
+            console.log('Condition check:', {
+                scrollUnder30: scrollPercentage < 30,
+                hasTriggeredState: hasTriggered,
+                roundTwoBottomState: roundTwoBottom });
+
             roundTwoBottom = true;
             textChangesTopTwo.forEach(change => {
                 const element = document.getElementById(change.elementId);
@@ -329,10 +335,7 @@ const textChangesTopTwo = [
         }
 
         if (scrollPercentage < 30 && hasTriggered && roundTwoBottom === true) { 
-            console.log('Condition check:', {
-            scrollUnder30: scrollPercentage < 30,
-            hasTriggeredState: hasTriggered,
-            roundTwoBottomState: roundTwoBottom });
+            console.log('Fourth trigger activated');
 
             textChangesBottomTwo.forEach(change => {
                 const element = document.getElementById(change.elementId);
