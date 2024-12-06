@@ -332,8 +332,10 @@ const textChangesTopTwo = [
             console.log('Condition check:', {
             scrollUnder30: scrollPercentage < 30,
             hasTriggeredState: hasTriggered,
-            roundTwoBottomState: roundTwoBottom
+            roundTwoBottomState: roundTwoBottom });
+
             console.log('Fourth trigger activated');
+
             textChangesBottomTwo.forEach(change => {
                 const element = document.getElementById(change.elementId);
                 if (element) {
