@@ -334,8 +334,6 @@ const textChangesTopTwo = [
             hasTriggeredState: hasTriggered,
             roundTwoBottomState: roundTwoBottom });
 
-            console.log('Fourth trigger activated');
-
             textChangesBottomTwo.forEach(change => {
                 const element = document.getElementById(change.elementId);
                 if (element) {
