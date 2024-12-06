@@ -464,7 +464,7 @@ const textChangesTopTwo = [
                     element.textContent = change.newText;
                 }
             });
-            }, 1000); 
+            }, 17000); 
             
         }
     } 
