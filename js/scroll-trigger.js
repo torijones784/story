@@ -12,6 +12,10 @@ function initScrollTrigger() {
             newText: `for the rest of your life,`
         },
         {
+            elementId: `changing-text-5`,
+            newText: `Memory can be such a fickle thing.`
+        },
+        {
             elementId: `changing-text-11`,
             newText: `morphed`
         },
@@ -155,57 +159,57 @@ const textChangesTopTwo = [
         },
         {
             elementId: `changing-text-22`,
-            newText: `Did his parents know who he was? Were they all in on it, sitting at the dinner table the first time you met them? Were there knowing glances over the rims of wine glasses that you missed? When you grabbed his hand, did they smile because you were so in love with him, or because of what he'd use you to bring onto the world?`
+            newText: `He’s perfect, she had said flatly after the first time you brought him home, treating your new love with the enthusiasm of sorting laundry. To her, he was a plot point in your story—your destiny. You didn’t care. To you, he was everything.`
         },
         {
             elementId: `changing-text-23`,
-            newText: `Where is your daughter?`
+            newText: `Did his parents know who he was? Were they all in on it, sitting at the dinner table the first time you met them? Were there knowing glances over the rims of wine glasses that you missed? When you grabbed his hand, did they smile because you were so in love with him, or because of what he'd use you to bring onto the world?`
         },
         {
             elementId: `changing-text-26`,
-            newText: `You jerk upright. Her playmat is empty. Your eyes snag on the patterns she drew on the papers flung around the floor, at the cut on your finger, at the broken picture frame of your mom.`
+            newText: `Where is your daughter?`
         },
         {
             elementId: `changing-text-28`,
-            newText: `You call out her name. Again. Again. You hate the bitter ice filling your mouth as you say it. It's a spell that does nothing to subside the sinking feeling rooting within your chest.`
+            newText: `You jerk upright. Her playmat is empty. Your eyes snag on the patterns she drew on the papers flung around the floor, at the cut on your finger, at the broken picture frame of your mom.`
         },
         {
             elementId: `changing-text-30`,
+            newText: `You call out her name. Again. Again. You hate the bitter ice filling your mouth as you say it. It's a spell that does nothing to subside the sinking feeling rooting within your chest.`
+        },
+        {
+            elementId: `changing-text-32`,
             newText: `A part of you knows.`
         }
     ];
     const textChangesBottomTwo = [
         {
-            elementId: `changing-text-32`,
+            elementId: `changing-text-33`,
             newText: `But you never listen.`
         },
         {
-            elementId: `changing-text-33`,
+            elementId: `changing-text-34`,
             newText: `You never learn.`
         },
         {
-            elementId: `changing-text-34`,
+            elementId: `changing-text-35`,
             newText: `You tear your house apart until you see her, and within seconds, your arms are around her, your perfect girl. It was only a minute. You'd only looked away for a minute.`
         },
         {
-            elementId: `changing-text-35`,
+            elementId: `changing-text-36`,
             newText: `You don't see the shadows moving, because you don't want to. The truth is never what you wanted, not really.`
         },
         {
-            elementId: `changing-text-36`,
+            elementId: `changing-text-37`,
             newText: `Everything is good.`
         },
         {
-            elementId: `changing-text-37`,
+            elementId: `changing-text-38`,
             newText: `Everything is okay.`
         },
         {
-            elementId: `changing-text-38`,
-            newText: `Everything is safe.`
-        },
-        {
             elementId: `changing-text-39`,
-            newText: ``
+            newText: `Everything is safe.`
         },
         {
             elementId: `changing-text-41`,
@@ -319,11 +323,6 @@ const textChangesTopTwo = [
 
         if (scrollPercentage > 80 && hasTriggered && roundTwoTop === true) {
             console.log('Third trigger activated');
-
-            console.log('Condition check:', {
-                scrollUnder30: scrollPercentage < 30,
-                hasTriggeredState: hasTriggered,
-                roundTwoBottomState: roundTwoBottom });
 
             roundTwoBottom = true;
             textChangesTopTwo.forEach(change => {
