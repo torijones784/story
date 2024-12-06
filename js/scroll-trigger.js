@@ -384,6 +384,18 @@ const textChangesTopTwo = [
             elementId: `changing-text-42`, 
             newText: `You're very, very afraid.`
         },
+        {
+            elementId: `changing-text-56`, 
+            newText: ``
+        },
+        {
+            elementId: `changing-text-58`, 
+            newText: ``
+        },
+        {
+            elementId: `changing-text-60`, 
+            newText: ``
+        }
     ];
 
     function checkScroll() { 
