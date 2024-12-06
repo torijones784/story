@@ -163,57 +163,57 @@ const textChangesTopTwo = [
         },
         {
             elementId: `changing-text-23`,
-            newText: `Did his parents know who he was? Were they all in on it, sitting at the dinner table the first time you met them? Were there knowing glances over the rims of wine glasses that you missed? When you grabbed his hand, did they smile because you were so in love with him, or because of what he'd use you to bring onto the world?`
+            newText: `Isn’t that the joke? That within the burning ache you can feel inside you, the never-ending flow of pain and how could you miss this, and you know that you aren’t as bad as your mother, after all. You are worse.`
         },
         {
             elementId: `changing-text-26`,
-            newText: `Where is your daughter?`
+            newText: `Did his parents know who he was? Were they all in on it, sitting at the dinner table the first time you met them? Were there knowing glances over the rims of wine glasses that you missed? When you grabbed his hand, did they smile because you were so in love with him, or because of what he'd use you to bring onto the world?`
         },
         {
             elementId: `changing-text-28`,
-            newText: `You jerk upright. Her playmat is empty. Your eyes snag on the patterns she drew on the papers flung around the floor, at the cut on your finger, at the broken picture frame of your mom.`
+            newText: `Where is your daughter?`
         },
         {
             elementId: `changing-text-30`,
-            newText: `You call out her name. Again. Again. You hate the bitter ice filling your mouth as you say it. It's a spell that does nothing to subside the sinking feeling rooting within your chest.`
+            newText: `You jerk upright. Her playmat is empty. Your eyes snag on the patterns she drew on the papers flung around the floor, at the cut on your finger, at the broken picture frame of your mom.`
         },
         {
             elementId: `changing-text-32`,
+            newText: `You call out her name. Again. Again. You hate the bitter ice filling your mouth as you say it. It's a spell that does nothing to subside the sinking feeling rooting within your chest.`
+        },
+        {
+            elementId: `changing-text-33`,
             newText: `A part of you knows.`
         }
     ];
     const textChangesBottomTwo = [
         {
-            elementId: `changing-text-33`,
+            elementId: `changing-text-34`,
             newText: `But you never listen.`
         },
         {
-            elementId: `changing-text-34`,
+            elementId: `changing-text-35`,
             newText: `You never learn.`
         },
         {
-            elementId: `changing-text-35`,
+            elementId: `changing-text-36`,
             newText: `You tear your house apart until you see her, and within seconds, your arms are around her, your perfect girl. It was only a minute. You'd only looked away for a minute.`
         },
         {
-            elementId: `changing-text-36`,
+            elementId: `changing-text-37`,
             newText: `You don't see the shadows moving, because you don't want to. The truth is never what you wanted, not really.`
         },
         {
-            elementId: `changing-text-37`,
+            elementId: `changing-text-38`,
             newText: `Everything is good.`
         },
         {
-            elementId: `changing-text-38`,
+            elementId: `changing-text-39`,
             newText: `Everything is okay.`
         },
         {
-            elementId: `changing-text-39`,
-            newText: `Everything is safe.`
-        },
-        {
             elementId: `changing-text-41`,
-            newText: ``
+            newText: `Everything is safe.`
         },
         {
             elementId: `changing-text-42`,
@@ -253,6 +253,10 @@ const textChangesTopTwo = [
         },
         {
             elementId: `changing-text-55`,
+            newText: ``
+        },
+        {
+            elementId: `changing-text-56`,
             newText: ``
         },
         {
