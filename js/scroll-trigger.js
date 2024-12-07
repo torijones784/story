@@ -454,31 +454,31 @@ const textChangesTopTwo = [
             });
         }
 
-        if (scrollPercentage < 50 && hasTriggered && roundTwoBottom && !roundThreeTop) { 
-            console.log('Fourth trigger activated');
+        // if (scrollPercentage < 50 && hasTriggered && roundTwoBottom && !roundThreeTop) { 
+        //     console.log('Fourth trigger activated');
 
-            roundThreeTop = true;
-            textChangesBottomTwo.forEach(change => {
-                const element = document.getElementById(change.elementId);
-                if (element) {
-                    element.textContent = change.newText;
-                }
-            });
-        }
+        //     roundThreeTop = true;
+        //     textChangesBottomTwo.forEach(change => {
+        //         const element = document.getElementById(change.elementId);
+        //         if (element) {
+        //             element.textContent = change.newText;
+        //         }
+        //     });
+        // }
 
-        if (scrollPercentage > 50 && hasTriggered && roundThreeTop) { 
-            console.log('Fifth trigger activated');
-            setTimeout(() => {
-                roundThreeTop = true;
-            textChangesTopThree.forEach(change => {
-                const element = document.getElementById(change.elementId);
-                if (element) {
-                    element.textContent = change.newText;
-                }
-            });
-            }, 17000); 
+        // if (scrollPercentage > 50 && hasTriggered && roundThreeTop) { 
+        //     console.log('Fifth trigger activated');
+        //     setTimeout(() => {
+        //         roundThreeTop = true;
+        //     textChangesTopThree.forEach(change => {
+        //         const element = document.getElementById(change.elementId);
+        //         if (element) {
+        //             element.textContent = change.newText;
+        //         }
+        //     });
+        //     }, 17000); 
             
-        }
+        // }
     } 
 
     let ticking = false;
