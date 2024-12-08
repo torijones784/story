@@ -152,51 +152,51 @@ const textChangesTopTwo = [
         },
         {
             elementId: `changing-text-9`,
-            newText: `You twist your engagement ring around on your finger—you should take it off, but you don't. You actually like your life now, but you don't.`
+            newText: `You keep going.`
         },
         {
             elementId: `changing-text-12`,
-            newText: `The truth is, you're the one who went up to him all those years ago, in that bar on Wells St. that has since been rightfully condemned. He was standing against the wall, comfortable not being a part of the sweaty throng of 20-somethings grinding on the dance floor. He seemed so cool, so mature, and there was something different about him, in a familiar sort of way. It didn't make sense, but it didn't have to back then. You were hungry for your love story.`
+            newText: `You’re vacuuming up pieces of glass and remembering your husband down there, on one knee, looking up at you like you held his entire future in your hands. This is not the house you were promised. That house was supposed to be different, supposed to be what you never had growing up. That house was supposed to be safe. And fuck it, things were at least real now, but there is a part of you that’s so angry you got so close to what you’d always wanted.`
         },
         {
             elementId: `changing-text-13`,
-            newText: `You remember grinning at your friends, pointing at this then-stranger. Mine.`
+            newText: `Something feels wrong.`
         },
         {
             elementId: `changing-text-17`,
-            newText: `And just like that, he was. He held the door for you, actually cared if you texted him when you got home, paid for your drinks when you went out. He wasn’t the bad boy with a past. He was from Elmhurst, for fuck’s sake. The three years you spent before getting married were a rush—of believing this was real, that was happening, that you were picked for this life. You were so, so desperate to be picked.`
+            newText: `A chill creeps up your spine. It hits you, all at once, the weight of this world, the months of embedding safety into the very walls of the place you had to fight to reclaim. Something sags within you. You’re so tired. You need to sit down, just for a second. Let yourself rest, be catch-able, just for a second.`
         },
         {
             elementId: `changing-text-20`,
-            newText: `Not even your mother knew. That's how you console yourself.`
+            newText: `You set the vacuum against the island and walk to the couch on the other side of the room. The cushions bend to your weight, and that feels good. The fan’s on high, the sound of its blades a hypnotic whoosh whoosh whoosh. A warm weighted feeling settles within you like sand at the bottom of the ocean. It pulls your eyelids closed, and it feels good to feel the breeze on your face and imagine you are somewhere else, just for a second.`
         },
         {
             elementId: `changing-text-22`,
-            newText: `He’s perfect, she had said flatly after the first time you brought him home, treating your new love with the enthusiasm of sorting laundry. To her, he was a plot point in your story—your destiny. You didn’t care. To you, he was everything.`
+            newText: `You twist your engagement ring around on your finger—you should take it off, but you don't. You actually like your life now, but you don't.`
         },
         {
             elementId: `changing-text-23`,
-            newText: `Isn’t that the joke? That within the burning ache you can feel inside you, the never-ending flow of pain and how could you miss this, and you know that you aren’t as bad as your mother, after all. You are worse.`
+            newText: `The truth is, you're the one who went up to him all those years ago, in that bar on Wells St. that has since been rightfully condemned. He was standing against the wall, comfortable not being a part of the sweaty throng of 20-somethings grinding on the dance floor. He seemed so cool, so mature, and there was something different about him, in a familiar sort of way. It didn't make sense, but it didn't have to back then. You were hungry for your love story.`
         },
         {
             elementId: `changing-text-26`,
-            newText: `Did his parents know who he was? Were they all in on it, sitting at the dinner table the first time you met them? Were there knowing glances over the rims of wine glasses that you missed? When you grabbed his hand, did they smile because you were so in love with him, or because of what he'd use you to bring onto the world?`
+            newText: `You remember grinning at your friends, pointing at this then-stranger. Mine.`
         },
         {
             elementId: `changing-text-28`,
-            newText: `Where is your daughter?`
+            newText: `And just like that, he was. He held the door for you, actually cared if you texted him when you got home, paid for your drinks when you went out. He wasn’t the bad boy with a past. He was from Elmhurst, for fuck’s sake. The three years you spent before getting married were a rush—of believing this was real, that was happening, that you were picked for this life. You were so, so desperate to be picked.`
         },
         {
             elementId: `changing-text-30`,
-            newText: `You jerk upright. Her playmat is empty. Your eyes snag on the patterns she drew on the papers flung around the floor, at the cut on your finger, at the broken picture frame of your mom.`
+            newText: `Not even your mother knew. That's how you console yourself.`
         },
         {
             elementId: `changing-text-32`,
-            newText: `You call out her name. Again. Again. You hate the bitter ice filling your mouth as you say it. It's a spell that does nothing to subside the sinking feeling rooting within your chest.`
+            newText: `He’s perfect, she had said flatly after the first time you brought him home, treating your new love with the enthusiasm of sorting laundry. To her, he was a plot point in your story—your destiny. You didn’t care. To you, he was everything.`
         },
         {
             elementId: `changing-text-33`,
-            newText: `A part of you knows.`
+            newText: `Isn’t that the joke? That within the burning ache you can feel inside you, the never-ending flow of pain and how could you miss this, and you know that you aren’t as bad as your mother, after all. You are worse.`
         }
     ];
     const textChangesBottomTwo = [
