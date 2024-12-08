@@ -100,6 +100,10 @@ function initScrollTrigger() {
             newText: ``
         },
         {
+            elementId: `changing-text-37`,
+            newText: `You'd only looked away for a second. Didn't you?`
+        },
+        {
             elementId: `changing-text-39`,
             newText: `Something inside you knows.`
         },
