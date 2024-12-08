@@ -197,6 +197,10 @@ const textChangesTopTwo = [
         {
             elementId: `changing-text-33`,
             newText: `Isn’t that the joke? That within the burning ache you can feel inside you, the never-ending flow of pain and how could you miss this, and you know that you aren’t as bad as your mother, after all. You are worse.`
+        },
+        {
+            elementId: `changing-text-34`,
+            newText: `Did his parents know who he was? Were they all in on it, sitting at the dinner table the first time you met them? Were there knowing glances over the rims of wine glasses that you missed? When you grabbed his hand, did they smile because you were so in love with him, or because of what he'd use you to bring onto the world?`
         }
     ];
     const textChangesBottomTwo = [
