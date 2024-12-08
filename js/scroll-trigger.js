@@ -182,22 +182,22 @@ const textChangesTopTwo = [
             elementId: `changing-text-26`,
             newText: `You remember grinning at your friends, pointing at this then-stranger. Mine.`
         },
-        // {
-        //     elementId: `changing-text-28`,
-        //     newText: `And just like that, he was. He held the door for you, actually cared if you texted him when you got home, paid for your drinks when you went out. He wasn’t the bad boy with a past. He was from Elmhurst, for fuck’s sake. The three years you spent before getting married were a rush—of believing this was real, that was happening, that you were picked for this life. You were so, so desperate to be picked.`
-        // },
-        // {
-        //     elementId: `changing-text-30`,
-        //     newText: `Not even your mother knew. That's how you console yourself.`
-        // },
-        // {
-        //     elementId: `changing-text-32`,
-        //     newText: `He’s perfect, she had said flatly after the first time you brought him home, treating your new love with the enthusiasm of sorting laundry. To her, he was a plot point in your story—your destiny. You didn’t care. To you, he was everything.`
-        // },
-        // {
-        //     elementId: `changing-text-33`,
-        //     newText: `Isn’t that the joke? That within the burning ache you can feel inside you, the never-ending flow of pain and how could you miss this, and you know that you aren’t as bad as your mother, after all. You are worse.`
-        // }
+        {
+            elementId: `changing-text-28`,
+            newText: `And just like that, he was. He held the door for you, actually cared if you texted him when you got home, paid for your drinks when you went out. He wasn’t the bad boy with a past. He was from Elmhurst, for fuck’s sake. The three years you spent before getting married were a rush—of believing this was real, that was happening, that you were picked for this life. You were so, so desperate to be picked.`
+        },
+        {
+            elementId: `changing-text-30`,
+            newText: `Not even your mother knew. That's how you console yourself.`
+        },
+        {
+            elementId: `changing-text-32`,
+            newText: `He’s perfect, she had said flatly after the first time you brought him home, treating your new love with the enthusiasm of sorting laundry. To her, he was a plot point in your story—your destiny. You didn’t care. To you, he was everything.`
+        },
+        {
+            elementId: `changing-text-33`,
+            newText: `Isn’t that the joke? That within the burning ache you can feel inside you, the never-ending flow of pain and how could you miss this, and you know that you aren’t as bad as your mother, after all. You are worse.`
+        }
     ];
     const textChangesBottomTwo = [
         {
