@@ -75,6 +75,10 @@ function initScrollTrigger() {
         {
             elementId: `changing-text-61`,
             newText: `Everyone was gone,`
+        },
+        {
+            elementId: `changing-text-62`,
+            newText: `.`
         }
     ];
 
@@ -419,12 +423,6 @@ const textChangesTopTwo = [
             
             textChangesTop.forEach(change => {
                 const element = document.getElementById(change.elementId);
-                
-                if (change.elementId === 'changing-text-61') {
-                    console.log('Found changing-text-61:', element ? 'yes' : 'no');
-                    console.log('Attempting to change to:', change.newText);
-                }
-
                 if (element) {
                     element.textContent = change.newText;
                 }
