@@ -71,6 +71,10 @@ function initScrollTrigger() {
         {
             elementId: `changing-text-25`,
             newText: `You don't notice that things are different now.`
+        },
+        {
+            elementId: `changing-text-61`,
+            newText: `Everyone was gone,`
         }
     ];
 
