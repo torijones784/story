@@ -205,52 +205,48 @@ const textChangesTopTwo = [
     ];
     const textChangesBottomTwo = [
         {
-            elementId: `changing-text-34`,
-            newText: `But you never listen.`
-        },
-        {
             elementId: `changing-text-35`,
-            newText: `You never learn.`
+            newText: `Where is your daughter?`
         },
         {
             elementId: `changing-text-36`,
-            newText: `You tear your house apart until you see her, and within seconds, your arms are around her, your perfect girl. It was only a minute. You'd only looked away for a minute.`
+            newText: `You jerk upright. Her playmat is empty. Your eyes snag on the patterns she drew on the papers flung around the floor, at the cut on your finger, at the broken picture frame of your mom.`
         },
         {
             elementId: `changing-text-37`,
-            newText: `You don't see the shadows moving, because you don't want to. The truth is never what you wanted, not really.`
+            newText: `You call out her name. Again. Again. You hate the bitter ice filling your mouth as you say it. It's a spell that does nothing to subside the sinking feeling rooting within your chest.`
         },
         {
             elementId: `changing-text-38`,
-            newText: `Everything is good.`
+            newText: `A part of you knows.`
         },
         {
             elementId: `changing-text-39`,
-            newText: `Everything is okay.`
+            newText: `But you never listen..`
         },
         {
             elementId: `changing-text-41`,
-            newText: `Everything is safe.`
+            newText: `You never learn.`
         },
         {
             elementId: `changing-text-42`,
-            newText: ``
+            newText: `You tear your house apart until you see her, and within seconds, your arms are around her, your perfect girl. It was only a minute. You'd only looked away for a minute.`
         },
         {
             elementId: `changing-text-44`,
-            newText: ``
+            newText: `You don't see the shadows moving, because you don't want to. The truth is never what you wanted, not really.`
         },
         {
             elementId: `changing-text-45`,
-            newText: ``
+            newText: `Everything is good.`
         },
         {
             elementId: `changing-text-47`,
-            newText: ``
+            newText: `Everything is okay.`
         },
         {
             elementId: `changing-text-48`,
-            newText: ``
+            newText: `Everything is safe.`
         },
         {
             elementId: `changing-text-49`,
