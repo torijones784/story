@@ -132,7 +132,7 @@ const textChangesTopTwo = [
         },
         {
             elementId: `changing-text-2`,
-            newText: ` Your daughter is screaming. Your living room is a mess. You're vacuuming up pieces of glass and wondering how you got here. This house was not the one you were promised when your husband was down there, on one knee, looking up at you like you held his entire future in his hands. That house was supposed to be what you never had growing up. That house was supposed to feel safe. And fuck it, things were at least real now, but there was still a part of you that was angry that you got so close to what you'd never had.`
+            newText: ``
         },
         {
             elementId: `changing-text-3`,
@@ -144,11 +144,11 @@ const textChangesTopTwo = [
         },
         {
             elementId: `changing-text-5`,
-            newText: `Something feels wrong.`
+            newText: `Your daughter is screaming, but won’t let you hold her. The bad guy is always the one who’s behind to clean up the mess. Your living room is a disaster. Laundry piles, and dishes tower, and somehow everything you have isn’t enough.`
         },
         {
             elementId: `changing-text-6`,
-            newText: `A chill creeps up your spine. You're so tired. You need to sit down, just for a second. Let yourself rest, be catch-able, just for a second. You set the vacuum against the island and sink into the couch. The fan's on high, the sound of its blades a hypnotic whoosh whoosh whoosh. You have to close your eyes. It feels so good to feel the breeze on your face.`
+            newText: `Despite your current situation, you spend very little time wondering how you got here. You tell yourself it’s because figuring out the reasons and why’s behind your reality is for people who don’t have children—or maybe, people who have help with theirs, those illustrious “two-parent” households the world told you to want before you could spell. But the truth is, you don’t go there because there’s a part of you that wonders if you were destined for this, from the start.`
         },
         {
             elementId: `changing-text-9`,
