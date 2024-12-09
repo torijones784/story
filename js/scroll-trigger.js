@@ -505,16 +505,18 @@ const textChangesTopTwo = [
 
         if (scrollPercentage > 90 && hasTriggered && roundThreeTop && !fifthTriggerActivated) { 
             fifthTriggerActivated = true;
+            console.log('Fifth trigger activated');
 
             setTimeout( () => {
-            console.log('Fifth trigger activated');
-            textChangesTopThree.forEach(change => {
+            textChangesTopThree.forEach((change, index) => {
                 setTimeout(() => {
-                const element = document.getElementById(change.elementId);
-                if (element) {
-                    element.textContent = change.newText;
-                }}, 1500)
-            })}, 9000)};
+                    console.log(`Changing text ${index}`);
+                    const element = document.getElementById(change.elementId);
+                    if (element) {
+                        element.textContent = change.newText;
+                    }
+                }, index * 2000);
+            })}, 9000);
         } 
 
     let ticking = false;
