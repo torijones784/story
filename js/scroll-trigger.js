@@ -515,7 +515,7 @@ const textChangesTopTwo = [
                     if (element) {
                         element.textContent = change.newText;
                     }
-                }, index * 1500);
+                }, index * 4000);
             })}, 9000);
         } 
     }
