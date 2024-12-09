@@ -508,7 +508,15 @@ const textChangesTopTwo = [
             console.log('Fifth trigger activated');
 
             setTimeout( () => {
-            textChangesTopThree.forEach((change, index) => {
+                for (let i = 1; i <= 62; i++) { 
+                    const element = document.getElementById(`changing-text-${i}`);
+                    if (element) {
+                        element.textContent = '';
+                    }
+                }
+            
+            
+                textChangesTopThree.forEach((change, index) => {
                 setTimeout(() => {
                     console.log(`Changing text ${index}`);
                     const element = document.getElementById(change.elementId);
