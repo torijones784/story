@@ -468,6 +468,7 @@ const textChangesTopTwo = [
 
         if (scrollPercentage < 40 && hasTriggered && roundTwoBottom && !roundThreeTop) { 
             console.log('Fourth trigger activated');
+            roundThreeTop = true;
 
             textChangesBottomTwo.forEach(change => {
                 const element = document.getElementById(change.elementId);
@@ -479,19 +480,16 @@ const textChangesTopTwo = [
                     }
             });
 
-            setTimeout( () => {
             if (scrollPercentage > 90 && hasTriggered && roundThreeTop) { 
+            setTimeout( () => {
             console.log('Fifth trigger activated');
-
-            roundThreeTop = true;
 
             textChangesTopThree.forEach(change => {
                 const element = document.getElementById(change.elementId);
                 if (element) {
                     element.textContent = change.newText;
                 }
-            })}
-        }, 15000);
+            })}, 15000)};
 
         }
 
