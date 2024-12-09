@@ -451,17 +451,15 @@ const textChangesTopTwo = [
 
             const closingQuestion = document.getElementById('closing_question');
             if (closingQuestion) {
-                setTimeout(() => {
+                closingQuestionTimeout = setTimeout(() => {
                     closingQuestion.classList.add('visible');
-                }, 17000); 
+                }, 17000);
             }
         }
 
         if (scrollPercentage < 50 && hasReachedBottom && !roundTwoTop) { 
             console.log('Second trigger activated');
             roundTwoTop = true;
-            const closingQuestion = document.getElementById('closing_question');
-            closingQuestion.classList.remove('visible');
 
             textChangesBottom.forEach(change => {
                 const element = document.getElementById(change.elementId);
@@ -473,8 +471,6 @@ const textChangesTopTwo = [
 
         if (scrollPercentage > 90 && hasTriggered && roundTwoTop && !roundThreeTop) {
             console.log('Third trigger activated');
-            const closingQuestion = document.getElementById('closing_question');
-            closingQuestion.classList.remove('visible');
 
             roundTwoBottom = true;
             textChangesTopTwo.forEach(change => {
@@ -488,7 +484,8 @@ const textChangesTopTwo = [
         if (scrollPercentage < 40 && hasTriggered && roundTwoBottom && !roundThreeTop) { 
             console.log('Fourth trigger activated');
             roundThreeTop = true;
-            const closingQuestion = document.getElementById('closing_question');
+            
+            clearTimeout(closingQuestionTimeout);
             closingQuestion.classList.remove('visible');
 
             textChangesBottomTwo.forEach(change => {
@@ -506,19 +503,17 @@ const textChangesTopTwo = [
         }
 
         if (scrollPercentage > 90 && hasTriggered && roundThreeTop && !fifthTriggerActivated) { 
-        fifthTriggerActivated = true;
-        const closingQuestion = document.getElementById('closing_question');
-        closingQuestion.classList.remove('visible');
+            fifthTriggerActivated = true;
 
-        setTimeout( () => {
-        console.log('Fifth trigger activated');
-        textChangesTopThree.forEach(change => {
-            const element = document.getElementById(change.elementId);
-            if (element) {
-                element.textContent = change.newText;
-            }
-        })}, 9000)};
-    } 
+            setTimeout( () => {
+            console.log('Fifth trigger activated');
+            textChangesTopThree.forEach(change => {
+                const element = document.getElementById(change.elementId);
+                if (element) {
+                    element.textContent = change.newText;
+                }
+            })}, 9000)};
+        } 
 
     let ticking = false;
     window.addEventListener('scroll', () => {
