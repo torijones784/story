@@ -493,7 +493,7 @@ const textChangesTopTwo = [
                 if (element) {
                     element.textContent = change.newText;
                 }
-            })}, 15000)};
+            })}, 9000)};
     } 
 
     let ticking = false;
