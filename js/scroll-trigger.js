@@ -318,7 +318,7 @@ const textChangesTopTwo = [
         },
         {
             elementId: `changing-text-6`,
-            newText: `You need to get a grip. You are a mother. The days of waking up mid-afternoon, lost in last night's haze are behind you. You can't lose it anymore, you can't be the one who doesn't know anymore. You gave that up, willingly and knowingly, when you had her. Your daughter needs to be able to look to you and you need to be able to hold the ship steady.`
+            newText: `You need to get a grip. You are a mother. The days of waking up mid-afternoon, lost in last night's haze are behind you. You can't lose it anymore, you can't be the one who doesn't know anymore. You gave that up, willingly and knowingly, when you had her. Your daughter needs to be able to look to you and you need to be able to hold her gaze.`
         },
         {
             elementId: `changing-text-9`,
@@ -509,10 +509,11 @@ const textChangesTopTwo = [
             setTimeout( () => {
             console.log('Fifth trigger activated');
             textChangesTopThree.forEach(change => {
+                setTimeout(() => {
                 const element = document.getElementById(change.elementId);
                 if (element) {
                     element.textContent = change.newText;
-                }
+                }}, 1500)
             })}, 9000)};
         } 
 
