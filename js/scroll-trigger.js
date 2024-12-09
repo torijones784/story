@@ -484,8 +484,9 @@ const textChangesTopTwo = [
         if (scrollPercentage < 40 && hasTriggered && roundTwoBottom && !roundThreeTop) { 
             console.log('Fourth trigger activated');
             roundThreeTop = true;
-            
+
             clearTimeout(closingQuestionTimeout);
+            const closingQuestion = document.getElementById('closing_question');
             closingQuestion.classList.remove('visible');
 
             textChangesBottomTwo.forEach(change => {
