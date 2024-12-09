@@ -222,7 +222,7 @@ const textChangesTopTwo = [
         },
         {
             elementId: `changing-text-39`,
-            newText: `But you never listen..`
+            newText: `But you never listen.`
         },
         {
             elementId: `changing-text-41`,
@@ -477,10 +477,6 @@ const textChangesTopTwo = [
                 if (change.newText === '') {
                     element.remove();
                 } else {
-                    element.textContent = change.newText;
-                }
-                
-                if (element) {
                     element.textContent = change.newText;
                 }
             });
