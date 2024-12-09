@@ -518,6 +518,7 @@ const textChangesTopTwo = [
                 }, index * 2000);
             })}, 9000);
         } 
+    }
 
     let ticking = false;
     window.addEventListener('scroll', () => {
