@@ -448,7 +448,7 @@ const textChangesTopTwo = [
 
             textChangesBottom.forEach(change => {
                 const element = document.getElementById(change.elementId);
-                if (change.newText === `You don't see the shadows moving, because you don't want to. The truth is never what you wanted, not really.`) {
+                if (change.elementId === 'changing-text-44') {
                     element.classList.remove('italic');
                 } else {
                     element.textContent = change.newText;
@@ -482,7 +482,7 @@ const textChangesTopTwo = [
             });
         }
 
-        if (scrollPercentage > 99 && hasTriggered && roundThreeTop) { 
+        if (scrollPercentage > 93 && hasTriggered && roundThreeTop) { 
             console.log('Fifth trigger activated');
             setTimeout(() => {
                 roundThreeTop = true;
