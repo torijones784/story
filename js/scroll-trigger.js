@@ -448,8 +448,8 @@ const textChangesTopTwo = [
 
             textChangesBottom.forEach(change => {
                 const element = document.getElementById(change.elementId);
-                if (change.newText === '') {
-                    element.remove();
+                if (change.newText === `You don't see the shadows moving, because you don't want to. The truth is never what you wanted, not really.`) {
+                    element.classList.remove('italic');
                 } else {
                     element.textContent = change.newText;
                 }
@@ -474,6 +474,12 @@ const textChangesTopTwo = [
             roundThreeTop = true;
             textChangesBottomTwo.forEach(change => {
                 const element = document.getElementById(change.elementId);
+                if (change.newText === '') {
+                    element.remove();
+                } else {
+                    element.textContent = change.newText;
+                }
+                
                 if (element) {
                     element.textContent = change.newText;
                 }
