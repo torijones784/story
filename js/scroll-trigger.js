@@ -398,6 +398,22 @@ const textChangesTopTwo = [
             newText: `You're very, very afraid.`
         },
         {
+            elementId: `changing-text-44`, 
+            newText: ``
+        },
+        {
+            elementId: `changing-text-45`, 
+            newText: ``
+        },
+        {
+            elementId: `changing-text-47`, 
+            newText: ``
+        },
+        {
+            elementId: `changing-text-48`, 
+            newText: ``
+        },
+        {
             elementId: `changing-text-56`, 
             newText: ``
         },
@@ -487,9 +503,9 @@ const textChangesTopTwo = [
 
         if (scrollPercentage > 90 && hasTriggered && roundThreeTop && !fifthTriggerActivated) { 
         fifthTriggerActivated = true;
+
         setTimeout( () => {
         console.log('Fifth trigger activated');
-
         textChangesTopThree.forEach(change => {
             const element = document.getElementById(change.elementId);
             if (element) {
