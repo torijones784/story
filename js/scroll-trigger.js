@@ -448,9 +448,10 @@ const textChangesTopTwo = [
 
             textChangesBottom.forEach(change => {
                 const element = document.getElementById(change.elementId);
+                if (element) {
                 if (change.elementId === 'changing-text-44') {
                     element.classList.remove('italic');
-                } else {
+                }
                     element.textContent = change.newText;
                 }
             });
