@@ -4,6 +4,7 @@ function initScrollTrigger() {
     let roundTwoBottom = false;
     let roundThreeTop = false;
     let hasReachedBottom = false;  
+    let fifthTriggerActivated = false;
     let pageLoadTime = Date.now();
     const MINIMUM_TIME = 10; // Change back
     
@@ -484,16 +485,17 @@ const textChangesTopTwo = [
 
         }
 
-            if (scrollPercentage > 90 && hasTriggered && roundThreeTop) { 
-            setTimeout( () => {
-            console.log('Fifth trigger activated');
+        if (scrollPercentage > 90 && hasTriggered && roundThreeTop && !fifthTriggerActivated) { 
+        fifthTriggerActivated = true;
+        setTimeout( () => {
+        console.log('Fifth trigger activated');
 
-            textChangesTopThree.forEach(change => {
-                const element = document.getElementById(change.elementId);
-                if (element) {
-                    element.textContent = change.newText;
-                }
-            })}, 9000)};
+        textChangesTopThree.forEach(change => {
+            const element = document.getElementById(change.elementId);
+            if (element) {
+                element.textContent = change.newText;
+            }
+        })}, 9000)};
     } 
 
     let ticking = false;
