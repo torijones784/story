@@ -454,7 +454,7 @@ const textChangesTopTwo = [
             });
         }
 
-        if (scrollPercentage > 90 && hasTriggered && roundTwoTop) {
+        if (scrollPercentage > 90 && hasTriggered && roundTwoTop && !roundThreeTop) {
             console.log('Third trigger activated');
 
             roundTwoBottom = true;
