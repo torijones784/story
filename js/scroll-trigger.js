@@ -449,9 +449,6 @@ const textChangesTopTwo = [
             textChangesBottom.forEach(change => {
                 const element = document.getElementById(change.elementId);
                 if (element) {
-                if (change.elementId === 'changing-text-44') {
-                    element.classList.remove('italic');
-                }
                     element.textContent = change.newText;
                 }
             });
@@ -475,11 +472,12 @@ const textChangesTopTwo = [
             roundThreeTop = true;
             textChangesBottomTwo.forEach(change => {
                 const element = document.getElementById(change.elementId);
-                if (change.newText === '') {
-                    element.remove();
-                } else {
-                    element.textContent = change.newText;
-                }
+                if (element) {
+                    if (change.elementId === 'changing-text-44') {
+                        element.classList.remove('italic');
+                    }
+                        element.textContent = change.newText;
+                    }
             });
         }
 
