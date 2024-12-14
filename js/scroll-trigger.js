@@ -520,10 +520,13 @@ const textChangesTopTwo = [
                 setTimeout(() => {
                     console.log(`Changing text ${index}`);
                     const element = document.getElementById(change.elementId);
+
+                    let number_of_words = [1, 0, 0, 0, 25, 69, 6, 0, 3, 3, 9, 10, 4, 10, 26, 4, 14, 4, 4, 39, 5, 6, 16, 10, 4, 0, 0, 0, 0, 0, 0, 0][index];
+
                     if (element) {
                         element.textContent = change.newText;
                     }
-                }, index * 2000);
+                }, number_of_words * (6/25) * 1000);
             })}, 9000);
         } 
     }
