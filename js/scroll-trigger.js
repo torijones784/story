@@ -342,7 +342,7 @@ const textChangesTopTwo = [
         },
         {
             elementId: `changing-text-20`,
-            newText: `Sure, laundry piles, dishes towered, there's glass on the floor.`
+            newText: `Sure, laundry piles, dishes tower, there's glass on the floor.`
         },
         {
             elementId: `changing-text-22`,
@@ -367,11 +367,11 @@ const textChangesTopTwo = [
         },
         {
             elementId: `changing-text-32`, 
-            newText: `What aren't you seeing?`
+            newText: `When will you learn?`
         },
         {
             elementId: `changing-text-33`, 
-            newText: `When will you learn?`
+            newText: `You never listen.`
         },
         {
             elementId: `changing-text-34`, 
