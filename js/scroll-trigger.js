@@ -382,20 +382,28 @@ const textChangesTopTwo = [
             newText: `Something you thought you'd banished.`
         },
         {
-            elementId: `changing-text-38`, 
+            elementId: `changing-text-36`, 
             newText: `Something you thought you'd run from.`
         },
         {
-            elementId: `changing-text-39`, 
+            elementId: `changing-text-37`, 
             newText: `Your daughter lifts her head up from your chest and turns to look over her shoulder.`
         },
         {
-            elementId: `changing-text-41`, 
+            elementId: `changing-text-38`, 
             newText: `You turn your gaze to the shadows you can't ignore.`
         },
         {
-            elementId: `changing-text-42`, 
+            elementId: `changing-text-39`, 
             newText: `You're very, very afraid.`
+        },
+        {
+            elementId: `changing-text-41`, 
+            newText: ``
+        },
+        {
+            elementId: `changing-text-42`, 
+            newText: ``
         },
         {
             elementId: `changing-text-44`, 
