@@ -538,7 +538,7 @@ const textChangesTopTwo = [
 
                                 setTimeout(() => {
                                     element.textContent = `You just wanted to scream at it all.`
-                                }, 4000)
+                                }, 2000)
                             } else {
                                 element.textContent = change.newText;
                             }
