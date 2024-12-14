@@ -528,7 +528,7 @@ const textChangesTopTwo = [
                         
                         const wordCount = [1, 0, 0, 0, 25, 69, 6, 0, 3, 3, 9, 10, 4, 10, 26, 4, 14, 4, 4, 39, 5, 6, 16, 10, 4, 0, 0, 0, 0, 0, 0, 0][index];
                         
-                        if (change.elementId = 'changing-text-1') {
+                        if (change.elementId === 'changing-text-1') {
                             cumulativeDelay = 4000;
                         } else {
                             cumulativeDelay += wordCount * 240;
@@ -536,6 +536,7 @@ const textChangesTopTwo = [
                         
                     }
                 });
+
             }, 9000);
         } 
     }
