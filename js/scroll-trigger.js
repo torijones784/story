@@ -351,7 +351,7 @@ const textChangesTopTwo = [
         // Time delay and change to "You just wanted to scream at it all" -> moment later when she screams
         {
             elementId: `changing-text-23`, 
-            newText: `You just wanted your daughter to scream at it all.`
+            newText: `Why shouldn't your daughter scream at it all?`
         },
         {
             elementId: `changing-text-26`, 
@@ -539,13 +539,15 @@ const textChangesTopTwo = [
                                 setTimeout(() => {
                                     element.textContent = `You just wanted to scream at it all.`
                                 }, 2000)
+
+                                cumulativeDelay += 4000;
                             } else {
                                 element.textContent = change.newText;
                             }
                         }, cumulativeDelay);
                         
                         const wordCount = [1, 0, 0, 0, 25, 69, 6, 0, 3, 3, 9, 10, 4, 10, 26, 4, 14, 4, 4, 39, 5, 6, 16, 10, 4, 0, 0, 0, 0, 0, 0, 0][index];
-                        cumulativeDelay += Math.max(wordCount * 240, 3000);
+                        cumulativeDelay += Math.max(wordCount * 300, 2000);
                         
                     }
                 });
