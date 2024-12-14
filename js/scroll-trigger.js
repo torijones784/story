@@ -524,6 +524,7 @@ const textChangesTopTwo = [
                 }
             
                 let cumulativeDelay = 4000;
+                let hasChangedText23 = false;
                 textChangesTopThree.forEach((change, index) => {
                     if (change.newText.trim()) {
                         setTimeout(() => {
@@ -531,6 +532,13 @@ const textChangesTopTwo = [
                             const element = document.getElementById(change.elementId);
                             if (change.newText === ``) {
                                 element.remove();
+                            } else if (change.elementId === `changing-text-23` && !hasChangedText23) {
+                                element.textContent = change.newText;
+                                hasChangedText23 = true;
+
+                                setTimeout(() => {
+                                    element.textContent = `You just wanted to scream at it all.`
+                                }, 4000)
                             } else {
                                 element.textContent = change.newText;
                             }
