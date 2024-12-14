@@ -515,7 +515,7 @@ const textChangesTopTwo = [
                     }
                 }
             
-                let cumulativeDelay = 0;
+                let cumulativeDelay = 4000;
                 textChangesTopThree.forEach((change, index) => {
                     if (change.newText.trim()) {
                         setTimeout(() => {
