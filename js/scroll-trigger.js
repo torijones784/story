@@ -526,7 +526,7 @@ const textChangesTopTwo = [
                     if (element) {
                         element.textContent = change.newText;
                     }
-                }, number_of_words * (6/25) * 1000);
+                }, index * number_of_words * (6/25) * 1000);
             })}, 9000);
         } 
     }
