@@ -538,16 +538,16 @@ const textChangesTopTwo = [
 
                                 setTimeout(() => {
                                     element.textContent = `You just wanted to scream at it all.`
-                                }, 2000)
+                                }, 3000)
 
                                 cumulativeDelay += 4000;
                             } else if (change.elementId === `changing-text-39`){
                                 element.textContent = change.newText;
                                 setTimeout(() => {
-                                    if (change.elementId != `changing-text-39`) {
+                                    if (change.elementId !== `changing-text-39`) {
                                         element.textContent = '';
                                     }
-                                }, cumulativeDelay);
+                                }, cumulativeDelay + 2000);
 
 
                             } else {
