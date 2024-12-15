@@ -544,7 +544,7 @@ const textChangesTopTwo = [
                             } else if (change.elementId === `changing-text-39`){
                                 element.textContent = change.newText;
                                 setTimeout(() => {
-                                    if (element != `changing-text-39`) {
+                                    if (change.elementId != `changing-text-39`) {
                                         element.textContent = '';
                                     }
                                 }, cumulativeDelay);
