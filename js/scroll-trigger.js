@@ -553,6 +553,11 @@ const textChangesTopTwo = [
                                             element.classList.add('fade-out');
                                             console.log(`Cleared ${currentId}`);
                                         }
+
+                                        if (element && currentId === 'changing-text-39') {
+                                            element.style.height = element.offsetHeight + 'px';
+                                            element.classList.add('flicker-candle-1');
+                                        }
                                     }
                                 }, 4000);
 
