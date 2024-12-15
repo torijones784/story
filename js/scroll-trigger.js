@@ -544,8 +544,10 @@ const textChangesTopTwo = [
                             } else if (change.elementId === `changing-text-39`){
                                 element.textContent = change.newText;
                                 setTimeout(() => {
-                                    if (change.elementId !== `changing-text-39`) {
+                                    console.log(`Attempting to clear ${change.elementId} at ${cumulativeDelay + 2000}ms`);
+                                    if (change.elementId !== 'changing-text-39') {
                                         element.textContent = '';
+                                        console.log(`Cleared ${change.elementId}`);
                                     }
                                 }, cumulativeDelay + 2000);
 
