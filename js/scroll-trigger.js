@@ -549,7 +549,7 @@ const textChangesTopTwo = [
                                         element.textContent = '';
                                         console.log(`Cleared ${change.elementId}`);
                                     }
-                                }, cumulativeDelay + 2000);
+                                }, 4000);
 
 
                             } else {
