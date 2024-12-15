@@ -549,7 +549,7 @@ const textChangesTopTwo = [
                                         const element = document.getElementById(currentId);
                                         if (element && currentId !== 'changing-text-39') {
                                             console.log(`Attempting to clear ${currentId} at ${cumulativeDelay + 2000}ms`);
-                                            element.textContent = '';
+                                            element.style.visibility = 'hidden';
                                             console.log(`Cleared ${currentId}`);
                                         }
                                     }
