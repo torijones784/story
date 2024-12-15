@@ -540,7 +540,7 @@ const textChangesTopTwo = [
                                     element.textContent = `You just wanted to scream at it all.`
                                 }, 2000)
 
-                                cumulativeDelay += 2000;
+                                cumulativeDelay += 4000;
                             } else {
                                 element.textContent = change.newText;
                             }
