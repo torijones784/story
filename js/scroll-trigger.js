@@ -544,14 +544,15 @@ const textChangesTopTwo = [
                             } else if (change.elementId === `changing-text-39`){
                                 element.textContent = change.newText;
                                 setTimeout(() => {
-                                    
                                     for (let i = 1; i <= 62; i++) { 
-                                        console.log(`Attempting to clear ${change.elementId} at ${cumulativeDelay + 2000}ms`);
-                                        const element = document.getElementById(`changing-text-${i}`);
-                                        if (change.elementId !== 'changing-text-39') {
+                                        const currentId = `changing-text-${i}`;
+                                        const element = document.getElementById(currentId);
+                                        if (element && currentId !== 'changing-text-39') {
+                                            console.log(`Attempting to clear ${currentId} at ${cumulativeDelay + 2000}ms`);
                                             element.textContent = '';
-                                            console.log(`Cleared ${change.elementId}`);
-                                        }}
+                                            console.log(`Cleared ${currentId}`);
+                                        }
+                                    }
                                 }, 4000);
 
 
