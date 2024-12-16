@@ -518,17 +518,17 @@ const textChangesTopTwo = [
         }
         if (scrollPercentage > 90 && hasTriggered && roundThreeTop && !fifthTriggerActivated) { 
             fifthTriggerActivated = true;
-    console.log('Fifth trigger activated');
+            console.log('Fifth trigger activated');
 
+
+    setTimeout(() => {
+        for (let i = 1; i <= 62; i++) { 
             const chapter_title = document.getElementById(`chapter_one_title`);
             const about_link = document.getElementById(`about_link`)
 
             chapter_title.classList.add('hidden');
             about_link.classList.add('hidden');
-
-
-    setTimeout(() => {
-        for (let i = 1; i <= 62; i++) { 
+            
             const element = document.getElementById(`changing-text-${i}`);
             if (element) {
                 element.textContent = '';
