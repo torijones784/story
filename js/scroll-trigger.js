@@ -598,7 +598,7 @@ const textChangesTopTwo = [
                                         const blackFade = document.querySelector('.black-fade');
                                         blackFade.classList.add('active');
                                     }, 100);
-                                }, 25000);
+                                }, 21500);
                             }
                         }, 4000);
                     }
