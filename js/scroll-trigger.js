@@ -552,17 +552,7 @@ const textChangesTopTwo = [
                         }, 2000);
                     }
                     else if (change.elementId === 'changing-text-39') {
-                        const flickerClasses = [
-                            'flicker-candle-1',
-                            'flicker-candle-2',
-                            'flicker-candle-3',
-                            'flicker-candle-4',
-                            'flicker-candle-5'
-                        ];
-                        const words = change.newText.split(' ');
-                        element.innerHTML = words.map((word, wordIndex) => 
-                            `<span class="${flickerClasses[wordIndex % flickerClasses.length]}">${word}</span>`
-                        ).join(' ');
+                        element.textContent = change.newText;
 
                         setTimeout(() => {
                             for (let i = 1; i <= 62; i++) { 
