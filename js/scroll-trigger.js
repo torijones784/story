@@ -569,7 +569,12 @@ const textChangesTopTwo = [
                                 const currentId = `changing-text-${i}`;
                                 const currentElement = document.getElementById(currentId);
                                 if (currentElement && currentId !== 'changing-text-39') {
-                                    currentElement.style.height = currentElement.offsetHeight + 'px';
+                                    const computedStyle = window.getComputedStyle(currentElement);
+                                    const margins = parseFloat(computedStyle.marginTop) + parseFloat(computedStyle.marginBottom);
+                                    currentElement.style.height = `${currentElement.offsetHeight + margins}px`;
+                                    currentElement.style.marginTop = computedStyle.marginTop;
+                                    currentElement.style.marginBottom = computedStyle.marginBottom;
+                                    currentElement.style.position = 'relative';
                                     currentElement.classList.add('fade-out');
                                 }
                             }
