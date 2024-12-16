@@ -569,12 +569,12 @@ const textChangesTopTwo = [
                                 }
                             }
 
-                            const videoOverlay = document.querySelector('.video-overlay');
-                            const backgroundVideo = document.getElementById('background-video');
-                            if (videoOverlay && backgroundVideo) {
-                                videoOverlay.classList.add('active');
-                                backgroundVideo.play().catch(e => console.log('Video autoplay failed:', e));
-                            }
+                            // const videoOverlay = document.querySelector('.video-overlay');
+                            // const backgroundVideo = document.getElementById('background-video');
+                            // if (videoOverlay && backgroundVideo) {
+                            //     videoOverlay.classList.add('active');
+                            //     backgroundVideo.play().catch(e => console.log('Video autoplay failed:', e));
+                            // }
                         }, 4000);
                     }
                     else {
