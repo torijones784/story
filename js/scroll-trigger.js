@@ -549,7 +549,7 @@ const textChangesTopTwo = [
                         
                         setTimeout(() => {
                             element.textContent = 'You just wanted to scream at it all.';
-                        }, 3000);
+                        }, 2000);
                     }
                     else if (change.elementId === 'changing-text-39') {
                         const flickerClasses = [
