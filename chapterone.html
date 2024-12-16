@@ -320,6 +320,10 @@ p {
 .black-fade.active {
     opacity: 1;
 }
+
+.hidden {
+  opacity: 0;
+}
    </style>
 </head>
 <body class="d-flex h-100 text-center">
@@ -334,11 +338,11 @@ p {
     <header class="mb-auto pt-3 pb-3">
       <div class="container">
         <div>
-          <a href="about.html"><h3 class="float-md-end mb-0 title">by <span class="active">Tori Jones</span></h3></a>
+          <a href="about.html"><h3 class="float-md-end mb-0 title" id="about_link">by <span class="active">Tori Jones</span></h3></a>
         </div>
       </div>
     </header>
-    <h1>Chapter 1</h1>
+    <h1 id="chapter_one_title">Chapter 1</h1>
     <p class="mx-5"><span id="changing-text-1">You're fucking tired.</span><span id="changing-text-2"> And not that "stayed up until 3am closing down the bar" tired: waking up mid-afternoon in a haze, desperate for carbs, distracted by sex with the brunette next to you. Remembering that, actually, you didn't fall asleep until 6am. When you look at your phone later, you'll have a bunch of texts recapping the highlights of the night before. Dozens of photos, and, theoretically, memories you'll have</span>
       <span id="changing-text-3">
           forever,

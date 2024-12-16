@@ -520,6 +520,13 @@ const textChangesTopTwo = [
             fifthTriggerActivated = true;
     console.log('Fifth trigger activated');
 
+            const chapter_title = document.getElementById(`chapter_one_title`);
+            const about_link = document.getElementById(`about_link`)
+
+            chapter_title.classList.add('hidden');
+            about_link.classList.add('hidden');
+
+
     setTimeout(() => {
         for (let i = 1; i <= 62; i++) { 
             const element = document.getElementById(`changing-text-${i}`);
