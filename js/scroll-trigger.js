@@ -510,12 +510,11 @@ const textChangesTopTwo = [
 
 
         }
-
         if (scrollPercentage > 90 && hasTriggered && roundThreeTop && !fifthTriggerActivated) { 
             fifthTriggerActivated = true;
             console.log('Fifth trigger activated');
-
-            setTimeout( () => {
+        
+            setTimeout(() => {
                 for (let i = 1; i <= 62; i++) { 
                     const element = document.getElementById(`changing-text-${i}`);
                     if (element) {
@@ -535,44 +534,36 @@ const textChangesTopTwo = [
                             } else if (change.elementId === `changing-text-23` && !hasChangedText23) {
                                 element.textContent = change.newText;
                                 hasChangedText23 = true;
-
+        
                                 setTimeout(() => {
-                                    element.textContent = `You just wanted to scream at it all.`
-                                }, 3000)
-
-                                cumulativeDelay += 6000;
-                            } else if (change.elementId === `changing-text-39`){
-                                element.textContent = change.newText;
+                                    element.textContent = `You just wanted to scream at it all.`;
+                                }, 3000);
+                                
+                                cumulativeDelay += 5000;
+                            } else if (change.elementId === `changing-text-39`) {
+                                const flickerClasses = [
+                                    'flickering-candle-1',
+                                    'flickering-candle-2',
+                                    'flickering-candle-3',
+                                    'flickering-candle-4',
+                                    'flickering-candle-5'
+                                ];
+                                const words = change.newText.split(' ');
+                                element.innerHTML = words.map((word, wordIndex) => 
+                                    `<span class="${flickerClasses[wordIndex % flickerClasses.length]}">${word}</span>`
+                                ).join(' ');
+        
                                 setTimeout(() => {
                                     for (let i = 1; i <= 62; i++) { 
                                         const currentId = `changing-text-${i}`;
                                         const element = document.getElementById(currentId);
                                         if (element && currentId !== 'changing-text-39') {
-                                            console.log(`Attempting to clear ${currentId} at ${cumulativeDelay + 2000}ms`);
                                             element.style.height = element.offsetHeight + 'px';
                                             element.classList.add('fade-out');
-                                            console.log(`Cleared ${currentId}`);
-                                        }
-
-                                        if (element && currentId === 'changing-text-39') {
-                                            const flickerClasses = [
-                                                'flickering-candle-1',
-                                                'flickering-candle-2',
-                                                'flickering-candle-3',
-                                                'flickering-candle-4',
-                                                'flickering-candle-5'
-                                            ];
-                                            const words = change.newText.split(' ');
-                                            element.innerHTML = words.map((word, wordIndex) => 
-                                                `<span class="${flickerClasses[wordIndex % flickerClasses.length]}">${word}</span>`
-                                            ).join(' ');
-                                            cumulativeDelay += 12000;
                                         }
                                     }
                                 }, 4000);
-
-
-                            } else if(change.elementId === `changing-text-6`){
+                            } else if (change.elementId === `changing-text-6`) {
                                 element.textContent = change.newText;
                                 cumulativeDelay += 10000;
                             } else {
@@ -582,12 +573,11 @@ const textChangesTopTwo = [
                         
                         const wordCount = [1, 0, 0, 0, 25, 69, 6, 0, 3, 3, 9, 10, 4, 10, 26, 4, 14, 4, 4, 39, 5, 6, 16, 10, 4, 0, 0, 0, 0, 0, 0, 0][index];
                         cumulativeDelay += Math.max(wordCount * 350, 2000);
-                        
                     }
                 });
-
             }, 9000);
-        } 
+        }
+
     }
 
     let ticking = false;
