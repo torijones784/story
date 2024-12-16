@@ -580,6 +580,18 @@ const textChangesTopTwo = [
                             if (videoOverlay && backgroundVideo) {
                                 videoOverlay.classList.add('active');
                                 backgroundVideo.play().catch(e => console.log('Video autoplay failed:', e));
+
+                                setTimeout(() => {
+                                    const flashOverlay = document.querySelector('.flash-overlay');
+                                    flashOverlay.classList.add('active');
+                                    
+                                    setTimeout(() => {
+                                        flashOverlay.classList.remove('active');
+                                        
+                                        const blackFade = document.querySelector('.black-fade');
+                                        blackFade.classList.add('active');
+                                    }, 100);
+                                }, 30000);
                             }
                         }, 4000);
                     }

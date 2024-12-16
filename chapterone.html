@@ -286,6 +286,40 @@ p {
     height: 100%;
     object-fit: cover;
 }
+
+.flash-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    opacity: 0;
+    z-index: 9999;
+    pointer-events: none;
+    transition: opacity 0.1s ease-in;
+}
+
+.flash-overlay.active {
+    opacity: 1;
+}
+
+.black-fade {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0;
+    z-index: 9999;
+    pointer-events: none;
+    transition: opacity 3s ease-in;
+}
+
+.black-fade.active {
+    opacity: 1;
+}
    </style>
 </head>
 <body class="d-flex h-100 text-center">
@@ -294,6 +328,8 @@ p {
         <source src="images/ch1_background_one.mp4" type="video/mp4">
     </video>
     </div>
+    <div class="flash-overlay"></div>
+<div class="black-fade"></div>
   <div class="cover-container d-flex w-100 h-100 p-3 pt-0 mx-auto flex-column">
     <header class="mb-auto pt-3 pb-3">
       <div class="container">
