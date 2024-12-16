@@ -531,7 +531,7 @@ const textChangesTopTwo = [
                 const baseDelay = Math.max(wordCount * 350, 2000);
 
                 if (change.elementId === 'changing-text-6') {
-                    cumulativeDelay += 10000;
+                    cumulativeDelay += 8000;
                 }
 
                 setTimeout(() => {
