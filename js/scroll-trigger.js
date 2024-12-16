@@ -541,7 +541,7 @@ const textChangesTopTwo = [
         textChangesTopThree.forEach((change, index) => {
             if (change.newText.trim()) {
                 const wordCount = [1, 0, 0, 0, 25, 69, 6, 0, 3, 3, 9, 10, 4, 10, 26, 4, 14, 4, 4, 39, 5, 6, 16, 10, 4, 0, 0, 0, 0, 0, 0, 0][index];
-                const baseDelay = Math.max(wordCount * 250, 2000);
+                const baseDelay = Math.max(wordCount * 300, 2000);
 
                 if (change.elementId === 'changing-text-6') {
                     cumulativeDelay += 8000;
@@ -598,7 +598,7 @@ const textChangesTopTwo = [
                                         const blackFade = document.querySelector('.black-fade');
                                         blackFade.classList.add('active');
                                     }, 100);
-                                }, 22000);
+                                }, 22500);
                             }
                         }, 4000);
                     }
