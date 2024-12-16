@@ -539,7 +539,9 @@ const textChangesTopTwo = [
                                     element.textContent = `You just wanted to scream at it all.`;
                                 }, 3000);
                                 
-                                cumulativeDelay += 5000;
+                                setTimeout(() => {
+                                    cumulativeDelay += 5000;
+                                }, 8000);
                             } else if (change.elementId === `changing-text-39`) {
                                 const flickerClasses = [
                                     'flickering-candle-1',
@@ -556,16 +558,18 @@ const textChangesTopTwo = [
                                 setTimeout(() => {
                                     for (let i = 1; i <= 62; i++) { 
                                         const currentId = `changing-text-${i}`;
-                                        const element = document.getElementById(currentId);
-                                        if (element && currentId !== 'changing-text-39') {
-                                            element.style.height = element.offsetHeight + 'px';
-                                            element.classList.add('fade-out');
+                                        const currentelement = document.getElementById(currentId);
+                                        if (currentelement && currentId !== 'changing-text-39') {
+                                            currentelement.style.height = element.offsetHeight + 'px';
+                                            currentelement.classList.add('fade-out');
                                         }
                                     }
                                 }, 4000);
                             } else if (change.elementId === `changing-text-6`) {
                                 element.textContent = change.newText;
-                                cumulativeDelay += 10000;
+                                setTimeout(() => {
+                                    cumulativeDelay += 10000;
+                                }, 0);
                             } else {
                                 element.textContent = change.newText;
                             }
