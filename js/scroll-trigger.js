@@ -555,8 +555,18 @@ const textChangesTopTwo = [
                                         }
 
                                         if (element && currentId === 'changing-text-39') {
-                                            element.style.height = element.offsetHeight + 'px';
-                                            element.classList.add('flicker-candle-1');
+                                            const flickerClasses = [
+                                                'flickering-candle-1',
+                                                'flickering-candle-2',
+                                                'flickering-candle-3',
+                                                'flickering-candle-4',
+                                                'flickering-candle-5'
+                                            ];
+                                            const words = change.newText.split(' ');
+                                            element.innerHTML = words.map((word, wordIndex) => 
+                                                `<span class="${flickerClasses[wordIndex % flickerClasses.length]}">${word}</span>`
+                                            ).join(' ');
+                                            cumulativeDelay += 12000;
                                         }
                                     }
                                 }, 4000);
