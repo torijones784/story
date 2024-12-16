@@ -588,7 +588,7 @@ const textChangesTopTwo = [
                 cumulativeDelay += baseDelay;
 
                 if (change.elementId === 'changing-text-23') {
-                    cumulativeDelay += 5000;
+                    cumulativeDelay += 2000;
                 }
             }
         });
