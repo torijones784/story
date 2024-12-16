@@ -8,6 +8,12 @@ function initScrollTrigger() {
     let pageLoadTime = Date.now();
     const MINIMUM_TIME = 10; // Change back
     
+    document.addEventListener('DOMContentLoaded', () => {
+        const video = document.getElementById('background-video');
+        video.load();
+    });
+
+
     const textChangesTop = [
         {
             elementId: `changing-text-3`,
