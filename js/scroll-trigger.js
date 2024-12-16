@@ -553,11 +553,11 @@ const textChangesTopTwo = [
                     }
                     else if (change.elementId === 'changing-text-39') {
                         const flickerClasses = [
-                            'flickering-candle-1',
-                            'flickering-candle-2',
-                            'flickering-candle-3',
-                            'flickering-candle-4',
-                            'flickering-candle-5'
+                            'flicker-candle-1',
+                            'flicker-candle-2',
+                            'flicker-candle-3',
+                            'flicker-candle-4',
+                            'flicker-candle-5'
                         ];
                         const words = change.newText.split(' ');
                         element.innerHTML = words.map((word, wordIndex) => 
