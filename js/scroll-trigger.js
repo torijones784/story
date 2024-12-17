@@ -601,7 +601,12 @@ const textChangesTopTwo = [
                                         setTimeout(() => {
                                             const finalText = document.querySelector('.final-text');
                                             finalText.classList.add('visible');
-                                        }, 3000); 
+
+                                            setTimeout(() => {
+                                                about_link.classList.add('finale_links_fade_in')
+                                            }, 5000)
+
+                                        }, 5000); 
                                     }, 100);
                                 }, 24000);
                             }
