@@ -524,11 +524,9 @@ const textChangesTopTwo = [
     setTimeout(() => {
         for (let i = 1; i <= 62; i++) { 
             const chapter_title = document.getElementById(`chapter_one_title`);
-            const about_link = document.getElementById(`about_link`)
             const home_link = document.getElementById(`home_link`)
 
             chapter_title.classList.add('hidden');
-            about_link.classList.add('hidden');
             home_link.classList.add('hidden');
 
             const element = document.getElementById(`changing-text-${i}`);
@@ -605,9 +603,9 @@ const textChangesTopTwo = [
                                             finalText.classList.add('visible');
 
                                             setTimeout(() => {
-                                                const about_link = document.getElementById(`about_link`)
-                                                about_link.classList.remove('hidden');
-                                                about_link.classList.add('finale_links_fade_in');
+                                                const home_link = document.getElementById(`home_link`)
+                                                home_link.classList.remove('hidden');
+                                                home_link.classList.add('finale_links_fade_in');
                                             }, 5000)
 
                                         }, 5000); 
