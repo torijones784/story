@@ -343,12 +343,16 @@ p {
 }
 
 .finale_home_link {
-    position: relative;
+  position: fixed;
+    top: 2rem;
+    left: 2rem;
     color: #818181 !important;
     opacity: 0;
     z-index: 10001;
     visibility: hidden;
     transition: opacity 2s ease-in;
+    font-family: "Playfair Display", serif;
+    font-size: 20px;
 }
 
 .finale_home_link.visible {
@@ -360,6 +364,11 @@ p {
     text-decoration: none;
     z-index: 10001; 
   }
+
+  .final-text.visible {
+    opacity: 1;
+    visibility: visible;
+}
    </style>
 </head>
 <body class="d-flex h-100 text-center">
