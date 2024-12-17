@@ -342,16 +342,19 @@ p {
     max-width: 600px;
 }
 
-.final-text.visible {
+.finale_home_link {
+    position: relative;
+    color: #818181 !important;
+    opacity: 0;
+    z-index: 10001;
+    visibility: hidden;
+    transition: opacity 2s ease-in;
+}
+
+.finale_home_link.visible {
     opacity: 1;
     visibility: visible;
 }
-
-  .finale_links_fade_in {
-    opacity: 1;
-    visibility: visible;
-    transition: opacity 2s ease-in;
-  }
 
   #home_link {
     text-decoration: none;
@@ -371,7 +374,7 @@ p {
     <header class="mb-auto pt-3 pb-3">
       <div class="container">
         <div>
-          <a href="index.html"><h3 class="float-md-end mb-0 title" id="home_link">Home</h3></a>
+          <a href="index.html"><h3 class="float-md-end mb-0 title finale_home_link" id="home_link">Home</h3></a>
         </div>
       </div>
     </header>

@@ -605,7 +605,9 @@ const textChangesTopTwo = [
                                             setTimeout(() => {
                                                 const home_link = document.getElementById(`home_link`)
                                                 home_link.classList.remove('hidden');
-                                                home_link.classList.add('finale_links_fade_in');
+                                                home_link.classList.remove('float-md-end');
+                                                home_link.classList.add('visible');
+                                                home_link.classList.add('float-md-start');
                                             }, 5000)
 
                                         }, 5000); 
