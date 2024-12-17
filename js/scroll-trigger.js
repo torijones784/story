@@ -603,7 +603,8 @@ const textChangesTopTwo = [
                                             finalText.classList.add('visible');
 
                                             setTimeout(() => {
-                                                about_link.classList.add('finale_links_fade_in')
+                                                about_link.classList.remove('hidden');
+                                                about_link.classList.add('finale_links_fade_in');
                                             }, 5000)
 
                                         }, 5000); 
