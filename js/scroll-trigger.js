@@ -597,6 +597,11 @@ const textChangesTopTwo = [
                                         
                                         const blackFade = document.querySelector('.black-fade');
                                         blackFade.classList.add('active');
+
+                                        setTimeout(() => {
+                                            const finalText = document.querySelector('.final-text');
+                                            finalText.classList.add('visible');
+                                        }, 3000); 
                                     }, 100);
                                 }, 24000);
                             }
