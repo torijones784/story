@@ -13,6 +13,13 @@ function initScrollTrigger() {
         video.load();
     });
 
+    window.addEventListener('beforeunload', () => {
+        const video = document.getElementById('background-video');
+        if (video) {
+            video.pause();
+        }
+    });
+
 
     const textChangesTop = [
         {
@@ -586,7 +593,16 @@ const textChangesTopTwo = [
                             const backgroundVideo = document.getElementById('background-video');
                             if (videoOverlay && backgroundVideo) {
                                 videoOverlay.classList.add('active');
-                                backgroundVideo.play().catch(e => console.log('Video autoplay failed:', e));
+                                
+                                const playPromise = backgroundVideo.play();
+                                if (playPromise !== undefined) {
+                                    playPromise
+                                        .then(() => {
+                                        })
+                                        .catch(e => {
+                                            console.log('Video autoplay failed:', e);
+                                        });
+                                }
 
                                 setTimeout(() => {
                                     const flashOverlay = document.querySelector('.flash-overlay');
