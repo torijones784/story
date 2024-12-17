@@ -529,6 +529,7 @@ const textChangesTopTwo = [
 
             chapter_title.classList.add('hidden');
             about_link.classList.add('hidden');
+            home_link.classList.add('hidden');
 
             const element = document.getElementById(`changing-text-${i}`);
             if (element) {
