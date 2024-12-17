@@ -350,12 +350,30 @@ p {
     opacity: 0;
     z-index: 10001;
     visibility: hidden;
-    transition: opacity 2s ease-in;
+    transition: opacity 12s ease-in;
+    font-family: "Playfair Display", serif;
+    font-size: 20px;
+}
+
+.finale_home_link {
+  position: fixed;
+    top: 2rem;
+    right: 2rem;
+    color: #818181 !important;
+    opacity: 0;
+    z-index: 10001;
+    visibility: hidden;
+    transition: opacity 12s ease-in;
     font-family: "Playfair Display", serif;
     font-size: 20px;
 }
 
 .finale_home_link.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.finale_about_link.visible {
     opacity: 1;
     visibility: visible;
 }
@@ -384,7 +402,7 @@ p {
       <div class="container">
         <div>
           <a href="index.html"><h3 class="float-md-end mb-0 title finale_home_link" id="home_link">Home</h3></a>
-          <a href="about.html"><h3 class="float-md-end mb-0 about_link hidden" id="about_link">by <span class="active">Tori Jones</span></h3></a>
+          <a href="about.html"><h3 class="float-md-end mb-0 finale_about_link hidden" id="about_link">by <span class="active">Tori Jones</span></h3></a>
         </div>
       </div>
     </header>
