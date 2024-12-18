@@ -619,13 +619,25 @@ const textChangesTopTwo = [
                                             const finalText = document.querySelector('.final-text');
                                             finalText.classList.add('visible');
 
+                                            console.log('Transitioning to final state');
+
+                                            const home_link = document.getElementById(`home_link`)
+                                            const about_link = document.getElementById(`about_link`)
+
+                                            if (!home_link || !about_link) {
+                                                console.log('Links not found!');
+                                                return;
+                                            }
+
                                             setTimeout(() => {
-                                                const home_link = document.getElementById(`home_link`)
-                                                const about_link = document.getElementById(`about_link`)
                                                 home_link.classList.remove('hidden', 'float-md-end');
                                                 about_link.classList.remove('hidden');
                                                 about_link.classList.add('visible');
                                                 home_link.classList.add('visible', 'float-md-start');
+
+                                                console.log('Classes added to links:', 
+                                                    'home:', home_link.className,
+                                                    'about:', about_link.className);
                                             }, 5000)
 
                                         }, 5000); 
