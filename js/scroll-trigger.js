@@ -622,10 +622,10 @@ const textChangesTopTwo = [
                                             setTimeout(() => {
                                                 const home_link = document.getElementById(`home_link`)
                                                 const about_link = document.getElementById(`about_link`)
-                                                home_link.classList.remove('hidden');
+                                                home_link.classList.remove('hidden', 'float-md-end');
                                                 about_link.classList.remove('hidden');
                                                 about_link.classList.add('visible');
-                                                home_link.classList.add('visible', 'final_position');
+                                                home_link.classList.add('visible', 'float-md-start');
                                             }, 5000)
 
                                         }, 5000); 
