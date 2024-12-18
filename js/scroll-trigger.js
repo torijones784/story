@@ -621,10 +621,8 @@ const textChangesTopTwo = [
 
                                             console.log('Transitioning to final state');
 
-                                            window.scrollTo({
-                                                top: 0,
-                                                // behavior: 'smooth'
-                                            });
+                                            window.scrollTo(0,0);
+                                            document.body.classList.add('no-scroll');
 
                                             const home_link = document.getElementById(`home_link`)
                                             const about_link = document.getElementById(`about_link`)
