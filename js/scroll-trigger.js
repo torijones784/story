@@ -621,18 +621,18 @@ const textChangesTopTwo = [
 
                                             console.log('Transitioning to final state');
 
+                                            window.scrollTo({
+                                                top: 0,
+                                                behavior: 'smooth'
+                                            });
+
                                             const home_link = document.getElementById(`home_link`)
                                             const about_link = document.getElementById(`about_link`)
-
-                                            if (!home_link || !about_link) {
-                                                console.log('Links not found!');
-                                                return;
-                                            }
 
                                             setTimeout(() => {
                                                 home_link.classList.remove('hidden', 'float-md-end');
                                                 about_link.classList.remove('hidden');
-                                                about_link.classList.add('visible');
+                                                about_link.classList.add('visible', 'float-md-end');
                                                 home_link.classList.add('visible', 'float-md-start');
 
                                                 console.log('Classes added to links:', 
