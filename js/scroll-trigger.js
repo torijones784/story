@@ -623,7 +623,7 @@ const textChangesTopTwo = [
 
                                             window.scrollTo({
                                                 top: 0,
-                                                behavior: 'smooth'
+                                                // behavior: 'smooth'
                                             });
 
                                             const home_link = document.getElementById(`home_link`)
