@@ -37,6 +37,9 @@ body.home_page {
     background-attachment: fixed;
     background-blend-mode: darken;
     animation: candleFlicker 6s infinite;
+    animation: 
+        candleFlicker 6s infinite,
+        slowZoom 6s ease-in forwards;
 }
 
 @keyframes candleFlicker {
@@ -122,7 +125,15 @@ body.home_page {
     font-style: italic;
   } */
 
-@keyframes blurEffect {
+@keyframes slowZoom {
+from {
+    background-size: 100% auto;
+}
+to {
+    background-size: 105% auto;
+}}
+
+  @keyframes blurEffect {
     0% { filter: blur(0px); }
     10% { filter: blur(0.8px); }
     20% { filter: blur(1.6px); }
