@@ -36,7 +36,6 @@ body.home_page {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-blend-mode: darken;
-    background-color: rgba(0, 0, 0, 0.5);
     animation: candleFlicker 8s infinite;
 }
 
