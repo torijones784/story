@@ -117,10 +117,10 @@ body.home_page {
     }
 } */
 
-.blur_animate {
+/* .blur_animate {
     animation: blurEffect 5s infinite;
     font-style: italic;
-  }
+  } */
 
 @keyframes blurEffect {
     0% { filter: blur(0px); }
