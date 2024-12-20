@@ -287,13 +287,18 @@ p {
     object-fit: cover;
 }
 
+#demon_video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .flash-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: white;
     opacity: 0;
     z-index: 9999;
     pointer-events: none;
@@ -403,7 +408,12 @@ p {
         <source src="images/ch1_background_one.mp4" type="video/mp4">
     </video>
     </div>
-    <div class="flash-overlay"></div>
+    <div class="video-overlay">
+      <video id="demon_video flash-overlay" muted preload="auto" playsinline>
+          <source src="images/demon_flash.mp4" type="video/mp4">
+      </video>
+      </div>
+    <!-- <div class="flash-overlay"></div> -->
 <div class="black-fade"></div>
   <div class="cover-container d-flex w-100 h-100 p-3 pt-0 mx-auto flex-column">
     <header class="mb-auto pt-3 pb-3">
