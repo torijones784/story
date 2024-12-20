@@ -36,10 +36,9 @@ body.home_page {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-blend-mode: darken;
-    animation: candleFlicker 6s infinite;
     animation: 
         candleFlicker 6s infinite,
-        slowZoom 6s ease-in forwards;
+        slowZoom 12s ease-in forwards;
 }
 
 @keyframes candleFlicker {
