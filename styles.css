@@ -39,34 +39,6 @@ body.home_page {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-@keyframes candle-flicker-1 {
-    0% { opacity: 0.8; }
-    5% { opacity: 0.9; }
-    10% { opacity: 0.5; }
-    15% { opacity: 0.7; }
-    20% { opacity: 0.95; }
-    25% { opacity: 0.8; }
-    30% { opacity: 0.6; }
-    35% { opacity: 0.7; }
-    40% { opacity: 1; }
-    45% { opacity: 0.8; }
-    50% { opacity: 0.7; }
-    55% { opacity: 0.9; }
-    60% { opacity: 0.95; }
-    65% { opacity: 0.7; }
-    70% { opacity: 0.5; }
-    75% { opacity: 0.8; }
-    80% { opacity: 1; }
-    85% { opacity: 0.7; }
-    90% { opacity: 0.8; }
-    95% { opacity: 0.9; }
-    100% { opacity: 0.8; }
- }
-
- .flicker-candle-1 {
-    animation: candle-flicker-1 8s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
- }
-
 .blur_animate {
     animation: blurEffect 5s infinite;
     font-style: italic;

@@ -408,7 +408,7 @@ const textChangesTopTwo = [
         },
         {
             elementId: `changing-text-39`, 
-            newText: `You're very, very afraid.`
+            newText: `You are very, very afraid.`
         },
         {
             elementId: `changing-text-41`, 
@@ -524,139 +524,147 @@ const textChangesTopTwo = [
 
         }
         if (scrollPercentage > 90 && hasTriggered && roundThreeTop && !fifthTriggerActivated) { 
-            fifthTriggerActivated = true;
-            console.log('Fifth trigger activated');
-
-
-    setTimeout(() => {
-        for (let i = 1; i <= 62; i++) { 
-            const chapter_title = document.getElementById(`chapter_one_title`);
-            const home_link = document.getElementById(`home_link`)
-
-            chapter_title.classList.add('hidden');
-            home_link.classList.remove('visible');
-            home_link.classList.add('hidden');
-
-            const element = document.getElementById(`changing-text-${i}`);
-            if (element) {
-                element.textContent = '';
-            }
-        }
-    
-        let cumulativeDelay = 4000;
-        let hasChangedText23 = false;
-        
-        textChangesTopThree.forEach((change, index) => {
-            if (change.newText.trim()) {
-                const wordCount = [1, 0, 0, 0, 25, 69, 6, 0, 3, 3, 9, 10, 4, 10, 26, 4, 14, 4, 4, 39, 5, 6, 16, 10, 4, 0, 0, 0, 0, 0, 0, 0][index];
-                const baseDelay = Math.max(wordCount * 350, 2000);
-
-                if (change.elementId === 'changing-text-6') {
-                    cumulativeDelay += 8000;
-                }
-
+                fifthTriggerActivated = true;
+                console.log('Fifth trigger activated');
+            
                 setTimeout(() => {
-                    console.log(`Changing text ${index}`);
-                    const element = document.getElementById(change.elementId);
-                    
-                    if (!element) return;
-
-                    if (change.newText === '') {
-                        element.remove();
-                    } 
-                    else if (change.elementId === 'changing-text-23' && !hasChangedText23) {
-                        element.textContent = change.newText;
-                        hasChangedText23 = true;
-                        
-                        setTimeout(() => {
-                            element.textContent = 'You just wanted to scream at it all.';
-                        }, 2000);
+                    for (let i = 1; i <= 62; i++) { 
+                        const chapter_title = document.getElementById(`chapter_one_title`);
+                        const home_link = document.getElementById(`home_link`)
+            
+                        chapter_title.classList.add('hidden');
+                        home_link.classList.remove('visible');
+                        home_link.classList.add('hidden');
+            
+                        const element = document.getElementById(`changing-text-${i}`);
+                        if (element) {
+                            element.textContent = '';
+                        }
                     }
-                    else if (change.elementId === 'changing-text-39') {
-                        element.textContent = change.newText;
-
-                        setTimeout(() => {
-                            for (let i = 1; i <= 62; i++) { 
-                                const currentId = `changing-text-${i}`;
-                                const currentElement = document.getElementById(currentId);
-                                if (currentElement && currentId !== 'changing-text-39') {
-                                    const computedStyle = window.getComputedStyle(currentElement);
-                                    const margins = parseFloat(computedStyle.marginTop) + parseFloat(computedStyle.marginBottom);
-                                    currentElement.style.height = `${currentElement.offsetHeight + margins}px`;
-                                    currentElement.style.marginTop = computedStyle.marginTop;
-                                    currentElement.style.marginBottom = computedStyle.marginBottom;
-                                    currentElement.style.position = 'relative';
-                                    currentElement.classList.add('fade-out');
-                                }
+                
+                    let cumulativeDelay = 4000;
+                    let hasChangedText23 = false;
+                    
+                    textChangesTopThree.forEach((change, index) => {
+                        if (change.newText.trim()) {
+                            const wordCount = [1, 0, 0, 0, 25, 69, 6, 0, 3, 3, 9, 10, 4, 10, 26, 4, 14, 4, 4, 39, 5, 6, 16, 10, 4, 0, 0, 0, 0, 0, 0, 0][index];
+                            const baseDelay = Math.max(wordCount * 350, 2000);
+            
+                            if (change.elementId === 'changing-text-6') {
+                                cumulativeDelay += 8000;
                             }
-
-                            const videoOverlay = document.querySelector('.video-overlay');
-                            const backgroundVideo = document.getElementById('background-video');
-                            if (videoOverlay && backgroundVideo) {
-                                videoOverlay.classList.add('active');
+            
+                            setTimeout(() => {
+                                console.log(`Changing text ${index}`);
+                                const element = document.getElementById(change.elementId);
                                 
-                                const playPromise = backgroundVideo.play();
-                                if (playPromise !== undefined) {
-                                    playPromise
-                                        .then(() => {
-                                        })
-                                        .catch(e => {
-                                            console.log('Video autoplay failed:', e);
-                                        });
-                                }
-
-                                setTimeout(() => {
-                                    const flashOverlay = document.querySelector('.flash-overlay');
-                                    flashOverlay.classList.add('active');
+                                if (!element) return;
+            
+                                if (change.newText === '') {
+                                    element.remove();
+                                } 
+                                else if (change.elementId === 'changing-text-23' && !hasChangedText23) {
+                                    element.textContent = change.newText;
+                                    hasChangedText23 = true;
                                     
                                     setTimeout(() => {
-                                        flashOverlay.classList.remove('active');
-                                        
-                                        const blackFade = document.querySelector('.black-fade');
-                                        blackFade.classList.add('active');
-
+                                        element.textContent = 'You just wanted to scream at it all.';
+                                    }, 2000);
+                                }
+                                else if (change.elementId === 'changing-text-39') {
+                                    const words = change.newText.split(" ");
+                                    element.textContent = '';
+                                    
+                                    words.forEach((word, index) => {
                                         setTimeout(() => {
-                                            const finalText = document.querySelector('.final-text');
-                                            finalText.classList.add('visible');
-
-                                            console.log('Transitioning to final state');
-
-                                            window.scrollTo(0,0);
-                                            document.body.classList.add('no-scroll');
-
-                                            const home_link = document.getElementById(`home_link`)
-                                            const about_link = document.getElementById(`about_link`)
-
-                                            setTimeout(() => {
-                                                home_link.classList.remove('hidden', 'float-md-end');
-                                                about_link.classList.remove('hidden');
-                                                about_link.classList.add('visible', 'float-md-end');
-                                                home_link.classList.add('visible', 'float-md-start');
-
-                                                console.log('Classes added to links:', 
-                                                    'home:', home_link.className,
-                                                    'about:', about_link.className);
-                                            }, 5000)
-
-                                        }, 5000); 
-                                    }, 200);
-                                }, 22000);
+                                            element.textContent += (index > 0 ? ' ' : '') + word;
+                                            
+                                            if (index === words.length - 1) {
+                                                setTimeout(() => {
+                                                    for (let i = 1; i <= 62; i++) { 
+                                                        const currentId = `changing-text-${i}`;
+                                                        const currentElement = document.getElementById(currentId);
+                                                        if (currentElement && currentId !== 'changing-text-39') {
+                                                            const computedStyle = window.getComputedStyle(currentElement);
+                                                            const margins = parseFloat(computedStyle.marginTop) + parseFloat(computedStyle.marginBottom);
+                                                            currentElement.style.height = `${currentElement.offsetHeight + margins}px`;
+                                                            currentElement.style.marginTop = computedStyle.marginTop;
+                                                            currentElement.style.marginBottom = computedStyle.marginBottom;
+                                                            currentElement.style.position = 'relative';
+                                                            currentElement.classList.add('fade-out');
+                                                        }
+                                                    }
+            
+                                                    const videoOverlay = document.querySelector('.video-overlay');
+                                                    const backgroundVideo = document.getElementById('background-video');
+                                                    if (videoOverlay && backgroundVideo) {
+                                                        videoOverlay.classList.add('active');
+                                                        
+                                                        const playPromise = backgroundVideo.play();
+                                                        if (playPromise !== undefined) {
+                                                            playPromise
+                                                                .then(() => {
+                                                                })
+                                                                .catch(e => {
+                                                                    console.log('Video autoplay failed:', e);
+                                                                });
+                                                        }
+            
+                                                        setTimeout(() => {
+                                                            const flashOverlay = document.querySelector('.flash-overlay');
+                                                            flashOverlay.classList.add('active');
+                                                            
+                                                            setTimeout(() => {
+                                                                flashOverlay.classList.remove('active');
+                                                                
+                                                                const blackFade = document.querySelector('.black-fade');
+                                                                blackFade.classList.add('active');
+            
+                                                                setTimeout(() => {
+                                                                    const finalText = document.querySelector('.final-text');
+                                                                    finalText.classList.add('visible');
+            
+                                                                    console.log('Transitioning to final state');
+            
+                                                                    window.scrollTo(0,0);
+                                                                    document.body.classList.add('no-scroll');
+            
+                                                                    const home_link = document.getElementById(`home_link`)
+                                                                    const about_link = document.getElementById(`about_link`)
+            
+                                                                    setTimeout(() => {
+                                                                        home_link.classList.remove('hidden', 'float-md-end');
+                                                                        about_link.classList.remove('hidden');
+                                                                        about_link.classList.add('visible', 'float-md-end');
+                                                                        home_link.classList.add('visible', 'float-md-start');
+            
+                                                                        console.log('Classes added to links:', 
+                                                                            'home:', home_link.className,
+                                                                            'about:', about_link.className);
+                                                                    }, 5000)
+            
+                                                                }, 5000); 
+                                                            }, 200);
+                                                        }, 22000);
+                                                    }
+                                                }, 4000);
+                                            }
+                                        }, index * 800);
+                                    });
+                                }
+                                else {
+                                    element.textContent = change.newText;
+                                }
+                            }, cumulativeDelay);
+            
+                            cumulativeDelay += baseDelay;
+            
+                            if (change.elementId === 'changing-text-23') {
+                                cumulativeDelay += 2000;
                             }
-                        }, 4000);
-                    }
-                    else {
-                        element.textContent = change.newText;
-                    }
-                }, cumulativeDelay);
-
-                cumulativeDelay += baseDelay;
-
-                if (change.elementId === 'changing-text-23') {
-                    cumulativeDelay += 2000;
-                }
-            }
-        });
-    }, 9000);
+                        }
+                    });
+                }, 9000);
         }
 
     }
