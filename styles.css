@@ -39,7 +39,7 @@ body.home_page {
     animation: 
         candleFlicker 6s infinite,
         slowZoom 12s ease-in forwards;
-}
+    }
 
 @keyframes candleFlicker {
     0% { 
@@ -78,7 +78,7 @@ body.home_page {
         background-color: rgba(0, 0, 0, 0.5);
         filter: brightness(1) contrast(1);
     }
-}
+    }
 
 /* @keyframes candleFlicker {
     0% { 
@@ -130,9 +130,9 @@ from {
 }
 to {
     background-size: 105% auto;
-}}
+    }}
 
-  @keyframes blurEffect {
+@keyframes blurEffect {
     0% { filter: blur(0px); }
     10% { filter: blur(0.8px); }
     20% { filter: blur(1.6px); }
@@ -144,7 +144,7 @@ to {
     80% { filter: blur(1.6px); }
     90% { filter: blur(0.8px); }
     100% { filter: blur(0px); }
-  }
+    }
 
 .tagline {
     font-size: 80px;
@@ -159,7 +159,7 @@ to {
     font-family: "Roboto", sans-serif;
     align-self: center;
     font-size: 19px;
-}
+    }
 
 .tagline_box {
     width: 470px;
@@ -201,9 +201,26 @@ to {
     }
 
 .lead a {
-        text-decoration: none;
-        font-weight: 300;
-      }
+    text-decoration: none;
+    font-weight: 300;
+    }
+
+.black-fade {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 110%;
+    background-color: black;
+    opacity: 0;
+    z-index: 9999;
+    pointer-events: none;
+    transition: opacity 3s ease-in;
+    }
+
+.black-fade.active {
+    opacity: 1;
+    }
 
 /* About Page */
 body.about_page {
