@@ -39,7 +39,7 @@ body.home_page {
     animation: candleFlicker 8s infinite;
 }
 
-@keyframes candleFlicker {
+/* @keyframes candleFlicker {
     0% { background-color: rgba(0, 0, 0, 0.5); }
     25% { background-color: rgba(0, 0, 0, 0.45); }
     35% { background-color: rgba(0, 0, 0, 0.52); }
@@ -49,6 +49,45 @@ body.home_page {
     70% { background-color: rgba(0, 0, 0, 0.47); }
     85% { background-color: rgba(0, 0, 0, 0.51); }
     100% { background-color: rgba(0, 0, 0, 0.5); }
+} */
+
+@keyframes candleFlicker {
+    0% { 
+        background-color: rgba(0, 0, 0, 0.5);
+        filter: brightness(1);
+    }
+    25% { 
+        background-color: rgba(0, 0, 0, 0.45);
+        filter: brightness(1.02);
+    }
+    35% { 
+        background-color: rgba(0, 0, 0, 0.52);
+        filter: brightness(0.98);
+    }
+    45% { 
+        background-color: rgba(0, 0, 0, 0.48);
+        filter: brightness(1.01);
+    }
+    50% { 
+        background-color: rgba(0, 0, 0, 0.45);
+        filter: brightness(1.03);
+    }
+    60% { 
+        background-color: rgba(0, 0, 0, 0.50);
+        filter: brightness(0.99);
+    }
+    70% { 
+        background-color: rgba(0, 0, 0, 0.47);
+        filter: brightness(1.02);
+    }
+    85% { 
+        background-color: rgba(0, 0, 0, 0.51);
+        filter: brightness(0.98);
+    }
+    100% { 
+        background-color: rgba(0, 0, 0, 0.5);
+        filter: brightness(1);
+    }
 }
 
 .blur_animate {
