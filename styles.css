@@ -36,22 +36,49 @@ body.home_page {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-blend-mode: darken;
-    animation: candleFlicker 8s infinite;
+    animation: candleFlicker 6s infinite;
+}
+
+@keyframes candleFlicker {
+    0% { 
+        background-color: rgba(0, 0, 0, 0.5);
+        filter: brightness(1) contrast(1);
+    }
+    25% { 
+        background-color: rgba(0, 0, 0, 0.4);
+        filter: brightness(1.15) contrast(1.1);
+    }
+    35% { 
+        background-color: rgba(0, 0, 0, 0.55);
+        filter: brightness(0.94) contrast(1.2);
+    }
+    45% { 
+        background-color: rgba(0, 0, 0, 0.45);
+        filter: brightness(1.1) contrast(1.15);
+    }
+    50% { 
+        background-color: rgba(0, 0, 0, 0.35);
+        filter: brightness(1.2) contrast(1.1);
+    }
+    60% { 
+        background-color: rgba(0, 0, 0, 0.52);
+        filter: brightness(0.95) contrast(1.2);
+    }
+    70% { 
+        background-color: rgba(0, 0, 0, 0.42);
+        filter: brightness(1.12) contrast(1.15);
+    }
+    85% { 
+        background-color: rgba(0, 0, 0, 0.53);
+        filter: brightness(0.93) contrast(1.1);
+    }
+    100% { 
+        background-color: rgba(0, 0, 0, 0.5);
+        filter: brightness(1) contrast(1);
+    }
 }
 
 /* @keyframes candleFlicker {
-    0% { background-color: rgba(0, 0, 0, 0.5); }
-    25% { background-color: rgba(0, 0, 0, 0.45); }
-    35% { background-color: rgba(0, 0, 0, 0.52); }
-    45% { background-color: rgba(0, 0, 0, 0.48); }
-    50% { background-color: rgba(0, 0, 0, 0.45); }
-    60% { background-color: rgba(0, 0, 0, 0.50); }
-    70% { background-color: rgba(0, 0, 0, 0.47); }
-    85% { background-color: rgba(0, 0, 0, 0.51); }
-    100% { background-color: rgba(0, 0, 0, 0.5); }
-} */
-
-@keyframes candleFlicker {
     0% { 
         background-color: rgba(0, 0, 0, 0.5);
         filter: brightness(1);
@@ -88,7 +115,7 @@ body.home_page {
         background-color: rgba(0, 0, 0, 0.5);
         filter: brightness(1);
     }
-}
+} */
 
 .blur_animate {
     animation: blurEffect 5s infinite;
