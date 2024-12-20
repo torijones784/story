@@ -609,7 +609,7 @@ const textChangesTopTwo = [
                                     const flashOverlay = document.querySelector('.flash-overlay');
                                     flashOverlay.classList.add('active');
 
-                                    console.log('Classes added to thinks:', )
+                                    console.log('Classes added to thinks:', flashOverlay.className);
                                     
                                     setTimeout(() => {
                                         flashOverlay.classList.remove('active');
