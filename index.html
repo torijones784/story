@@ -52,6 +52,10 @@
           
           setTimeout(() => {
               window.location.href = this.getAttribute('href');
+
+              setTimeout(() => {
+                overlay.classList.remove('active');
+              }, 5000)
           }, 3000);
       });
       </script>
