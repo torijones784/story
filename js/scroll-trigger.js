@@ -649,7 +649,7 @@ const textChangesTopTwo = [
                                                     }
                                                 }, 4000);
                                             }
-                                        }, index * 800);
+                                        }, index * 1200);
                                     });
                                 }
                                 else {
