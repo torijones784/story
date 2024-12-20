@@ -37,6 +37,19 @@ body.home_page {
     background-attachment: fixed;
     background-blend-mode: darken;
     background-color: rgba(0, 0, 0, 0.5);
+    animation: candleFlicker 8s infinite;
+}
+
+@keyframes candleFlicker {
+    0% { background-color: rgba(0, 0, 0, 0.5); }
+    25% { background-color: rgba(0, 0, 0, 0.45); }
+    35% { background-color: rgba(0, 0, 0, 0.52); }
+    45% { background-color: rgba(0, 0, 0, 0.48); }
+    50% { background-color: rgba(0, 0, 0, 0.45); }
+    60% { background-color: rgba(0, 0, 0, 0.50); }
+    70% { background-color: rgba(0, 0, 0, 0.47); }
+    85% { background-color: rgba(0, 0, 0, 0.51); }
+    100% { background-color: rgba(0, 0, 0, 0.5); }
 }
 
 .blur_animate {
