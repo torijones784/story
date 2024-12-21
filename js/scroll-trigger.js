@@ -495,7 +495,9 @@ const textChangesTopTwo = [
 
             textChangesBottom.forEach(change => {
                 const element = document.getElementById(change.elementId);
-                if (element) {
+                if (change.newText === '') {
+                    element.remove();
+                } else if (element) {
                     element.textContent = change.newText;
                 }
             });
