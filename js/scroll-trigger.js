@@ -656,9 +656,9 @@ const textChangesTopTwo = [
                                                                             'about:', about_link.className);
                                                                     }, 5000)
             
-                                                                }, 15000); 
-                                                                // change back to 1s
-                                                            }, 1000);
+                                                                }, 5000); 
+                                                            }, 15000);
+                                                            // change back to 1s
                                                         }, 22000);
                                                     }
                                                 }, 4000);
