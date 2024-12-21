@@ -555,7 +555,7 @@ const textChangesTopTwo = [
                         }
                     }
                 
-                    let cumulativeDelay = 4000;
+                    let cumulativeDelay = 3000;
                     let hasChangedText23 = false;
                     
                     textChangesTopThree.forEach((change, index) => {
