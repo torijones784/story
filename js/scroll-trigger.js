@@ -675,7 +675,7 @@ const textChangesTopTwo = [
                             }
                         }
                     });
-                }, 80000);
+                }, 90000);
         }
 
     }
