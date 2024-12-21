@@ -7,6 +7,8 @@ function initScrollTrigger() {
     let fifthTriggerActivated = false;
     let pageLoadTime = Date.now();
     const MINIMUM_TIME = 10; // Change back
+
+    let lastViewportHeight = window.innerHeight;
     
     document.addEventListener('DOMContentLoaded', () => {
         const video = document.getElementById('background-video');
@@ -361,7 +363,6 @@ const textChangesTopTwo = [
             elementId: `changing-text-22`,
             newText: `What aren't you seeing?`
         },
-        // Time delay and change to "You just wanted to scream at it all" -> moment later when she screams
         {
             elementId: `changing-text-23`, 
             newText: `Why shouldn't your daughter scream at it all?`
@@ -448,15 +449,25 @@ const textChangesTopTwo = [
         }
     ];
 
+    function getScrollPercentage() {
+        const viewportHeight = window.innerHeight;
+        const scrollTop = window.scrollY;
+        const documentHeight = Math.max(
+            document.body.scrollHeight,
+            document.documentElement.scrollHeight,
+            document.body.offsetHeight,
+            document.documentElement.offsetHeight
+        );
+        return ((scrollTop + viewportHeight) / documentHeight) * 100;
+    }
+
     function checkScroll() { 
         const timeSpent = Date.now() - pageLoadTime;
         if (timeSpent < MINIMUM_TIME) {
             return;
         }
 
-        const scrollPosition = window.scrollY + window.innerHeight;
-        const totalHeight = document.documentElement.scrollHeight;
-        const scrollPercentage = (scrollPosition / totalHeight) * 100;
+        const scrollPercentage = getScrollPercentage();
 
         if (scrollPercentage > 80 && !hasTriggered) { 
             console.log('First trigger activated');
