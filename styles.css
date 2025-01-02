@@ -1,9 +1,8 @@
 /* All */
 header {
     width: 100% !important;
-    margin-left: 0;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    margin: 0;
+    padding: 1rem;
     background-size: cover;
     }
 
@@ -20,12 +19,12 @@ footer {
     }
 
 .nav-container {
-    max-width: 90em;
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: 0 !important;
+    margin: 0 !important;
     }
 
 .active {
@@ -35,13 +34,13 @@ footer {
 
 /* Home Page */
 
-html.home_page {
+html.home_page.body {
+    margin: 0;
+    padding: 0;
     height: 100vh;
 }
 
 body.home_page {
-    margin: 0;
-    padding: 0;
     height: 100vh;
     overflow-x: hidden;
     background-image: url('images/background_three.jpg');
