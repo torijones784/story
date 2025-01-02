@@ -513,15 +513,6 @@ const textChangesTopTwo = [
                     element.textContent = change.newText;
                 }
             });
-
-            if (scrollPercentage < 40) {
-            console.log('Debug fourth trigger:', {
-                scrollPercentage,
-                hasTriggered,
-                roundTwoBottom,
-                roundThreeTop
-            });
-        }
         }
 
 
