@@ -1,6 +1,10 @@
 /* All */
 header {
-    width: 100vw !important;
+    width: 100% !important;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     margin-left: calc(-50vw + 50%);
     padding-left: 1rem;
     padding-right: 1rem;
@@ -21,6 +25,10 @@ footer {
 
 .nav-container {
     max-width: 90em;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     }
 
 .active {
@@ -29,12 +37,20 @@ footer {
     }
 
 /* Home Page */
+
 body.home_page {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden;
     background-image: url('images/background_three.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     background-blend-mode: darken;
     animation: 
         candleFlicker 6s infinite,
