@@ -6,7 +6,7 @@ function initScrollTrigger() {
     let hasReachedBottom = false;  
     let fifthTriggerActivated = false;
     let pageLoadTime = Date.now();
-    const MINIMUM_TIME = 30;
+    const MINIMUM_TIME = 30000;
 
     let lastViewportHeight = window.innerHeight;
     
