@@ -526,7 +526,7 @@ const textChangesTopTwo = [
 
 
 
-        if (scrollPercentage < 40 && hasTriggered && roundTwoBottom && !roundThreeTop) { 
+        if (scrollPercentage < 45 && hasTriggered && roundTwoBottom && !roundThreeTop) { 
             console.log('Fourth trigger activated');
             roundThreeTop = true;
 
