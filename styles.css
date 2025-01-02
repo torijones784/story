@@ -25,7 +25,7 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 0;
+    padding: 0 !important;
     }
 
 .active {
@@ -34,6 +34,10 @@ footer {
     }
 
 /* Home Page */
+
+html.home_page {
+    height: 100vh;
+}
 
 body.home_page {
     margin: 0;
