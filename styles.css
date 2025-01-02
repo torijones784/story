@@ -239,7 +239,7 @@ to {
     background-color: black;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.5s ease;
+    transition: opacity 1s ease;
     z-index: 9999;
     pointer-events: none;
     }
