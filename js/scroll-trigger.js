@@ -515,6 +515,15 @@ const textChangesTopTwo = [
             });
         }
 
+        if (scrollPercentage < 40) {
+            console.log('Debug fourth trigger:', {
+                scrollPercentage,
+                hasTriggered,
+                roundTwoBottom,
+                roundThreeTop
+            });
+        }
+
         if (scrollPercentage < 40 && hasTriggered && roundTwoBottom && !roundThreeTop) { 
             console.log('Fourth trigger activated');
             roundThreeTop = true;
