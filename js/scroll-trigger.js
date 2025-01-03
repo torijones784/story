@@ -485,7 +485,7 @@ const textChangesTopTwo = [
             if (closingQuestion) {
                 closingQuestionTimeout = setTimeout(() => {
                     closingQuestion.classList.add('visible');
-                }, 17000);
+                }, 10000);
             }
         }
 
