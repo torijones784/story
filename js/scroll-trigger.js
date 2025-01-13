@@ -23,6 +23,101 @@ function initScrollTrigger() {
         }
     });
 
+    function createMarginEffect() {
+        const container = document.createElement('div');
+        container.id = 'margin-effect';
+        container.style.position = 'fixed';
+        container.style.top = '0';
+        container.style.left = '0';
+        container.style.width = '100%';
+        container.style.height = '100%';
+        container.style.pointerEvents = 'none';
+        container.style.zIndex = '2';
+        
+        const leftMargin = document.createElement('div');
+        leftMargin.style.position = 'absolute';
+        leftMargin.style.left = '0';
+        leftMargin.style.width = '96px';
+        leftMargin.style.height = '100%';
+        
+        const rightMargin = document.createElement('div');
+        rightMargin.style.position = 'absolute';
+        rightMargin.style.right = '0';
+        rightMargin.style.width = '96px';
+        rightMargin.style.height = '100%';
+        
+        container.appendChild(leftMargin);
+        container.appendChild(rightMargin);
+        document.body.appendChild(container);
+        
+        const points = Array.from({ length: 3 }, () => ({
+            x: Math.random() * 100,
+            y: Math.random() * 100,
+            phase: Math.random() * Math.PI * 2,
+            element: document.createElement('div'),
+            mirrorElement: document.createElement('div')
+        }));
+        
+        points.forEach(point => {
+            point.element.style.position = 'absolute';
+            point.element.style.width = '48px';
+            point.element.style.height = '48px';
+            point.element.style.borderRadius = '50%';
+            point.element.style.transition = 'opacity 1000ms';
+            point.element.style.background = 'radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%)';
+            point.element.style.filter = 'blur(4px)';
+            point.element.style.transform = 'scale(1.5)';
+            point.element.style.opacity = '0.05';
+            
+            point.mirrorElement.style.position = 'absolute';
+            point.mirrorElement.style.width = '48px';
+            point.mirrorElement.style.height = '48px';
+            point.mirrorElement.style.borderRadius = '50%';
+            point.mirrorElement.style.transition = 'opacity 1000ms';
+            point.mirrorElement.style.background = 'radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%)';
+            point.mirrorElement.style.filter = 'blur(4px)';
+            point.mirrorElement.style.transform = 'scale(1.5)';
+            point.mirrorElement.style.opacity = '0.05';
+            
+            leftMargin.appendChild(point.element);
+            rightMargin.appendChild(point.mirrorElement);
+        });
+        
+        function animate() {
+            points.forEach(point => {
+                point.phase += 0.005;
+                point.y = (point.y + 0.05) % 100;
+                point.x = 15 + Math.sin(point.phase) * 8;
+                
+                point.element.style.left = `${point.x}%`;
+                point.element.style.top = `${point.y}%`;
+                
+                point.mirrorElement.style.right = `${point.x}%`;
+                point.mirrorElement.style.top = `${(point.y + 50) % 100}%`;
+            });
+            
+            requestAnimationFrame(animate);
+        }
+        
+        animate();
+        
+        function handleTextChange() {
+            points.forEach(point => {
+                point.element.style.opacity = '0.15';
+                point.mirrorElement.style.opacity = '0.15';
+                
+                setTimeout(() => {
+                    point.element.style.opacity = '0.05';
+                    point.mirrorElement.style.opacity = '0.05';
+                }, 2000);
+            });
+        }
+        
+        window.addEventListener('textchange', handleTextChange);
+    }
+    
+    document.addEventListener('DOMContentLoaded', createMarginEffect);
+
 
     const textChangesTop = [
         {
