@@ -449,6 +449,10 @@ const textChangesTopTwo = [
         }
     ];
 
+    function dispatchTextChangeEvent() {
+        window.dispatchEvent(new CustomEvent('textchange'));
+    }
+
     function getScrollPercentage() {
         const viewportHeight = window.innerHeight;
         const scrollTop = window.scrollY;
@@ -480,6 +484,8 @@ const textChangesTopTwo = [
                     element.textContent = change.newText;
                 }
             });
+
+            dispatchTextChangeEvent();
 
             const closingQuestion = document.getElementById('closing_question');
             if (closingQuestion) {
