@@ -14,7 +14,14 @@ function initScrollTrigger() {
     document.addEventListener('DOMContentLoaded', () => {
         const video = document.getElementById('background-video');
         video.load();
-        createMarginEffect(); 
+        
+        try {
+            console.log("About to create margin effect");
+            createMarginEffect();
+            console.log("After createMarginEffect call");
+        } catch (error) {
+            console.error("Error creating margin effect:", error);
+        }
     });
 
     window.addEventListener('beforeunload', () => {
@@ -25,7 +32,9 @@ function initScrollTrigger() {
     });
 
     function createMarginEffect() {
+        console.log("Starting createMarginEffect");
         const container = document.createElement('div');
+        console.log("Container created");
         container.id = 'margin-effect';
         container.style.position = 'fixed';
         container.style.top = '0';
@@ -40,6 +49,7 @@ function initScrollTrigger() {
         leftMargin.style.left = '0';
         leftMargin.style.width = '200px';
         leftMargin.style.height = '100%';
+        console.log("Margins created")
         
         const rightMargin = document.createElement('div');
         rightMargin.style.position = 'absolute';
