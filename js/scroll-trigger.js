@@ -14,6 +14,7 @@ function initScrollTrigger() {
     document.addEventListener('DOMContentLoaded', () => {
         const video = document.getElementById('background-video');
         video.load();
+        createMarginEffect(); 
     });
 
     window.addEventListener('beforeunload', () => {
@@ -116,9 +117,6 @@ function initScrollTrigger() {
         window.addEventListener('textchange', handleTextChange);
         console.log("Margin effect created");
     }
-    
-    document.addEventListener('DOMContentLoaded', createMarginEffect);
-    console.log("Margin effect initialized");
 
 
     const textChangesTop = [
