@@ -14,6 +14,8 @@ function initScrollTrigger() {
     document.addEventListener('DOMContentLoaded', () => {
         const video = document.getElementById('background-video');
         video.load();
+
+        console.log("dom check");
         
         try {
             console.log("About to create margin effect");
