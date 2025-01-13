@@ -103,12 +103,12 @@ function initScrollTrigger() {
         
         function handleTextChange() {
             points.forEach(point => {
-                point.element.style.opacity = '0.15';
-                point.mirrorElement.style.opacity = '0.15';
+                point.element.style.opacity = '0.3';
+                point.mirrorElement.style.opacity = '0.3';
                 
                 setTimeout(() => {
-                    point.element.style.opacity = '0.05';
-                    point.mirrorElement.style.opacity = '0.05';
+                    point.element.style.opacity = '0.15';
+                    point.mirrorElement.style.opacity = '0.15';
                 }, 2000);
             });
         }
