@@ -10,21 +10,6 @@ function initScrollTrigger() {
     // Change to 12000
 
     let lastViewportHeight = window.innerHeight;
-    
-    document.addEventListener('DOMContentLoaded', () => {
-        const video = document.getElementById('background-video');
-        video.load();
-
-        console.log("dom check");
-        
-        try {
-            console.log("About to create margin effect");
-            createMarginEffect();
-            console.log("After createMarginEffect call");
-        } catch (error) {
-            console.error("Error creating margin effect:", error);
-        }
-    });
 
     window.addEventListener('beforeunload', () => {
         const video = document.getElementById('background-video');
@@ -812,4 +797,106 @@ const textChangesTopTwo = [
     checkScroll();
 }
 
-document.addEventListener('DOMContentLoaded', initScrollTrigger);
+document.addEventListener('DOMContentLoaded', () => {
+    console.log("DOM Content Loaded - Main Event");
+    initScrollTrigger();
+    
+    try {
+        console.log("About to create margin effect");
+        const container = document.createElement('div');
+        container.id = 'margin-effect';
+        container.style.position = 'fixed';
+        container.style.top = '0';
+        container.style.left = '0';
+        container.style.width = '100%';
+        container.style.height = '100%';
+        container.style.pointerEvents = 'none';
+        container.style.zIndex = '9998';
+        
+        const leftMargin = document.createElement('div');
+        leftMargin.style.position = 'absolute';
+        leftMargin.style.left = '0';
+        leftMargin.style.width = '200px';
+        leftMargin.style.height = '100%';
+        console.log("Left margin created");
+        
+        const rightMargin = document.createElement('div');
+        rightMargin.style.position = 'absolute';
+        rightMargin.style.right = '0';
+        rightMargin.style.width = '200px';
+        rightMargin.style.height = '100%';
+        console.log("Right margin created");
+        
+        container.appendChild(leftMargin);
+        container.appendChild(rightMargin);
+        document.body.appendChild(container);
+        
+        const points = Array.from({ length: 5 }, () => ({
+            x: Math.random() * 100,
+            y: Math.random() * 100,
+            phase: Math.random() * Math.PI * 2,
+            element: document.createElement('div'),
+            mirrorElement: document.createElement('div')
+        }));
+        
+        points.forEach(point => {
+            point.element.style.position = 'absolute';
+            point.element.style.width = '100px';
+            point.element.style.height = '100px';
+            point.element.style.borderRadius = '50%';
+            point.element.style.transition = 'opacity 1000ms';
+            point.element.style.background = 'radial-gradient(circle, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 70%)';
+            point.element.style.filter = 'blur(8px)';
+            point.element.style.transform = 'scale(2)';
+            point.element.style.opacity = '0.4';
+            
+            point.mirrorElement.style.position = 'absolute';
+            point.mirrorElement.style.width = '100px';
+            point.mirrorElement.style.height = '100px';
+            point.mirrorElement.style.borderRadius = '50%';
+            point.mirrorElement.style.transition = 'opacity 1000ms';
+            point.mirrorElement.style.background = 'radial-gradient(circle, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 70%)';
+            point.mirrorElement.style.filter = 'blur(8px)';
+            point.mirrorElement.style.transform = 'scale(2)';
+            point.mirrorElement.style.opacity = '0.4';
+            
+            leftMargin.appendChild(point.element);
+            rightMargin.appendChild(point.mirrorElement);
+        });
+        
+        function animate() {
+            points.forEach(point => {
+                point.phase += 0.005;
+                point.y = (point.y + 0.05) % 100;
+                point.x = 15 + Math.sin(point.phase) * 12;
+                
+                point.element.style.left = `${point.x}%`;
+                point.element.style.top = `${point.y}%`;
+                
+                point.mirrorElement.style.right = `${point.x}%`;
+                point.mirrorElement.style.top = `${(point.y + 50) % 100}%`;
+            });
+            
+            requestAnimationFrame(animate);
+        }
+        
+        animate();
+        
+        function handleTextChange() {
+            points.forEach(point => {
+                point.element.style.opacity = '0.8';
+                point.mirrorElement.style.opacity = '0.8';
+                
+                setTimeout(() => {
+                    point.element.style.opacity = '0.4';
+                    point.mirrorElement.style.opacity = '0.4';
+                }, 2000);
+            });
+        }
+        
+        window.addEventListener('textchange', handleTextChange);
+        console.log("Margin effect created");
+    } catch (error) {
+        console.error("Error creating margin effect:", error);
+    }
+});
