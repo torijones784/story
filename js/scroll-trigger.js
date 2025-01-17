@@ -829,37 +829,37 @@ document.addEventListener('DOMContentLoaded', () => {
         container.appendChild(rightMargin);
         document.body.appendChild(container);
         
-        // Create fewer points but connect them
-        const points = Array.from({ length: 3 }, (_, index) => ({
-            x: Math.random() * 100,
-            y: index * 33, // Space them out vertically
+        // Create vertical snake elements
+        const snakes = Array.from({ length: 4 }, (_, index) => ({
+            x: 20 + (index * 20), // Space them horizontally
+            y: 100, // Start at bottom
             phase: Math.random() * Math.PI * 2,
-            speed: 0.02 + (Math.random() * 0.02), // Varying speeds
-            amplitude: 15 + (Math.random() * 10), // Varying amplitudes
+            speed: 0.5 + (Math.random() * 0.3), // Speed of upward movement
             element: document.createElement('div'),
             mirrorElement: document.createElement('div'),
-            active: false
+            active: false,
+            length: 150 + (Math.random() * 100) // Varying lengths
         }));
         
-        // Style points as longer, more snake-like elements
-        points.forEach(point => {
+        // Style snakes as vertical elements
+        snakes.forEach(snake => {
             const snakeStyles = {
                 position: 'absolute',
-                width: '150px', // Longer
-                height: '30px', // Thinner
-                borderRadius: '15px', // More oval
-                transition: 'all 1000ms',
-                background: 'radial-gradient(ellipse at center, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 70%)',
-                filter: 'blur(8px)',
+                width: '3px', // Very thin
+                height: `${snake.length}px`, // Longer vertical elements
+                borderRadius: '1.5px',
+                transition: 'opacity 1000ms',
+                background: 'linear-gradient(to top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%)',
+                filter: 'blur(2px)',
+                opacity: '0',
                 transform: 'scale(1)',
-                opacity: '0'
             };
             
-            Object.assign(point.element.style, snakeStyles);
-            Object.assign(point.mirrorElement.style, snakeStyles);
+            Object.assign(snake.element.style, snakeStyles);
+            Object.assign(snake.mirrorElement.style, snakeStyles);
             
-            leftMargin.appendChild(point.element);
-            rightMargin.appendChild(point.mirrorElement);
+            leftMargin.appendChild(snake.element);
+            rightMargin.appendChild(snake.mirrorElement);
         });
         
         let isAnimating = false;
@@ -867,23 +867,27 @@ document.addEventListener('DOMContentLoaded', () => {
         function animate() {
             if (!isAnimating) return;
             
-            points.forEach((point, index) => {
-                if (!point.active) return;
+            snakes.forEach((snake) => {
+                if (!snake.active) return;
                 
-                point.phase += point.speed;
-                point.y = (point.y + 0.1) % 100;
-                point.x = 15 + Math.sin(point.phase) * point.amplitude;
+                // Move upward
+                snake.y -= snake.speed;
                 
-                // Add undulating motion
-                const undulation = Math.sin(point.phase * 2) * 5;
+                // Reset to bottom when reaching top
+                if (snake.y < -snake.length) {
+                    snake.y = 100;
+                    snake.x = 20 + (Math.random() * 60); // Randomize horizontal position on reset
+                }
                 
-                point.element.style.left = `${point.x}%`;
-                point.element.style.top = `${point.y}%`;
-                point.element.style.transform = `scale(1) rotate(${undulation}deg)`;
+                // Add subtle horizontal movement
+                const wiggle = Math.sin(snake.phase) * 10;
+                snake.phase += 0.02;
                 
-                point.mirrorElement.style.right = `${point.x}%`;
-                point.mirrorElement.style.top = `${(point.y + 30) % 100}%`;
-                point.mirrorElement.style.transform = `scale(1) rotate(${-undulation}deg)`;
+                snake.element.style.left = `${snake.x + wiggle}%`;
+                snake.element.style.top = `${snake.y}%`;
+                
+                snake.mirrorElement.style.right = `${snake.x + wiggle}%`;
+                snake.mirrorElement.style.top = `${snake.y}%`;
             });
             
             requestAnimationFrame(animate);
@@ -892,27 +896,27 @@ document.addEventListener('DOMContentLoaded', () => {
         function handleTextChange() {
             isAnimating = true;
             
-            // Activate points one by one
-            points.forEach((point, index) => {
+            // Activate snakes one by one
+            snakes.forEach((snake, index) => {
                 setTimeout(() => {
-                    point.active = true;
-                    point.element.style.opacity = '0.6';
-                    point.mirrorElement.style.opacity = '0.6';
+                    snake.active = true;
+                    snake.element.style.opacity = '0.8';
+                    snake.mirrorElement.style.opacity = '0.8';
                     
-                    // Add pulsing effect
+                    // Add subtle pulsing effect
                     setInterval(() => {
-                        const pulseOpacity = 0.3 + Math.sin(Date.now() * 0.003) * 0.3;
-                        point.element.style.opacity = pulseOpacity.toString();
-                        point.mirrorElement.style.opacity = pulseOpacity.toString();
+                        const pulseOpacity = 0.6 + Math.sin(Date.now() * 0.002) * 0.2;
+                        snake.element.style.opacity = pulseOpacity.toString();
+                        snake.mirrorElement.style.opacity = pulseOpacity.toString();
                     }, 50);
-                }, index * 1000); // Stagger the appearance
+                }, index * 200); // Quicker stagger for more urgency
             });
             
             animate();
         }
         
         window.addEventListener('textchange', handleTextChange);
-        console.log("Snake effect created");
+        console.log("Vertical snake effect created");
     } catch (error) {
         console.error("Error creating snake effect:", error);
     }
