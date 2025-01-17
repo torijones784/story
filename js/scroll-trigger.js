@@ -818,85 +818,102 @@ document.addEventListener('DOMContentLoaded', () => {
         leftMargin.style.left = '0';
         leftMargin.style.width = '200px';
         leftMargin.style.height = '100%';
-        console.log("Left margin created");
         
         const rightMargin = document.createElement('div');
         rightMargin.style.position = 'absolute';
         rightMargin.style.right = '0';
         rightMargin.style.width = '200px';
         rightMargin.style.height = '100%';
-        console.log("Right margin created");
         
         container.appendChild(leftMargin);
         container.appendChild(rightMargin);
         document.body.appendChild(container);
         
-        const points = Array.from({ length: 5 }, () => ({
+        // Create fewer points but connect them
+        const points = Array.from({ length: 3 }, (_, index) => ({
             x: Math.random() * 100,
-            y: Math.random() * 100,
+            y: index * 33, // Space them out vertically
             phase: Math.random() * Math.PI * 2,
+            speed: 0.02 + (Math.random() * 0.02), // Varying speeds
+            amplitude: 15 + (Math.random() * 10), // Varying amplitudes
             element: document.createElement('div'),
-            mirrorElement: document.createElement('div')
+            mirrorElement: document.createElement('div'),
+            active: false
         }));
         
+        // Style points as longer, more snake-like elements
         points.forEach(point => {
-            point.element.style.position = 'absolute';
-            point.element.style.width = '100px';
-            point.element.style.height = '100px';
-            point.element.style.borderRadius = '50%';
-            point.element.style.transition = 'opacity 1000ms';
-            point.element.style.background = 'radial-gradient(circle, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 70%)';
-            point.element.style.filter = 'blur(8px)';
-            point.element.style.transform = 'scale(2)';
-            point.element.style.opacity = '0.4';
+            const snakeStyles = {
+                position: 'absolute',
+                width: '150px', // Longer
+                height: '30px', // Thinner
+                borderRadius: '15px', // More oval
+                transition: 'all 1000ms',
+                background: 'radial-gradient(ellipse at center, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 70%)',
+                filter: 'blur(8px)',
+                transform: 'scale(1)',
+                opacity: '0'
+            };
             
-            point.mirrorElement.style.position = 'absolute';
-            point.mirrorElement.style.width = '100px';
-            point.mirrorElement.style.height = '100px';
-            point.mirrorElement.style.borderRadius = '50%';
-            point.mirrorElement.style.transition = 'opacity 1000ms';
-            point.mirrorElement.style.background = 'radial-gradient(circle, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 70%)';
-            point.mirrorElement.style.filter = 'blur(8px)';
-            point.mirrorElement.style.transform = 'scale(2)';
-            point.mirrorElement.style.opacity = '0.4';
+            Object.assign(point.element.style, snakeStyles);
+            Object.assign(point.mirrorElement.style, snakeStyles);
             
             leftMargin.appendChild(point.element);
             rightMargin.appendChild(point.mirrorElement);
         });
         
+        let isAnimating = false;
+        
         function animate() {
-            points.forEach(point => {
-                point.phase += 0.005;
-                point.y = (point.y + 0.05) % 100;
-                point.x = 15 + Math.sin(point.phase) * 12;
+            if (!isAnimating) return;
+            
+            points.forEach((point, index) => {
+                if (!point.active) return;
+                
+                point.phase += point.speed;
+                point.y = (point.y + 0.1) % 100;
+                point.x = 15 + Math.sin(point.phase) * point.amplitude;
+                
+                // Add undulating motion
+                const undulation = Math.sin(point.phase * 2) * 5;
                 
                 point.element.style.left = `${point.x}%`;
                 point.element.style.top = `${point.y}%`;
+                point.element.style.transform = `scale(1) rotate(${undulation}deg)`;
                 
                 point.mirrorElement.style.right = `${point.x}%`;
-                point.mirrorElement.style.top = `${(point.y + 50) % 100}%`;
+                point.mirrorElement.style.top = `${(point.y + 30) % 100}%`;
+                point.mirrorElement.style.transform = `scale(1) rotate(${-undulation}deg)`;
             });
             
             requestAnimationFrame(animate);
         }
         
-        animate();
-        
         function handleTextChange() {
-            points.forEach(point => {
-                point.element.style.opacity = '0.8';
-                point.mirrorElement.style.opacity = '0.8';
-                
+            isAnimating = true;
+            
+            // Activate points one by one
+            points.forEach((point, index) => {
                 setTimeout(() => {
-                    point.element.style.opacity = '0.4';
-                    point.mirrorElement.style.opacity = '0.4';
-                }, 2000);
+                    point.active = true;
+                    point.element.style.opacity = '0.6';
+                    point.mirrorElement.style.opacity = '0.6';
+                    
+                    // Add pulsing effect
+                    setInterval(() => {
+                        const pulseOpacity = 0.3 + Math.sin(Date.now() * 0.003) * 0.3;
+                        point.element.style.opacity = pulseOpacity.toString();
+                        point.mirrorElement.style.opacity = pulseOpacity.toString();
+                    }, 50);
+                }, index * 1000); // Stagger the appearance
             });
+            
+            animate();
         }
         
         window.addEventListener('textchange', handleTextChange);
-        console.log("Margin effect created");
+        console.log("Snake effect created");
     } catch (error) {
-        console.error("Error creating margin effect:", error);
+        console.error("Error creating snake effect:", error);
     }
 });
