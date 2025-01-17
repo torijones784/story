@@ -6,10 +6,14 @@ function initScrollTrigger() {
     let hasReachedBottom = false;  
     let fifthTriggerActivated = false;
     let pageLoadTime = Date.now();
-    const MINIMUM_TIME = 1000; 
-    // Change to 12000
+    const MINIMUM_TIME = 12000;
 
     let lastViewportHeight = window.innerHeight;
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        const video = document.getElementById('background-video');
+        video.load();
+    });
 
     window.addEventListener('beforeunload', () => {
         const video = document.getElementById('background-video');
@@ -17,103 +21,6 @@ function initScrollTrigger() {
             video.pause();
         }
     });
-
-    function createMarginEffect() {
-        console.log("Starting createMarginEffect");
-        const container = document.createElement('div');
-        console.log("Container created");
-        container.id = 'margin-effect';
-        container.style.position = 'fixed';
-        container.style.top = '0';
-        container.style.left = '0';
-        container.style.width = '100%';
-        container.style.height = '100%';
-        container.style.pointerEvents = 'none';
-        container.style.zIndex = '9998';
-        
-        const leftMargin = document.createElement('div');
-        leftMargin.style.position = 'absolute';
-        leftMargin.style.left = '0';
-        leftMargin.style.width = '200px';
-        leftMargin.style.height = '100%';
-        console.log("Margins created")
-        
-        const rightMargin = document.createElement('div');
-        rightMargin.style.position = 'absolute';
-        rightMargin.style.right = '0';
-        rightMargin.style.width = '200px';
-        rightMargin.style.height = '100%';
-        
-        container.appendChild(leftMargin);
-        container.appendChild(rightMargin);
-        document.body.appendChild(container);
-        
-        const points = Array.from({ length: 5 }, () => ({
-            x: Math.random() * 100,
-            y: Math.random() * 100,
-            phase: Math.random() * Math.PI * 2,
-            element: document.createElement('div'),
-            mirrorElement: document.createElement('div')
-        }));
-        
-        points.forEach(point => {
-            point.element.style.position = 'absolute';
-            point.element.style.width = '100px';
-            point.element.style.height = '100px';
-            point.element.style.borderRadius = '50%';
-            point.element.style.transition = 'opacity 1000ms';
-            point.element.style.background = 'radial-gradient(circle, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 70%)'; // Increased opacity
-            point.element.style.filter = 'blur(8px)';
-            point.element.style.transform = 'scale(2)';
-            point.element.style.opacity = '0.4';
-            
-            point.mirrorElement.style.position = 'absolute';
-            point.mirrorElement.style.width = '100px';
-            point.mirrorElement.style.height = '100px';
-            point.mirrorElement.style.borderRadius = '50%';
-            point.mirrorElement.style.transition = 'opacity 1000ms';
-            point.mirrorElement.style.background = 'radial-gradient(circle, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 70%)'; // Increased opacity
-            point.mirrorElement.style.filter = 'blur(8px)';
-            point.mirrorElement.style.transform = 'scale(2)';
-            point.mirrorElement.style.opacity = '0.4';
-            
-            leftMargin.appendChild(point.element);
-            rightMargin.appendChild(point.mirrorElement);
-        });
-        
-        function animate() {
-            points.forEach(point => {
-                point.phase += 0.005;
-                point.y = (point.y + 0.05) % 100;
-                point.x = 15 + Math.sin(point.phase) * 12; // Increased movement range
-                
-                point.element.style.left = `${point.x}%`;
-                point.element.style.top = `${point.y}%`;
-                
-                point.mirrorElement.style.right = `${point.x}%`;
-                point.mirrorElement.style.top = `${(point.y + 50) % 100}%`;
-            });
-            
-            requestAnimationFrame(animate);
-        }
-        
-        animate();
-        
-        function handleTextChange() {
-            points.forEach(point => {
-                point.element.style.opacity = '0.8'; // Increased peak opacity
-                point.mirrorElement.style.opacity = '0.8'; // Increased peak opacity
-                
-                setTimeout(() => {
-                    point.element.style.opacity = '0.4'; // Increased base opacity
-                    point.mirrorElement.style.opacity = '0.4'; // Increased base opacity
-                }, 2000);
-            });
-        }
-        
-        window.addEventListener('textchange', handleTextChange);
-        console.log("Margin effect created");
-    }
 
 
     const textChangesTop = [
@@ -542,10 +449,6 @@ const textChangesTopTwo = [
         }
     ];
 
-    function dispatchTextChangeEvent() {
-        window.dispatchEvent(new CustomEvent('textchange'));
-    }
-
     function getScrollPercentage() {
         const viewportHeight = window.innerHeight;
         const scrollTop = window.scrollY;
@@ -577,8 +480,6 @@ const textChangesTopTwo = [
                     element.textContent = change.newText;
                 }
             });
-
-            dispatchTextChangeEvent();
 
             const closingQuestion = document.getElementById('closing_question');
             if (closingQuestion) {
@@ -797,134 +698,4 @@ const textChangesTopTwo = [
     checkScroll();
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    console.log("DOM Content Loaded - Main Event");
-    initScrollTrigger();
-    
-    try {
-        console.log("About to create margin effect");
-        const container = document.createElement('div');
-        container.id = 'margin-effect';
-        container.style.position = 'fixed';
-        container.style.top = '0';
-        container.style.left = '0';
-        container.style.width = '100%';
-        container.style.height = '100%';
-        container.style.pointerEvents = 'none';
-        container.style.zIndex = '9998';
-        
-        const leftMargin = document.createElement('div');
-        leftMargin.style.position = 'absolute';
-        leftMargin.style.left = '0';
-        leftMargin.style.width = '200px';
-        leftMargin.style.height = '100%';
-        
-        const rightMargin = document.createElement('div');
-        rightMargin.style.position = 'absolute';
-        rightMargin.style.right = '0';
-        rightMargin.style.width = '200px';
-        rightMargin.style.height = '100%';
-        
-        container.appendChild(leftMargin);
-        container.appendChild(rightMargin);
-        document.body.appendChild(container);
-        
-        // Create two long serpentine lines
-        const serpents = Array.from({ length: 2 }, (_, index) => ({
-            x: 40,
-            y: 0,
-            phase: index * Math.PI, // Offset phases so they move opposite each other
-            element: document.createElement('div'),
-            mirrorElement: document.createElement('div'),
-            active: false,
-            length: window.innerHeight * 1.5, // Make them longer than viewport
-        }));
-        
-        // Style serpents as thick, continuous lines
-        serpents.forEach(serpent => {
-            const serpentStyles = {
-                position: 'absolute',
-                width: '15px', // Thicker
-                height: `${serpent.length}px`,
-                borderRadius: '7.5px',
-                transition: 'opacity 2000ms',
-                background: 'linear-gradient(to top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%)',
-                filter: 'blur(4px)',
-                opacity: '0',
-                transformOrigin: 'center top'
-            };
-            
-            Object.assign(serpent.element.style, serpentStyles);
-            Object.assign(serpent.mirrorElement.style, serpentStyles);
-            
-            leftMargin.appendChild(serpent.element);
-            rightMargin.appendChild(serpent.mirrorElement);
-        });
-        
-        let isAnimating = false;
-        let basePhase = 0;
-        
-        function animate() {
-            if (!isAnimating) return;
-            
-            basePhase += 0.005; // Very slow base movement
-            
-            serpents.forEach((serpent, index) => {
-                if (!serpent.active) return;
-                
-                // Create complex serpentine movement
-                const primaryWave = Math.sin(basePhase + serpent.phase) * 30;
-                const secondaryWave = Math.sin((basePhase * 1.5) + serpent.phase) * 15;
-                const totalOffset = primaryWave + secondaryWave;
-                
-                // Add subtle rotation for more organic movement
-                const rotation = Math.cos(basePhase + serpent.phase) * 5;
-                
-                // Apply transformations
-                const transform = `
-                    translateX(${totalOffset}px)
-                    rotate(${rotation}deg)
-                    scaleY(${1 + Math.sin(basePhase * 0.5) * 0.05})
-                `;
-                
-                serpent.element.style.transform = transform;
-                serpent.mirrorElement.style.transform = transform;
-                
-                // Slowly move up
-                serpent.y = (serpent.y - 0.1) % 50;
-                serpent.element.style.top = `${serpent.y}%`;
-                serpent.mirrorElement.style.top = `${serpent.y}%`;
-            });
-            
-            requestAnimationFrame(animate);
-        }
-        
-        function handleTextChange() {
-            isAnimating = true;
-            
-            serpents.forEach((serpent, index) => {
-                setTimeout(() => {
-                    serpent.active = true;
-                    
-                    // Fade in very slowly
-                    serpent.element.style.opacity = '0.3';
-                    serpent.mirrorElement.style.opacity = '0.3';
-                    
-                    // Subtle breathing effect
-                    setInterval(() => {
-                        const breatheOpacity = 0.25 + Math.sin(Date.now() * 0.0005) * 0.05;
-                        serpent.element.style.opacity = breatheOpacity.toString();
-                        serpent.mirrorElement.style.opacity = breatheOpacity.toString();
-                    }, 100);
-                }, index * 1000);
-            });
-            
-            animate();
-        }
-        
-        window.addEventListener('textchange', handleTextChange);
-        console.log("Continuous serpentine effect created");
-    } catch (error) {
-        console.error("Error creating serpentine effect:", error);
-    }
-});
+document.addEventListener('DOMContentLoaded', initScrollTrigger);
