@@ -829,30 +829,32 @@ document.addEventListener('DOMContentLoaded', () => {
         container.appendChild(rightMargin);
         document.body.appendChild(container);
         
-        // Create vertical snake elements
-        const snakes = Array.from({ length: 4 }, (_, index) => ({
-            x: 20 + (index * 20), // Space them horizontally
-            y: 100, // Start at bottom
-            phase: Math.random() * Math.PI * 2,
-            speed: 0.5 + (Math.random() * 0.3), // Speed of upward movement
+        // Create fewer, more prominent snakes
+        const snakes = Array.from({ length: 3 }, (_, index) => ({
+            x: 30 + (index * 20),
+            y: 100,
+            phase: index * (Math.PI / 1.5), // Offset phases for varied movement
+            speed: 0.3 + (Math.random() * 0.2),
             element: document.createElement('div'),
             mirrorElement: document.createElement('div'),
             active: false,
-            length: 150 + (Math.random() * 100) // Varying lengths
+            length: 200 + (index * 50), // Varying lengths
+            amplitude: 25 + (Math.random() * 10) // Amount of horizontal movement
         }));
         
-        // Style snakes as vertical elements
+        // Style snakes to be more serpentine
         snakes.forEach(snake => {
             const snakeStyles = {
                 position: 'absolute',
-                width: '3px', // Very thin
-                height: `${snake.length}px`, // Longer vertical elements
-                borderRadius: '1.5px',
+                width: '6px',
+                height: `${snake.length}px`,
+                borderRadius: '3px',
                 transition: 'opacity 1000ms',
-                background: 'linear-gradient(to top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%)',
-                filter: 'blur(2px)',
+                background: 'linear-gradient(to top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%)',
+                filter: 'blur(3px)',
                 opacity: '0',
                 transform: 'scale(1)',
+                transformOrigin: 'center bottom'
             };
             
             Object.assign(snake.element.style, snakeStyles);
@@ -870,24 +872,27 @@ document.addEventListener('DOMContentLoaded', () => {
             snakes.forEach((snake) => {
                 if (!snake.active) return;
                 
-                // Move upward
+                // Move upward more slowly
                 snake.y -= snake.speed;
                 
                 // Reset to bottom when reaching top
                 if (snake.y < -snake.length) {
                     snake.y = 100;
-                    snake.x = 20 + (Math.random() * 60); // Randomize horizontal position on reset
                 }
                 
-                // Add subtle horizontal movement
-                const wiggle = Math.sin(snake.phase) * 10;
-                snake.phase += 0.02;
+                // Create more pronounced serpentine movement
+                snake.phase += 0.015;
+                const horizontalOffset = Math.sin(snake.phase) * snake.amplitude;
+                const rotation = Math.cos(snake.phase) * 15; // Add swaying rotation
                 
-                snake.element.style.left = `${snake.x + wiggle}%`;
+                // Apply serpentine transform
+                snake.element.style.left = `${snake.x + horizontalOffset}%`;
                 snake.element.style.top = `${snake.y}%`;
+                snake.element.style.transform = `rotate(${rotation}deg) scaleY(${1 + Math.sin(snake.phase) * 0.1})`; // Add subtle stretching
                 
-                snake.mirrorElement.style.right = `${snake.x + wiggle}%`;
+                snake.mirrorElement.style.right = `${snake.x + horizontalOffset}%`;
                 snake.mirrorElement.style.top = `${snake.y}%`;
+                snake.mirrorElement.style.transform = `rotate(${-rotation}deg) scaleY(${1 + Math.sin(snake.phase) * 0.1})`;
             });
             
             requestAnimationFrame(animate);
@@ -896,28 +901,28 @@ document.addEventListener('DOMContentLoaded', () => {
         function handleTextChange() {
             isAnimating = true;
             
-            // Activate snakes one by one
+            // Activate snakes with more dramatic timing
             snakes.forEach((snake, index) => {
                 setTimeout(() => {
                     snake.active = true;
-                    snake.element.style.opacity = '0.8';
-                    snake.mirrorElement.style.opacity = '0.8';
+                    snake.element.style.opacity = '0.4';
+                    snake.mirrorElement.style.opacity = '0.4';
                     
-                    // Add subtle pulsing effect
+                    // More subtle, eerie pulsing
                     setInterval(() => {
-                        const pulseOpacity = 0.6 + Math.sin(Date.now() * 0.002) * 0.2;
+                        const pulseOpacity = 0.3 + Math.sin(Date.now() * 0.001) * 0.1;
                         snake.element.style.opacity = pulseOpacity.toString();
                         snake.mirrorElement.style.opacity = pulseOpacity.toString();
                     }, 50);
-                }, index * 200); // Quicker stagger for more urgency
+                }, index * 400);
             });
             
             animate();
         }
         
         window.addEventListener('textchange', handleTextChange);
-        console.log("Vertical snake effect created");
+        console.log("Serpentine effect created");
     } catch (error) {
-        console.error("Error creating snake effect:", error);
+        console.error("Error creating serpentine effect:", error);
     }
 });
