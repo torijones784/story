@@ -181,9 +181,11 @@ to {
 
 .under_tagline {
     color:#EEEEEE;
-    font-family: "Roboto", sans-serif;
+    font-family: "DM Sans", serif;
     align-self: center;
     font-size: 19px;
+    font-weight: 300;
+    font-style: light;
     }
 
 .tagline_box {
