@@ -471,7 +471,7 @@ const textChangesTopTwo = [
 
         const scrollPercentage = getScrollPercentage();
 
-        if (scrollPercentage > 65 && !tensionActivated && !hasTriggered) {
+        if (scrollPercentage > 75 && !tensionActivated && !hasTriggered) {
             console.log('Activating tension effect');
             tensionActivated = true;
             
