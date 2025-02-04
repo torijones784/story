@@ -471,7 +471,7 @@ const textChangesTopTwo = [
 
         const scrollPercentage = getScrollPercentage();
 
-        if (scrollPercentage > 75 && !tensionActivated && !hasTriggered) {
+        if (scrollPercentage > 70 && !tensionActivated && !hasTriggered) {
             console.log('Activating tension effect');
             tensionActivated = true;
             
@@ -480,7 +480,7 @@ const textChangesTopTwo = [
             
             const paragraphs = document.querySelectorAll('p');
             paragraphs.forEach(p => {
-                p.style.transition = 'letter-spacing 8s ease-in-out';
+                p.style.transition = 'letter-spacing 15s ease-in-out';
                 p.style.letterSpacing = '0.02em';
             });
         }
