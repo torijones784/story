@@ -698,4 +698,59 @@ const textChangesTopTwo = [
     checkScroll();
 }
 
-document.addEventListener('DOMContentLoaded', initScrollTrigger);
+function initTensionEffect() {
+    let tensionActivated = false;
+    let tensionReset = false;
+    
+    function checkTensionTriggers() {
+        const scrollPercentage = getScrollPercentage();
+        
+
+        if (scrollPercentage > 45 && !tensionActivated) {
+            console.log('Activating tension effect');
+            tensionActivated = true;
+            
+            document.body.style.transition = 'background-color 8s ease-in-out';
+            document.body.style.backgroundColor = 'rgba(0, 0, 0, 0.2)';
+            
+            const paragraphs = document.querySelectorAll('p');
+            paragraphs.forEach(p => {
+                p.style.transition = 'letter-spacing 8s ease-in-out';
+                p.style.letterSpacing = '0.02em';
+            });
+        }
+        
+        if (scrollPercentage > 60 && !tensionReset && tensionActivated) {
+            console.log('Resetting tension effect');
+            tensionReset = true;
+            
+            document.body.style.transition = 'background-color 5s ease-in-out';
+            document.body.style.backgroundColor = '';
+            
+            const paragraphs = document.querySelectorAll('p');
+            paragraphs.forEach(p => {
+                p.style.transition = 'letter-spacing 5s ease-in-out';
+                p.style.letterSpacing = '';
+            });
+        }
+    }
+
+    let tensionTicking = false;
+    window.addEventListener('scroll', () => {
+        if (!tensionTicking) {
+            window.requestAnimationFrame(() => {
+                checkTensionTriggers();
+                tensionTicking = false;
+            });
+            tensionTicking = true;
+        }
+    });
+    
+    checkTensionTriggers();
+}
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    initScrollTrigger();
+    initTensionEffect();
+});
