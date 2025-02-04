@@ -505,7 +505,7 @@ const textChangesTopTwo = [
             }
         }
 
-        if (scrollPercentage > 60 && !tensionReset && tensionActivated) {
+        if (scrollPercentage > 95 && !tensionReset && tensionActivated) {
             console.log('Resetting tension effect');
             tensionReset = true;
             
