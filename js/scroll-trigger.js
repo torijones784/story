@@ -9,6 +9,11 @@ function initScrollTrigger() {
     let tensionReset = false;
     let pageLoadTime = Date.now();
     const MINIMUM_TIME = 12000;
+    let lastScrollTop = 0;
+    let lastScrollTime = Date.now();
+    let scrollSpeed = 0;
+    let currentOpacity = 0;
+    let tensionAnimationFrame;
 
     let lastViewportHeight = window.innerHeight;
     
@@ -451,6 +456,35 @@ const textChangesTopTwo = [
         }
     ];
 
+    function updateTensionEffect() {
+        if (!tensionActivated) return;
+        
+        const now = Date.now();
+        const timeDelta = now - lastScrollTime;
+        
+        if (timeDelta > 16) { 
+            scrollSpeed = Math.max(0, scrollSpeed - 0.1);
+        }
+        
+        const targetOpacity = Math.min(0.15, scrollSpeed * 0.001);
+        const opacityDelta = targetOpacity - currentOpacity;
+        currentOpacity += opacityDelta * 0.1;
+        
+        if (tensionActivated && !tensionReset) {
+            document.body.style.backgroundColor = `rgba(0, 0, 15, ${currentOpacity})`;
+            
+            const letterSpacing = currentOpacity * 0.13;
+            const paragraphs = document.querySelectorAll('p');
+            paragraphs.forEach(p => {
+                p.style.letterSpacing = `${letterSpacing}em`;
+            });
+        }
+  
+        if (Math.abs(opacityDelta) > 0.001) {
+            tensionAnimationFrame = requestAnimationFrame(updateTensionEffect);
+        }
+    }
+
     function getScrollPercentage() {
         const viewportHeight = window.innerHeight;
         const scrollTop = window.scrollY;
@@ -471,18 +505,22 @@ const textChangesTopTwo = [
 
         const scrollPercentage = getScrollPercentage();
 
+        const currentScrollTop = window.scrollY;
+        const scrollDelta = Math.abs(currentScrollTop - lastScrollTop);
+        const now = Date.now();
+        const timeDelta = now - lastScrollTime;
+        
+        if (timeDelta > 0) {
+            scrollSpeed = Math.min(100, (scrollDelta / timeDelta) * 100);
+        }
+        
+        lastScrollTop = currentScrollTop;
+        lastScrollTime = now;
+
         if (scrollPercentage > 70 && !tensionActivated && !hasTriggered) {
             console.log('Activating tension effect');
             tensionActivated = true;
-            
-            document.body.style.transition = 'background-color 8s ease-in-out';
-            document.body.style.backgroundColor = 'rgba(0, 0, 0, 0.12)';
-            
-            const paragraphs = document.querySelectorAll('p');
-            paragraphs.forEach(p => {
-                p.style.transition = 'letter-spacing 15s ease-in-out';
-                p.style.letterSpacing = '0.02em';
-            });
+            updateTensionEffect();
         }
 
         if (scrollPercentage > 80 && !hasTriggered) { 
@@ -508,6 +546,7 @@ const textChangesTopTwo = [
         if (scrollPercentage > 95 && !tensionReset && tensionActivated) {
             console.log('Resetting tension effect');
             tensionReset = true;
+            cancelAnimationFrame(tensionAnimationFrame);
             
             document.body.style.transition = 'background-color 5s ease-in-out';
             document.body.style.backgroundColor = '';
@@ -722,6 +761,11 @@ const textChangesTopTwo = [
                 ticking = false;
             });
             ticking = true;
+        }
+        
+        if (tensionActivated && !tensionReset) {
+            cancelAnimationFrame(tensionAnimationFrame);
+            tensionAnimationFrame = requestAnimationFrame(updateTensionEffect);
         }
     });
 
