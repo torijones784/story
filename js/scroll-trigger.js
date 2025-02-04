@@ -476,7 +476,7 @@ const textChangesTopTwo = [
             tensionActivated = true;
             
             document.body.style.transition = 'background-color 8s ease-in-out';
-            document.body.style.backgroundColor = 'rgba(0, 0, 0, 0.2)';
+            document.body.style.backgroundColor = 'rgba(0, 0, 0, 1)';
             
             const paragraphs = document.querySelectorAll('p');
             paragraphs.forEach(p => {
