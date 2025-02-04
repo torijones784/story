@@ -11,7 +11,9 @@
    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet">
    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet">
-   
+   <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+      <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+      <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
    <style>
      header {
        width: 100vw !important;
@@ -413,6 +415,35 @@ p {
   z-index: 2;
   mix-blend-mode: screen;
 }
+
+.enchanted-text {
+  position: relative;
+  display: inline-block;
+}
+
+.enchanted-text::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.enchanted-text:hover::after {
+  transform: scaleX(1);
+}
+
+/* Ensure the canvas backdrop doesn't interfere with text readability */
+canvas {
+  pointer-events: none;
+  position: fixed !important;
+  top: 0;
+  left: 0;
+}
    </style>
 </head>
 <body class="d-flex h-100 text-center">
@@ -514,5 +545,6 @@ p {
               }
           }
       </script>
+      <script type="text/babel" src="effects.js"></script>
 </body>
 </html>
