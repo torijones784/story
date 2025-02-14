@@ -652,8 +652,6 @@ const textChangesTopTwo = [
                             }
                         }
 
-                    handleFadeOut(textElements);
-
                     let cumulativeDelay = 3000;
                     let hasChangedText23 = false;
                     
