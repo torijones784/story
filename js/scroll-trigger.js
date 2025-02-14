@@ -700,7 +700,7 @@ const textChangesTopTwo = [
                                                     if (el.id !== 'changing-text-39') {
                                                         handleFadeOut([el]);
                                                     }
-                                                });
+                                                    });
 
                                                     const soloTexts = document.querySelectorAll('.solo_text');
                                                     soloTexts.forEach(el => {
@@ -758,7 +758,8 @@ const textChangesTopTwo = [
             
                                                                 }, 5000); 
                                                             }, 350);
-                                                        }, 10000);
+                                                        }, 15000);
+                                                        // increased from 10s
                                                     }
                                                 }, 4000);
                                             }
