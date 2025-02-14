@@ -649,6 +649,7 @@ const textChangesTopTwo = [
                             const element = document.getElementById(`changing-text-${i}`);
                             if (element) {
                                 textElements.push(element);
+                                element.textContent = '';
                             }
                         }
 
