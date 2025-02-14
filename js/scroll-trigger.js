@@ -724,11 +724,11 @@ const textChangesTopTwo = [
                                                         }
             
                                                         setTimeout(() => {
-                                                            const flashOverlay = document.querySelector('.flash-overlay');
-                                                            flashOverlay.classList.add('active');
+                                                            // const flashOverlay = document.querySelector('.flash-overlay');
+                                                            // flashOverlay.classList.add('active');
                                                             
                                                             setTimeout(() => {
-                                                                flashOverlay.classList.remove('active');
+                                                                // flashOverlay.classList.remove('active');
                                                                 
                                                                 const blackFade = document.querySelector('.black-fade');
                                                                 blackFade.classList.add('active');
@@ -759,7 +759,6 @@ const textChangesTopTwo = [
                                                                 }, 5000); 
                                                             }, 350);
                                                         }, 15000);
-                                                        // increased from 10s
                                                     }
                                                 }, 4000);
                                             }
