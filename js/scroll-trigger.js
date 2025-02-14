@@ -635,31 +635,25 @@ const textChangesTopTwo = [
                 console.log('Fifth trigger activated');
             
                 setTimeout(() => {
-                    for (let i = 1; i <= 62; i++) { 
-                        const chapter_title = document.getElementById(`chapter_one_title`);
-                        const home_link = document.getElementById(`home_link`)
-            
-                        chapter_title.classList.add('hidden');
+                    const chapter_title = document.getElementById(`chapter_one_title`);
+                    const home_link = document.getElementById(`home_link`)
+
+                    if (chapter_title) chapter_title.classList.add('hidden');
+                    if (home_link) {
                         home_link.classList.remove('visible');
                         home_link.classList.add('hidden');
-            
-                        // const element = document.getElementById(`changing-text-${i}`);
-                        // if (element) {
-                        //     element.textContent = '';
-                        // }
-
-                        const textElements = [];
+                    }
+                    
+                    const textElements = [];
                         for (let i = 1; i <= 62; i++) {
                             const element = document.getElementById(`changing-text-${i}`);
                             if (element) {
                                 textElements.push(element);
                             }
                         }
-                    }   
-
 
                     handleFadeOut(textElements);
-                    
+
                     let cumulativeDelay = 3000;
                     let hasChangedText23 = false;
                     
@@ -677,6 +671,9 @@ const textChangesTopTwo = [
                                 const element = document.getElementById(change.elementId);
                                 
                                 if (!element) return;
+
+                                element.style.opacity = '1';
+                                element.style.transition = 'none';
             
                                 if (change.newText === '') {
                                     element.remove();
@@ -699,19 +696,12 @@ const textChangesTopTwo = [
                                             
                                             if (index === words.length - 1) {
                                                 setTimeout(() => {
-                                                    for (let i = 1; i <= 62; i++) { 
-                                                        const currentId = `changing-text-${i}`;
-                                                        const currentElement = document.getElementById(currentId);
-                                                        if (currentElement && currentId !== 'changing-text-39') {
-                                                            const computedStyle = window.getComputedStyle(currentElement);
-                                                            const margins = parseFloat(computedStyle.marginTop) + parseFloat(computedStyle.marginBottom);
-                                                            currentElement.style.height = `${currentElement.offsetHeight + margins}px`;
-                                                            currentElement.style.marginTop = computedStyle.marginTop;
-                                                            currentElement.style.marginBottom = computedStyle.marginBottom;
-                                                            currentElement.style.position = 'relative';
-                                                            currentElement.classList.add('fade-out');
-                                                        }
+                                                    const finalElements = document.querySelectorAll('[id^="changing-text-"]');
+                                                    finalElements.forEach(el => {
+                                                    if (el.id !== 'changing-text-39') {
+                                                        handleFadeOut([el]);
                                                     }
+                                                });
             
                                                     const videoOverlay = document.querySelector('.video-overlay');
                                                     const backgroundVideo = document.getElementById('background-video');
