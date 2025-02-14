@@ -777,7 +777,8 @@ const textChangesTopTwo = [
                             }
                         }
                     });
-                }, 80000); 
+                }, 1000); 
+                // change back to 80000
         }
 
     }
