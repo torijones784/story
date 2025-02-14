@@ -485,6 +485,29 @@ const textChangesTopTwo = [
         }
     }
 
+    function handleFadeOut(elements) {
+        elements.forEach(element => {
+            if (!element) return;
+            
+            const originalHeight = element.offsetHeight;
+            const computedStyle = window.getComputedStyle(element);
+            const originalMarginTop = computedStyle.marginTop;
+            const originalMarginBottom = computedStyle.marginBottom;
+            
+            element.style.height = `${originalHeight}px`;
+            element.style.marginTop = originalMarginTop;
+            element.style.marginBottom = originalMarginBottom;
+            element.style.position = 'relative';
+            element.style.transition = 'opacity 12s ease-out';
+            
+            element.offsetHeight;
+            
+            requestAnimationFrame(() => {
+                element.style.opacity = '0';
+            });
+        });
+    }
+
     function getScrollPercentage() {
         const viewportHeight = window.innerHeight;
         const scrollTop = window.scrollY;
@@ -620,12 +643,23 @@ const textChangesTopTwo = [
                         home_link.classList.remove('visible');
                         home_link.classList.add('hidden');
             
-                        const element = document.getElementById(`changing-text-${i}`);
-                        if (element) {
-                            element.textContent = '';
+                        // const element = document.getElementById(`changing-text-${i}`);
+                        // if (element) {
+                        //     element.textContent = '';
+                        // }
+
+                        const textElements = [];
+                        for (let i = 1; i <= 62; i++) {
+                            const element = document.getElementById(`changing-text-${i}`);
+                            if (element) {
+                                textElements.push(element);
+                            }
                         }
-                    }
-                
+                    }   
+
+
+                    handleFadeOut(textElements);
+                    
                     let cumulativeDelay = 3000;
                     let hasChangedText23 = false;
                     
