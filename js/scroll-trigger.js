@@ -702,6 +702,12 @@ const textChangesTopTwo = [
                                                         handleFadeOut([el]);
                                                     }
                                                 });
+
+                                                    const soloTexts = document.querySelectorAll('.solo_text');
+                                                    soloTexts.forEach(el => {
+                                                        el.style.transition = 'opacity 12s ease-out';
+                                                        el.style.opacity = '0';
+                                                    });
             
                                                     const videoOverlay = document.querySelector('.video-overlay');
                                                     const backgroundVideo = document.getElementById('background-video');
