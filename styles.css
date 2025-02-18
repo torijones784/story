@@ -57,6 +57,14 @@ header {
     padding: 0.5rem;
 }
 
+.hidden {
+    opacity: 0;
+}
+
+.visible {
+    opacity: 1;
+}
+
 .tagline {
     font-size: clamp(2rem, 8vw, 5rem);
     line-height: 1.2;
