@@ -1,4 +1,4 @@
-let word_one = document.getElementsById('word_one')
+let word_one = document.getElementById('word_one');
 
 
 
