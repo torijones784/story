@@ -25,7 +25,6 @@ body.home_page {
     margin: 0;
     padding: 0;
     width: 100%;
-    height: 100%;
     overflow: hidden;
     animation: 
         candleFlicker 6s infinite,
@@ -40,6 +39,7 @@ body.home_page {
     flex-direction: column;
     position: relative;
     z-index: 1;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 header {
@@ -51,7 +51,7 @@ header {
 
 .about_link {
     /* color: #818181; */
-    color: red;
+    color: purple;
     font-size: 16px;
     font-family: "Playfair Display", serif;
     font-optical-sizing: auto;
@@ -171,10 +171,10 @@ footer {
 
 @keyframes slowZoom {
     from {
-        background-size: 100% auto;
+        transform: scale(1);
     }
     to {
-        background-size: 105% auto;
+        transform: scale(1.05);
     }
 }
 
