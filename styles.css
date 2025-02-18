@@ -1,7 +1,7 @@
 :root {
     --primary-text: #EEEEEE;
     --secondary-text: #818181;
-    --background-overlay: rgba(0, 0, 0, 0.5);
+    /* --background-overlay: rgba(0, 0, 0, 0.5); */
 }
 
 html, body {
@@ -39,7 +39,7 @@ body.home_page {
     flex-direction: column;
     position: relative;
     z-index: 1;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 header {
