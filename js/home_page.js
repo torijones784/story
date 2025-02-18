@@ -6,10 +6,19 @@ function headlineReveal() {
     setTimeout(() => {
         word_one.classList.remove('hidden');
         word_one.classList.add('visible');
+        
+        setTimeout(() => {
+            word_two.classList.remove('hidden');
+            word_two.classList.add('visible');
+
+            setTimeout(() => {
+                word_three.classList.remove('hidden');
+                word_three.classList.add('visible');
+            }, 1000)
+        }, 1000)
     }, 1000)
 } 
 
 document.addEventListener('DOMContentLoaded', () => {
-    console.log(word_one)
     headlineReveal();
 });
