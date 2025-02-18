@@ -18,6 +18,7 @@ body.home_page {
     background-size: cover;
     background-position: center;
     background-attachment: scroll;
+    background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
     background-blend-mode: darken;
@@ -35,7 +36,7 @@ header {
 
 .about_link {
     /* color: #818181; */
-    color: brown;
+    color: blue;
     font-size: 16px;
     font-family: "Playfair Display", serif;
     font-optical-sizing: auto;
