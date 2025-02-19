@@ -189,7 +189,7 @@ footer {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .body.home_page {
+    body.home_page {
         animation: none;
     }
     
