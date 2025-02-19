@@ -75,7 +75,7 @@ header {
     color: #EEEEEE;
     font-family: "Source Serif 4", serif;
     text-shadow: 0px 0px 3px #EEEEEE;
-    text-align: center;
+    text-align: left;
 }
 
 .tagline_box {
@@ -220,6 +220,9 @@ footer {
     
     body.home_page {
         background-attachment: fixed;
+    }
+    .tagline {
+        text-align: center;
     }
 }
 
