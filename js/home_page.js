@@ -16,7 +16,7 @@ function headlineReveal() {
                 word_three.classList.add('visible');
             }, 1000)
         }, 1000)
-    }, 2000)
+    }, 3500)
 } 
 
 document.addEventListener('DOMContentLoaded', () => {
