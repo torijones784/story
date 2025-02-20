@@ -65,7 +65,7 @@ header {
 }
 
 h1.tagline {
-    font-size: clamp(1.8rem, 14vw, 2.5rem);
+    font-size: clamp(1.8rem, 16vw, 2.5rem);
     white-space: nowrap;
     overflow: hidden;
     width: 100%; 
