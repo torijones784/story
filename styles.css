@@ -119,6 +119,8 @@ h1.tagline {
     font-weight: 500;
     cursor: pointer;
     transition: background-color 0.2s;
+    display: flex;
+    justify-content: center;
 }
 
 .pill-button:hover {
