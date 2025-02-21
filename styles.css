@@ -10,7 +10,7 @@ html {
 }
 
 .landing_page {
-    height: 100%;
+    margin-bottom: 100%;
 }
 
 body.home_page {
