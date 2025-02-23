@@ -51,7 +51,7 @@ body.home_page {
 }
 
 .nav-container {
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     width: 100%;
