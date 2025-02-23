@@ -53,7 +53,6 @@ body.home_page {
     display: flex;
     flex-direction: column;
     position: relative;
-    z-index: 1;
     background-color: rgba(0, 0, 0, 0.15);
     animation: candleFlicker 6s infinite;
 }
