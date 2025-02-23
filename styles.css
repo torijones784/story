@@ -16,23 +16,10 @@ html {
     flex-direction: column;
     justify-content: flex-start;
     position: relative;
+    background-color: black; 
 }
 
-main {
-    padding: 0 1rem;
-    overflow-y: auto;
-}
-
-body.home_page {
-    position: relative;
-}
-
-.px-4.py-5.my-5.text-center {
-    min-height: 100vh;
-    padding-top: 5rem !important;
-}
-
-body.home_page::before {
+.landing_page::before {
     content: '';
     position: absolute;
     top: 0;
@@ -45,6 +32,21 @@ body.home_page::before {
     background-repeat: no-repeat;
     z-index: -1;
     animation: slowZoom 12s ease-in forwards;
+}
+
+main {
+    padding: 0 1rem;
+    overflow-y: auto;
+}
+
+body.home_page {
+    position: relative;
+    overflow: hidden;
+}
+
+.px-4.py-5.my-5.text-center {
+    min-height: 100vh;
+    padding-top: 5rem !important;
 }
 
 .nav-container {
