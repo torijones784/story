@@ -10,13 +10,18 @@ html {
 }
 
 .landing_page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     height: 100vh;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     position: relative;
-    z-index: 1;
+    z-index: -1;
 }
 
 .landing_page::before {
@@ -37,6 +42,7 @@ html {
 body.home_page {
     position: relative;
     overflow-y: auto;
+    padding-top: 0;
 }
 
 .px-4.py-5.my-5.text-center {
