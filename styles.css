@@ -34,8 +34,8 @@ html {
 }
 
 main {
-    padding: 0 1rem;
-    overflow-y: auto;
+    /* padding: 0 1rem;
+    overflow-y: auto; */
 }
 
 body.home_page {
