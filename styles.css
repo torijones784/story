@@ -37,7 +37,6 @@ html {
 body.home_page {
     position: relative;
     overflow-y: auto;
-    margin: 0;
 }
 
 .px-4.py-5.my-5.text-center {
@@ -57,7 +56,6 @@ body.home_page {
     z-index: 1;
     background-color: rgba(0, 0, 0, 0.15);
     animation: candleFlicker 6s infinite;
-    padding-top: 0;
 }
 
 header {
