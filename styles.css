@@ -16,7 +16,6 @@ html {
     flex-direction: column;
     justify-content: flex-start;
     position: relative;
-    background-color: black; 
 }
 
 .landing_page::before {
