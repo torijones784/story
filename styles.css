@@ -16,11 +16,12 @@ html {
     flex-direction: column;
     justify-content: flex-start;
     position: relative;
+    z-index: 1;
 }
 
 .landing_page::before {
     content: '';
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -33,19 +34,16 @@ html {
     animation: slowZoom 12s ease-in forwards;
 }
 
-main {
-    /* padding: 0 1rem;
-    overflow-y: auto; */
-}
-
 body.home_page {
     position: relative;
-    overflow: hidden;
+    overflow-y: auto;
 }
 
 .px-4.py-5.my-5.text-center {
     min-height: 100vh;
     padding-top: 5rem !important;
+    position: relative;
+    z-index: 1;
 }
 
 .nav-container {
