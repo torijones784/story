@@ -38,7 +38,10 @@ body.home_page {
     background-position: center;
     background-repeat: no-repeat;
     z-index: -1;
-    animation: slowZoom 12s ease-in forwards;
+    animation: 
+        slowZoom 12s ease-in forwards,
+        candleFlicker 6s infinite;
+        
 }
 
 .px-4.py-5.my-5.text-center {
@@ -58,7 +61,6 @@ body.home_page {
     display: flex;
     flex-direction: column;
     background-color: rgba(0, 0, 0, 0.15);
-    animation: candleFlicker 6s infinite;
     z-index: 2;
 }
 
