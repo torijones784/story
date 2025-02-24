@@ -47,6 +47,7 @@ body.home_page {
     position: relative;
     z-index: 1;
     margin-top: 100vh;
+    background-color: #EEEEEE;
 }
 
 .nav-container {
