@@ -9,6 +9,11 @@ html {
     padding: 0;
 }
 
+main {
+    display: flex;
+    flex-direction: column;
+}
+
 .landing_page {
     position: relative;
     width: 100%;
@@ -87,23 +92,36 @@ header {
     opacity: 1;
 }
 
+#myCarousel {
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+    position: relative;
+    z-index: 1;
+    background-color: #212529;
+}
+
 .carousel-item svg {
     height: 100%;
     width: 100%;
     display: block;
-  }
+}
 
-  .carousel-inner {
-    height: 400px;
-    overflow: visible;
-  }
+.carousel-inner {
+height: 400px;
+overflow: visible;
+}
 
-  .carousel {
-    position: relative;
-    z-index: 1;
-    margin-top: 0;
-    height: auto;
-  }
+.carousel-item {
+height: 100%;
+}
+  
+
+.carousel {
+position: relative;
+z-index: 1;
+margin-top: 0;
+height: auto;
+}
 
 h1.tagline {
     font-size: clamp(1.8rem, 16vw, 2.5rem);
