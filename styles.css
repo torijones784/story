@@ -3,6 +3,11 @@
     --secondary-text: #818181;
 }
 
+* {
+    box-sizing: border-box;
+}
+
+
 html {
     height: 100%;
     margin: 0;
@@ -31,17 +36,27 @@ body.home_page {
     width: 100%;
     position: relative;
     overflow-x: hidden;
+    touch-action: pan-y;
+    -webkit-overflow-scrolling: touch;
+    box-sizing: border-box;
+
 }
 
+.nav-container,
 .landing_page,
 main,
 .container,
 .carousel,
 #myCarousel,
 .carousel-inner,
-.carousel-item {
-    max-width: 100%;
-    overflow-x: hidden;
+.carousel-item,
+.px-4.py-5.my-5.text-center,
+footer {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: clip;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 h1.tagline,
