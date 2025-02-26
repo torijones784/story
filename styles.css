@@ -28,6 +28,7 @@ main {
     flex-direction: column;
     justify-content: flex-start;
     z-index: 1;
+    overflow: hidden;
 }
 
 body.home_page {
@@ -77,12 +78,12 @@ p.lead {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    overflow: hidden;
     z-index: -1;
     animation: 
-        slowZoom 20s linear alternate,
+        slowZoom 20s ease-in-out alternate,
         candleFlicker 6s infinite;
-        
+    will-change: transform;
+    transform-origin: center center;     
 }
 
 .px-4.py-5.my-5.text-center {
