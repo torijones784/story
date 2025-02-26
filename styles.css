@@ -68,7 +68,7 @@ p.lead {
 }
 
 .bg-container {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -80,7 +80,7 @@ p.lead {
     overflow: hidden;
     z-index: -1;
     animation: 
-        slowZoom 12s ease-in forwards,
+        slowZoom 20s linear alternate,
         candleFlicker 6s infinite;
         
 }
@@ -293,11 +293,11 @@ footer {
 }
 
 @keyframes slowZoom {
-    from {
+    0% {
         transform: scale(1);
     }
-    to {
-        transform: scale(1.05);
+    100% {
+        transform: scale(1.1);
     }
 }
 
