@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
     headlineReveal();
     const bgContainer = document.querySelector('.bg-container');
     if (bgContainer) {
-        bgContainer.style.animation = 'candleFlicker 6s infinite';
+        bgContainer.style.animation = 'candleFlicker 6s';
         bgContainer.style.transformOrigin = 'center center';
         
         animateBackgroundZoom();
