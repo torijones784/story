@@ -80,7 +80,7 @@ p.lead {
     background-repeat: no-repeat;
     z-index: -1;
     animation: 
-        slowZoom 20s ease-in-out alternate;
+        candleFlicker 6s infinite;
     will-change: transform;
     transform-origin: center center;     
 }
