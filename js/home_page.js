@@ -2,7 +2,6 @@ let word_one = document.getElementById('word_one');
 let word_two = document.getElementById('word_two');
 let word_three = document.getElementById('word_three');
 let zoomLevel = 1;
-let zoomingIn = true;
 let animationActive = true;
 let zoomAnimationId = null;
 
@@ -25,25 +24,25 @@ function headlineReveal() {
 
 function animateBackgroundZoom() {
     const bgContainer = document.querySelector('.bg-container');
+
+    bgContainer.style.transform = 'scale(1)';
     
     function performZoom() {
         if (!animationActive) return;
+
+        zoomLevel += 0.0002;
         
-        if (zoomingIn) {
-            zoomLevel += 0.0005;
-            if (zoomLevel >= 1.1) {
-                zoomingIn = false;
-            }
-        } else {
-            zoomLevel -= 0.0005;
-            if (zoomLevel <= 1) {
-                zoomingIn = true;
-            }
+        if (zoomLevel >= 1.1) {
+            zoomLevel = 1.1;
+            animationActive = false;
+            return;
         }
 
         bgContainer.style.transform = `scale(${zoomLevel})`;
         
-        zoomAnimationId = requestAnimationFrame(performZoom);
+        if (animationActive) {
+            zoomAnimationId = requestAnimationFrame(performZoom);
+        }
     }
 
     zoomAnimationId = requestAnimationFrame(performZoom);
@@ -55,10 +54,12 @@ function animateBackgroundZoom() {
                 requestAnimationFrame(performZoom);
             }
         } else {
-            animationActive = false;
-            if (zoomAnimationId) {
-                cancelAnimationFrame(zoomAnimationId);
-                zoomAnimationId = null;
+            if (zoomLevel < 1.1) {
+                animationActive = false;
+                if (zoomAnimationId) {
+                    cancelAnimationFrame(zoomAnimationId);
+                    zoomAnimationId = null;
+                }
             }
         }
     });
@@ -69,9 +70,10 @@ function animateBackgroundZoom() {
 
 document.addEventListener('DOMContentLoaded', () => {
     headlineReveal();
+
     const bgContainer = document.querySelector('.bg-container');
     if (bgContainer) {
-        bgContainer.style.animation = 'candleFlicker 6s';
+        bgContainer.style.animation = 'candleFlicker 6s infinite';
         bgContainer.style.transformOrigin = 'center center';
         
         animateBackgroundZoom();
