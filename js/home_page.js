@@ -1,9 +1,8 @@
 let word_one = document.getElementById('word_one');
 let word_two = document.getElementById('word_two');
 let word_three = document.getElementById('word_three');
-let zoomLevel = 1;
-let animationActive = true;
-let zoomAnimationId = null;
+let zoomComplete = false;
+let animationFrameId = null;
 
 function headlineReveal() {
     setTimeout(() => {
@@ -23,48 +22,36 @@ function headlineReveal() {
 } 
 
 function animateBackgroundZoom() {
+    if (zoomComplete) return;
+
     const bgContainer = document.querySelector('.bg-container');
-
-    bgContainer.style.transform = 'scale(1)';
+    const startTime = performance.now();
+    const duration = 20000;
+    const startScale = 1;
+    const endScale = 1.1;
     
-    function performZoom() {
-        if (!animationActive) return;
+    bgContainer.style.animation = 'candleFlicker 6s infinite';
+    bgContainer.style.transition = 'none';
 
-        zoomLevel += 0.0002;
+    function zoomStep(currentTime) {
+        const elapsed = currentTime - startTime;
         
-        if (zoomLevel >= 1.1) {
-            zoomLevel = 1.1;
-            animationActive = false;
+        if (elapsed >= duration) {
+            bgContainer.style.transform = `scale(${endScale})`;
+            zoomComplete = true;
             return;
         }
-
-        bgContainer.style.transform = `scale(${zoomLevel})`;
         
-        if (animationActive) {
-            zoomAnimationId = requestAnimationFrame(performZoom);
-        }
+        const progress = elapsed / duration;
+        const easedProgress = 1 - Math.pow(1 - progress, 3);
+        const currentScale = startScale + (endScale - startScale) * easedProgress;
+        
+        bgContainer.style.transform = `scale(${currentScale})`;
+   
+        animationFrameId = requestAnimationFrame(zoomStep);
     }
 
-    zoomAnimationId = requestAnimationFrame(performZoom);
-    
-    const observer = new IntersectionObserver((entries) => {
-        if (entries[0].isIntersecting) {
-            if (!animationActive) {
-                animationActive = true;
-                requestAnimationFrame(performZoom);
-            }
-        } else {
-            if (zoomLevel < 1.1) {
-                animationActive = false;
-                if (zoomAnimationId) {
-                    cancelAnimationFrame(zoomAnimationId);
-                    zoomAnimationId = null;
-                }
-            }
-        }
-    });
-    
-    observer.observe(document.querySelector('.landing_page'));
+    animationFrameId = requestAnimationFrame(zoomStep);
 }
 
 
@@ -73,9 +60,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const bgContainer = document.querySelector('.bg-container');
     if (bgContainer) {
-        bgContainer.style.animation = 'candleFlicker 6s infinite';
-        bgContainer.style.transformOrigin = 'center center';
-        
-        animateBackgroundZoom();
+        bgContainer.style.transform = 'scale(1)';
+        setTimeout(animateBackgroundZoom, 500);
     }
+
+    window.addEventListener('scroll', function(e) {
+    }, { passive: true });
+
 });
