@@ -78,18 +78,14 @@ p.lead {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: scroll;
+    background-attachment: scroll !important;
     z-index: -1;
-    animation: 
-        candleFlicker 6s infinite;
-    will-change: transform;
-    transform-origin: center center;  
-    overflow: hidden;
-    -webkit-backface-visibility: hidden;
-    -moz-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -webkit-perspective: 1000;
-    perspective: 1000;   
+    /* animation: 
+        candleFlicker 6s infinite; */
+    transform: none !important; 
+    transition: none !important;
+    animation: none !important;
+    will-change: auto;
 }
 
 .px-4.py-5.my-5.text-center {
