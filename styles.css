@@ -110,6 +110,7 @@ p.lead {
     z-index: 1;
     margin-top: 0;
     background-color: #EEEEEE;
+    background-image: url('images/vp_background_one.jpg');
 }
 
 .nav-container {
