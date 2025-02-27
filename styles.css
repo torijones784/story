@@ -30,14 +30,9 @@ main {
     overflow: hidden !important;
 }
 
-.landing_page > div {
-    position: absolute;
-    z-index: 2;
-}
-
 h1.tagline, 
 .pill-button {
-    position: relative;
+    position: absolute;
     z-index: 2;
     transform: none !important;
     transition: none !important;
