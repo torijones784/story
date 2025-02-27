@@ -1,7 +1,6 @@
 let word_one = document.getElementById('word_one');
 let word_two = document.getElementById('word_two');
 let word_three = document.getElementById('word_three');
-let zoomComplete = false;
 
 function headlineReveal() {
     setTimeout(() => {
@@ -20,6 +19,11 @@ function headlineReveal() {
     }, 3000)
 } 
 
+function setVhVariable() {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     headlineReveal();
 
@@ -35,5 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('scroll', function(e) {
     }, { passive: true });
-
 });
+
+window.addEventListener('resize', setVhVariable);
+setVhVariable();
