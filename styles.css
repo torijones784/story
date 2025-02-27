@@ -95,11 +95,10 @@ p.lead {
     background-repeat: no-repeat;
     background-attachment: scroll !important;
     z-index: 1;
-    /* animation: 
-        candleFlicker 6s infinite; */
+    animation: 
+        candleFlicker 6s infinite;
     transform: none !important; 
     transition: none !important;
-    animation: none !important;
     will-change: auto !important;
 }
 
