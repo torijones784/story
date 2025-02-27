@@ -23,49 +23,48 @@ document.addEventListener('DOMContentLoaded', () => {
     
     headlineReveal();
     
-    // Background container fix - both approaches
+    // Fix background container size
     const bgContainer = document.querySelector('.bg-container');
     const landingPage = document.querySelector('.landing_page');
     
     if (bgContainer && landingPage) {
-        // Approach 1: Ensure background has same height as landing page
-        function setBackgroundHeight() {
-            // Force the background to match the landing page height exactly
-            const landingHeight = landingPage.offsetHeight;
-            bgContainer.style.height = landingHeight + 'px';
+        // Store the initial size and position of the background
+        const initialRect = landingPage.getBoundingClientRect();
+        const initialHeight = initialRect.height;
+        
+        // Force the background to have fixed dimensions based on initial landing page size
+        bgContainer.style.height = initialHeight + 'px';
+        
+        // Lock background in place during scroll
+        let lastScrollY = window.scrollY;
+        
+        function lockBackground() {
+            // Don't let the background container's size change during scroll
+            bgContainer.style.height = initialHeight + 'px';
             
-            // Disable all transforms and animations
+            // Reset any transforms
             bgContainer.style.transform = 'none';
-            bgContainer.style.transition = 'none';
-            bgContainer.style.animation = 'none';
-            bgContainer.style.backgroundAttachment = 'scroll';
+            
+            // Get current landing page position
+            const rect = landingPage.getBoundingClientRect();
+            
+            // If we've scrolled enough to change the landing page position,
+            // make sure the background stays within it
+            if (rect.top < 0) {
+                // Make the background stay at the top of the viewport until landing page is gone
+                bgContainer.style.top = Math.abs(rect.top) + 'px';
+            } else {
+                bgContainer.style.top = '0px';
+            }
+            
+            lastScrollY = window.scrollY;
         }
         
-        // Set initial height
-        setBackgroundHeight();
+        // Update on scroll
+        window.addEventListener('scroll', lockBackground, { passive: true });
         
-        // Update on resize
-        window.addEventListener('resize', setBackgroundHeight);
-        
-        // Approach 2: Reset during scroll to prevent any dynamic changes
-        window.addEventListener('scroll', function() {
-            // Force no transforms during scroll
-            bgContainer.style.transform = 'none';
-        }, { passive: true });
+        // Disable animations and transitions that might interfere
+        bgContainer.style.transition = 'none';
+        bgContainer.style.animation = 'none';
     }
-    
-    // Fix for 100vh on mobile browsers
-    function setVhVariable() {
-        let vh = window.innerHeight * 0.01;
-        document.documentElement.style.setProperty('--vh', `${vh}px`);
-        
-        // Also update background height when viewport size changes
-        if (bgContainer && landingPage) {
-            bgContainer.style.height = landingPage.offsetHeight + 'px';
-        }
-    }
-    
-    // Set the --vh variable on initial load and resize
-    window.addEventListener('resize', setVhVariable);
-    setVhVariable();
 });
