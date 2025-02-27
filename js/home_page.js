@@ -62,9 +62,5 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Update on scroll
         window.addEventListener('scroll', lockBackground, { passive: true });
-        
-        // Disable animations and transitions that might interfere
-        bgContainer.style.transition = 'none';
-        bgContainer.style.animation = 'none';
     }
 });
