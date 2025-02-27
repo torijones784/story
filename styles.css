@@ -278,6 +278,10 @@ footer {
     width: 100%;
 }
 
+.mvp_tag {
+    color: #818181;
+}
+
 @keyframes candleFlicker {
     0% { 
         background-color: rgba(0, 0, 0, 0.5);
