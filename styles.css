@@ -31,16 +31,18 @@ main {
 }
 
 .landing_page > div {
-    position: absolute;
-    z-index: 2;
+    position: absolute !important;
+    width: 100% !important;
+    left: 0 !important;
+    z-index: 2 !important;
 }
 
-h1.tagline, 
-.pill-button {
-    position: relative;
-    z-index: 2;
-    transform: none !important;
-    transition: none !important;
+.landing_page > div:first-of-type:not(.bg-container) {
+    top: 28vh !important;
+}
+
+.landing_page > div:nth-of-type(2):not(.bg-container) {
+    top: calc(28vh + 8rem) !important;
 }
 
 
@@ -204,6 +206,11 @@ h1.tagline {
     position: relative;
     margin-top: 28vh;
     margin-bottom: 2rem;
+    margin-top: 0 !important;
+    margin-bottom: 2rem !important;
+    position: static !important;
+    transform: none !important;
+    transition: none !important;
 }
 
 .tagline_box {
@@ -246,6 +253,9 @@ h1.tagline {
     display: flex;
     justify-content: center;
     text-decoration: none;
+    position: static !important;
+    transform: none !important;
+    transition: none !important;
 }
 
 .pill-button:hover {
