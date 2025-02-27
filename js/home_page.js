@@ -54,14 +54,25 @@ function animateBackgroundZoom() {
     animationFrameId = requestAnimationFrame(zoomStep);
 }
 
+function setVHVariable() {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
 
 document.addEventListener('DOMContentLoaded', () => {
+    setVHVariable();
+    window.addEventListener('resize', setVHVariable);
     headlineReveal();
 
     const bgContainer = document.querySelector('.bg-container');
     if (bgContainer) {
         bgContainer.style.transform = 'scale(1)';
-        setTimeout(animateBackgroundZoom, 500);
+        
+        bgContainer.style.transition = 'transform 20s ease-out';
+        
+        setTimeout(() => {
+            bgContainer.style.transform = 'scale(1.1)';
+        }, 500);
     }
 
     window.addEventListener('scroll', function(e) {
