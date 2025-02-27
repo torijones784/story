@@ -108,6 +108,9 @@ p.lead {
     position: relative;
     z-index: 1;
     margin-top: 0;
+}
+
+.mvp {
     background-image: url('images/vp_one.jpg');
     background-color: rgba(0, 0, 0, 0.75);
 }
