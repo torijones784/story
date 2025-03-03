@@ -147,7 +147,11 @@ header {
 }
 
 .carousel-item {
-    height: 350px;
+    height: 425px;
+}
+
+.stars {
+    height: 75px;
 }
 
 h1.tagline {
