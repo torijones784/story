@@ -336,7 +336,7 @@ footer {
         margin-left: auto;
         margin-right: auto;
     }
-    .form-control {
+    #form-control {
             width: 40%;
     }
 }
