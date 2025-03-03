@@ -239,6 +239,10 @@ footer {
     width: 100%;
 }
 
+.comment {
+    font-family: "Source Serif 4", serif;
+}
+
 .mvp_tag {
     color: #818181;
 }
