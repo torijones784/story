@@ -142,13 +142,6 @@ header {
     opacity: 0;
 }
 
-.input-group {
-    width: 30%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 .visible {
     opacity: 1;
 }
@@ -335,6 +328,14 @@ footer {
     .tagline {
         text-align: center;
         font-size: 48px;
+    }
+    .input-group {
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
