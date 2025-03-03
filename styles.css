@@ -146,6 +146,10 @@ header {
     opacity: 1;
 }
 
+.carousel-item {
+    height: 425px;
+}
+
 h1.tagline {
     font-size: clamp(1.8rem, 16vw, 2.5rem);
     white-space: nowrap;
