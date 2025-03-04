@@ -32,10 +32,10 @@ main {
 }
 
 .landing_page > div {
-    position: absolute !important;
-    width: 100% !important;
-    left: 0 !important;
-    z-index: 2 !important;
+    position: static;
+    width: 100%;
+    left: 0;
+    z-index: 2;
 }
 
 .landing_page > div:first-of-type:not(.bg-container) {
@@ -132,7 +132,7 @@ header {
  
 .about_link {
     /* color: #818181; */
-    color: magenta;
+    color: blue;
     font-size: 16px;
     font-family: "Playfair Display", serif;
     font-optical-sizing: auto;
