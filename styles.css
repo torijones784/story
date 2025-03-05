@@ -95,8 +95,6 @@ p.lead {
     z-index: 1;
     animation: 
         candleFlicker 6s infinite;
-    transform: none !important; 
-    transition: none !important;
     will-change: auto !important;
 }
 
@@ -220,8 +218,6 @@ h1.tagline {
     justify-content: center;
     text-decoration: none;
     position: static !important;
-    transform: none !important;
-    transition: none !important;
 }
 
 .pill-button:hover {
