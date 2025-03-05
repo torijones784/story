@@ -82,7 +82,7 @@ p.lead {
 }
 
 .bg-container {
-    position: absolute;
+    position: fixed;
     top: 0 !important;
     left: 0;
     width: 100%;
