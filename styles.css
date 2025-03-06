@@ -83,6 +83,16 @@ p.lead {
     word-wrap: break-word;
 }
 
+.px-4.py-5.my-5.text-center,
+.container.col-xxl-8.px-4.py-5.mvp,
+#myCarousel {
+    position: relative;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.7);
+    margin-bottom: 0;
+    padding: 3rem 1rem;
+}
+
 .bg-container {
     position: absolute;
     top: 0 !important;
