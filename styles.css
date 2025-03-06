@@ -81,7 +81,7 @@ p.lead {
 }
 
 .bg-container {
-    position: sticky;
+    position: absolute;
     top: 0 !important;
     left: 0;
     width: 100%;
@@ -130,7 +130,7 @@ header {
  
 .about_link {
     /* color: #818181; */
-    color: blue;
+    color: black;
     font-size: 16px;
     font-family: "Playfair Display", serif;
     font-optical-sizing: auto;
