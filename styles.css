@@ -15,8 +15,9 @@ html {
 }
 
 main {
-    display: flex;
-    flex-direction: column;
+    position: relative;
+    z-index: 1;
+    width: 100%;
 }
 
 .landing_page {
@@ -58,7 +59,7 @@ body.home_page {
     touch-action: pan-y;
     -webkit-overflow-scrolling: touch;
     box-sizing: border-box;
-
+    min-height: 100vh;
 }
 
 .nav-container,
@@ -83,7 +84,7 @@ p.lead {
 }
 
 .bg-container {
-    position: sticky;
+    position: absolute;
     top: 0 !important;
     left: 0;
     width: 100%;
@@ -93,7 +94,7 @@ p.lead {
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: scroll !important;
-    z-index: 1;
+    z-index: 0;
     animation: 
         candleFlicker 6s infinite;
     will-change: auto !important;
@@ -113,14 +114,14 @@ p.lead {
 }
 
 .nav-container {
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     width: 100%;
     display: flex;
     flex-direction: column;
     background-color: rgba(0, 0, 0, 0.15);
-    z-index: 2;
+    z-index: 1;
 }
 
 header {
