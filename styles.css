@@ -34,19 +34,17 @@ main {
 }
 
 .landing_page > div {
-    position: static;
+    position: relative;
     width: 100%;
     left: 0;
     z-index: 2;
 }
 
-.landing_page > div:first-of-type:not(.bg-container) {
+/* .landing_page > div:first-of-type:not(.bg-container) {
     top: 28vh !important;
-}
-
-.landing_page > div:nth-of-type(2):not(.bg-container) {
     top: calc(28vh + 8rem) !important;
-}
+} */
+
 
 
 body.home_page {
