@@ -105,6 +105,7 @@ p.lead {
     position: relative;
     z-index: 1;
     margin-top: 0;
+    background-color: 1E1E1E;
 }
 
 .mvp {
