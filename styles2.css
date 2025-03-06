@@ -13,6 +13,7 @@
     margin-top: -100px;
     padding-top: 100px;
     background-image: url('images/background_three.jpg');
+    background-color: rgba(0, 0, 0, 0.15);
     background-size: cover;
     background-position: center;
     background-attachment: scroll;
@@ -42,12 +43,16 @@
     text-decoration: none;
     width: min(272px, 90%);
     padding: 10px 24px;
+    color: #EEEEEE;
     font-size: 16px;
     touch-action: manipulation;
-    color: black;
+    text-shadow: 0px 0px 3px #EEEEEE;
     border-radius: 9999px;
     font-weight: 500;
     transition: background-color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .pill-button:hover {
