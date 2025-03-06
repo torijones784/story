@@ -5,7 +5,6 @@
 
 * {
     box-sizing: border-box;
-    background-color: #1E1E1E;
 }
 
 
@@ -107,6 +106,7 @@ p.lead {
     z-index: 1;
     margin-top: 0;
     background-color: #1E1E1E;
+    width: 100%;
 }
 
 .mvp {
