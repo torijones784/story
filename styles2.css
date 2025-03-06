@@ -26,7 +26,9 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -200%);
+    transform: translate(-50%, -150%);
+    font-size: clamp(1.8rem, 16vw, 2.5rem);
+    font-family: "Source Serif 4", serif;
     text-align: center;
     width: 100%;
 }
@@ -37,5 +39,26 @@
     left: 50%;
     transform: translate(-50%, 200%);
     text-align: center;
-    width: 100%;
+    text-decoration: none;
+    width: min(272px, 90%);
+    padding: 10px 24px;
+    font-size: 16px;
+    touch-action: manipulation;
+    color: black;
+    border-radius: 9999px;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.pill-button:hover {
+    background-color: #f5f5f5;
+}
+
+.pill-button .arrow {
+    margin-left: 8px;
+    transition: transform 0.2s;
+}
+
+.pill-button:hover .arrow {
+    transform: translateX(4px);
 }
