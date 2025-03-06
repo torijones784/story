@@ -211,6 +211,7 @@ h1.tagline {
     justify-content: center;
     text-decoration: none;
     position: relative;
+}
 
 .pill-button:hover {
     background-color: #f5f5f5;
