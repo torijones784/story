@@ -91,10 +91,10 @@ p.lead {
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: scroll !important;
-    z-index: 1;
+    z-index: 0;
     animation: 
         candleFlicker 6s infinite;
-    will-change: auto !important;
+    will-change: filter, background-color;
 }
 
 .px-4.py-5.my-5.text-center {
@@ -130,7 +130,7 @@ header {
  
 .about_link {
     /* color: #818181; */
-    color: black;
+    color: palevioletred;
     font-size: 16px;
     font-family: "Playfair Display", serif;
     font-optical-sizing: auto;
@@ -167,13 +167,7 @@ h1.tagline {
     text-shadow: 0px 0px 3px #EEEEEE;
     text-align: center;
     position: relative;
-    margin-top: 28vh;
-    margin-bottom: 2rem;
-    margin-top: 0 !important;
-    margin-bottom: 2rem !important;
-    position: static !important;
-    transform: none !important;
-    transition: none !important;
+    margin: 0 0 2rem 0;
 }
 
 .tagline_box {
