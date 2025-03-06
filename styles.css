@@ -95,6 +95,7 @@ p.lead {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     z-index: 0;
     animation: 
         candleFlicker 6s infinite;
