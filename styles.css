@@ -20,7 +20,7 @@ main {
 }
 
 .landing_page {
-    position: absolute;
+    position: relative;
     height: 100vh;
     min-height: 500px;
     width: 100%;
@@ -34,7 +34,7 @@ main {
 }
 
 .landing_page > div {
-    position: relative;
+    position: absolute;
     width: 100%;
     left: 0;
     z-index: 2;
@@ -130,7 +130,7 @@ header {
  
 .about_link {
     /* color: #818181; */
-    color: green;
+    color: pink;
     font-size: 16px;
     font-family: "Playfair Display", serif;
     font-optical-sizing: auto;
