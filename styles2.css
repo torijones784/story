@@ -1,7 +1,3 @@
-.nav-container {
-    z-index: -1;
-}
-
 .landing_page {
     height: 100vh;
 }
@@ -10,4 +6,8 @@
     background-image: url('images/background_three.jpg');
     background-size: cover;
     background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
 }
