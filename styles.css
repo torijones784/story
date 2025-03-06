@@ -33,17 +33,22 @@ main {
     overflow: hidden;
 }
 
-.landing_page > div {
+.landing_page > div:not(.bg-container) {
     position: absolute;
     width: 100%;
     left: 0;
     z-index: 2;
 }
 
-/* .landing_page > div:first-of-type:not(.bg-container) {
-    top: 28vh !important;
-    top: calc(28vh + 8rem) !important;
-} */
+.landing_page > div:first-of-type:not(.bg-container) {
+    top: 40%;
+    transform: translateY(-50%);
+}
+
+.landing_page > div:nth-of-type(2):not(.bg-container) {
+    top: 60%;
+    transform: translateY(-50%);
+}
 
 
 
@@ -130,7 +135,7 @@ header {
  
 .about_link {
     /* color: #818181; */
-    color: pink;
+    color: red;
     font-size: 16px;
     font-family: "Playfair Display", serif;
     font-optical-sizing: auto;
