@@ -1,3 +1,7 @@
+.landing_page {
+    height: 100vh;
+}
+
 .bg-container {
     background-image: url('images/background_three.jpg');
     background-size: cover;
