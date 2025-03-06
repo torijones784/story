@@ -95,7 +95,7 @@ p.lead {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-attachment:scroll;
     z-index: 0;
     animation: 
         candleFlicker 6s infinite;
@@ -135,7 +135,7 @@ header {
  
 .about_link {
     /* color: #818181; */
-    color: red;
+    color: palevioletred;
     font-size: 16px;
     font-family: "Playfair Display", serif;
     font-optical-sizing: auto;
