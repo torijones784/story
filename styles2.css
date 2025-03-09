@@ -27,6 +27,9 @@ main {
     height: 100%;
     width: 100%;
     z-index: -1;
+    background-blend-mode: darken;
+    background-color: rgba(0, 0, 0, 0.25);
+    animation: blurEffect 6s infinite;
 }
 
 .nav-container {
@@ -184,20 +187,6 @@ footer {
     font-family: "Source Serif 4", serif;
 }
 
-@media (min-width: 768px) {
-    .about_link {
-        font-size: 24px;
-    }
-
-    .tagline {
-        transform: translate(-50%, -210%);
-    }
-
-    .pill-button {
-        transform: translate(-50%, -150%);
-    }
-}
-
 .mvp,
 #myCarousel {
     position: relative;
@@ -217,4 +206,49 @@ footer {
 
 .footer_content {
     padding-right: 1rem;
+}
+
+@keyframes blurEffect {
+    0% {
+        filter: blur(0px);
+    }
+    25% { 
+        filter: blur(0.5px);
+    }
+    35% { 
+        filter: blur(5px);
+    }
+    45% { 
+        filter: blur(12px);
+    }
+    50% { 
+        filter: blur(20px);
+    }
+    60% { 
+        filter: blur(30px);
+    }
+    70% { 
+        filter: blur(40px);
+    }
+    85% { 
+        filter: blur(45px);
+    }
+    100% { 
+        filter: blur(50px);
+    }
+}
+
+
+@media (min-width: 768px) {
+    .about_link {
+        font-size: 24px;
+    }
+
+    .tagline {
+        transform: translate(-50%, -210%);
+    }
+
+    .pill-button {
+        transform: translate(-50%, -150%);
+    }
 }
