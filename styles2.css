@@ -169,6 +169,10 @@ footer {
     --bs-gutter-x: 0;
 }
 
+#getStartedTwo {
+    translate(-50%, 50%);
+}
+
 .carousel-item {
     height: 425px;
 }
