@@ -32,7 +32,7 @@ body.home_page {
 
 .about_link {
     color: #818181;
-    font-size: 16px;
+    font-size: 20px;
     font-family: "Playfair Display", serif;
     padding: 0.5rem;
     text-decoration: none;
@@ -129,6 +129,17 @@ body.home_page {
 .value_prop {
     padding-top: 4rem !important;
     padding-bottom: 3rem !important;
+}
+
+.mvp {
+    background-image: url('images/vp_one.jpg');
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+@media (min-width: 768px) {
+    .about_link {
+        font-size: 24px;
+    }
 }
 
 @media (max-width: 768px) {
