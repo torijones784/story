@@ -3,9 +3,12 @@
     background-size: cover;
     background-position: top center;
     background-repeat: no-repeat;
-    background-color: rgba(0, 0, 0, 0.15);
+    position: absolute;
+    top: 0;
+    left: 0;
     height: 100vh;
     width: 100%;
+    z-index: 0;
 }
 
 .about_link {
@@ -16,21 +19,22 @@
     text-decoration: none;
 }
 
+.nav-container {
+    position: relative;
+    z-index: 1;
+}
+
 .landing_page {
     position: relative;
     height: 100vh;
     width: 100%;
-    margin-top: -100px;
-    padding-top: 100px;
-    /* background-image: url('images/background_three.jpg');
-    background-color: rgba(0, 0, 0, 0.15); */
-    /* background-size: cover;
-    background-position: center;
-    background-attachment: scroll; */
+    margin-top: 0;
+    padding-top: 0;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    z-index: 1;
 }
 
 .tagline {
@@ -78,4 +82,10 @@
 
 .pill-button:hover .arrow {
     transform: translateX(4px);
+}
+
+.text-center {
+    position: relative;
+    background-color: var(--bs-body-bg);
+    z-index: 1;
 }
