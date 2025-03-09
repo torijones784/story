@@ -164,6 +164,11 @@ footer {
 
 }
 
+#myCarousel {
+    padding-bottom: 100px;
+
+}
+
 .mvp .row {
     --bs-gutter-x: 0;
 }
@@ -216,7 +221,7 @@ mvp,
 }
 
 footer {
-    position: relative;
+    position: absolute;
     z-index: 1;
-    background-color: var(--bs-body-bg);
+    background-color: white;
 }
