@@ -21,7 +21,7 @@ main {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     height: 100%;
@@ -224,5 +224,5 @@ mvp,
 footer {
     z-index: 1;
     /* background-color: #212529; */
-    background-color: purple;
+    background-color: magenta;
 }
