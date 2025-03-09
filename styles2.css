@@ -75,7 +75,7 @@ main {
     position: relative;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -150%);
+    transform: translate(-50%, -100%);
     text-align: center;
     text-decoration: none;
     width: 272px;
