@@ -134,6 +134,12 @@ body.home_page {
 .mvp {
     background-image: url('images/vp_one.jpg');
     background-color: rgba(0, 0, 0, 0.75);
+    margin: 0 !important;
+    max-width: 100% !important;
+}
+
+.mvp .row {
+    --bs-gutter-x: 0;
 }
 
 @media (min-width: 768px) {
@@ -164,7 +170,7 @@ body.home_page {
     }
 }
 
-.container.col-xxl-8.px-4.py-5.mvp,
+mvp,
 #myCarousel {
     position: relative;
     z-index: 1;
