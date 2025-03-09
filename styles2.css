@@ -30,6 +30,14 @@ body.home_page {
     width: 100%;
 }
 
+.about_link {
+    color: #818181;
+    font-size: 16px;
+    font-family: "Playfair Display", serif;
+    padding: 0.5rem;
+    text-decoration: none;
+}
+
 .landing_page {
     position: relative;
     height: 100vh;
@@ -95,6 +103,7 @@ body.home_page {
     z-index: 1;
     margin-top: 0;
     width: 100%;
+    background-color: #1E1E1E;
 }
 
 .container.col-xxl-8.px-4.py-5.mvp {
@@ -115,6 +124,11 @@ body.home_page {
     height: 10px;
     box-shadow: 0 -5px 10px rgba(0,0,0,0.2);
     z-index: 2;
+}
+
+.value_prop {
+    padding-top: 4rem !important;
+    padding-bottom: 3rem !important;
 }
 
 @media (max-width: 768px) {
