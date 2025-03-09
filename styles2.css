@@ -1,9 +1,11 @@
-body.home_page {
+.bg-container {
     background-image: url('images/background_three.jpg');
     background-size: cover;
     background-position: top center;
     background-repeat: no-repeat;
     background-color: rgba(0, 0, 0, 0.15);
+    height: 100vh;
+    width: 100%;
 }
 
 .about_link {
