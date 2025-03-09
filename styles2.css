@@ -186,10 +186,12 @@ footer {
 
 .carousel-item {
     height: 425px;
+    background-color: rgba(173, 181, 189, 1);
 }
 
 .stars {
     height: 75px;
+    
 }
 
 .comment {
@@ -203,7 +205,7 @@ footer {
 }
 
 #myCarousel {
-    background-color: rgba(173, 181, 189, 0.90);
+    background-color: rgba(173, 181, 189, 1);
 }
 
 footer {
