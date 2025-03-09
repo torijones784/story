@@ -106,7 +106,7 @@ body.home_page {
     background-color: #1E1E1E;
 }
 
-.container.col-xxl-8.px-4.py-5.mvp {
+.mvp {
     position: relative;
     z-index: 2;
     background-color: var(--bs-body-bg);
