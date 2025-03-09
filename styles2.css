@@ -169,7 +169,7 @@ footer {
 }
 
 #getStartedTwo {
-    translate(-50%, 50%);
+    translate: (-50%, 50%);
 }
 
 .carousel-item {
@@ -211,4 +211,6 @@ footer {
 footer {
     z-index: 1;
     background-color: #212529;
+    display: flex;
+    justify-content: flex-end;
 }
