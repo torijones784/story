@@ -187,6 +187,8 @@ footer {
 .carousel-item {
     height: 425px;
     background-color: rgba(173, 181, 189, 1);
+    background-blend-mode: darken;
+    background-color: rgba(0, 0, 0, 0.25);
 }
 
 .stars {
@@ -206,6 +208,8 @@ footer {
 
 #myCarousel {
     background-color: rgba(173, 181, 189, 1);
+    background-blend-mode: darken;
+    background-color: rgba(0, 0, 0, 0.25);
 }
 
 footer {
