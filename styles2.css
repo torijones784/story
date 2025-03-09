@@ -177,6 +177,7 @@ footer {
     border-radius: 5px;
     max-width: 90%;
     margin: 0 auto;
+    padding-bottom: 3rem;
   }
 
 #getStartedTwo {
@@ -202,7 +203,7 @@ footer {
 }
 
 #myCarousel {
-    background-color: var(--bs-body-bg);
+    background-color: rgba(173, 181, 189, 0.90);
 }
 
 footer {
