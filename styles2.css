@@ -11,6 +11,11 @@ body.home_page {
     flex-direction: column;
 }
 
+main {
+    flex: 1;
+    position: relative;
+}
+
 .bg-container {
     background-image: url('images/background_three.jpg');
     background-size: cover;
@@ -218,5 +223,5 @@ mvp,
 footer {
     z-index: 1;
     /* background-color: #212529; */
-    background-color: pink;
+    background-color: purple;
 }
