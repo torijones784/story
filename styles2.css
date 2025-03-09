@@ -151,20 +151,33 @@ footer {
 #myCarousel {
     position: relative;
     z-index: 1;
-    background-color: rgba(0, 0, 0, 0.7);
     margin-bottom: 0;
     padding: 3rem 1rem;
 }
 
 .mvp {
     background-image: url('images/vp_one.jpg');
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: rgba(0, 0, 0, 0.25);
     margin: 0 !important;
     max-width: 100% !important;
+    background-blend-mode: darken;
+
 }
 
 .mvp .row {
     --bs-gutter-x: 0;
+}
+
+.carousel-item {
+    height: 425px;
+}
+
+.stars {
+    height: 75px;
+}
+
+.comment {
+    font-family: "Source Serif 4", serif;
 }
 
 @media (min-width: 768px) {
