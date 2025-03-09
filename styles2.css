@@ -131,6 +131,31 @@ body.home_page {
     padding-bottom: 3rem !important;
 }
 
+.nav-container,
+.landing_page,
+main,
+.container,
+.px-4.text-center,
+.container.col-xxl-8.px-4.py-5.mvp,
+#myCarousel,
+footer {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: clip;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.px-4.text-center,
+.container.col-xxl-8.px-4.py-5.mvp,
+#myCarousel {
+    position: relative;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.7);
+    margin-bottom: 0;
+    padding: 3rem 1rem;
+}
+
 .mvp {
     background-image: url('images/vp_one.jpg');
     background-color: rgba(0, 0, 0, 0.75);
