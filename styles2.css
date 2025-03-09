@@ -171,6 +171,14 @@ footer {
     --bs-gutter-x: 0;
 }
 
+.text-overlay-container {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
 #getStartedTwo {
     transform: translate(-50%, 50%);
 }
