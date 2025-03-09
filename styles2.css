@@ -199,6 +199,9 @@ footer {
 #myCarousel {
     position: relative;
     z-index: 1;
+}
+
+#myCarousel {
     background-color: var(--bs-body-bg);
 }
 
