@@ -59,7 +59,7 @@ main {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -130%);
+    transform: translate(-50%, -220%);
     font-size: clamp(1.8rem, 16vw, 2.5rem);
     font-family: "Source Serif 4", serif;
     text-align: center;
@@ -194,31 +194,13 @@ footer {
     .tagline {
         transform: translate(-50%, -210%);
     }
-}
 
-@media (max-width: 768px) {
-    .tagline {
-        font-size: clamp(1.6rem, 8vw, 2rem);
-        width: 95%;
-        transform: translate(-50%, -120%);
-    }
-    
     .pill-button {
-        transform: translate(-50%, 30%);
+        transform: translate(-50%, 50%);
     }
 }
 
-@media (max-height: 500px) {
-    .tagline {
-        transform: translate(-50%, -100%);
-    }
-    
-    .pill-button {
-        transform: translate(-50%, 0);
-    }
-}
-
-mvp,
+.mvp,
 #myCarousel {
     position: relative;
     z-index: 1;
