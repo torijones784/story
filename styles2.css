@@ -29,7 +29,7 @@ main {
     z-index: -1;
     background-blend-mode: darken;
     background-color: rgba(0, 0, 0, 0.25);
-    animation: blurEffect 5s cubic-bezier(0.25, 0.1, 0.25, 1) alternate infinite;
+    animation: blurEffect 12s infinite linear;
 }
 
 .nav-container {
@@ -209,62 +209,38 @@ footer {
 }
 
 @keyframes blurEffect {
-    0% {
+    0%, 25% {
         filter: blur(0px);
     }
-    10% {
+    30% {
         filter: blur(0.2px);
     }
-    20% {
-        filter: blur(0.4px);
-    }
-    25% { 
-        filter: blur(0.5px);
-    }
-    30% {
+    35% {
         filter: blur(2px);
     }
-    35% { 
-        filter: blur(5px);
-    }
     40% {
-        filter: blur(8px);
+        filter: blur(10px);
     }
-    45% { 
-        filter: blur(12px);
-    }
-    50% { 
-        filter: blur(20px);
-    }
-    55% {
-        filter: blur(25px);
-    }
-    60% { 
+    45% {
         filter: blur(30px);
     }
-    65% {
-        filter: blur(35px);
-    }
-    70% { 
-        filter: blur(40px);
-    }
-    75% {
-        filter: blur(42px);
-    }
-    80% {
-        filter: blur(44px);
-    }
-    85% { 
-        filter: blur(45px);
-    }
-    90% {
-        filter: blur(47px);
-    }
-    95% {
-        filter: blur(48px);
-    }
-    100% { 
+    50% {
         filter: blur(50px);
+    }
+    55% {
+        filter: blur(30px);
+    }
+    60% {
+        filter: blur(10px);
+    }
+    65% {
+        filter: blur(2px);
+    }
+    70% {
+        filter: blur(0.2px);
+    }
+    75%, 100% {
+        filter: blur(0px);
     }
 }
 
