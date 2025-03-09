@@ -75,7 +75,7 @@ main {
     transform: translate(-50%, 50%);
     text-align: center;
     text-decoration: none;
-    width: min(272px, 90%);
+    width: 272px;
     padding: 10px 24px;
     color: black;
     background-color: white;
@@ -190,6 +190,10 @@ footer {
     .about_link {
         font-size: 24px;
     }
+
+    .tagline {
+        transform: translate(-50%, -210%);
+    }
 }
 
 @media (max-width: 768px) {
@@ -223,6 +227,5 @@ mvp,
 
 footer {
     z-index: 1;
-    /* background-color: #212529; */
-    background-color: magenta;
+    background-color: #212529;
 }
