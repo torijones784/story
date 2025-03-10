@@ -285,10 +285,19 @@ footer {
 
 /* About Page */
 
-.container.about_page {
-    background-image: url(./images/about_one.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    position: fixed;
+/* Header */
+
+.finale_home_link {
+    color: #818181 !important;
+    z-index: 10001;
+    font-family: "Playfair Display", serif;
+    font-size: 20px;
+    position: relative;
+    right: auto;
+    left: 2rem;
+
+}
+
+body {
+    background-color: #1E1E1E;
 }
