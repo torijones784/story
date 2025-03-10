@@ -184,6 +184,8 @@ footer {
     transform: translate(-50%, 50%);
 }
 
+/* Carousel */
+
 .carousel-item {
     height: 425px;
     background-color: #939FAA;
@@ -208,6 +210,8 @@ footer {
     background-color: #939FAA
 }
 
+/* Footer */
+
 footer {
     z-index: 1;
     background-color: #212529;
@@ -218,6 +222,8 @@ footer {
 .footer_content {
     padding-right: 1rem;
 }
+
+/* Animations */
 
 @keyframes blurEffect {
     0%, 20% {
@@ -261,6 +267,7 @@ footer {
     }
 }
 
+/* Media Queries */
 
 @media (min-width: 768px) {
     .about_link {
@@ -275,3 +282,6 @@ footer {
         transform: translate(-50%, -150%);
     }
 }
+
+/* About Page */
+
