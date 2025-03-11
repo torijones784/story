@@ -288,16 +288,25 @@ footer {
 /* Header */
 
 .home_link {
-    color: #818181 !important;
+    color: #818181;
     z-index: 10001;
     font-family: "Playfair Display", serif;
-    font-size: 20px;
-    position: relative;
-    right: auto;
-    left: 1rem;
-
+    font-size: 24px;
+    text-decoration: none;
 }
 
 body {
     background-color: #1E1E1E;
 }
+
+.oval-image {
+    width: 300px;
+    height: 400px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+  }
+
+  footer.about_page {
+    background-color: #1E1E1E;
+  }
