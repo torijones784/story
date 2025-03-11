@@ -287,6 +287,10 @@ footer {
 
 /* Header */
 
+header.about_page {
+    background-color: #1A2C42;
+}
+
 .home_link {
     color: #818181;
     z-index: 10001;
