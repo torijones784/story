@@ -287,14 +287,14 @@ footer {
 
 /* Header */
 
-.finale_home_link {
+.home_link {
     color: #818181 !important;
     z-index: 10001;
     font-family: "Playfair Display", serif;
     font-size: 20px;
     position: relative;
     right: auto;
-    left: 2rem;
+    left: 1rem;
 
 }
 
