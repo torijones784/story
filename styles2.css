@@ -291,6 +291,10 @@ header.about_page {
     background-color: #1A2C42;
 }
 
+a {
+    text-decoration: none;
+}
+
 .home_link {
     color: #818181;
     z-index: 10001;
@@ -328,3 +332,10 @@ body {
         margin: auto;
     }
   }
+
+  @media (min-width: 768px) {
+    .about_text {
+        margin-top: 10% !important;
+        padding-left: 5rem !important;
+    }
+}
