@@ -87,14 +87,55 @@
     <script>
         window.addEventListener('load', function() {
             const loadingScreen = document.getElementById('loadingScreen');
+            const imagesToPreload = [
+                'images/background_three.jpg',
+                'images/vp_one.jpg',
+                'images/katherine.jpeg',
+                'images/brit.png',
+                'images/ava.JPG',
+                'images/5_stars.png',
+                'images/logo_light.png'
+            ];
+            
+            let imagesLoaded = 0;
+            const totalImages = imagesToPreload.length;
+            
+            function preloadImages() {
+                imagesToPreload.forEach(src => {
+                    const img = new Image();
+                    img.onload = function() {
+                        imagesLoaded++;
+                        if (imagesLoaded >= totalImages) {
+                            finishLoading();
+                        }
+                    };
+                    img.onerror = function() {
+                        imagesLoaded++;
+                        if (imagesLoaded >= totalImages) {
+                            finishLoading();
+                        }
+                    };
+                    img.src = src;
+                });
+            }
+            
+            function finishLoading() {
+                setTimeout(function() {
+                    loadingScreen.classList.add('hidden');
+                    
+                    setTimeout(function() {
+                        window.location.href = 'home.html';
+                    }, 1000);
+                }, 2000);
+            }
+            
+            preloadImages();
             
             setTimeout(function() {
-                loadingScreen.classList.add('hidden');
-                
-                setTimeout(function() {
-                    window.location.href = 'home.html';
-                }, 1000);
-            }, 4000);
+                if (imagesLoaded < totalImages) {
+                    finishLoading();
+                }
+            }, 10000);
         });
     </script>
 </body>
