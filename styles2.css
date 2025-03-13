@@ -295,6 +295,10 @@ header.about_page {
     background-color: #1A2C42;
 }
 
+.logo {
+    height: 50px
+}
+
 a {
     text-decoration: none;
 }
@@ -342,5 +346,9 @@ body {
     .oval-image {
         width: 600px;
         height: 700px;
+    }
+
+    .logo {
+        height: 70px;
     }
 }
