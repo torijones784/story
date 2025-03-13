@@ -297,6 +297,7 @@ header.about_page {
     font-family: "Playfair Display", serif;
     font-size: 24px;
     text-decoration: none;
+    left: 2rem;
 }
 
 body {
