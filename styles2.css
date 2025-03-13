@@ -315,3 +315,16 @@ body {
   footer.about_page {
     background-color: #1E1E1E;
   }
+
+  /* Media Queries */
+
+  @media (max-width: 768px) {
+    .oval-image {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .photo_container {
+        margin: auto;
+    }
+  }
