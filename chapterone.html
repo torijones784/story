@@ -419,6 +419,16 @@ p {
   z-index: 2;
   mix-blend-mode: screen;
 }
+
+.logo {
+    height: 70px
+}
+
+@media (min-width: 768px) {
+    .logo {
+        height: 70px;
+    }
+}
    </style>
 </head>
 <body class="d-flex h-100 text-center">
@@ -436,7 +446,8 @@ p {
     <header class="mb-auto pt-3 pb-3">
       <div class="container">
         <div>
-          <a href="home.html"><h3 class="title finale_home_link float-md-end visible" id="home_link">Home</h3></a>
+          <a href="home.html"><img src="./images/logo_light.png" class="float-md-start logo" alt="logo"></a>
+          <!-- <a href="home.html"><h3 class="title finale_home_link float-md-start visible" id="home_link">Home</h3></a> -->
           <a href="about.html"><h3 class="finale_about_link hidden" id="about_link">by <span class="active">Tori Jones</span></h3></a>
         </div>
       </div>
