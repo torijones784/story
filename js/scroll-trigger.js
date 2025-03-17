@@ -32,6 +32,10 @@ function initScrollTrigger() {
 
     const textChangesTop = [
         {
+            elementId: `chapter_one_title`,
+            newText: `Chapter 1`
+        },
+        {
             elementId: `changing-text-3`,
             newText: `for the rest of your life,`
         },
@@ -102,6 +106,10 @@ function initScrollTrigger() {
         {
             elementId: `changing-text-62`,
             newText: `.`
+        },
+        {
+            elementId: `changing-text-63`,
+            newText: `Alyssa`
         }
     ];
 
@@ -145,10 +153,18 @@ function initScrollTrigger() {
         {
             elementId: `changing-text-51`,
             newText: `your world.`
+        },
+        {
+            elementId: `changing-text-64`,
+            newText: `Taylor`
         }
     ];
 
 const textChangesTopTwo = [
+        {
+            elementId: `chapter_one_title`,
+            newText: `The Beginning?`
+        },
         {
             elementId: `changing-text-1`,
             newText: `Fuck this.`  
