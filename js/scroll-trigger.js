@@ -53,7 +53,7 @@ function initScrollTrigger() {
         },
         {
             elementId: `changing-text-14`,
-            newText: `It spawned. Your`
+            newText: `. It spawned. Your`
         },
         {
             elementId: `changing-text-16`,
@@ -156,7 +156,7 @@ function initScrollTrigger() {
         },
         {
             elementId: `changing-text-64`,
-            newText: `Taylor`
+            newText: `Taylor's`
         }
     ];
 
@@ -330,6 +330,10 @@ const textChangesTopTwo = [
         {
             elementId: `changing-text-60`,
             newText: `Isn't it?`
+        },
+        {
+            elementId: `changing-text-64`,
+            newText: `Your girl's`
         }
     ];
 
