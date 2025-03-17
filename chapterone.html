@@ -409,6 +409,29 @@ p {
     z-index: 10002;
 }
 
+.fade-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease;
+    z-index: 9999;
+    pointer-events: none;
+    will-change: opacity;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.fade-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+}
+
 #margin-effect {
   position: fixed;
   top: 0;
@@ -432,6 +455,7 @@ p {
    </style>
 </head>
 <body class="d-flex h-100 text-center">
+  <div class="fade-overlay active"></div>
   <div class="video-overlay">
     <video id="background-video" muted preload="auto" playsinline loop>
         <source src="images/fire_one.mp4" type="video/mp4">
@@ -530,5 +554,11 @@ p {
               }
           }
       </script>
+      <script>
+        document.addEventListener('DOMContentLoaded', function()  {
+            const overlay = document.querySelector('.fade-overlay');
+            overlay.classList.remove('active');
+        });
+        </script>
 </body>
 </html>
