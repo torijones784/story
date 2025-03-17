@@ -53,7 +53,7 @@ function initScrollTrigger() {
         },
         {
             elementId: `changing-text-14`,
-            newText: `. It spawned. Your`
+            newText: `. It spawned. Alyssa, your`
         },
         {
             elementId: `changing-text-16`,
@@ -109,7 +109,7 @@ function initScrollTrigger() {
         },
         {
             elementId: `changing-text-63`,
-            newText: `Alyssa`
+            newText: ``
         }
     ];
 
