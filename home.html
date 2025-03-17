@@ -145,6 +145,21 @@
           }, 3000);
       });
       </script>
+      <script>
+        document.getElementById('getStarted').addEventListener('click', function(e) {
+            e.preventDefault();
+            const overlay = document.querySelector('.fade-overlay');
+            overlay.classList.add('active');
+            
+            setTimeout(() => {
+                window.location.href = this.getAttribute('href');
+  
+                setTimeout(() => {
+                  overlay.classList.remove('active');
+                }, 3500)
+            }, 3000);
+        });
+        </script>
 
 </body>
 </html>

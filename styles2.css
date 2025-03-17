@@ -16,6 +16,29 @@ main {
     position: relative;
 }
 
+.fade-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease;
+    z-index: 9999;
+    pointer-events: none;
+    will-change: opacity;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.fade-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+}
+
 .bg-container {
     background-image: url('images/background_three.jpg');
     background-size: cover;
