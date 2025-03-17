@@ -99,6 +99,8 @@
             
             let imagesLoaded = 0;
             const totalImages = imagesToPreload.length;
+            const minLoadingTime = 5000;
+            const loadStartTime = Date.now();
             
             function preloadImages() {
                 imagesToPreload.forEach(src => {
@@ -106,34 +108,44 @@
                     img.onload = function() {
                         imagesLoaded++;
                         if (imagesLoaded >= totalImages) {
-                            finishLoading();
+                            checkAndFinishLoading();
                         }
                     };
                     img.onerror = function() {
                         imagesLoaded++;
                         if (imagesLoaded >= totalImages) {
-                            finishLoading();
+                            checkAndFinishLoading();
                         }
                     };
                     img.src = src;
                 });
             }
             
+            function checkAndFinishLoading() {
+                const currentTime = Date.now();
+                const elapsedTime = currentTime - loadStartTime;
+                
+                if (elapsedTime >= minLoadingTime) {
+                    finishLoading();
+                } else {
+                    const remainingTime = minLoadingTime - elapsedTime;
+                    setTimeout(finishLoading, remainingTime);
+                }
+            }
+            
             function finishLoading() {
+                loadingScreen.classList.add('hidden');
+                
                 setTimeout(function() {
-                    loadingScreen.classList.add('hidden');
-                    
-                    setTimeout(function() {
-                        window.location.href = 'home.html';
-                    }, 1000);
-                }, 2000);
+                    window.location.href = 'home.html';
+                }, 1000);
             }
             
             preloadImages();
             
             setTimeout(function() {
                 if (imagesLoaded < totalImages) {
-                    finishLoading();
+                    checkAndFinishLoading();
                 }
             }, 10000);
         });
