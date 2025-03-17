@@ -53,7 +53,7 @@ function initScrollTrigger() {
         },
         {
             elementId: `changing-text-14`,
-            newText: `. It spawned. Alyssa, your`
+            newText: `It spawned. Alyssa, your`
         },
         {
             elementId: `changing-text-16`,
@@ -633,9 +633,9 @@ const textChangesTopTwo = [
             console.log('Fourth trigger activated');
             roundThreeTop = true;
 
-            clearTimeout(closingQuestionTimeout);
-            const closingQuestion = document.getElementById('closing_question');
-            closingQuestion.classList.remove('visible');
+            // clearTimeout(closingQuestionTimeout);
+            // const closingQuestion = document.getElementById('closing_question');
+            // closingQuestion.classList.remove('visible');
 
             textChangesBottomTwo.forEach(change => {
                 const element = document.getElementById(change.elementId);
