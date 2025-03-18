@@ -447,9 +447,25 @@ p {
     height: 70px
 }
 
+input {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  opacity: 0;
+  z-index: 10000;
+  visibility: hidden;
+  transition: opacity 8s ease-in;
+}
+
 @media (min-width: 768px) {
     .logo {
         height: 70px;
+    }
+
+    input {
+      width: 30%;
     }
 }
    </style>
