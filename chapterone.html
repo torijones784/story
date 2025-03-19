@@ -343,8 +343,25 @@ p {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -275%);
     color: #FFFFFF;
+    font-family: "Playfair Display", serif;
+    font-size: 24px;
+    opacity: 0;
+    z-index: 10000;
+    visibility: hidden;
+    transition: opacity 8s ease-in;
+    text-align: center;
+    width: 80%;
+    max-width: 600px;
+}
+
+.email-capture {
+  position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    color: #C5C5C5;
     font-family: "Playfair Display", serif;
     font-size: 24px;
     opacity: 0;
@@ -404,6 +421,10 @@ p {
     visibility: visible;
 }
 
+.email-capture.visible {
+    opacity: 1;
+    visibility: visible;
+}
 .container {
     position: relative;
     z-index: 10002;
@@ -451,7 +472,7 @@ input {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 300%);
   width: 70%;
   opacity: 0;
   z-index: 10000;
@@ -545,7 +566,7 @@ input {
   <p class="mx-5" id="changing-text-59">Everything is safe.</p>
   <!-- <p class="mx-5 mt-2 pb-5" id="closing_question">There is a demon hiding in this story. Can you find it?</p> -->
   <div class="final-text">Thank you for participating in our beta product!</div>
-  <div class="final-text" style="color:#818181;">Enter your email below to get notified when the full experience becomes available:</div>
+  <div class="email-capture" style="color:#818181;">Enter your email below to get notified when the full experience becomes available:</div>
   <input type="email" id="email" name="email" placeholder="Email Address">
 
         <footer class="mt-auto">
