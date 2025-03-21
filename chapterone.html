@@ -487,13 +487,18 @@ input {
 }
 
 [id^="changing-text-"] {
-  transition: height 0.4s ease-out, opacity 0.3s ease;
-  overflow: hidden;
+  min-height: 1.5em;
+  transition: opacity 0.3s ease;
 }
 
 .mx-5 {
-  transition: height 0.4s ease-out;
-  overflow: visible;
+  min-height: 3em;
+}
+
+#changing-text-5, #changing-text-6, #changing-text-12, 
+#changing-text-17, #changing-text-20, #changing-text-23,
+#changing-text-28, #changing-text-32, #changing-text-34 {
+  min-height: 6em;
 }
 
 @media (min-width: 768px) {

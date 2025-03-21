@@ -21,27 +21,16 @@ function initScrollTrigger() {
         const element = document.getElementById(elementId);
         if (!element) return;
         
-        const originalHeight = element.offsetHeight;
-        element.style.height = originalHeight + 'px';
-        
         element.style.opacity = '0';
         
         setTimeout(() => {
-          element.textContent = newText;
-          
-          element.style.height = 'auto';
-          const newHeight = element.offsetHeight;
-          element.style.height = originalHeight + 'px';
-          
-          element.offsetHeight;
-          
-          element.style.height = newHeight + 'px';
-          element.style.opacity = '1';
-          
-          setTimeout(() => {
-            element.style.height = '';
-          }, 400);
-        }, 100);
+          if (newText === '') {
+            element.style.display = 'none';
+          } else {
+            element.textContent = newText;
+            element.style.opacity = '1';
+          }
+        }, 300);
       }
     
     document.addEventListener('DOMContentLoaded', () => {
@@ -617,20 +606,20 @@ const textChangesTopTwo = [
             }
         }
 
-        if (scrollPercentage > 95 && !tensionReset && tensionActivated) {
-            console.log('Resetting tension effect');
-            tensionReset = true;
-            cancelAnimationFrame(tensionAnimationFrame);
+        // if (scrollPercentage > 95 && !tensionReset && tensionActivated) {
+        //     console.log('Resetting tension effect');
+        //     tensionReset = true;
+        //     cancelAnimationFrame(tensionAnimationFrame);
             
-            document.body.style.transition = 'background-color 5s ease-in-out';
-            document.body.style.backgroundColor = '';
+        //     document.body.style.transition = 'background-color 5s ease-in-out';
+        //     document.body.style.backgroundColor = '';
             
-            const paragraphs = document.querySelectorAll('p');
-            paragraphs.forEach(p => {
-                p.style.transition = 'letter-spacing 5s ease-in-out';
-                p.style.letterSpacing = '';
-            });
-        }
+        //     const paragraphs = document.querySelectorAll('p');
+        //     paragraphs.forEach(p => {
+        //         p.style.transition = 'letter-spacing 5s ease-in-out';
+        //         p.style.letterSpacing = '';
+        //     });
+        // }
 
         if (scrollPercentage < 50 && hasReachedBottom && !roundTwoTop) { 
             console.log('Second trigger activated');
@@ -645,7 +634,7 @@ const textChangesTopTwo = [
             //     }
             // });
 
-            textChangesTop.forEach(change => {
+            textChangesBottom.forEach(change => {
                 updateElementText(change.elementId, change.newText);
             });
         }
@@ -661,7 +650,7 @@ const textChangesTopTwo = [
             //     }
             // });
 
-            textChangesTop.forEach(change => {
+            textChangesTopTwo.forEach(change => {
                 updateElementText(change.elementId, change.newText);
             });
         }
@@ -686,7 +675,7 @@ const textChangesTopTwo = [
             //         }
             // });
 
-            textChangesTop.forEach(change => {
+            textChangesBottomTwo.forEach(change => {
                 updateElementText(change.elementId, change.newText);
             });
 
