@@ -21,35 +21,41 @@ function initScrollTrigger() {
         const element = document.getElementById(elementId);
         if (!element) return;
         
-        const currentHeight = element.offsetHeight;
+        const parentParagraph = element.closest('p');
+        if (parentParagraph) {
+          parentParagraph.classList.add('smooth-height-transition');
+          
+          const originalHeight = parentParagraph.offsetHeight;
+          parentParagraph.style.height = originalHeight + 'px';
+        }
         
-        element.style.height = `${currentHeight}px`;
-        
+        element.style.transition = 'opacity 0.3s ease';
         element.style.opacity = '0';
         
         setTimeout(() => {
           if (newText === '') {
             element.style.display = 'none';
-            element.style.height = '';
           } else {
+            element.style.display = '';
             element.textContent = newText;
+          }
+          
+          if (parentParagraph) {
+            parentParagraph.style.height = '';
+            const newHeight = parentParagraph.offsetHeight;
             
-            element.style.height = '';
-            const naturalHeight = element.offsetHeight;
+            parentParagraph.style.height = originalHeight + 'px';
+            parentParagraph.offsetHeight;
             
-            element.style.height = `${currentHeight}px`;
-            
-            element.offsetHeight;
-            
-            element.style.transition = 'height 0.3s ease, opacity 0.3s ease';
-            element.style.height = `${naturalHeight}px`;
-            element.style.opacity = '1';
+            parentParagraph.style.height = newHeight + 'px';
             
             setTimeout(() => {
-              element.style.height = '';
-              element.style.transition = '';
-            }, 300);
+              parentParagraph.style.height = '';
+              parentParagraph.classList.remove('smooth-height-transition');
+            }, 500);
           }
+          
+          element.style.opacity = '1';
         }, 300);
       }
     
