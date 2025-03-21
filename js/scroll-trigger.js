@@ -21,12 +21,15 @@ function initScrollTrigger() {
         const element = document.getElementById(elementId);
         if (!element) return;
         
-        element.style.opacity = '0';
+        if (element.style.display !== 'none') {
+          element.style.opacity = '0';
+        }
         
         setTimeout(() => {
           if (newText === '') {
             element.style.display = 'none';
           } else {
+            element.style.display = '';
             element.textContent = newText;
             element.style.opacity = '1';
           }
