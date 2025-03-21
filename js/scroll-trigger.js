@@ -587,11 +587,11 @@ const textChangesTopTwo = [
         lastScrollTop = currentScrollTop;
         lastScrollTime = now;
 
-        if (scrollPercentage > 70 && !tensionActivated && !hasTriggered) {
-            console.log('Activating tension effect');
-            tensionActivated = true;
-            updateTensionEffect();
-        }
+        // if (scrollPercentage > 70 && !tensionActivated && !hasTriggered) {
+        //     console.log('Activating tension effect');
+        //     tensionActivated = true;
+        //     updateTensionEffect();
+        // }
 
         if (scrollPercentage > 80 && !hasTriggered) { 
             console.log('First trigger activated');
