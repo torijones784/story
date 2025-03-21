@@ -490,7 +490,7 @@ input {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, 500%);
+  transform: translate(-50%, 350%);
   width: 70%;
   opacity: 0;
   z-index: 10000;
@@ -618,7 +618,9 @@ button.visible {
   <div class="final-text">Thank you for participating in our beta product!</div>
   <div class="email-capture" style="color:#C5C5C5;">Enter your email below to get notified when the full experience becomes available:</div>
   <input type="email" id="email" name="email" placeholder="Email Address">
-  <button type="submit" id="button" class="pill-button">Submit</button>
+  <div>
+    <a id="submitEmail" class="pill-button btn-lg btn-light border-white bg-white">Submit <span class="arrow">→</span></a>
+  </div>
 
         <footer class="mt-auto">
           <span class="mb-3 mx-0 text-body-secondary float-md-end">© 2025 Pixel & Prose</span>        
