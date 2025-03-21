@@ -8,7 +8,7 @@ function initScrollTrigger() {
     let tensionActivated = false;
     let tensionReset = false;
     let pageLoadTime = Date.now();
-    const MINIMUM_TIME = 12000;
+    const MINIMUM_TIME = 24000;
     let lastScrollTop = 0;
     let lastScrollTime = Date.now();
     let scrollSpeed = 0;
