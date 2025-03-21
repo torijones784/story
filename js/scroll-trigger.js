@@ -747,7 +747,7 @@ const textChangesTopTwo = [
                                                             // const flashOverlay = document.querySelector('.flash-overlay');
                                                             // flashOverlay.classList.add('active');
                                                             
-                                                            setTimeout(() => {
+                                                            // setTimeout(() => {
                                                                 // flashOverlay.classList.remove('active');
                                                                 
                                                                 const blackFade = document.querySelector('.black-fade');
@@ -782,8 +782,8 @@ const textChangesTopTwo = [
                                                                             'about:', about_link.className);
                                                                     }, 5000)
             
-                                                                }, 5000); 
-                                                            }, 350);
+                                                                }, 3000); 
+                                                            // }, 350);
                                                         }, 15000);
                                                     }
                                                 }, 4000);
