@@ -763,7 +763,7 @@ const textChangesTopTwo = [
                                                                     const email = document.getElementById(`email`);
                                                                     email.classList.add('visible');
 
-                                                                    const button = document.getElementById(`button`);
+                                                                    const button = document.getElementById(`submitEmail`);
                                                                     button.classList.add('visible');
             
                                                                     console.log('Transitioning to final state');
