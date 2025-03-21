@@ -16,6 +16,33 @@ function initScrollTrigger() {
     let tensionAnimationFrame;
 
     let lastViewportHeight = window.innerHeight;
+
+    function updateElementText(elementId, newText) {
+        const element = document.getElementById(elementId);
+        if (!element) return;
+        
+        const originalHeight = element.offsetHeight;
+        element.style.height = originalHeight + 'px';
+        
+        element.style.opacity = '0';
+        
+        setTimeout(() => {
+          element.textContent = newText;
+          
+          element.style.height = 'auto';
+          const newHeight = element.offsetHeight;
+          element.style.height = originalHeight + 'px';
+          
+          element.offsetHeight;
+          
+          element.style.height = newHeight + 'px';
+          element.style.opacity = '1';
+          
+          setTimeout(() => {
+            element.style.height = '';
+          }, 400);
+        }, 100);
+      }
     
     document.addEventListener('DOMContentLoaded', () => {
         const video = document.getElementById('background-video');
@@ -571,11 +598,15 @@ const textChangesTopTwo = [
             hasTriggered = true;
             hasReachedBottom = true;
             
+            // textChangesTop.forEach(change => {
+            //     const element = document.getElementById(change.elementId);
+            //     if (element) {
+            //         element.textContent = change.newText;
+            //     }
+            // });
+
             textChangesTop.forEach(change => {
-                const element = document.getElementById(change.elementId);
-                if (element) {
-                    element.textContent = change.newText;
-                }
+                updateElementText(change.elementId, change.newText);
             });
 
             const closingQuestion = document.getElementById('closing_question');
@@ -605,13 +636,17 @@ const textChangesTopTwo = [
             console.log('Second trigger activated');
             roundTwoTop = true;
 
-            textChangesBottom.forEach(change => {
-                const element = document.getElementById(change.elementId);
-                if (change.newText === '') {
-                    element.remove();
-                } else if (element) {
-                    element.textContent = change.newText;
-                }
+            // textChangesBottom.forEach(change => {
+            //     const element = document.getElementById(change.elementId);
+            //     if (change.newText === '') {
+            //         element.remove();
+            //     } else if (element) {
+            //         element.textContent = change.newText;
+            //     }
+            // });
+
+            textChangesTop.forEach(change => {
+                updateElementText(change.elementId, change.newText);
             });
         }
 
@@ -619,11 +654,15 @@ const textChangesTopTwo = [
             console.log('Third trigger activated');
 
             roundTwoBottom = true;
-            textChangesTopTwo.forEach(change => {
-                const element = document.getElementById(change.elementId);
-                if (element) {
-                    element.textContent = change.newText;
-                }
+            // textChangesTopTwo.forEach(change => {
+            //     const element = document.getElementById(change.elementId);
+            //     if (element) {
+            //         element.textContent = change.newText;
+            //     }
+            // });
+
+            textChangesTop.forEach(change => {
+                updateElementText(change.elementId, change.newText);
             });
         }
 
@@ -637,17 +676,19 @@ const textChangesTopTwo = [
             // const closingQuestion = document.getElementById('closing_question');
             // closingQuestion.classList.remove('visible');
 
-            textChangesBottomTwo.forEach(change => {
-                const element = document.getElementById(change.elementId);
-                if (element) {
-                    if (change.elementId === 'changing-text-44') {
-                        element.classList.remove('italic');
-                    }
-                        element.textContent = change.newText;
-                    }
+            // textChangesBottomTwo.forEach(change => {
+            //     const element = document.getElementById(change.elementId);
+            //     if (element) {
+            //         if (change.elementId === 'changing-text-44') {
+            //             element.classList.remove('italic');
+            //         }
+            //             element.textContent = change.newText;
+            //         }
+            // });
+
+            textChangesTop.forEach(change => {
+                updateElementText(change.elementId, change.newText);
             });
-
-
 
         }
         if (scrollPercentage > 90 && hasTriggered && roundThreeTop && !fifthTriggerActivated) { 

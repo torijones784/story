@@ -486,6 +486,16 @@ input {
   transition: opacity 8s ease-in;
 }
 
+[id^="changing-text-"] {
+  transition: height 0.4s ease-out, opacity 0.3s ease;
+  overflow: hidden;
+}
+
+.mx-5 {
+  transition: height 0.4s ease-out;
+  overflow: visible;
+}
+
 @media (min-width: 768px) {
     .logo {
         height: 70px;
