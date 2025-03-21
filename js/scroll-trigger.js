@@ -21,17 +21,34 @@ function initScrollTrigger() {
         const element = document.getElementById(elementId);
         if (!element) return;
         
-        if (element.style.display !== 'none') {
-          element.style.opacity = '0';
-        }
+        const currentHeight = element.offsetHeight;
+        
+        element.style.height = `${currentHeight}px`;
+        
+        element.style.opacity = '0';
         
         setTimeout(() => {
           if (newText === '') {
             element.style.display = 'none';
+            element.style.height = '';
           } else {
-            element.style.display = '';
             element.textContent = newText;
+            
+            element.style.height = '';
+            const naturalHeight = element.offsetHeight;
+            
+            element.style.height = `${currentHeight}px`;
+            
+            element.offsetHeight;
+            
+            element.style.transition = 'height 0.3s ease, opacity 0.3s ease';
+            element.style.height = `${naturalHeight}px`;
             element.style.opacity = '1';
+            
+            setTimeout(() => {
+              element.style.height = '';
+              element.style.transition = '';
+            }, 300);
           }
         }, 300);
       }
