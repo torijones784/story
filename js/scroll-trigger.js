@@ -598,7 +598,7 @@ const textChangesTopTwo = [
             textChangesTop.forEach((change, index) => {
                 setTimeout(() => {
                     updateElementText(change.elementId, change.newText);
-                }, index * 150);
+                }, index * 500);
             });
 
             const closingQuestion = document.getElementById('closing_question');
