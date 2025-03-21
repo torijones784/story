@@ -503,34 +503,34 @@ const textChangesTopTwo = [
         }
     ];
 
-    function updateTensionEffect() {
-        if (!tensionActivated) return;
+    // function updateTensionEffect() {
+    //     if (!tensionActivated) return;
         
-        const now = Date.now();
-        const timeDelta = now - lastScrollTime;
+    //     const now = Date.now();
+    //     const timeDelta = now - lastScrollTime;
         
-        if (timeDelta > 16) { 
-            scrollSpeed = Math.max(0, scrollSpeed - 0.1);
-        }
+    //     if (timeDelta > 16) { 
+    //         scrollSpeed = Math.max(0, scrollSpeed - 0.1);
+    //     }
         
-        const targetOpacity = Math.min(0.15, scrollSpeed * 0.001);
-        const opacityDelta = targetOpacity - currentOpacity;
-        currentOpacity += opacityDelta * 0.1;
+    //     const targetOpacity = Math.min(0.15, scrollSpeed * 0.001);
+    //     const opacityDelta = targetOpacity - currentOpacity;
+    //     currentOpacity += opacityDelta * 0.1;
         
-        if (tensionActivated && !tensionReset) {
-            document.body.style.backgroundColor = `rgba(0, 0, 15, ${currentOpacity})`;
+    //     if (tensionActivated && !tensionReset) {
+    //         document.body.style.backgroundColor = `rgba(0, 0, 15, ${currentOpacity})`;
             
-            const letterSpacing = currentOpacity * 0.13;
-            const paragraphs = document.querySelectorAll('p');
-            paragraphs.forEach(p => {
-                p.style.letterSpacing = `${letterSpacing}em`;
-            });
-        }
+    //         const letterSpacing = currentOpacity * 0.10;
+    //         const paragraphs = document.querySelectorAll('p');
+    //         paragraphs.forEach(p => {
+    //             p.style.letterSpacing = `${letterSpacing}em`;
+    //         });
+    //     }
   
-        if (Math.abs(opacityDelta) > 0.001) {
-            tensionAnimationFrame = requestAnimationFrame(updateTensionEffect);
-        }
-    }
+    //     if (Math.abs(opacityDelta) > 0.001) {
+    //         tensionAnimationFrame = requestAnimationFrame(updateTensionEffect);
+    //     }
+    // }
 
     function handleFadeOut(elements) {
         elements.forEach(element => {
