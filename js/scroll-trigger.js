@@ -803,8 +803,7 @@ const textChangesTopTwo = [
                             }
                         }
                     });
-                }, 1000); 
-                // change back to 80000
+                }, 80000); 
         }
 
     }
