@@ -21,25 +21,40 @@ function initScrollTrigger() {
         const element = document.getElementById(elementId);
         if (!element) return;
         
-        // Check if element is currently visible in viewport
+        // Check if element is off-screen
         const rect = element.getBoundingClientRect();
         const isOffScreen = (
-            rect.bottom <= 0 || // Above viewport
-            rect.top >= window.innerHeight || // Below viewport
-            rect.right <= 0 || // Left of viewport
-            rect.left >= window.innerWidth // Right of viewport
+            rect.bottom <= 0 || 
+            rect.top >= window.innerHeight ||
+            rect.right <= 0 || 
+            rect.left >= window.innerWidth
         );
         
         if (isOffScreen) {
-            // Update immediately if not visible
-            if (newText === '') {
-                element.style.display = 'none';
-            } else {
-                element.textContent = newText;
+            // Record original position information
+            const parentElement = element.parentNode;
+            const nextSibling = element.nextSibling;
+            
+            // Create wrapper if needed
+            const wrapper = document.createElement('span');
+            wrapper.style.display = 'inline-block';
+            wrapper.style.width = '100%';
+            
+            // Create new element with same styling and ID
+            const newElement = element.cloneNode(false);
+            newElement.textContent = newText;
+            newElement.id = elementId;
+            
+            // Replace old element with wrapper containing new element
+            parentElement.insertBefore(wrapper, nextSibling);
+            wrapper.appendChild(newElement);
+            
+            // Remove the old element
+            if (element.parentNode) {
+                element.parentNode.removeChild(element);
             }
         } else {
-            // If visible, queue update for when it becomes invisible
-            // Store the update in element's data attributes
+            // Store for later update when off-screen
             element.setAttribute('data-pending-text', newText);
             element.setAttribute('data-needs-update', 'true');
         }
@@ -882,8 +897,18 @@ const textChangesTopTwo = [
     }
 
     let ticking = false;
+    let scrollTimer;
     window.addEventListener('scroll', () => {
         checkPendingUpdates();
+        document.body.classList.add('is-scrolling');
+    
+    // Clear previous timeout
+    clearTimeout(scrollTimer);
+    
+    // Set timeout to remove class when scrolling stops
+    scrollTimer = setTimeout(function() {
+        document.body.classList.remove('is-scrolling');
+    }, 150);
         
         if (!ticking) {
             window.requestAnimationFrame(() => {
