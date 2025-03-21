@@ -486,34 +486,6 @@ input {
   transition: opacity 8s ease-in;
 }
 
-/* Add subtle spacing between paragraphs */
-p[id^="changing-text-"] {
-    margin-bottom: 1.5em;
-    line-height: 1.6;
-    position: relative;
-}
-
-/* Add subtle dividers between sections */
-p[id^="changing-text-"]:after {
-    content: "";
-    display: block;
-    height: 1px;
-    width: 20%;
-    margin: 1.5em auto 0;
-    background: rgba(255, 255, 255, 0.1);
-}
-
-/* Add a slight transition effect during scrolling */
-body.is-scrolling p {
-    transition: color 0.3s ease;
-    color: rgba(255, 255, 255, 0.92);
-}
-
-/* Add scroll state detection */
-html {
-    scroll-behavior: smooth;
-}
-
 @media (min-width: 768px) {
     .logo {
         height: 70px;
@@ -546,7 +518,7 @@ html {
         </div>
       </div>
     </header>
-    <h1 id="chapter_one_title">Chapter 1</h1>
+    <h1 id="chapter_one_title">Chapter 1 - test</h1>
     <p class="mx-5"><span id="changing-text-1">You're fucking tired.</span><span id="changing-text-2"> And not that "stayed up until 3am closing down the bar" tired: waking up mid-afternoon in a haze, desperate for carbs, distracted by sex with the brunette next to you. Remembering that, actually, you didn't fall asleep until 6am. When you look at your phone later, you'll have a bunch of texts recapping the highlights of the night before. Dozens of photos, and, theoretically, memories you'll have</span>
       <span id="changing-text-3">
           forever,

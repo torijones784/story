@@ -16,78 +16,6 @@ function initScrollTrigger() {
     let tensionAnimationFrame;
 
     let lastViewportHeight = window.innerHeight;
-
-    function updateElementText(elementId, newText) {
-        const element = document.getElementById(elementId);
-        if (!element) return;
-        
-        // Check if element is off-screen
-        const rect = element.getBoundingClientRect();
-        const isOffScreen = (
-            rect.bottom <= 0 || 
-            rect.top >= window.innerHeight ||
-            rect.right <= 0 || 
-            rect.left >= window.innerWidth
-        );
-        
-        if (isOffScreen) {
-            // Record original position information
-            const parentElement = element.parentNode;
-            const nextSibling = element.nextSibling;
-            
-            // Create wrapper if needed
-            const wrapper = document.createElement('span');
-            wrapper.style.display = 'inline-block';
-            wrapper.style.width = '100%';
-            
-            // Create new element with same styling and ID
-            const newElement = element.cloneNode(false);
-            newElement.textContent = newText;
-            newElement.id = elementId;
-            
-            // Replace old element with wrapper containing new element
-            parentElement.insertBefore(wrapper, nextSibling);
-            wrapper.appendChild(newElement);
-            
-            // Remove the old element
-            if (element.parentNode) {
-                element.parentNode.removeChild(element);
-            }
-        } else {
-            // Store for later update when off-screen
-            element.setAttribute('data-pending-text', newText);
-            element.setAttribute('data-needs-update', 'true');
-        }
-    }
-
-    function checkPendingUpdates() {
-        const elementsNeedingUpdate = document.querySelectorAll('[data-needs-update="true"]');
-        
-        elementsNeedingUpdate.forEach(element => {
-            const rect = element.getBoundingClientRect();
-            const isOffScreen = (
-                rect.bottom <= 0 ||
-                rect.top >= window.innerHeight ||
-                rect.right <= 0 ||
-                rect.left >= window.innerWidth
-            );
-            
-            if (isOffScreen) {
-                // Element is now off-screen, apply the pending update
-                const newText = element.getAttribute('data-pending-text');
-                
-                if (newText === '') {
-                    element.style.display = 'none';
-                } else {
-                    element.textContent = newText;
-                }
-                
-                // Clear the pending update
-                element.removeAttribute('data-pending-text');
-                element.removeAttribute('data-needs-update');
-            }
-        });
-    }
     
     document.addEventListener('DOMContentLoaded', () => {
         const video = document.getElementById('background-video');
@@ -548,34 +476,34 @@ const textChangesTopTwo = [
         }
     ];
 
-    // function updateTensionEffect() {
-    //     if (!tensionActivated) return;
+    function updateTensionEffect() {
+        if (!tensionActivated) return;
         
-    //     const now = Date.now();
-    //     const timeDelta = now - lastScrollTime;
+        const now = Date.now();
+        const timeDelta = now - lastScrollTime;
         
-    //     if (timeDelta > 16) { 
-    //         scrollSpeed = Math.max(0, scrollSpeed - 0.1);
-    //     }
+        if (timeDelta > 16) { 
+            scrollSpeed = Math.max(0, scrollSpeed - 0.1);
+        }
         
-    //     const targetOpacity = Math.min(0.15, scrollSpeed * 0.001);
-    //     const opacityDelta = targetOpacity - currentOpacity;
-    //     currentOpacity += opacityDelta * 0.1;
+        const targetOpacity = Math.min(0.15, scrollSpeed * 0.001);
+        const opacityDelta = targetOpacity - currentOpacity;
+        currentOpacity += opacityDelta * 0.1;
         
-    //     if (tensionActivated && !tensionReset) {
-    //         document.body.style.backgroundColor = `rgba(0, 0, 15, ${currentOpacity})`;
+        if (tensionActivated && !tensionReset) {
+            document.body.style.backgroundColor = `rgba(0, 0, 15, ${currentOpacity})`;
             
-    //         const letterSpacing = currentOpacity * 0.10;
-    //         const paragraphs = document.querySelectorAll('p');
-    //         paragraphs.forEach(p => {
-    //             p.style.letterSpacing = `${letterSpacing}em`;
-    //         });
-    //     }
+            const letterSpacing = currentOpacity * 0.13;
+            const paragraphs = document.querySelectorAll('p');
+            paragraphs.forEach(p => {
+                p.style.letterSpacing = `${letterSpacing}em`;
+            });
+        }
   
-    //     if (Math.abs(opacityDelta) > 0.001) {
-    //         tensionAnimationFrame = requestAnimationFrame(updateTensionEffect);
-    //     }
-    // }
+        if (Math.abs(opacityDelta) > 0.001) {
+            tensionAnimationFrame = requestAnimationFrame(updateTensionEffect);
+        }
+    }
 
     function handleFadeOut(elements) {
         elements.forEach(element => {
@@ -632,28 +560,22 @@ const textChangesTopTwo = [
         lastScrollTop = currentScrollTop;
         lastScrollTime = now;
 
-        // if (scrollPercentage > 70 && !tensionActivated && !hasTriggered) {
-        //     console.log('Activating tension effect');
-        //     tensionActivated = true;
-        //     updateTensionEffect();
-        // }
+        if (scrollPercentage > 70 && !tensionActivated && !hasTriggered) {
+            console.log('Activating tension effect');
+            tensionActivated = true;
+            updateTensionEffect();
+        }
 
         if (scrollPercentage > 80 && !hasTriggered) { 
             console.log('First trigger activated');
             hasTriggered = true;
             hasReachedBottom = true;
             
-            // textChangesTop.forEach(change => {
-            //     const element = document.getElementById(change.elementId);
-            //     if (element) {
-            //         element.textContent = change.newText;
-            //     }
-            // });
-
-            textChangesTop.forEach((change, index) => {
-                setTimeout(() => {
-                    updateElementText(change.elementId, change.newText);
-                }, index * 500);
+            textChangesTop.forEach(change => {
+                const element = document.getElementById(change.elementId);
+                if (element) {
+                    element.textContent = change.newText;
+                }
             });
 
             const closingQuestion = document.getElementById('closing_question');
@@ -664,36 +586,32 @@ const textChangesTopTwo = [
             }
         }
 
-        // if (scrollPercentage > 95 && !tensionReset && tensionActivated) {
-        //     console.log('Resetting tension effect');
-        //     tensionReset = true;
-        //     cancelAnimationFrame(tensionAnimationFrame);
+        if (scrollPercentage > 95 && !tensionReset && tensionActivated) {
+            console.log('Resetting tension effect');
+            tensionReset = true;
+            cancelAnimationFrame(tensionAnimationFrame);
             
-        //     document.body.style.transition = 'background-color 5s ease-in-out';
-        //     document.body.style.backgroundColor = '';
+            document.body.style.transition = 'background-color 5s ease-in-out';
+            document.body.style.backgroundColor = '';
             
-        //     const paragraphs = document.querySelectorAll('p');
-        //     paragraphs.forEach(p => {
-        //         p.style.transition = 'letter-spacing 5s ease-in-out';
-        //         p.style.letterSpacing = '';
-        //     });
-        // }
+            const paragraphs = document.querySelectorAll('p');
+            paragraphs.forEach(p => {
+                p.style.transition = 'letter-spacing 5s ease-in-out';
+                p.style.letterSpacing = '';
+            });
+        }
 
         if (scrollPercentage < 50 && hasReachedBottom && !roundTwoTop) { 
             console.log('Second trigger activated');
             roundTwoTop = true;
 
-            // textChangesBottom.forEach(change => {
-            //     const element = document.getElementById(change.elementId);
-            //     if (change.newText === '') {
-            //         element.remove();
-            //     } else if (element) {
-            //         element.textContent = change.newText;
-            //     }
-            // });
-
             textChangesBottom.forEach(change => {
-                updateElementText(change.elementId, change.newText);
+                const element = document.getElementById(change.elementId);
+                if (change.newText === '') {
+                    element.remove();
+                } else if (element) {
+                    element.textContent = change.newText;
+                }
             });
         }
 
@@ -701,15 +619,11 @@ const textChangesTopTwo = [
             console.log('Third trigger activated');
 
             roundTwoBottom = true;
-            // textChangesTopTwo.forEach(change => {
-            //     const element = document.getElementById(change.elementId);
-            //     if (element) {
-            //         element.textContent = change.newText;
-            //     }
-            // });
-
             textChangesTopTwo.forEach(change => {
-                updateElementText(change.elementId, change.newText);
+                const element = document.getElementById(change.elementId);
+                if (element) {
+                    element.textContent = change.newText;
+                }
             });
         }
 
@@ -723,19 +637,17 @@ const textChangesTopTwo = [
             // const closingQuestion = document.getElementById('closing_question');
             // closingQuestion.classList.remove('visible');
 
-            // textChangesBottomTwo.forEach(change => {
-            //     const element = document.getElementById(change.elementId);
-            //     if (element) {
-            //         if (change.elementId === 'changing-text-44') {
-            //             element.classList.remove('italic');
-            //         }
-            //             element.textContent = change.newText;
-            //         }
-            // });
-
             textChangesBottomTwo.forEach(change => {
-                updateElementText(change.elementId, change.newText);
+                const element = document.getElementById(change.elementId);
+                if (element) {
+                    if (change.elementId === 'changing-text-44') {
+                        element.classList.remove('italic');
+                    }
+                        element.textContent = change.newText;
+                    }
             });
+
+
 
         }
         if (scrollPercentage > 90 && hasTriggered && roundThreeTop && !fifthTriggerActivated) { 
@@ -897,19 +809,7 @@ const textChangesTopTwo = [
     }
 
     let ticking = false;
-    let scrollTimer;
     window.addEventListener('scroll', () => {
-        checkPendingUpdates();
-        document.body.classList.add('is-scrolling');
-    
-    // Clear previous timeout
-    clearTimeout(scrollTimer);
-    
-    // Set timeout to remove class when scrolling stops
-    scrollTimer = setTimeout(function() {
-        document.body.classList.remove('is-scrolling');
-    }, 150);
-        
         if (!ticking) {
             window.requestAnimationFrame(() => {
                 checkScroll();
@@ -918,10 +818,10 @@ const textChangesTopTwo = [
             ticking = true;
         }
         
-        // if (tensionActivated && !tensionReset) {
-        //     cancelAnimationFrame(tensionAnimationFrame);
-        //     tensionAnimationFrame = requestAnimationFrame(updateTensionEffect);
-        // }
+        if (tensionActivated && !tensionReset) {
+            cancelAnimationFrame(tensionAnimationFrame);
+            tensionAnimationFrame = requestAnimationFrame(updateTensionEffect);
+        }
     });
 
     checkScroll();
