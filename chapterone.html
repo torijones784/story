@@ -486,6 +486,18 @@ input {
   transition: opacity 8s ease-in;
 }
 
+p {
+  position: relative;
+  transition: none;
+}
+.text-transitioning {
+  will-change: opacity, transform;
+}
+body.is-scrolling p {
+  transition: color 0.3s ease;
+  color: rgba(255, 255, 255, 0.9);
+}
+
 @media (min-width: 768px) {
     .logo {
         height: 70px;
