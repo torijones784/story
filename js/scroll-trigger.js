@@ -21,14 +21,6 @@ function initScrollTrigger() {
         const element = document.getElementById(elementId);
         if (!element) return;
         
-        const parentParagraph = element.closest('p');
-        if (parentParagraph) {
-          parentParagraph.classList.add('smooth-height-transition');
-          
-          const originalHeight = parentParagraph.offsetHeight;
-          parentParagraph.style.height = originalHeight + 'px';
-        }
-        
         element.style.transition = 'opacity 0.3s ease';
         element.style.opacity = '0';
         
@@ -36,26 +28,9 @@ function initScrollTrigger() {
           if (newText === '') {
             element.style.display = 'none';
           } else {
-            element.style.display = '';
             element.textContent = newText;
+            element.style.opacity = '1';
           }
-          
-          if (parentParagraph) {
-            parentParagraph.style.height = '';
-            const newHeight = parentParagraph.offsetHeight;
-            
-            parentParagraph.style.height = originalHeight + 'px';
-            parentParagraph.offsetHeight;
-            
-            parentParagraph.style.height = newHeight + 'px';
-            
-            setTimeout(() => {
-              parentParagraph.style.height = '';
-              parentParagraph.classList.remove('smooth-height-transition');
-            }, 500);
-          }
-          
-          element.style.opacity = '1';
         }, 300);
       }
     
@@ -620,8 +595,10 @@ const textChangesTopTwo = [
             //     }
             // });
 
-            textChangesTop.forEach(change => {
-                updateElementText(change.elementId, change.newText);
+            textChangesTop.forEach((change, index) => {
+                setTimeout(() => {
+                    updateElementText(change.elementId, change.newText);
+                }, index * 50);
             });
 
             const closingQuestion = document.getElementById('closing_question');
