@@ -70,6 +70,11 @@ main {
     text-decoration: none;
 }
 
+.about_link.active {
+    border-bottom: .10rem solid transparent;
+    border-bottom-color: #818181;
+}
+
 .landing_page {
     position: relative;
     height: 100vh;

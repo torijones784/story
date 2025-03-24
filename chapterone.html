@@ -495,7 +495,7 @@ input {
   opacity: 0;
   z-index: 10000;
   visibility: hidden;
-  transition: opacity 5s ease-in;
+  transition: opacity 5s ease-in, background-color 0.2s;
   text-align: center;
   text-decoration: none;
   width: 272px;
@@ -506,7 +506,6 @@ input {
   touch-action: manipulation;
   border-radius: 9999px;
   font-weight: 500;
-  transition: background-color 0.2s;
   display: inline-flex;
   align-items: center;
   white-space: nowrap;
@@ -561,7 +560,7 @@ a {
     <header class="mb-auto pt-3">
       <div class="">
         <div class="d-flex justify-content-between align-items-center">
-          <a href="home.html" id="home_link"><img src="./images/logo_light.png" class="float-md-start logo" alt="logo"></a>
+          <a href="home.html"><img src="./images/logo_light.png" class="float-md-start logo" alt="logo" id="home_link"></a>
           <a href="about.html" ><h3 class="finale_about_link hidden" id="about_link">by <span class="active">Tori Jones</span></h3></a>
         </div>
       </div>
