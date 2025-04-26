@@ -19,7 +19,7 @@
 </head>
 
 <body>
-    <div class="black-fade"></div>
+    <div class="fade-overlay active"></div>
     <header class="pt-3 pb-3">
         <div class="container">
         <div class="d-flex justify-content-between align-items-center">
@@ -33,5 +33,13 @@
     <p class="mx-5">Reality shifts.</p>
     <p class="mx-5">Memory is fickle.</p>
     <p class="mx-5">Sometimes you'll need to scroll back up to see what you missed. Trust your instincts when something feels... different.</p>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function()  {
+            const overlay = document.querySelector('.fade-overlay');
+            overlay.classList.add('not_active');
+        });
+    </script>
+
 </body>
 </html>
