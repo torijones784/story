@@ -400,3 +400,7 @@ body {
 .black-fade.active {
     opacity: 1;
 }
+
+.tester {
+    font-size: xx-large;
+}
