@@ -134,6 +134,7 @@
       document.getElementById('getStarted').addEventListener('click', function(e) {
           e.preventDefault();
           const overlay = document.querySelector('.fade-overlay');
+          overlay.classList.remove('not_active');
           overlay.classList.add('active');
           
           setTimeout(() => {
