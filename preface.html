@@ -33,14 +33,48 @@
     <p class="mx-5">Reality shifts.</p>
     <p class="mx-5">Memory is fickle.</p>
     <p class="mx-5">Sometimes you'll need to scroll back up to see what you missed. Trust your instincts when something feels... <span class="word-flicker">different.</span></p>
+    <p class="mx-5">Because some stories stay the same,</p>
+    <p class="mx-5">And some stories refuse to sit still.</p>
+    <p class="mx-5" id="ending_sentence" class="hidden">Welcome to <span id="preface_change">Chapter One</span></p>
 
-    <!-- <script>
+    <script>
+        // document.addEventListener('DOMContentLoaded', function()  {
+        //     setTimeout(() => {
+        //     const overlay = document.querySelector('.fade-overlay');
+        //     overlay.classList.add('not_active')}, 3500)
+        // });
+
         document.addEventListener('DOMContentLoaded', function()  {
             setTimeout(() => {
-            const overlay = document.querySelector('.fade-overlay');
-            overlay.classList.add('not_active')}, 3500)
+            const ending_sentence = document.getElementById('ending_sentence');
+            
+            
+            
+        }, 3500)
         });
-    </script> -->
+
+        const preface_wordOne = [
+            {
+                id: `preface_change`,
+                newText: `the beginning`
+            }
+        ]
+
+        const preface_wordTwo = [
+            {
+                id: `preface_change`,
+                newText: `your story`
+            }
+        ]
+
+        const preface_wordThree = [
+            {
+                id: `preface_change`,
+                newText: `our world`
+            }
+        ]
+
+    </script>
 
 </body>
 </html>

@@ -413,7 +413,11 @@ body.preface {
 
 .word-flicker {
     animation: flicker 14s linear infinite;
-  }
+}
+
+.hidden {
+    opacity: 0;
+}
   
 @keyframes flicker {
 0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
