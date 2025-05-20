@@ -29,7 +29,7 @@
         </div>
     </header>
     <p class="mx-5" id="sentence_one">This isn't like other stories you've read.</p>
-    <p class="mx-5" id="sentence_two">Pay attention to what's said, but also what changes.</p>
+    <p class="mx-5 hidden" id="sentence_two">Pay attention to what's said, but also what changes.</p>
     <p class="mx-5 hidden" id="sentence_three">Reality shifts.</p>
     <p class="mx-5 hidden" id="sentence_four">Memory is fickle.</p>
     <p class="mx-5 hidden" id="sentence_five">Sometimes you'll need to scroll back up to see what you missed. Trust your instincts when something feels... <span class="word-flicker">different.</span></p>
@@ -44,12 +44,22 @@
         //     overlay.classList.add('not_active')}, 3500)
         // });
 
-        // document.addEventListener('DOMContentLoaded', function()  {
+        document.addEventListener('DOMContentLoaded', function()  {
+            setTimeout(() => {
+            const sentence_one = document.getElementById('sentence_one');
+            const sentence_two = document.getElementById('sentence_two');
+            sentence_one.classList.add('hidden');
+            sentence_two.classList.remove('hidden');
+        }, 2500)
+
+
+
+
         //     setTimeout(() => {
         //     const ending_sentence = document.getElementById('ending_sentence');
         //     ending_sentence.classList.remove('hidden');
         // }, 13500)
-        // });
+        });
 
         const preface_wordOne = [
             {
