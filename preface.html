@@ -29,7 +29,7 @@
         </div>
     </header>
     <div class="col-lg-6 mx-auto value_prop">
-        <p class="lead mb-4" id="sentence_one">This isn't like other stories you've read.</p>
+        <p class="lead mt-3 mb-4" id="sentence_one">This isn't like other stories you've read.</p>
         <p class="lead mb-4 hidden" id="sentence_two">Pay attention to what's said, but also what changes.</p>
         <p class="lead mb-4 hidden" id="sentence_three">Reality shifts.</p>
         <p class="lead mb-4 hidden" id="sentence_four">Memory is fickle.</p>
@@ -135,6 +135,8 @@
 
                                                             setTimeout(() => {
                                                                 window.location.href = 'chapterone.html';
+                                                                overlay.classList.remove('active');
+                                                                overlay.classList.add('not_active');
                                                             }, 3000); 
                                                         }, 2000);
                                                     }, 1000);
