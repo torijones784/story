@@ -108,9 +108,26 @@
                                                 if (element) {
                                                     element.textContent = change.newText;
                                                 }
-                                            });
-                                            }, 1500);
+                                                });
 
+                                                setTimeout(() => {
+                                                    preface_wordTwo.forEach(change => {
+                                                    const element = document.getElementById(change.id);
+                                                    if (element) {
+                                                        element.textContent = change.newText;
+                                                    }
+                                                    });
+                                                    
+                                                    setTimeout(() => {
+                                                        preface_wordThree.forEach(change => {
+                                                        const element = document.getElementById(change.id);
+                                                        if (element) {
+                                                            element.textContent = change.newText;
+                                                        }
+                                                        });
+                                                    }, 2000);
+                                                }, 2000);
+                                            }, 2000);
                                         }, 3000)
                                 }, 3000);
                             }, 5000);
