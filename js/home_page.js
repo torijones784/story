@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     word_three.classList.add('visible');
                 }, 1000)
             }, 1000)
-        }, 3000)
+        }, 2000)
     } 
     
     headlineReveal();
