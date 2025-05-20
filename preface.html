@@ -19,7 +19,7 @@
 </head>
 
 <body class="preface">
-    <!-- <div class="fade-overlay active"></div> -->
+    <div class="fade-overlay not_active"></div>
     <header class="pt-3 pb-3">
         <div class="container">
         <div class="d-flex justify-content-between align-items-center">
@@ -125,6 +125,16 @@
                                                             element.textContent = change.newText;
                                                         }
                                                         });
+
+                                                        setTimeout(() => {
+                                                            const overlay = document.querySelector('.fade-overlay') 
+                                                            overlay.classList.remove('not_active');
+                                                            overlay.classList.add('active');
+
+                                                            setTimeout(() => {
+                                                                window.location.href = 'chapterone.html';
+                                                            }, 3000); 
+                                                        }, 2000);
                                                     }, 1000);
                                                 }, 1250);
                                             }, 1500);
