@@ -46,19 +46,47 @@
 
         document.addEventListener('DOMContentLoaded', function()  {
             setTimeout(() => {
-            const sentence_one = document.getElementById('sentence_one');
-            const sentence_two = document.getElementById('sentence_two');
-            sentence_one.classList.add('hidden');
-            sentence_two.classList.remove('hidden');
-        }, 2500)
+                const sentence_one = document.getElementById('sentence_one');
+                const sentence_two = document.getElementById('sentence_two');
+                sentence_one.classList.add('hidden');
+                sentence_two.classList.remove('hidden');
 
+                setTimeout(() => {
+                    const sentence_three = document.getElementById('sentence_three');
+                    sentence_two.classList.add('hidden');
+                    sentence_three.classList.remove('hidden');
 
+                    setTimeout(() => {
+                        const sentence_four= document.getElementById('sentence_four');
+                        sentence_three.classList.add('hidden');
+                        sentence_four.classList.remove('hidden');
 
+                        setTimeout(() => {
+                            const sentence_five= document.getElementById('sentence_five');
+                            sentence_four.classList.add('hidden');
+                            sentence_five.classList.remove('hidden');
 
-        //     setTimeout(() => {
-        //     const ending_sentence = document.getElementById('ending_sentence');
-        //     ending_sentence.classList.remove('hidden');
-        // }, 13500)
+                            setTimeout(() => {
+                                const sentence_six= document.getElementById('sentence_six');
+                                sentence_five.classList.add('hidden');
+                                sentence_six.classList.remove('hidden');
+
+                                setTimeout(() => {
+                                    const sentence_seven= document.getElementById('sentence_seven');
+                                    sentence_six.classList.add('hidden');
+                                    sentence_seven.classList.remove('hidden');
+
+                                        setTimeout(() => {
+                                            const ending_sentence = document.getElementById('ending_sentence');
+                                            sentence_seven.classList.add('hidden');
+                                            ending_sentence.classList.remove('hidden');
+                                        }, 3000)
+                                }, 3000);
+                            }, 3000);
+                        }, 3000);  
+                    }, 3000)
+                }, 3000)
+            }, 3000)
         });
 
         const preface_wordOne = [
