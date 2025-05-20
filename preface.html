@@ -80,6 +80,37 @@
                                             const ending_sentence = document.getElementById('ending_sentence');
                                             sentence_seven.classList.add('hidden');
                                             ending_sentence.classList.remove('hidden');
+
+                                            const preface_wordOne = [
+                                                {
+                                                    id: `preface_change`,
+                                                    newText: `the beginning`
+                                                }
+                                            ]
+                                            
+                                            const preface_wordTwo = [
+                                                {
+                                                    id: `preface_change`,
+                                                    newText: `your story`
+                                                }
+                                            ]
+
+                                            const preface_wordThree = [
+                                                {
+                                                    id: `preface_change`,
+                                                    newText: `our world`
+                                                }
+                                            ]
+
+                                            setTimeout(() => {
+                                                preface_wordOne.forEach(change => {
+                                                const element = document.getElementById(change.id);
+                                                if (element) {
+                                                    element.textContent = change.newText;
+                                                }
+                                            });
+                                            }, 1500);
+
                                         }, 3000)
                                 }, 3000);
                             }, 5000);
@@ -88,28 +119,6 @@
                 }, 3000)
             }, 4000)
         });
-
-        const preface_wordOne = [
-            {
-                id: `preface_change`,
-                newText: `the beginning`
-            }
-        ]
-
-        const preface_wordTwo = [
-            {
-                id: `preface_change`,
-                newText: `your story`
-            }
-        ]
-
-        const preface_wordThree = [
-            {
-                id: `preface_change`,
-                newText: `our world`
-            }
-        ]
-
     </script>
 
 </body>
