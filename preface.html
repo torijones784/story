@@ -28,13 +28,13 @@
         </div>
         </div>
     </header>
-    <p class="mx-5">This isn't like other stories you've read.</p>
-    <p class="mx-5">Pay attention to what's said, but also what changes.</p>
-    <p class="mx-5">Reality shifts.</p>
-    <p class="mx-5">Memory is fickle.</p>
-    <p class="mx-5">Sometimes you'll need to scroll back up to see what you missed. Trust your instincts when something feels... <span class="word-flicker">different.</span></p>
-    <p class="mx-5">Because some stories stay the same,</p>
-    <p class="mx-5">And some stories refuse to sit still.</p>
+    <p class="mx-5" id="sentence_one">This isn't like other stories you've read.</p>
+    <p class="mx-5" id="sentence_two">Pay attention to what's said, but also what changes.</p>
+    <p class="mx-5 hidden" id="sentence_three">Reality shifts.</p>
+    <p class="mx-5 hidden" id="sentence_four">Memory is fickle.</p>
+    <p class="mx-5 hidden" id="sentence_five">Sometimes you'll need to scroll back up to see what you missed. Trust your instincts when something feels... <span class="word-flicker">different.</span></p>
+    <p class="mx-5 hidden" id="sentence_six">Because some stories stay the same,</p>
+    <p class="mx-5 hidden" id="sentence_seven">And some stories refuse to sit still.</p>
     <p class="mx-5 hidden" id="ending_sentence">Welcome to <span id="preface_change">Chapter One</span></p>
 
     <script>
@@ -44,12 +44,12 @@
         //     overlay.classList.add('not_active')}, 3500)
         // });
 
-        document.addEventListener('DOMContentLoaded', function()  {
-            setTimeout(() => {
-            const ending_sentence = document.getElementById('ending_sentence');
-            ending_sentence.classList.remove('hidden');
-        }, 13500)
-        });
+        // document.addEventListener('DOMContentLoaded', function()  {
+        //     setTimeout(() => {
+        //     const ending_sentence = document.getElementById('ending_sentence');
+        //     ending_sentence.classList.remove('hidden');
+        // }, 13500)
+        // });
 
         const preface_wordOne = [
             {
