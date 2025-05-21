@@ -74,6 +74,10 @@ main {
     border-bottom-color: #818181;
 }
 
+.underline {
+    text-decoration: underline;
+}
+
 .landing_page {
     position: relative;
     height: 100vh;
