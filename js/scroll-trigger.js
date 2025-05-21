@@ -810,4 +810,48 @@ function initScrollTrigger() {
         }, 1000);
     }
 
+    window.addEventListener('scroll', () => {
+        if (!ticking && isPageActive) {
+            window.requestAnimationFrame(() => {
+                checkScroll();
+                ticking = false;
+            });
+            ticking = true;
+        }
+        
+        if (tensionActivated && !tensionReset && isPageActive) {
+            cancelAnimationFrame(tensionAnimationFrame);
+            tensionAnimationFrame = requestAnimationFrame(updateTensionEffect);
+        }
+    });
+
+    window.addEventListener('focus', () => {
+        isPageActive = true;
+        lastActiveTime = Date.now();
+        startTimeCheck();
+    });
+
+    window.addEventListener('blur', () => {
+        isPageActive = false;
+        activeTime += Date.now() - lastActiveTime;
+        if (checkTimerId) clearInterval(checkTimerId);
+    });
+
+    window.addEventListener('pageshow', () => {
+        isPageActive = true;
+        lastActiveTime = Date.now();
+        startTimeCheck();
+    });
+
+    window.addEventListener('pagehide', () => {
+        isPageActive = false;
+        activeTime += Date.now() - lastActiveTime;
+        if (checkTimerId) clearInterval(checkTimerId);
+    });
+
+    startTimeCheck();
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    initScrollTrigger();
+});
