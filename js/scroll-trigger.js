@@ -17,13 +17,6 @@ function initScrollTrigger() {
     let scrollSpeed = 0;
     let currentOpacity = 0;
     let tensionAnimationFrame;
-    
-    let sequenceRunning = false;
-    let sequenceStartTime = 0;
-    let sequenceElapsedTime = 0;
-    let lastSequenceCheckTime = 0;
-    let textChangeQueue = [];
-    let nextTextChangeIndex = 0;
 
     let lastViewportHeight = window.innerHeight;
     
@@ -43,18 +36,9 @@ function initScrollTrigger() {
         if (document.hidden) {
             isPageActive = false;
             activeTime += Date.now() - lastActiveTime;
-            
-            if (sequenceRunning) {
-                sequenceElapsedTime += Date.now() - lastSequenceCheckTime;
-            }
         } else {
             isPageActive = true;
             lastActiveTime = Date.now();
-            
-            if (sequenceRunning) {
-                lastSequenceCheckTime = Date.now();
-                processTextChangeQueue();
-            }
         }
     });
 
@@ -270,7 +254,6 @@ function initScrollTrigger() {
             newText: `Did his parents know who he was? Were they all in on it, sitting at the dinner table the first time you met them? Were there knowing glances over the rims of wine glasses that you missed? When you grabbed his hand, did they smile because you were so in love with him, or because of how he'd use you?`
         }
     ];
-    
     const textChangesBottomTwo = [
         {
             elementId: `changing-text-35`,
@@ -573,163 +556,6 @@ function initScrollTrigger() {
         return isPageActive ? activeTime + (Date.now() - lastActiveTime) : activeTime;
     }
 
-    function processTextChangeQueue() {
-        if (!sequenceRunning || textChangeQueue.length === 0) return;
-        
-        const currentTime = Date.now();
-        const elapsedSinceStart = currentTime - sequenceStartTime - sequenceElapsedTime;
-        
-        while (nextTextChangeIndex < textChangeQueue.length && 
-               textChangeQueue[nextTextChangeIndex].time <= elapsedSinceStart) {
-            
-            const change = textChangeQueue[nextTextChangeIndex];
-            executeTextChange(change.elementId, change.newText, change.specialAction);
-            nextTextChangeIndex++;
-        }
-        
-        if (nextTextChangeIndex < textChangeQueue.length) {
-            const nextChangeTime = textChangeQueue[nextTextChangeIndex].time;
-            const timeUntilNextChange = nextChangeTime - elapsedSinceStart;
-            
-            setTimeout(processTextChangeQueue, Math.max(10, timeUntilNextChange));
-        } else {
-            sequenceRunning = false;
-        }
-    }
-    
-    function executeTextChange(elementId, newText, specialAction) {
-        const element = document.getElementById(elementId);
-        if (!element) return;
-        
-        element.style.opacity = '1';
-        element.style.transition = 'none';
-        
-        if (newText === '') {
-            element.remove();
-        } else {
-            element.textContent = newText;
-            
-            if (specialAction === 'changing-text-23-alternate') {
-                setTimeout(() => {
-                    if (isPageActive) {
-                        element.textContent = 'You just wanted to scream at it all.';
-                    } else {
-                        textChangeQueue.push({
-                            elementId: elementId,
-                            newText: 'You just wanted to scream at it all.',
-                            time: Date.now() - sequenceStartTime - sequenceElapsedTime + 2000
-                        });
-                    }
-                }, 2000);
-            } else if (specialAction === 'final-sequence') {
-                const words = newText.split(" ");
-                element.textContent = '';
-                
-                words.forEach((word, index) => {
-                    const wordTime = index * 1200;
-                    textChangeQueue.push({
-                        elementId: elementId,
-                        newText: element.textContent + (index > 0 ? ' ' : '') + word,
-                        time: Date.now() - sequenceStartTime - sequenceElapsedTime + wordTime
-                    });
-                    
-                    if (index === words.length - 1) {
-                        textChangeQueue.push({
-                            elementId: 'trigger-final-sequence',
-                            newText: '',
-                            time: Date.now() - sequenceStartTime - sequenceElapsedTime + wordTime + 4000
-                        });
-                    }
-                });
-            }
-        }
-    }
-    
-    function executeFinalSequence() {
-        const finalElements = document.querySelectorAll('[id^="changing-text-"]');
-        finalElements.forEach(el => {
-            if (el.id !== 'changing-text-39') {
-                handleFadeOut([el]);
-            }
-        });
-
-        const soloTexts = document.querySelectorAll('.solo_text');
-        soloTexts.forEach(el => {
-            el.style.transition = 'opacity 12s ease-out';
-            el.style.opacity = '0';
-        });
-
-        const videoOverlay = document.querySelector('.video-overlay');
-        const backgroundVideo = document.getElementById('background-video');
-        if (videoOverlay && backgroundVideo) {
-            videoOverlay.classList.add('active');
-            
-            const playPromise = backgroundVideo.play();
-            if (playPromise !== undefined) {
-                playPromise.then(() => {}).catch(e => {});
-            }
-
-            setTimeout(() => {
-                if (!isPageActive) {
-                    textChangeQueue.push({
-                        elementId: 'trigger-black-fade',
-                        newText: '',
-                        time: Date.now() - sequenceStartTime - sequenceElapsedTime + 15000
-                    });
-                    return;
-                }
-                
-                const blackFade = document.querySelector('.black-fade');
-                blackFade.classList.add('active');
-
-                setTimeout(() => {
-                    if (!isPageActive) {
-                        textChangeQueue.push({
-                            elementId: 'trigger-final-text',
-                            newText: '',
-                            time: Date.now() - sequenceStartTime - sequenceElapsedTime + 3000
-                        });
-                        return;
-                    }
-                    
-                    const finalText = document.querySelector('.final-text');
-                    finalText.classList.add('visible');
-
-                    const emailCapture = document.querySelector('.email-capture');
-                    emailCapture.classList.add('visible');
-
-                    const email = document.getElementById(`email`);
-                    email.classList.add('visible');
-
-                    const button = document.getElementById(`submitEmail`);
-                    button.classList.add('visible');
-
-                    window.scrollTo(0,0);
-                    document.body.classList.add('no-scroll');
-
-                    const home_link = document.getElementById(`home_link`);
-                    const about_link = document.getElementById(`about_link`);
-
-                    setTimeout(() => {
-                        if (!isPageActive) {
-                            textChangeQueue.push({
-                                elementId: 'trigger-links',
-                                newText: '',
-                                time: Date.now() - sequenceStartTime - sequenceElapsedTime + 5000
-                            });
-                            return;
-                        }
-                        
-                        home_link.classList.remove('hidden', 'float-md-end');
-                        about_link.classList.remove('hidden');
-                        about_link.classList.add('visible', 'float-md-end');
-                        home_link.classList.add('visible', 'float-md-start');
-                    }, 5000);
-                }, 3000); 
-            }, 15000);
-        }
-    }
-
     function checkScroll() { 
         if (!isPageActive) return;
         
@@ -752,209 +578,7 @@ function initScrollTrigger() {
         lastScrollTop = currentScrollTop;
         lastScrollTime = now;
 
-        if (scrollPercentage > 90 && hasTriggered && roundThreeTop && !fifthTriggerActivated) { 
-            fifthTriggerActivated = true;
-            
-            setTimeout(() => {
-                if (!isPageActive) {
-                    const checkInterval = setInterval(() => {
-                        if (isPageActive) {
-                            clearInterval(checkInterval);
-                            startFinalSequence();
-                        }
-                    }, 1000);
-                    return;
-                }
-                
-                startFinalSequence();
-            }, 80000);
-        }
-    }
-    
-    function startFinalSequence() {
-        textChangeQueue = [];
-        nextTextChangeIndex = 0;
-        sequenceRunning = true;
-        sequenceStartTime = Date.now();
-        sequenceElapsedTime = 0;
-        lastSequenceCheckTime = Date.now();
-        
-        const chapter_title = document.getElementById(`chapter_one_title`);
-        const home_link = document.getElementById(`home_link`);
-
-        if (chapter_title) chapter_title.classList.add('hidden');
-        if (home_link) {
-            home_link.classList.remove('visible');
-            home_link.classList.add('hidden');
-        }
-        
-        const textElements = [];
-        for (let i = 1; i <= 62; i++) {
-            const element = document.getElementById(`changing-text-${i}`);
-            if (element) {
-                textElements.push(element);
-                element.textContent = '';
-            }
-        }
-
-        let cumulativeDelay = 3000;
-        
-        textChangesTopThree.forEach((change, index) => {
-            if (change.newText.trim()) {
-                const wordCount = [1, 0, 0, 0, 25, 69, 6, 0, 3, 3, 9, 10, 4, 10, 26, 4, 14, 4, 4, 39, 5, 6, 16, 10, 4, 0, 0, 0, 0, 0, 0, 0][index];
-                const baseDelay = Math.max(wordCount * 250, 2000);
-
-                if (change.elementId === 'changing-text-6') {
-                    cumulativeDelay += 8000;
-                }
-
-                let specialAction = null;
-                if (change.elementId === 'changing-text-23') {
-                    specialAction = 'changing-text-23-alternate';
-                }
-                else if (change.elementId === 'changing-text-39') {
-                    specialAction = 'final-sequence';
-                }
-
-                textChangeQueue.push({
-                    elementId: change.elementId,
-                    newText: change.newText,
-                    time: cumulativeDelay,
-                    specialAction: specialAction
-                });
-
-                cumulativeDelay += baseDelay;
-
-                if (change.elementId === 'changing-text-23') {
-                    cumulativeDelay += 2000;
-                }
-            }
-        });
-        
-        textChangeQueue.push({
-            elementId: 'trigger-final-sequence',
-            newText: '',
-            time: cumulativeDelay + 4000
-        });
-        
-        processTextChangeQueue();
-    }
-    
-    document.addEventListener('customTextChange', (e) => {
-        if (e.detail.elementId === 'trigger-final-sequence') {
-            executeFinalSequence();
-        }
-        else if (e.detail.elementId === 'trigger-black-fade') {
-            const blackFade = document.querySelector('.black-fade');
-            blackFade.classList.add('active');
-        }
-        else if (e.detail.elementId === 'trigger-final-text') {
-            const finalText = document.querySelector('.final-text');
-            finalText.classList.add('visible');
-            
-            const emailCapture = document.querySelector('.email-capture');
-            emailCapture.classList.add('visible');
-            
-            const email = document.getElementById(`email`);
-            email.classList.add('visible');
-            
-            const button = document.getElementById(`submitEmail`);
-            button.classList.add('visible');
-            
-            window.scrollTo(0,0);
-            document.body.classList.add('no-scroll');
-        }
-        else if (e.detail.elementId === 'trigger-links') {
-            const home_link = document.getElementById(`home_link`);
-            const about_link = document.getElementById(`about_link`);
-            
-            home_link.classList.remove('hidden', 'float-md-end');
-            about_link.classList.remove('hidden');
-            about_link.classList.add('visible', 'float-md-end');
-            home_link.classList.add('visible', 'float-md-start');
-        }
-    });
-
-    let ticking = false;
-    let checkTimerId;
-    
-    function startTimeCheck() {
-        if (checkTimerId) clearInterval(checkTimerId);
-        
-        checkTimerId = setInterval(() => {
-            if (isPageActive) {
-                checkScroll();
-            }
-        }, 1000);
-    }
-
-    window.addEventListener('scroll', () => {
-        if (!ticking && isPageActive) {
-            window.requestAnimationFrame(() => {
-                checkScroll();
-                ticking = false;
-            });
-            ticking = true;
-        }
-        
-        if (tensionActivated && !tensionReset && isPageActive) {
-            cancelAnimationFrame(tensionAnimationFrame);
-            tensionAnimationFrame = requestAnimationFrame(updateTensionEffect);
-        }
-    });
-
-    window.addEventListener('focus', () => {
-        isPageActive = true;
-        lastActiveTime = Date.now();
-    }
-
-document.addEventListener('DOMContentLoaded', () => {
-    initScrollTrigger();
-});
-        
-        if (sequenceRunning) {
-            lastSequenceCheckTime = Date.now();
-            processTextChangeQueue();
-        }
-    });
-
-    window.addEventListener('blur', () => {
-        isPageActive = false;
-        activeTime += Date.now() - lastActiveTime;
-        if (checkTimerId) clearInterval(checkTimerId);
-        
-        if (sequenceRunning) {
-            sequenceElapsedTime += Date.now() - lastSequenceCheckTime;
-        }
-    });
-
-    window.addEventListener('pageshow', () => {
-        isPageActive = true;
-        lastActiveTime = Date.now();
-        startTimeCheck();
-    });
-
-    window.addEventListener('pagehide', () => {
-        isPageActive = false;
-        activeTime += Date.now() - lastActiveTime;
-        if (checkTimerId) clearInterval(checkTimerId);
-    });
-
-    const origProcessTextChangeQueue = processTextChangeQueue;
-    processTextChangeQueue = function() {
-        origProcessTextChangeQueue();
-        
-        if (nextTextChangeIndex > 0 && textChangeQueue[nextTextChangeIndex - 1]) {
-            const lastProcessed = textChangeQueue[nextTextChangeIndex - 1];
-            if (lastProcessed.elementId.startsWith('trigger-')) {
-                document.dispatchEvent(new CustomEvent('customTextChange', { 
-                    detail: { elementId: lastProcessed.elementId }
-                }));
-            }
-        }
-    };
-
-    startTimeCheck(); 70 && !tensionActivated && !hasTriggered) {
+        if (scrollPercentage > 70 && !tensionActivated && !hasTriggered) {
             tensionActivated = true;
             updateTensionEffect();
         }
@@ -1031,4 +655,159 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
         
-        if (scrollPercentage >
+        if (scrollPercentage > 90 && hasTriggered && roundThreeTop && !fifthTriggerActivated) { 
+            fifthTriggerActivated = true;
+            
+            setTimeout(() => {
+                const chapter_title = document.getElementById(`chapter_one_title`);
+                const home_link = document.getElementById(`home_link`);
+
+                if (chapter_title) chapter_title.classList.add('hidden');
+                if (home_link) {
+                    home_link.classList.remove('visible');
+                    home_link.classList.add('hidden');
+                }
+                
+                const textElements = [];
+                for (let i = 1; i <= 62; i++) {
+                    const element = document.getElementById(`changing-text-${i}`);
+                    if (element) {
+                        textElements.push(element);
+                        element.textContent = '';
+                    }
+                }
+
+                let cumulativeDelay = 3000;
+                let hasChangedText23 = false;
+                
+                textChangesTopThree.forEach((change, index) => {
+                    if (change.newText.trim()) {
+                        const wordCount = [1, 0, 0, 0, 25, 69, 6, 0, 3, 3, 9, 10, 4, 10, 26, 4, 14, 4, 4, 39, 5, 6, 16, 10, 4, 0, 0, 0, 0, 0, 0, 0][index];
+                        const baseDelay = Math.max(wordCount * 250, 2000);
+        
+                        if (change.elementId === 'changing-text-6') {
+                            cumulativeDelay += 8000;
+                        }
+        
+                        setTimeout(() => {
+                            const element = document.getElementById(change.elementId);
+                            
+                            if (!element) return;
+
+                            element.style.opacity = '1';
+                            element.style.transition = 'none';
+        
+                            if (change.newText === '') {
+                                element.remove();
+                            } 
+                            else if (change.elementId === 'changing-text-23' && !hasChangedText23) {
+                                element.textContent = change.newText;
+                                hasChangedText23 = true;
+                                
+                                setTimeout(() => {
+                                    element.textContent = 'You just wanted to scream at it all.';
+                                }, 2000);
+                            }
+                            else if (change.elementId === 'changing-text-39') {
+                                const words = change.newText.split(" ");
+                                element.textContent = '';
+                                
+                                words.forEach((word, index) => {
+                                    setTimeout(() => {
+                                        element.textContent += (index > 0 ? ' ' : '') + word;
+                                        
+                                        if (index === words.length - 1) {
+                                            setTimeout(() => {
+                                                const finalElements = document.querySelectorAll('[id^="changing-text-"]');
+                                                finalElements.forEach(el => {
+                                                if (el.id !== 'changing-text-39') {
+                                                    handleFadeOut([el]);
+                                                }
+                                                });
+
+                                                const soloTexts = document.querySelectorAll('.solo_text');
+                                                soloTexts.forEach(el => {
+                                                    el.style.transition = 'opacity 12s ease-out';
+                                                    el.style.opacity = '0';
+                                                });
+        
+                                                const videoOverlay = document.querySelector('.video-overlay');
+                                                const backgroundVideo = document.getElementById('background-video');
+                                                if (videoOverlay && backgroundVideo) {
+                                                    videoOverlay.classList.add('active');
+                                                    
+                                                    const playPromise = backgroundVideo.play();
+                                                    if (playPromise !== undefined) {
+                                                        playPromise
+                                                            .then(() => {
+                                                            })
+                                                            .catch(e => {});
+                                                    }
+        
+                                                    setTimeout(() => {
+                                                        const blackFade = document.querySelector('.black-fade');
+                                                        blackFade.classList.add('active');
+        
+                                                        setTimeout(() => {
+                                                            const finalText = document.querySelector('.final-text');
+                                                            finalText.classList.add('visible');
+
+                                                            const emailCapture = document.querySelector('.email-capture');
+                                                            emailCapture.classList.add('visible');
+
+                                                            const email = document.getElementById(`email`);
+                                                            email.classList.add('visible');
+
+                                                            const button = document.getElementById(`submitEmail`);
+                                                            button.classList.add('visible');
+        
+                                                            window.scrollTo(0,0);
+                                                            document.body.classList.add('no-scroll');
+        
+                                                            const home_link = document.getElementById(`home_link`);
+                                                            const about_link = document.getElementById(`about_link`);
+        
+                                                            setTimeout(() => {
+                                                                home_link.classList.remove('hidden', 'float-md-end');
+                                                                about_link.classList.remove('hidden');
+                                                                about_link.classList.add('visible', 'float-md-end');
+                                                                home_link.classList.add('visible', 'float-md-start');
+                                                            }, 5000);
+                                                        }, 3000); 
+                                                    }, 15000);
+                                                }
+                                            }, 4000);
+                                        }
+                                    }, index * 1200);
+                                });
+                            }
+                            else {
+                                element.textContent = change.newText;
+                            }
+                        }, cumulativeDelay);
+        
+                        cumulativeDelay += baseDelay;
+        
+                        if (change.elementId === 'changing-text-23') {
+                            cumulativeDelay += 2000;
+                        }
+                    }
+                });
+            }, 80000); 
+        }
+    }
+
+    let ticking = false;
+    let checkTimerId;
+    
+    function startTimeCheck() {
+        if (checkTimerId) clearInterval(checkTimerId);
+        
+        checkTimerId = setInterval(() => {
+            if (isPageActive) {
+                checkScroll();
+            }
+        }, 1000);
+    }
+
+}
