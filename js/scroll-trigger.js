@@ -8,6 +8,9 @@ function initScrollTrigger() {
     let tensionActivated = false;
     let tensionReset = false;
     let pageLoadTime = Date.now();
+    let activeTime = 0;
+    let lastActiveTime = Date.now();
+    let isPageActive = true;
     const MINIMUM_TIME = 24000;
     let lastScrollTop = 0;
     let lastScrollTime = Date.now();
@@ -29,6 +32,15 @@ function initScrollTrigger() {
         }
     });
 
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            isPageActive = false;
+            activeTime += Date.now() - lastActiveTime;
+        } else {
+            isPageActive = true;
+            lastActiveTime = Date.now();
+        }
+    });
 
     const textChangesTop = [
         {
@@ -160,7 +172,7 @@ function initScrollTrigger() {
         }
     ];
 
-const textChangesTopTwo = [
+    const textChangesTopTwo = [
         {
             elementId: `chapter_one_title`,
             newText: `The Beginning?`
@@ -183,11 +195,11 @@ const textChangesTopTwo = [
         },
         {
             elementId: `changing-text-5`,
-            newText: `Your daughter is screaming, but won’t let you hold her. The bad guy is always the one who’s behind to clean up the mess. Your living room is a disaster. Laundry piles, and dishes tower, and somehow everything you have isn’t enough.`
+            newText: `Your daughter is screaming, but won't let you hold her. The bad guy is always the one who's behind to clean up the mess. Your living room is a disaster. Laundry piles, and dishes tower, and somehow everything you have isn't enough.`
         },
         {
             elementId: `changing-text-6`,
-            newText: `Despite your current situation, you spend very little time wondering how you got here. You tell yourself it’s because figuring out the reasons and why’s behind your reality is for people who don’t have children—or maybe, people who have help with theirs, those illustrious “two-parent” households the world told you to want before you could spell. But the truth is, you don’t go there because there’s a part of you that wonders if you were destined for this, from the start.`
+            newText: `Despite your current situation, you spend very little time wondering how you got here. You tell yourself it's because figuring out the reasons and why's behind your reality is for people who don't have children—or maybe, people who have help with theirs, those illustrious "two-parent" households the world told you to want before you could spell. But the truth is, you don't go there because there's a part of you that wonders if you were destined for this, from the start.`
         },
         {
             elementId: `changing-text-9`,
@@ -195,7 +207,7 @@ const textChangesTopTwo = [
         },
         {
             elementId: `changing-text-12`,
-            newText: `You’re vacuuming up pieces of glass and remembering your husband down there, on one knee, looking up at you like you held his entire future in your hands. This is not the house you were promised. That house was supposed to be different, supposed to be what you never had growing up. That house was supposed to be safe. And fuck it, things were at least real now, but there is a part of you that’s so angry you got so close to what you’d always wanted.`
+            newText: `You're vacuuming up pieces of glass and remembering your husband down there, on one knee, looking up at you like you held his entire future in your hands. This is not the house you were promised. That house was supposed to be different, supposed to be what you never had growing up. That house was supposed to be safe. And fuck it, things were at least real now, but there is a part of you that's so angry you got so close to what you'd always wanted.`
         },
         {
             elementId: `changing-text-13`,
@@ -203,11 +215,11 @@ const textChangesTopTwo = [
         },
         {
             elementId: `changing-text-17`,
-            newText: `A chill creeps up your spine. It hits you, all at once, the weight of this world, the months of embedding safety into the very walls of the place you had to fight to reclaim. Something sags within you. You’re so tired. You need to sit down, just for a second. Let yourself rest, be catch-able, just for a second.`
+            newText: `A chill creeps up your spine. It hits you, all at once, the weight of this world, the months of embedding safety into the very walls of the place you had to fight to reclaim. Something sags within you. You're so tired. You need to sit down, just for a second. Let yourself rest, be catch-able, just for a second.`
         },
         {
             elementId: `changing-text-20`,
-            newText: `You set the vacuum against the island and walk to the couch on the other side of the room. The cushions bend to your weight, and that feels good. The fan’s on high, the sound of its blades a hypnotic whoosh whoosh whoosh. A warm weighted feeling settles within you like sand at the bottom of the ocean. It pulls your eyelids closed, and it feels good to feel the breeze on your face and imagine you are somewhere else, just for a second.`
+            newText: `You set the vacuum against the island and walk to the couch on the other side of the room. The cushions bend to your weight, and that feels good. The fan's on high, the sound of its blades a hypnotic whoosh whoosh whoosh. A warm weighted feeling settles within you like sand at the bottom of the ocean. It pulls your eyelids closed, and it feels good to feel the breeze on your face and imagine you are somewhere else, just for a second.`
         },
         {
             elementId: `changing-text-22`,
@@ -223,7 +235,7 @@ const textChangesTopTwo = [
         },
         {
             elementId: `changing-text-28`,
-            newText: `And just like that, he was. He held the door for you, actually cared if you texted him when you got home, paid for your drinks when you went out. He wasn’t the bad boy with a past. He was from Elmhurst, for fuck’s sake. The three years you spent before getting married were a rush—of believing this was real, that was happening, that you were picked for this life. You were so, so desperate to be picked.`
+            newText: `And just like that, he was. He held the door for you, actually cared if you texted him when you got home, paid for your drinks when you went out. He wasn't the bad boy with a past. He was from Elmhurst, for fuck's sake. The three years you spent before getting married were a rush—of believing this was real, that was happening, that you were picked for this life. You were so, so desperate to be picked.`
         },
         {
             elementId: `changing-text-30`,
@@ -231,11 +243,11 @@ const textChangesTopTwo = [
         },
         {
             elementId: `changing-text-32`,
-            newText: `He’s perfect, she had said flatly after the first time you brought him home, treating your new love with the enthusiasm of sorting laundry. To her, he was a plot point in your story—your destiny. You didn’t care. To you, he was everything.`
+            newText: `He's perfect, she had said flatly after the first time you brought him home, treating your new love with the enthusiasm of sorting laundry. To her, he was a plot point in your story—your destiny. You didn't care. To you, he was everything.`
         },
         {
             elementId: `changing-text-33`,
-            newText: `Isn’t that the joke? That within the burning ache you can feel inside you, the never-ending flow of pain and how could you miss this, and you know that you weren’t as bad as your mother, after all. You were worse.`
+            newText: `Isn't that the joke? That within the burning ache you can feel inside you, the never-ending flow of pain and how could you miss this, and you know that you weren't as bad as your mother, after all. You were worse.`
         },
         {
             elementId: `changing-text-34`,
@@ -477,7 +489,7 @@ const textChangesTopTwo = [
     ];
 
     function updateTensionEffect() {
-        if (!tensionActivated) return;
+        if (!tensionActivated || !isPageActive) return;
         
         const now = Date.now();
         const timeDelta = now - lastScrollTime;
@@ -540,8 +552,14 @@ const textChangesTopTwo = [
         return ((scrollTop + viewportHeight) / documentHeight) * 100;
     }
 
+    function getActiveTimeSpent() {
+        return isPageActive ? activeTime + (Date.now() - lastActiveTime) : activeTime;
+    }
+
     function checkScroll() { 
-        const timeSpent = Date.now() - pageLoadTime;
+        if (!isPageActive) return;
+        
+        const timeSpent = getActiveTimeSpent();
         if (timeSpent < MINIMUM_TIME) {
             return;
         }
@@ -561,13 +579,11 @@ const textChangesTopTwo = [
         lastScrollTime = now;
 
         if (scrollPercentage > 70 && !tensionActivated && !hasTriggered) {
-            console.log('Activating tension effect');
             tensionActivated = true;
             updateTensionEffect();
         }
 
         if (scrollPercentage > 80 && !hasTriggered) { 
-            console.log('First trigger activated');
             hasTriggered = true;
             hasReachedBottom = true;
             
@@ -581,13 +597,14 @@ const textChangesTopTwo = [
             const closingQuestion = document.getElementById('closing_question');
             if (closingQuestion) {
                 closingQuestionTimeout = setTimeout(() => {
-                    closingQuestion.classList.add('visible');
+                    if (isPageActive) {
+                        closingQuestion.classList.add('visible');
+                    }
                 }, 10000);
             }
         }
 
         if (scrollPercentage > 95 && !tensionReset && tensionActivated) {
-            console.log('Resetting tension effect');
             tensionReset = true;
             cancelAnimationFrame(tensionAnimationFrame);
             
@@ -602,7 +619,6 @@ const textChangesTopTwo = [
         }
 
         if (scrollPercentage < 50 && hasReachedBottom && !roundTwoTop) { 
-            console.log('Second trigger activated');
             roundTwoTop = true;
 
             textChangesBottom.forEach(change => {
@@ -616,8 +632,6 @@ const textChangesTopTwo = [
         }
 
         if (scrollPercentage > 85 && hasTriggered && roundTwoTop && !roundTwoBottom) {
-            console.log('Third trigger activated');
-
             roundTwoBottom = true;
             textChangesTopTwo.forEach(change => {
                 const element = document.getElementById(change.elementId);
@@ -627,15 +641,8 @@ const textChangesTopTwo = [
             });
         }
 
-
-
         if (scrollPercentage < 45 && hasTriggered && roundTwoBottom && !roundThreeTop) { 
-            console.log('Fourth trigger activated');
             roundThreeTop = true;
-
-            // clearTimeout(closingQuestionTimeout);
-            // const closingQuestion = document.getElementById('closing_question');
-            // closingQuestion.classList.remove('visible');
 
             textChangesBottomTwo.forEach(change => {
                 const element = document.getElementById(change.elementId);
@@ -646,17 +653,16 @@ const textChangesTopTwo = [
                         element.textContent = change.newText;
                     }
             });
-
-
-
         }
+        
         if (scrollPercentage > 90 && hasTriggered && roundThreeTop && !fifthTriggerActivated) { 
                 fifthTriggerActivated = true;
-                console.log('Fifth trigger activated');
             
                 setTimeout(() => {
+                    if (!isPageActive) return;
+                    
                     const chapter_title = document.getElementById(`chapter_one_title`);
-                    const home_link = document.getElementById(`home_link`)
+                    const home_link = document.getElementById(`home_link`);
 
                     if (chapter_title) chapter_title.classList.add('hidden');
                     if (home_link) {
@@ -686,7 +692,8 @@ const textChangesTopTwo = [
                             }
             
                             setTimeout(() => {
-                                console.log(`Changing text ${index}`);
+                                if (!isPageActive) return;
+                                
                                 const element = document.getElementById(change.elementId);
                                 
                                 if (!element) return;
@@ -702,6 +709,7 @@ const textChangesTopTwo = [
                                     hasChangedText23 = true;
                                     
                                     setTimeout(() => {
+                                        if (!isPageActive) return;
                                         element.textContent = 'You just wanted to scream at it all.';
                                     }, 2000);
                                 }
@@ -711,10 +719,14 @@ const textChangesTopTwo = [
                                     
                                     words.forEach((word, index) => {
                                         setTimeout(() => {
+                                            if (!isPageActive) return;
+                                            
                                             element.textContent += (index > 0 ? ' ' : '') + word;
                                             
                                             if (index === words.length - 1) {
                                                 setTimeout(() => {
+                                                    if (!isPageActive) return;
+                                                    
                                                     const finalElements = document.querySelectorAll('[id^="changing-text-"]');
                                                     finalElements.forEach(el => {
                                                     if (el.id !== 'changing-text-39') {
@@ -738,55 +750,45 @@ const textChangesTopTwo = [
                                                             playPromise
                                                                 .then(() => {
                                                                 })
-                                                                .catch(e => {
-                                                                    console.log('Video autoplay failed:', e);
-                                                                });
+                                                                .catch(e => {});
                                                         }
             
                                                         setTimeout(() => {
-                                                            // const flashOverlay = document.querySelector('.flash-overlay');
-                                                            // flashOverlay.classList.add('active');
+                                                            if (!isPageActive) return;
                                                             
-                                                            // setTimeout(() => {
-                                                                // flashOverlay.classList.remove('active');
+                                                            const blackFade = document.querySelector('.black-fade');
+                                                            blackFade.classList.add('active');
+            
+                                                            setTimeout(() => {
+                                                                if (!isPageActive) return;
                                                                 
-                                                                const blackFade = document.querySelector('.black-fade');
-                                                                blackFade.classList.add('active');
+                                                                const finalText = document.querySelector('.final-text');
+                                                                finalText.classList.add('visible');
+
+                                                                const emailCapture = document.querySelector('.email-capture');
+                                                                emailCapture.classList.add('visible');
+
+                                                                const email = document.getElementById(`email`);
+                                                                email.classList.add('visible');
+
+                                                                const button = document.getElementById(`submitEmail`);
+                                                                button.classList.add('visible');
+            
+                                                                window.scrollTo(0,0);
+                                                                document.body.classList.add('no-scroll');
+            
+                                                                const home_link = document.getElementById(`home_link`);
+                                                                const about_link = document.getElementById(`about_link`);
             
                                                                 setTimeout(() => {
-                                                                    const finalText = document.querySelector('.final-text');
-                                                                    finalText.classList.add('visible');
-
-                                                                    const emailCapture = document.querySelector('.email-capture');
-                                                                    emailCapture.classList.add('visible');
-
-                                                                    const email = document.getElementById(`email`);
-                                                                    email.classList.add('visible');
-
-                                                                    const button = document.getElementById(`submitEmail`);
-                                                                    button.classList.add('visible');
-            
-                                                                    console.log('Transitioning to final state');
-            
-                                                                    window.scrollTo(0,0);
-                                                                    document.body.classList.add('no-scroll');
-            
-                                                                    const home_link = document.getElementById(`home_link`);
-                                                                    const about_link = document.getElementById(`about_link`);
-            
-                                                                    setTimeout(() => {
-                                                                        home_link.classList.remove('hidden', 'float-md-end');
-                                                                        about_link.classList.remove('hidden');
-                                                                        about_link.classList.add('visible', 'float-md-end');
-                                                                        home_link.classList.add('visible', 'float-md-start');
-            
-                                                                        console.log('Classes added to links:', 
-                                                                            'home:', home_link.className,
-                                                                            'about:', about_link.className);
-                                                                    }, 5000)
-            
-                                                                }, 3000); 
-                                                            // }, 350);
+                                                                    if (!isPageActive) return;
+                                                                    
+                                                                    home_link.classList.remove('hidden', 'float-md-end');
+                                                                    about_link.classList.remove('hidden');
+                                                                    about_link.classList.add('visible', 'float-md-end');
+                                                                    home_link.classList.add('visible', 'float-md-start');
+                                                                }, 5000);
+                                                            }, 3000); 
                                                         }, 15000);
                                                     }
                                                 }, 4000);
@@ -808,12 +810,23 @@ const textChangesTopTwo = [
                     });
                 }, 80000); 
         }
-
     }
 
     let ticking = false;
+    let checkTimerId;
+    
+    function startTimeCheck() {
+        if (checkTimerId) clearInterval(checkTimerId);
+        
+        checkTimerId = setInterval(() => {
+            if (isPageActive) {
+                checkScroll();
+            }
+        }, 1000);
+    }
+
     window.addEventListener('scroll', () => {
-        if (!ticking) {
+        if (!ticking && isPageActive) {
             window.requestAnimationFrame(() => {
                 checkScroll();
                 ticking = false;
@@ -821,13 +834,37 @@ const textChangesTopTwo = [
             ticking = true;
         }
         
-        if (tensionActivated && !tensionReset) {
+        if (tensionActivated && !tensionReset && isPageActive) {
             cancelAnimationFrame(tensionAnimationFrame);
             tensionAnimationFrame = requestAnimationFrame(updateTensionEffect);
         }
     });
 
-    checkScroll();
+    window.addEventListener('focus', () => {
+        isPageActive = true;
+        lastActiveTime = Date.now();
+        startTimeCheck();
+    });
+
+    window.addEventListener('blur', () => {
+        isPageActive = false;
+        activeTime += Date.now() - lastActiveTime;
+        if (checkTimerId) clearInterval(checkTimerId);
+    });
+
+    window.addEventListener('pageshow', () => {
+        isPageActive = true;
+        lastActiveTime = Date.now();
+        startTimeCheck();
+    });
+
+    window.addEventListener('pagehide', () => {
+        isPageActive = false;
+        activeTime += Date.now() - lastActiveTime;
+        if (checkTimerId) clearInterval(checkTimerId);
+    });
+
+    startTimeCheck();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
