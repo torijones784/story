@@ -67,7 +67,6 @@ main {
     font-size: 24px;
     font-family: "Playfair Display", serif;
     padding: 0.5rem;
-    text-decoration: none;
 }
 
 .about_link.active {
