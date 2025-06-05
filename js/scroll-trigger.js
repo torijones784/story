@@ -749,23 +749,7 @@ function initScrollTrigger() {
                                                         blackFade.classList.add('active');
         
                                                         setTimeout(() => {
-                                                            const finalText = document.querySelector('.final-text');
-                                                            finalText.classList.add('visible');
-
-                                                            const emailCapture = document.querySelector('.email-capture');
-                                                            emailCapture.classList.add('visible');
-
-                                                            const email = document.getElementById(`email`);
-                                                            email.classList.add('visible');
-
-                                                            const button = document.getElementById(`submitEmail`);
-                                                            button.classList.add('visible');
-        
-                                                            window.scrollTo(0,0);
-                                                            document.body.classList.add('no-scroll');
-        
-                                                            const home_link = document.getElementById(`home_link`);
-                                                            const about_link = document.getElementById(`about_link`);
+                                                            window.location.href = 'emailsignup.html';
         
                                                             setTimeout(() => {
                                                                 home_link.classList.remove('hidden', 'float-md-end');
