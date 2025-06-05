@@ -749,13 +749,17 @@ function initScrollTrigger() {
                                                         blackFade.classList.add('active');
         
                                                         setTimeout(() => {
-                                                            window.location.href = 'emailsignup.html';
-        
+                                                            window.location.href = 'landing.html';
+                                                            const home_link = document.querySelector('.logo');
+                                                            const about_link = document.querySelector('.about_link');
+                                                            home_link.classList.add('hidden');
+                                                            about_link.classList.add('hidden');
+                                                            
                                                             setTimeout(() => {
-                                                                home_link.classList.remove('hidden', 'float-md-end');
+                                                                home_link.classList.remove('hidden');
                                                                 about_link.classList.remove('hidden');
-                                                                about_link.classList.add('visible', 'float-md-end');
-                                                                home_link.classList.add('visible', 'float-md-start');
+                                                                home_link.classList.add('visible');
+                                                                about_link.classList.add('visible');
                                                             }, 5000);
                                                         }, 3000); 
                                                     }, 15000);
