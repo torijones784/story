@@ -90,6 +90,10 @@ main {
     overflow: hidden;
 }
 
+.first_home_button {
+    transform: translateY(-100%);
+}
+
 .tagline {
     position: absolute;
     top: 50%;
@@ -209,10 +213,6 @@ footer {
     margin: 0 auto;
     padding-bottom: 3rem;
   }
-
-#getStartedTwo {
-    transform: translate(-50%, 50%);
-}
 
 /* Carousel */
 
