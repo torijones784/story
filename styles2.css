@@ -125,10 +125,6 @@ main {
     justify-content: center;
 }
 
-.pill-button:hover {
-    background-color: #f5f5f5;
-}
-
 .pill-button .arrow {
     margin-left: 8px;
     transition: transform 0.2s;
@@ -582,7 +578,7 @@ body.email_signup {
             max-width: 600px;
         }
 
-        input[type="first_name"], input[type="email"] {
+        input[type="text"], input[type="email"] {
             width: 100%;
             max-width: 400px;
             padding: 12px 20px;
@@ -596,7 +592,7 @@ body.email_signup {
             transition: all 0.3s ease;
         }
 
-        input[type="first_name"]:focus, input[type="email"]:focus {
+        input[type="text"]:focus, input[type="email"]:focus {
             outline: none;
             border-color: rgba(255, 184, 77, 0.8);
             box-shadow: 0 0 20px rgba(255, 184, 77, 0.3);
@@ -634,15 +630,6 @@ body.email_signup {
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
 
-        .pill-button .arrow {
-            margin-left: 8px;
-            transition: transform 0.2s;
-        }
-
-        .pill-button:hover .arrow {
-            transform: translateX(4px);
-        }
-
         footer {
             z-index: 1;
             background-color: rgba(33, 37, 41, 0.8);
@@ -674,14 +661,14 @@ body.email_signup {
         }
 
         /* Enhanced visual effects */
-        .glass-effect {
+        /* .glass-effect {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 15px;
             padding: 2rem;
             margin: 1rem 0;
-        }
+        } */
 
         /* Floating particles effect - warm golden tones */
         .particles {
