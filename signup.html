@@ -34,6 +34,7 @@
 
         <main>
             <div class="email_signup landing_page">
+                <div class="fade-overlay active"></div>
                 <div class="glass-effect">
                     <div class="final-text">Come join the club</div>
                     <div class="email-capture">Enter your email below to stay in the know with all things Pixel & Prose:</div>
@@ -120,6 +121,9 @@
         });
 
         document.addEventListener('DOMContentLoaded', function() {
+            const overlay = document.querySelector('.fade-overlay');
+            overlay.classList.add('not_active');
+
             createParticles();
             enhanceGradient();
         });
