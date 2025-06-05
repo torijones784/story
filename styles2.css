@@ -706,6 +706,7 @@ body.email_signup {
 
         footer.email {
             z-index: 1;
+            background-color: transparent;
             display: flex;
             justify-content: flex-end;
             backdrop-filter: blur(10px);
