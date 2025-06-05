@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Pixel & Prose</title>
+
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <link rel="stylesheet" href="styles2.css">
+</head>
+
+<body class="email_signup">
+    <div class="gradient-bg"></div>
+    <div class="particles" id="particles"></div>
+    
+    <div class="nav-container">
+        <header class="pt-3 pb-3">
+        <div class="container">
+          <div class="d-flex justify-content-between align-items-center">
+            <img src="./images/logo_light.png" class="float-md-start logo" alt="logo">
+            <a href="about.html"><h3 class="float-md-end mb-2 about_link">by <span class="active underline">Tori Jones</span></h3></a>
+          </div>
+        </div>
+      </header>
+
+        <main>
+            <div class="email_signup landing_page">
+                <div class="glass-effect">
+                    <div class="final-text">Come join the club</div>
+                    <div class="email-capture">Enter your email below to get notified when the full experience becomes available:</div>
+                    <input type="text" id="first_name" name="first_name" placeholder="First Name">
+                    <input type="email" id="email" name="email" placeholder="Email Address">
+                    <div class="pt-4">
+                        <button id="submitEmail" class="pill-button btn-lg btn-light border-white bg-white mt-4">Submit <span class="arrow">→</span></button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="mt-auto pt-2 email">
+            <span class="mb-3 mx-0 text-body-secondary float-md-end footer_content">© 2025 Pixel & Prose</span>        
+        </footer>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+        function enhanceGradient() {
+            const gradientBg = document.querySelector('.gradient-bg');
+            let angle = 0;
+            
+            setInterval(() => {
+                angle += 0.3;
+                gradientBg.style.background = `linear-gradient(
+                    ${angle}deg, 
+                    #161616,
+                    #1C1A18,
+                    #2A1810,
+                    #2A1810,
+                    #4A2C1A,
+                    #4A2C1A,
+                    #5D3420,
+                    #CC8B39,
+                    #4A2C1A,
+                    #2A1810,
+                    #161616,
+                    #161616
+                )`;
+                gradientBg.style.backgroundSize = '600% 600%';
+            }, 150);
+        }
+
+        document.getElementById('submitEmail').addEventListener('click', function(e) {
+            e.preventDefault();
+            const firstName = document.getElementById('first_name').value;
+            const email = document.getElementById('email').value;
+            
+            if (firstName && email) {
+                // Add success animation
+                this.style.background = 'linear-gradient(45deg, #4CAF50, #45a049)';
+                this.textContent = 'Success! ✓';
+                
+                setTimeout(() => {
+                    this.style.background = 'white';
+                    this.innerHTML = 'Submit <span class="arrow">→</span>';
+                }, 2000);
+            } else {
+                this.style.background = 'linear-gradient(45deg, #ff6b6b, #ee5a52)';
+                this.style.color = 'white';
+                this.textContent = 'Please fill all fields';
+                
+                setTimeout(() => {
+                    this.style.background = 'white';
+                    this.style.color = 'black';
+                    this.innerHTML = 'Submit <span class="arrow">→</span>';
+                }, 2000);
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+            enhanceGradient();
+        });
+
+        document.addEventListener('mousemove', function(e) {
+            const gradientBg = document.querySelector('.gradient-bg');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            gradientBg.style.backgroundPosition = `${x * 100}% ${y * 100}%`;
+        });
+    </script>
+</body>
+</html>
