@@ -110,6 +110,7 @@ main {
     text-align: center;
     text-decoration: none;
     width: 272px;
+    min-width: 272px;
     padding: 10px 24px;
     color: black;
     background-color: white;
@@ -451,8 +452,8 @@ body.email_signup {
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
+            width: 110%;
+            height: 110%;
             background: 
                 radial-gradient(circle at 15% 85%, rgba(204, 139, 57, 0.2) 0%, transparent 70%),
                 radial-gradient(circle at 85% 15%, rgba(179, 118, 47, 0.15) 0%, transparent 60%),
@@ -602,6 +603,7 @@ body.email_signup {
             text-align: center;
             text-decoration: none;
             width: 272px;
+            min-width: 272px;
             padding: 12px 24px;
             color: black;
             background-color: white;
@@ -652,6 +654,7 @@ body.email_signup {
             .pill-button {
                 width: 100%;
                 max-width: 300px;
+                min-width: 272px;
             }
         }
 
