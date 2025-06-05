@@ -307,6 +307,10 @@ footer {
     .tagline {
         transform: translate(-50%, -210%);
     }
+
+    .footer_content {
+        padding-top: 2rem;
+    }
 }
 
 /* About Page */
