@@ -1,7 +1,30 @@
+* {
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+
 .nav-container {
     position: relative;
     z-index: 10;
     width: 100%;
+}
+
+.cover-container {
+    max-width: 90em;
+    background: transparent;
+    min-height: 100vh;
+}
+
+header {
+    width: 100vw !important;
+    margin-left: calc(-50vw + 50%);
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 .logo {
@@ -25,4 +48,8 @@ p {
     font-family: "Roboto", sans-serif;
     transition: letter-spacing 8s ease-in-out;
     letter-spacing: normal;
+}
+
+.mx-5 {
+    margin: 0 0 1rem 0 !important;
 }
