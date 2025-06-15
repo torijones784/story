@@ -8,20 +8,14 @@
     height: 70px
 }
 
-.about_link {
-    color: #818181;
-    font-size: 24px;
-    font-family: "Playfair Display", serif;
-    padding: 0.5rem;
-}
-
-.about_link.active {
-    border-bottom: .10rem solid transparent;
-    border-bottom-color: #818181;
-}
-
-.underline {
-    text-decoration: underline;
+h1 {
+   font-family: "Source Serif 4", serif;
+   font-weight: 400;
+   font-size: 60px;
+   text-align: left;
+   margin-left: 0;
+   width: 100%;
+   padding-right: 3rem;
 }
 
 p {
