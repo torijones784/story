@@ -15,143 +15,7 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
-    <style>
-        .email_signup { 
-            min-height: 100vh; 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: center; 
-            align-items: center; 
-            background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
-            color: white;
-            font-family: 'DM Sans', sans-serif;
-        }
-        .gradient-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
-            opacity: 0.8;
-        }
-        .particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            pointer-events: none;
-        }
-        .particle {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: rgba(204, 139, 57, 0.6);
-            animation: float linear infinite;
-        }
-        @keyframes float {
-            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
-        }
-        .fade-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #161616;
-            z-index: 1000;
-            transition: opacity 1s ease-out;
-        }
-        .fade-overlay.not_active {
-            opacity: 0;
-            pointer-events: none;
-        }
-        .nav-container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        .logo {
-            height: 40px;
-        }
-        .about_link {
-            color: #CC8B39;
-            text-decoration: none;
-            font-family: 'Playfair Display', serif;
-        }
-        .final-text {
-            font-size: 3rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 1rem;
-            font-family: 'Playfair Display', serif;
-            background: linear-gradient(45deg, #CC8B39, #FFD700);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .email-capture {
-            font-size: 1.2rem;
-            text-align: center;
-            margin-bottom: 2rem;
-            color: #e0e0e0;
-        }
-        .newsletter-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            max-width: 400px;
-            margin: 0 auto;
-        }
-        .newsletter-form input {
-            padding: 15px;
-            border: 2px solid #444;
-            border-radius: 8px;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-        }
-        .newsletter-form input:focus {
-            outline: none;
-            border-color: #CC8B39;
-        }
-        .newsletter-form input::placeholder {
-            color: #aaa;
-        }
-        .pill-button {
-            padding: 15px 30px;
-            border-radius: 50px;
-            border: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            background: white;
-            color: black;
-        }
-        .pill-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(204, 139, 57, 0.3);
-        }
-        .arrow {
-            margin-left: 8px;
-            transition: transform 0.3s ease;
-        }
-        .pill-button:hover .arrow {
-            transform: translateX(4px);
-        }
-        .footer_content {
-            color: #888;
-            font-size: 0.9rem;
-        }
-    </style>
+    <link rel="stylesheet" href="styleshomeabout.css">
 </head>
 
 <body class="email_signup">
@@ -175,8 +39,7 @@
                     <div class="final-text">Come join the club</div>
                     <div class="email-capture">Enter your email below to stay in the know with all things Pixel & Prose:</div>
                     
-                    <!-- FIXED: Proper Netlify form with required attributes -->
-                    <form name="ch1_signup" method="POST" data-netlify="true" class="newsletter-form">
+                    <form name="ch1_signup" method="POST" data-netlify="true" action="/thank-you.html">
                         <input type="text" id="first_name" name="first_name" placeholder="First Name" required>
                         <input type="email" id="email" name="email" placeholder="Email Address" required>
                         <div class="pt-3">
@@ -234,7 +97,7 @@
             }, 150);
         }
 
-        // FIXED: Updated JavaScript to handle form submission properly
+        // Updated form submission handler for Netlify integration
         document.querySelector('form[name="newsletter"]').addEventListener('submit', function(e) {
             e.preventDefault();
             const firstName = document.getElementById('first_name').value;
@@ -253,18 +116,15 @@
                 .then(() => {
                     // Success animation
                     submitButton.style.background = 'linear-gradient(45deg, #4CAF50, #45a049)';
-                    submitButton.style.color = 'white';
                     submitButton.textContent = 'Success! ✓';
                     
                     setTimeout(() => {
                         submitButton.style.background = 'white';
-                        submitButton.style.color = 'black';
                         submitButton.innerHTML = 'Submit <span class="arrow">→</span>';
                         this.reset(); // Clear the form
                     }, 2000);
                 })
-                .catch((error) => {
-                    console.error('Error:', error);
+                .catch(() => {
                     submitButton.style.background = 'linear-gradient(45deg, #ff6b6b, #ee5a52)';
                     submitButton.style.color = 'white';
                     submitButton.textContent = 'Error - please try again';
