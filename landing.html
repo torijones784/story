@@ -70,6 +70,7 @@
                 particlesContainer.appendChild(particle);
             }
         }
+        
         function enhanceGradient() {
             const gradientBg = document.querySelector('.gradient-bg');
             let angle = 0;
@@ -95,29 +96,53 @@
             }, 150);
         }
 
-        document.getElementById('submitEmail').addEventListener('click', function(e) {
+        // Updated form submission handler for Netlify integration
+        document.querySelector('form[name="newsletter"]').addEventListener('submit', function(e) {
             e.preventDefault();
             const firstName = document.getElementById('first_name').value;
             const email = document.getElementById('email').value;
+            const submitButton = document.getElementById('submitEmail');
             
             if (firstName && email) {
-                // Add success animation
-                this.style.background = 'linear-gradient(45deg, #4CAF50, #45a049)';
-                this.textContent = 'Success! ✓';
+                // Submit to Netlify
+                const formData = new FormData(this);
                 
-                setTimeout(() => {
-                    this.style.background = 'white';
-                    this.innerHTML = 'Submit <span class="arrow">→</span>';
-                }, 2000);
+                fetch('/', {
+                    method: 'POST',
+                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                    body: new URLSearchParams(formData).toString()
+                })
+                .then(() => {
+                    // Success animation
+                    submitButton.style.background = 'linear-gradient(45deg, #4CAF50, #45a049)';
+                    submitButton.textContent = 'Success! ✓';
+                    
+                    setTimeout(() => {
+                        submitButton.style.background = 'white';
+                        submitButton.innerHTML = 'Submit <span class="arrow">→</span>';
+                        this.reset(); // Clear the form
+                    }, 2000);
+                })
+                .catch(() => {
+                    submitButton.style.background = 'linear-gradient(45deg, #ff6b6b, #ee5a52)';
+                    submitButton.style.color = 'white';
+                    submitButton.textContent = 'Error - please try again';
+                    
+                    setTimeout(() => {
+                        submitButton.style.background = 'white';
+                        submitButton.style.color = 'black';
+                        submitButton.innerHTML = 'Submit <span class="arrow">→</span>';
+                    }, 2000);
+                });
             } else {
-                this.style.background = 'linear-gradient(45deg, #ff6b6b, #ee5a52)';
-                this.style.color = 'white';
-                this.textContent = 'Please fill all fields';
+                submitButton.style.background = 'linear-gradient(45deg, #ff6b6b, #ee5a52)';
+                submitButton.style.color = 'white';
+                submitButton.textContent = 'Please fill all fields';
                 
                 setTimeout(() => {
-                    this.style.background = 'white';
-                    this.style.color = 'black';
-                    this.innerHTML = 'Submit <span class="arrow">→</span>';
+                    submitButton.style.background = 'white';
+                    submitButton.style.color = 'black';
+                    submitButton.innerHTML = 'Submit <span class="arrow">→</span>';
                 }, 2000);
             }
         });
