@@ -12,7 +12,7 @@ const letters = [
 ]
 
 setTimeout(() => {
-    letterChanges.forEach(change => {
+    letters.forEach(change => {
                 const letter = document.getElementById(change.elementId);
                     letter.textContent = change.newText;
             });
