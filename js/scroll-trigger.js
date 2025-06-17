@@ -1,3 +1,12 @@
+function trackStoryProgress(milestone, additionalData = {}) {
+    gtag('event', 'story_progress', {
+    'event_category': 'story_engagement',
+    'event_label': milestone,
+    'custom_parameter_1': 'chapter_one',
+    ...additionalData
+    });
+  }
+
 function initScrollTrigger() {
     let hasTriggered = false;
     let roundTwoTop = false;
@@ -586,6 +595,7 @@ function initScrollTrigger() {
         if (scrollPercentage > 80 && !hasTriggered) { 
             hasTriggered = true;
             hasReachedBottom = true;
+            trackStoryProgress('first_transformation');
             
             textChangesTop.forEach(change => {
                 const element = document.getElementById(change.elementId);
@@ -620,6 +630,7 @@ function initScrollTrigger() {
 
         if (scrollPercentage < 50 && hasReachedBottom && !roundTwoTop) { 
             roundTwoTop = true;
+            trackStoryProgress('second_transformation');
 
             textChangesBottom.forEach(change => {
                 const element = document.getElementById(change.elementId);
@@ -633,6 +644,7 @@ function initScrollTrigger() {
 
         if (scrollPercentage > 85 && hasTriggered && roundTwoTop && !roundTwoBottom) {
             roundTwoBottom = true;
+            trackStoryProgress('third_transformation');
             textChangesTopTwo.forEach(change => {
                 const element = document.getElementById(change.elementId);
                 if (element) {
@@ -643,6 +655,7 @@ function initScrollTrigger() {
 
         if (scrollPercentage < 45 && hasTriggered && roundTwoBottom && !roundThreeTop) { 
             roundThreeTop = true;
+            trackStoryProgress('fourth_transformation');
 
             textChangesBottomTwo.forEach(change => {
                 const element = document.getElementById(change.elementId);
@@ -657,6 +670,7 @@ function initScrollTrigger() {
         
         if (scrollPercentage > 90 && hasTriggered && roundThreeTop && !fifthTriggerActivated) { 
             fifthTriggerActivated = true;
+            trackStoryProgress('final_sequence');
             
             setTimeout(() => {
                 const chapter_title = document.getElementById(`chapter_one_title`);
@@ -747,6 +761,8 @@ function initScrollTrigger() {
                                                     setTimeout(() => {
                                                         const blackFade = document.querySelector('.black-fade');
                                                         blackFade.classList.add('active');
+
+                                                        trackStoryProgress('story_complete');
         
                                                         setTimeout(() => {
                                                             window.location.href = 'landing.html';
@@ -787,6 +803,7 @@ function initScrollTrigger() {
 
     let ticking = false;
     let checkTimerId;
+
     
     function startTimeCheck() {
         if (checkTimerId) clearInterval(checkTimerId);

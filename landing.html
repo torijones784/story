@@ -172,6 +172,16 @@
     gtag('js', new Date());
 
     gtag('config', 'G-7F6S909TDQ');
+
+    const emailForm = document.querySelector('form[name="ch1_signup"]');
+    if (emailForm) {
+    emailForm.addEventListener('submit', function() {
+        gtag('event', 'generate_lead', {
+        'currency': 'USD',
+        'value': 1
+        });
+    });
+    }
     </script>
 </body>
 </html>
