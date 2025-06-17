@@ -135,48 +135,8 @@
   gtag('js', new Date());
   
   gtag('config', 'G-7F6S909TDQ');
-
-  document.addEventListener('DOMContentLoaded', function() {
-
-    setTimeout(function() {
-
-      const getStartedBtn = document.getElementById('getStarted');
-      if (getStartedBtn) {
-        getStartedBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            gtag('event', 'click', {
-              'event_category': 'navigation',
-              'event_label': 'home_to_mvp_button_one',
-              'value': 1
-            });
-            
-            const overlay = document.querySelector('.fade-overlay');
-            overlay.classList.remove('not_active');
-            overlay.classList.add('active');
-            
-            setTimeout(() => {
-                window.location.href = this.getAttribute('href');
-                setTimeout(() => {
-                  overlay.classList.remove('active');
-                  overlay.classList.add('not_active');
-                }, 3500)
-            }, 3000);
-        });
-      }
-
-      const getStartedTwoBtn = document.getElementById('getStartedTwo');
-      if (getStartedTwoBtn) {
-        getStartedTwoBtn.addEventListener('click', function() {
-          gtag('event', 'click', {
-            'event_category': 'navigation',
-            'event_label': 'home_to_mvp_button_two',
-            'value': 1
-          });
-        });
-      }
-    }, 500);
-  });
+  
+  console.log('GA4 script loaded');
 </script>
 </body>
 </html>
