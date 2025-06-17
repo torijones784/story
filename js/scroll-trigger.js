@@ -5,7 +5,7 @@ function trackStoryProgress(milestone, additionalData = {}) {
     'custom_parameter_1': 'chapter_one',
     ...additionalData
     });
-  }
+}
 
 function initScrollTrigger() {
     let hasTriggered = false;
@@ -859,4 +859,5 @@ function initScrollTrigger() {
 
 document.addEventListener('DOMContentLoaded', () => {
     initScrollTrigger();
+    trackStoryProgress();
 });
