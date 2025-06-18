@@ -22,41 +22,24 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-7F6S909TDQ');
-
-      document.addEventListener('DOMContentLoaded', function() {
-        setTimeout(function() {
-          const btn1 = document.getElementById('getStarted');
-          const btn2 = document.getElementById('getStartedTwo');
-          
-          if (btn1) {
-            btn1.addEventListener('click', function(e) {
-              e.preventDefault();
-              gtag('event', 'click', {
-                'event_category': 'navigation',
-                'event_label': 'home_to_mvp_button_one'
-              });
-              
-              const overlay = document.querySelector('.fade-overlay');
-              overlay.classList.remove('not_active');
-              overlay.classList.add('active');
-              
-              setTimeout(() => {
-                window.location.href = this.getAttribute('href');
-              }, 3000);
-            });
-          }
-          
-          if (btn2) {
-            btn2.addEventListener('click', function() {
-              gtag('event', 'click', {
-                'event_category': 'navigation',
-                'event_label': 'home_to_mvp_button_two'
-              });
-            });
-          }
-        }, 500);
+      
+      // Enable debug mode
+      gtag('config', 'G-7F6S909TDQ', {
+        debug_mode: true,
+        send_page_view: true
       });
+      
+      // Debug: Log when gtag is loaded
+      console.log('Google Analytics gtag loaded');
+      
+      // Manual page view tracking
+      gtag('event', 'page_view', {
+        page_title: document.title,
+        page_location: window.location.href,
+        page_path: window.location.pathname
+      });
+      
+      console.log('Manual page view sent');
     </script>
 </head>
 
