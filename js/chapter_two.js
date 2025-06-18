@@ -16,7 +16,7 @@ setTimeout(() => {
                 const letter = document.getElementById(change.elementId);
                     letter.textContent = change.newText;
             });
-}, 2000);
+}, 2000); // Increase timeout
 }
 
 document.addEventListener('DOMContentLoaded', () => {
