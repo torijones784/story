@@ -16,46 +16,12 @@
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
     <link rel="stylesheet" href="styleshomeabout.css">
 
-    <!-- Google Analytics with comprehensive debugging -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-7F6S909TDQ"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      
-      // Enable debug mode and detailed logging
       gtag('js', new Date());
-      gtag('config', 'G-7F6S909TDQ', {
-        debug_mode: true,
-        send_page_view: true,
-        cookie_domain: 'auto',
-        cookie_flags: 'SameSite=None;Secure'
-      });
-      
-      console.log('🔍 GA Setup Complete');
-      console.log('📍 Current domain:', window.location.hostname);
-      console.log('📄 Current URL:', window.location.href);
-      console.log('🎯 Tracking ID: G-7F6S909TDQ');
-      
-      // Force a page view
-      setTimeout(() => {
-        gtag('event', 'page_view', {
-          page_title: document.title,
-          page_location: window.location.href,
-          page_path: window.location.pathname,
-          debug_mode: true
-        });
-        console.log('📊 Manual page_view event sent');
-      }, 1000);
-      
-      // Test event
-      setTimeout(() => {
-        gtag('event', 'test_event', {
-          event_category: 'debug',
-          event_label: 'ga_test',
-          value: 1
-        });
-        console.log('🧪 Test event sent');
-      }, 2000);
+      gtag('config', 'G-7F6S909TDQ');
     </script>
 </head>
 
@@ -173,53 +139,39 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/home_page.js"></script>
     
-    <!-- Enhanced debugging -->
     <script>
       document.addEventListener('DOMContentLoaded', function() {
-        console.log('🚀 DOM loaded');
-        
-        // Debug button
-        const debugBtn = document.getElementById('debugBtn');
-        if (debugBtn) {
-          debugBtn.addEventListener('click', function() {
-            console.log('🔘 Debug button clicked');
-            gtag('event', 'debug_button_click', {
-              event_category: 'debug',
-              event_label: 'manual_test',
-              value: 1
+        setTimeout(function() {
+          const btn1 = document.getElementById('getStarted');
+          const btn2 = document.getElementById('getStartedTwo');
+          
+          if (btn1) {
+            btn1.addEventListener('click', function(e) {
+              e.preventDefault();
+              gtag('event', 'click', {
+                'event_category': 'navigation',
+                'event_label': 'home_to_mvp_button_one'
+              });
+              
+              const overlay = document.querySelector('.fade-overlay');
+              overlay.classList.remove('not_active');
+              overlay.classList.add('active');
+              
+              setTimeout(() => {
+                window.location.href = this.getAttribute('href');
+              }, 3000);
             });
-            alert('Debug event sent! Check console and GA Real-time.');
-          });
-        }
-        
-        // Network monitoring
-        const originalFetch = window.fetch;
-        window.fetch = function(...args) {
-          const url = args[0];
-          if (typeof url === 'string' && (url.includes('google') || url.includes('analytics'))) {
-            console.log('🌐 GA Network request:', url);
           }
-          return originalFetch.apply(this, args);
-        };
-        
-        // Check for ad blockers
-        setTimeout(() => {
-          const testImg = new Image();
-          testImg.onload = () => console.log('✅ No ad blocker detected');
-          testImg.onerror = () => console.log('🚫 Ad blocker may be blocking GA');
-          testImg.src = 'https://www.google-analytics.com/analytics.js';
-        }, 3000);
-        
-        // Final debug summary
-        setTimeout(() => {
-          console.log('=== FINAL DEBUG SUMMARY ===');
-          console.log('Domain:', window.location.hostname);
-          console.log('Protocol:', window.location.protocol);
-          console.log('gtag available:', typeof gtag === 'function');
-          console.log('dataLayer length:', window.dataLayer ? window.dataLayer.length : 'undefined');
-          console.log('Cookies:', document.cookie);
-          console.log('=== END SUMMARY ===');
-        }, 5000);
+          
+          if (btn2) {
+            btn2.addEventListener('click', function() {
+              gtag('event', 'click', {
+                'event_category': 'navigation',
+                'event_label': 'home_to_mvp_button_two'
+              });
+            });
+          }
+        }, 500);
       });
     </script>
 </body>
