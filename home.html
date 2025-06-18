@@ -145,10 +145,13 @@
           if (btn1) {
             btn1.addEventListener('click', function(e) {
               e.preventDefault();
-              gtag('event', 'click', {
-                'event_category': 'navigation',
-                'event_label': 'home_to_mvp_button_one'
-              });
+              
+              if (typeof gtag === 'function') {
+                gtag('event', 'click', {
+                  'event_category': 'navigation',
+                  'event_label': 'home_to_mvp_button_one'
+                });
+              }
               
               const overlay = document.querySelector('.fade-overlay');
               overlay.classList.remove('not_active');
@@ -162,10 +165,12 @@
           
           if (btn2) {
             btn2.addEventListener('click', function() {
-              gtag('event', 'click', {
-                'event_category': 'navigation',
-                'event_label': 'home_to_mvp_button_two'
-              });
+              if (typeof gtag === 'function') {
+                gtag('event', 'click', {
+                  'event_category': 'navigation',
+                  'event_label': 'home_to_mvp_button_two'
+                });
+              }
             });
           }
         }, 500);
