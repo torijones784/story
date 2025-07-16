@@ -648,6 +648,10 @@ function initScrollTrigger() {
         if (scrollPercentage > 85 && hasTriggered && roundTwoTop && !roundTwoBottom) {
             roundTwoBottom = true;
             trackStoryProgress('third_transformation');
+
+            const closingQuestion = document.getElementById('closing_question');
+            closingQuestion.classList.remove('visible');
+
             textChangesTopTwo.forEach(change => {
                 const element = document.getElementById(change.elementId);
                 if (element) {
