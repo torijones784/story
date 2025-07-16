@@ -800,7 +800,7 @@ function initScrollTrigger() {
                         }
                     }
                 });
-            }, 80000); 
+            }, 60000); // Shortened from 80000
         }
     }
 
