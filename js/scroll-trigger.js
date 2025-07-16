@@ -694,7 +694,7 @@ function initScrollTrigger() {
                 
                 setTimeout(() => {
                     progressContainer.classList.remove('visible');
-                }, 50500);
+                }, 45500);
             }
             
             setTimeout(() => {
@@ -826,7 +826,7 @@ function initScrollTrigger() {
                         }
                     }
                 });
-            }, 50000); // Shortened from 60000
+            }, 45000); // Shortened from 60000
         }
     }
 
