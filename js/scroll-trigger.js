@@ -679,6 +679,9 @@ function initScrollTrigger() {
             fifthTriggerActivated = true;
             trackStoryProgress('final_sequence');
 
+            const closingQuestion = document.getElementById('closing_question');
+            closingQuestion.classList.remove('visible');
+
             const progressContainer = document.querySelector('.countdown-progress');
             const progressBar = document.querySelector('.countdown-progress-bar');
 
@@ -695,6 +698,10 @@ function initScrollTrigger() {
             }
             
             setTimeout(() => {
+
+                const closingQuestion = document.getElementById('closing_question');
+                closingQuestion.classList.remove('visible');
+
                 const chapter_title = document.getElementById(`chapter_one_title`);
                 const home_link = document.getElementById(`home_link`);
 
