@@ -632,6 +632,8 @@ function initScrollTrigger() {
             roundTwoTop = true;
             trackStoryProgress('second_transformation');
 
+            closingQuestion.classList.remove('visible');
+
             textChangesBottom.forEach(change => {
                 const element = document.getElementById(change.elementId);
                 if (change.newText === '') {
