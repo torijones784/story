@@ -826,7 +826,7 @@ function initScrollTrigger() {
                         }
                     }
                 });
-            }, 60000); // Shortened from 80000
+            }, 45000); // Shortened from 60000
         }
     }
 
