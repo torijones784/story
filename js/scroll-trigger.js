@@ -674,6 +674,21 @@ function initScrollTrigger() {
         if (scrollPercentage > 90 && hasTriggered && roundThreeTop && !fifthTriggerActivated) { 
             fifthTriggerActivated = true;
             trackStoryProgress('final_sequence');
+
+            const progressContainer = document.querySelector('.countdown-progress');
+            const progressBar = document.querySelector('.countdown-progress-bar');
+
+            if (progressContainer && progressBar) {
+                progressContainer.classList.add('visible');
+                
+                setTimeout(() => {
+                    progressBar.classList.add('countdown-active');
+                }, 100);
+                
+                setTimeout(() => {
+                    progressContainer.classList.remove('visible');
+                }, 60500);
+            }
             
             setTimeout(() => {
                 const chapter_title = document.getElementById(`chapter_one_title`);
