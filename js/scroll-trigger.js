@@ -67,57 +67,6 @@ function trackScrollDepth() {
     };
 }
 
-function trackReadingBehavior() {
-    let startTime = Date.now();
-    let wordCount = 0;
-    
-    const textElements = document.querySelectorAll('p');
-    textElements.forEach(el => {
-        wordCount += el.textContent.split(' ').length;
-    });
-
-    return {
-        calculateReadingSpeed: function() {
-            const timeSpent = (Date.now() - startTime) / 1000 / 60;
-            return Math.round(wordCount / timeSpent);
-        },
-        getWordCount: () => wordCount
-    };
-}
-
-function trackUserSession() {
-    const sessionData = {
-        startTime: Date.now(),
-        interactions: 0,
-        scrollEvents: 0,
-        focusEvents: 0,
-        transformationsViewed: 0
-    };
-
-    window.addEventListener('scroll', () => {
-        sessionData.scrollEvents++;
-    });
-
-    window.addEventListener('focus', () => {
-        sessionData.focusEvents++;
-    });
-
-    window.addEventListener('beforeunload', () => {
-        const sessionDuration = (Date.now() - sessionData.startTime) / 1000;
-        
-        gtag('event', 'session_end', {
-            'event_category': 'user_behavior',
-            'session_duration': Math.round(sessionDuration),
-            'scroll_events': sessionData.scrollEvents,
-            'focus_events': sessionData.focusEvents,
-            'transformations_viewed': sessionData.transformationsViewed,
-            'non_interaction': true
-        });
-    });
-
-    return sessionData;
-}
-
 function initScrollTrigger() {
     let hasTriggered = false;
     let roundTwoTop = false;
@@ -127,11 +76,13 @@ function initScrollTrigger() {
     let fifthTriggerActivated = false;
     let tensionActivated = false;
     let tensionReset = false;
-    let pageLoadTime = Date.now();
+
+    let startTime = Date.now();
     let activeTime = 0;
     let lastActiveTime = Date.now();
     let isPageActive = true;
     const MINIMUM_TIME = 24000;
+
     let lastScrollTop = 0;
     let lastScrollTime = Date.now();
     let scrollSpeed = 0;
@@ -141,13 +92,31 @@ function initScrollTrigger() {
     let lastViewportHeight = window.innerHeight;
 
     const scrollDepthTracker = trackScrollDepth();
-    const readingBehavior = trackReadingBehavior();
-    const sessionData = trackUserSession();
+
+    const readingStartTime = Date.now();
+    let wordCount = 0;
+    const textElements = document.querySelectorAll('p');
+    textElements.forEach(el => {
+        wordCount += el.textContent.split(' ').length;
+    });
+
+    const sessionData = {
+        startTime: Date.now(),
+        transformationsViewed: 0
+    };
 
     function getActiveTimeSpentLocal() {
-        return isPageActive ? activeTime + (Date.now() - lastActiveTime) : activeTime;
+        const currentTime = Date.now();
+        if (isPageActive) {
+            return activeTime + (currentTime - lastActiveTime);
+        }
+        return activeTime;
     }
-    
+
+    function getReadingSpeed() {
+        const timeSpent = (Date.now() - readingStartTime) / 1000 / 60; // minutes
+        return Math.round(wordCount / timeSpent);
+    }
     document.addEventListener('DOMContentLoaded', () => {
         const video = document.getElementById('background-video');
         video.load();
@@ -161,12 +130,13 @@ function initScrollTrigger() {
     });
 
     document.addEventListener('visibilitychange', () => {
+        const currentTime = Date.now();
         if (document.hidden) {
+            activeTime += (currentTime - lastActiveTime);
             isPageActive = false;
-            activeTime += Date.now() - lastActiveTime;
         } else {
             isPageActive = true;
-            lastActiveTime = Date.now();
+            lastActiveTime = currentTime;
         }
     });
 
@@ -669,14 +639,20 @@ function initScrollTrigger() {
     }
 
     function checkScroll() { 
-        if (!isPageActive) return;
-        
-        const timeSpent = getActiveTimeSpentLocal();
-        if (timeSpent < MINIMUM_TIME) {
+        if (!isPageActive) {
+            console.log('DEBUG: Page not active');
             return;
         }
-
+        
+        const timeSpent = getActiveTimeSpentLocal();
         const scrollPercentage = getScrollPercentage();
+        
+        console.log(`DEBUG: Time: ${Math.round(timeSpent/1000)}s (need ${MINIMUM_TIME/1000}s), Scroll: ${Math.round(scrollPercentage)}%`);
+        
+        if (timeSpent < MINIMUM_TIME) {
+            console.log(`DEBUG: ❌ Time requirement not met`);
+            return;
+        }
 
         const currentScrollTop = window.scrollY;
         const scrollDelta = Math.abs(currentScrollTop - lastScrollTop);
@@ -701,9 +677,9 @@ function initScrollTrigger() {
             sessionData.transformationsViewed++;
     
             trackStoryProgress('first_transformation', { 
-                'reading_speed': readingBehavior.calculateReadingSpeed(),
-                'word_count': readingBehavior.getWordCount(),
-                'session_interactions': sessionData.interactions
+                'reading_speed': getReadingSpeed(),
+                'word_count': wordCount,
+                'session_interactions': 0
             }, { activeTime: getActiveTimeSpentLocal() }); 
             
             textChangesTop.forEach(change => {
@@ -742,10 +718,10 @@ function initScrollTrigger() {
             sessionData.transformationsViewed++;
 
             trackStoryProgress('second_transformation', { 
-                'reading_speed': readingBehavior.calculateReadingSpeed(),
-                'direction': 'scroll_up',
-                'word_count': readingBehavior.getWordCount(),
-                'session_interactions': sessionData.interactions
+                'reading_speed': getReadingSpeed(),
+                'word_count': wordCount,
+                'session_interactions': sessionData.interactions,
+                'direction': 'scroll_up'
             }, { activeTime: getActiveTimeSpentLocal() });
 
             const closingQuestion = document.getElementById('closing_question');
@@ -766,10 +742,10 @@ function initScrollTrigger() {
             sessionData.transformationsViewed++;
     
             trackStoryProgress('third_transformation', { 
-                'reading_speed': readingBehavior.calculateReadingSpeed(),
-                'direction': 'scroll_up',
-                'word_count': readingBehavior.getWordCount(),
-                'session_interactions': sessionData.interactions
+                'reading_speed': getReadingSpeed(),
+                'word_count': wordCount,
+                'session_interactions': sessionData.interactions,
+                'direction': 'scroll_up'
             }, { activeTime: getActiveTimeSpentLocal() });
 
             const closingQuestion = document.getElementById('closing_question');
@@ -788,10 +764,10 @@ function initScrollTrigger() {
             sessionData.transformationsViewed++;
     
             trackStoryProgress('fourth_transformation', { 
-                'reading_speed': readingBehavior.calculateReadingSpeed(),
-                'direction': 'scroll_up',
-                'word_count': readingBehavior.getWordCount(),
-                'session_interactions': sessionData.interactions
+                'reading_speed': getReadingSpeed(),
+                'word_count': wordCount,
+                'session_interactions': sessionData.interactions,
+                'direction': 'scroll_up'
             }, { activeTime: getActiveTimeSpentLocal() });
 
             textChangesBottomTwo.forEach(change => {
@@ -810,10 +786,11 @@ function initScrollTrigger() {
             sessionData.transformationsViewed++;
 
             trackStoryProgress('final_sequence', { 
-                'total_transformations': sessionData.transformationsViewed,
-                'reading_speed': readingBehavior.calculateReadingSpeed(),
-                'word_count': readingBehavior.getWordCount(),
+                'reading_speed': getReadingSpeed(),
+                'word_count': wordCount,
                 'session_interactions': sessionData.interactions,
+                'direction': 'scroll_up',
+                'total_transformations': sessionData.transformationsViewed,
                 'session_duration': Math.round((Date.now() - sessionData.startTime) / 1000)
             }, { activeTime: getActiveTimeSpentLocal() });
 
