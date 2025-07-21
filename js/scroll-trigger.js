@@ -647,10 +647,8 @@ function initScrollTrigger() {
         const timeSpent = getActiveTimeSpentLocal();
         const scrollPercentage = getScrollPercentage();
         
-        console.log(`DEBUG: Time: ${Math.round(timeSpent/1000)}s (need ${MINIMUM_TIME/1000}s), Scroll: ${Math.round(scrollPercentage)}%`);
         
         if (timeSpent < MINIMUM_TIME) {
-            console.log(`DEBUG: ❌ Time requirement not met`);
             return;
         }
 
