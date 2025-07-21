@@ -1,10 +1,109 @@
 function trackStoryProgress(milestone, additionalData = {}) {
+    const timeSpent = getActiveTimeSpent();
+    const scrollPercentage = Math.round(getScrollPercentage());
+    
     gtag('event', 'story_progress', {
-    'event_category': 'story_engagement',
-    'event_label': milestone,
-    'custom_parameter_1': 'chapter_one',
-    ...additionalData
+        'event_category': 'story_engagement',
+        'event_label': milestone,
+        'custom_parameter_1': 'chapter_one',
+        'value': Math.round(timeSpent / 1000),
+        'custom_parameter_2': scrollPercentage,
+        'custom_parameter_3': milestone,
+        ...additionalData
     });
+
+    if (['story_complete', 'final_sequence', 'first_transformation'].includes(milestone)) {
+        gtag('event', 'conversion', {
+            'send_to': 'G-7F6S909TDQ',
+            'event_category': 'story_completion',
+            'event_label': milestone,
+            'value': 1
+        });
+    }
+
+    gtag('config', 'G-7F6S909TDQ', {
+        'custom_map': {
+            'story_progress': 'custom_parameter_3',
+            'time_spent': 'custom_parameter_1',
+            'scroll_depth': 'custom_parameter_2'
+        }
+    });
+
+    console.log(`Analytics: ${milestone} - Time: ${Math.round(timeSpent/1000)}s - Scroll: ${scrollPercentage}%`);
+}
+
+function trackScrollDepth() {
+    let maxScroll = 0;
+    const scrollMilestones = [25, 50, 75, 90, 100];
+    const triggeredMilestones = new Set();
+
+    return function() {
+        const currentScroll = Math.round(getScrollPercentage());
+        maxScroll = Math.max(maxScroll, currentScroll);
+
+        scrollMilestones.forEach(milestone => {
+            if (currentScroll >= milestone && !triggeredMilestones.has(milestone)) {
+                triggeredMilestones.add(milestone);
+                gtag('event', 'scroll_depth', {
+                    'event_category': 'engagement',
+                    'event_label': `${milestone}_percent`,
+                    'value': milestone,
+                    'non_interaction': true
+                });
+            }
+        });
+    };
+}
+
+function trackReadingBehavior() {
+    let startTime = Date.now();
+    let wordCount = 0;
+    
+    const textElements = document.querySelectorAll('p');
+    textElements.forEach(el => {
+        wordCount += el.textContent.split(' ').length;
+    });
+
+    return {
+        calculateReadingSpeed: function() {
+            const timeSpent = (Date.now() - startTime) / 1000 / 60;
+            return Math.round(wordCount / timeSpent);
+        },
+        getWordCount: () => wordCount
+    };
+}
+
+function trackUserSession() {
+    const sessionData = {
+        startTime: Date.now(),
+        interactions: 0,
+        scrollEvents: 0,
+        focusEvents: 0,
+        transformationsViewed: 0
+    };
+
+    window.addEventListener('scroll', () => {
+        sessionData.scrollEvents++;
+    });
+
+    window.addEventListener('focus', () => {
+        sessionData.focusEvents++;
+    });
+
+    window.addEventListener('beforeunload', () => {
+        const sessionDuration = (Date.now() - sessionData.startTime) / 1000;
+        
+        gtag('event', 'session_end', {
+            'event_category': 'user_behavior',
+            'session_duration': Math.round(sessionDuration),
+            'scroll_events': sessionData.scrollEvents,
+            'focus_events': sessionData.focusEvents,
+            'transformations_viewed': sessionData.transformationsViewed,
+            'non_interaction': true
+        });
+    });
+
+    return sessionData;
 }
 
 function initScrollTrigger() {
@@ -28,6 +127,10 @@ function initScrollTrigger() {
     let tensionAnimationFrame;
 
     let lastViewportHeight = window.innerHeight;
+
+    const scrollDepthTracker = trackScrollDepth();
+    const readingBehavior = trackReadingBehavior();
+    const sessionData = trackUserSession();
     
     document.addEventListener('DOMContentLoaded', () => {
         const video = document.getElementById('background-video');
@@ -595,7 +698,13 @@ function initScrollTrigger() {
         if (scrollPercentage > 80 && !hasTriggered) { 
             hasTriggered = true;
             hasReachedBottom = true;
-            trackStoryProgress('first_transformation');
+            sessionData.transformationsViewed++;
+    
+            trackStoryProgress('first_transformation', { 
+                'reading_speed': readingBehavior.calculateReadingSpeed(),
+                'word_count': readingBehavior.getWordCount(),
+                'session_interactions': sessionData.interactions
+            });
             
             textChangesTop.forEach(change => {
                 const element = document.getElementById(change.elementId);
@@ -630,7 +739,12 @@ function initScrollTrigger() {
 
         if (scrollPercentage < 50 && hasReachedBottom && !roundTwoTop) { 
             roundTwoTop = true;
-            trackStoryProgress('second_transformation');
+            sessionData.transformationsViewed++;
+    
+            trackStoryProgress('second_transformation', {
+                'direction': 'scroll_up',
+                'reading_speed': readingBehavior.calculateReadingSpeed()
+            });
 
             const closingQuestion = document.getElementById('closing_question');
             closingQuestion.classList.remove('visible');
@@ -647,7 +761,11 @@ function initScrollTrigger() {
 
         if (scrollPercentage > 85 && hasTriggered && roundTwoTop && !roundTwoBottom) {
             roundTwoBottom = true;
-            trackStoryProgress('third_transformation');
+            sessionData.transformationsViewed++;
+    
+            trackStoryProgress('third_transformation', {
+                'reading_speed': readingBehavior.calculateReadingSpeed()
+            });
 
             const closingQuestion = document.getElementById('closing_question');
             closingQuestion.classList.remove('visible');
@@ -662,7 +780,12 @@ function initScrollTrigger() {
 
         if (scrollPercentage < 45 && hasTriggered && roundTwoBottom && !roundThreeTop) { 
             roundThreeTop = true;
-            trackStoryProgress('fourth_transformation');
+            sessionData.transformationsViewed++;
+    
+            trackStoryProgress('fourth_transformation', {
+                'direction': 'scroll_up',
+                'reading_speed': readingBehavior.calculateReadingSpeed()
+            });
 
             textChangesBottomTwo.forEach(change => {
                 const element = document.getElementById(change.elementId);
@@ -677,7 +800,13 @@ function initScrollTrigger() {
         
         if (scrollPercentage > 90 && hasTriggered && roundThreeTop && !fifthTriggerActivated) { 
             fifthTriggerActivated = true;
-            trackStoryProgress('final_sequence');
+            sessionData.transformationsViewed++;
+    
+            trackStoryProgress('final_sequence', { 
+                'total_transformations': sessionData.transformationsViewed,
+                'reading_speed': readingBehavior.calculateReadingSpeed(),
+                'session_duration': Math.round((Date.now() - sessionData.startTime) / 1000)
+            });
 
             const closingQuestion = document.getElementById('closing_question');
             closingQuestion.classList.remove('visible');
@@ -845,6 +974,9 @@ function initScrollTrigger() {
     }
 
     window.addEventListener('scroll', () => {
+
+        scrollDepthTracker();
+    
         if (!ticking && isPageActive) {
             window.requestAnimationFrame(() => {
                 checkScroll();
@@ -884,6 +1016,24 @@ function initScrollTrigger() {
     });
 
     startTimeCheck();
+
+    window.addEventListener('beforeunload', () => {
+    if (!fifthTriggerActivated) {
+        const currentMilestone = hasTriggered ? 
+            (roundThreeTop ? 'fourth_transformation' : 
+             roundTwoBottom ? 'third_transformation' : 
+             roundTwoTop ? 'second_transformation' : 'first_transformation') 
+            : 'no_transformation';
+            
+        gtag('event', 'story_abandonment', {
+            'event_category': 'story_engagement',
+            'event_label': currentMilestone,
+            'scroll_percentage': Math.round(getScrollPercentage()),
+            'time_spent': Math.round(getActiveTimeSpent() / 1000),
+            'transformations_viewed': sessionData.transformationsViewed
+        });
+    }
+});
 }
 
 document.addEventListener('DOMContentLoaded', () => {
