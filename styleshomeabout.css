@@ -252,7 +252,7 @@ footer {
 
 .stars {
     height: 75px;
-    filter: sepia(100%) saturate(150%) hue-rotate(20deg) brightness(1.1);
+    filter: brightness(0) saturate(100%) invert(29%) sepia(89%) saturate(1747%) hue-rotate(14deg) brightness(93%) contrast(95%);
 }
 
 .comment {
