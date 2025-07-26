@@ -266,8 +266,10 @@ footer {
 }
 
 #myCarousel {
-    background: linear-gradient(135deg, #F5F5DC 0%, #FAEBD7 100%) !important;
+    background: linear-gradient(135deg, #E6DDD4 0%, #F0EBE3 100%) !important;
 }
+
+
 
 /* Carousel controls styling */
 .carousel-control-prev-icon,
