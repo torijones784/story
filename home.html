@@ -16,6 +16,33 @@
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
     <link rel="stylesheet" href="styleshomeabout.css">
 
+    <style>
+      /* Custom CSS to center the "Our beta experience" section */
+      .mvp .row {
+        justify-content: center !important;
+      }
+      
+      .mvp .text-overlay-container {
+        text-align: left !important;
+      }
+      
+      /* Hide the empty column on larger screens to center the content */
+      .mvp .col-10.col-sm-8.col-lg-6 {
+        display: none !important;
+      }
+      
+      /* Ensure the text container takes full width when centered */
+      .mvp .col-lg-6.text-overlay-container {
+        max-width: 50% !important;
+      }
+      
+      @media (max-width: 991.98px) {
+        .mvp .col-lg-6.text-overlay-container {
+          max-width: 100% !important;
+        }
+      }
+    </style>
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-7F6S909TDQ"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
