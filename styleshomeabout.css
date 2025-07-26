@@ -230,7 +230,7 @@ footer {
 
 .carousel-item {
     height: 425px;
-    background-color: transparent;
+    background: linear-gradient(135deg, #fdf4e8 0%, #f7e6d3 100%);
 }
 
 .carousel-caption h2.comment {
