@@ -305,7 +305,7 @@ function initScrollTrigger() {
         },
         {
             elementId: `changing-text-12`,
-            newText: `You're vacuuming up pieces of glass and remembering your husband down there, on one knee, looking up at you like you held his entire future in your hands. This is not the house you were promised. That house was supposed to be different, supposed to be what you never had growing up. That house was supposed to be safe. And fuck it, things were at least real now, but there is a part of you that's so angry you got so close to what you'd always wanted.`
+            newText: `You're vacuuming up pieces of glass and picturing your husband down there, on one knee, looking up at you like you held his entire future in your hands. This is not the house you were promised. That house was supposed to be different, supposed to be what you never had growing up. That house was supposed to be safe. And fuck it, things were at least real now, but there is a part of you that's so angry you got so close to what you'd always wanted.`
         },
         {
             elementId: `changing-text-13`,
@@ -329,7 +329,7 @@ function initScrollTrigger() {
         },
         {
             elementId: `changing-text-26`,
-            newText: `You remember grinning at your friends, pointing at this then-stranger. Mine.`
+            newText: `You grinned at your friends, pointing at this then-stranger. Mine.`
         },
         {
             elementId: `changing-text-28`,
