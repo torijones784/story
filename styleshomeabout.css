@@ -230,7 +230,7 @@ footer {
 
 .carousel-item {
     height: 425px;
-    background: linear-gradient(135deg, #D2B48C 0%, #F5DEB3 100%) !important;
+    background: linear-gradient(135deg, #F5F5DC 0%, #FAEBD7 100%) !important;
 }
 
 .carousel-item .bd-placeholder-img {
@@ -266,7 +266,7 @@ footer {
 }
 
 #myCarousel {
-    background: linear-gradient(135deg, #fdf4e8 0%, #f7e6d3 100%) !important;
+    background: linear-gradient(135deg, #F5F5DC 0%, #FAEBD7 100%) !important;
 }
 
 /* Carousel controls styling */
