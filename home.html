@@ -41,6 +41,65 @@
           max-width: 100% !important;
         }
       }
+
+      /* Warm Sunset Vibes for Testimonial Section */
+      #myCarousel {
+        background: linear-gradient(135deg, #fdf4e8 0%, #f7e6d3 100%) !important;
+      }
+      
+      .carousel-item {
+        background: transparent !important;
+        position: relative;
+      }
+      
+      .carousel-item::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(45deg, rgba(211, 84, 0, 0.1) 0%, rgba(253, 244, 232, 0.3) 50%, rgba(243, 156, 18, 0.1) 100%);
+      }
+      
+      .carousel-caption {
+        position: relative;
+        z-index: 2;
+      }
+      
+      .carousel-caption h2.comment {
+        color: #3d2914 !important;
+        font-weight: 600;
+        text-shadow: none;
+      }
+      
+      .carousel-caption p {
+        color: #8b4513 !important;
+        font-weight: 500;
+        margin-bottom: 0;
+      }
+      
+      /* Update star images for warmer look */
+      .stars {
+        filter: sepia(100%) saturate(150%) hue-rotate(20deg) brightness(1.1);
+      }
+      
+      /* Carousel controls styling */
+      .carousel-control-prev-icon,
+      .carousel-control-next-icon {
+        filter: invert(1) sepia(1) saturate(5) hue-rotate(15deg);
+      }
+      
+      /* Carousel indicators */
+      .carousel-indicators button {
+        background-color: #d35400 !important;
+        opacity: 0.6;
+      }
+      
+      .carousel-indicators button.active {
+        opacity: 1;
+        background-color: #e67e22 !important;
+      }
     </style>
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-7F6S909TDQ"></script>
@@ -86,7 +145,7 @@
             </div>
           </div>
 
-          <div class="container col-xxl-8 px-4 py-5 mvp">
+          <div class="container col-xxl-8 px-4 py-5 mvp centered">
             <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
               <div class="col-10 col-sm-8 col-lg-6">
               </div>
