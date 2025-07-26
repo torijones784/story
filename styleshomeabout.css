@@ -230,23 +230,7 @@ footer {
 
 .carousel-item {
     height: 425px;
-    background: transparent !important;
-    position: relative;
-}
-
-.carousel-item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(45deg, rgba(211, 84, 0, 0.1) 0%, rgba(253, 244, 232, 0.3) 50%, rgba(243, 156, 18, 0.1) 100%);
-}
-
-.carousel-caption {
-    position: relative;
-    z-index: 2;
+    background-color: transparent;
 }
 
 .carousel-caption h2.comment {
