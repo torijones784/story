@@ -203,27 +203,68 @@ footer {
 
 .mvp .row {
     --bs-gutter-x: 0;
+    justify-content: center !important;
 }
 
-.text-overlay-container {
+.mvp .text-overlay-container {
     background-color: rgba(0, 0, 0, 0.5);
     padding: 20px;
     border-radius: 5px;
     max-width: 90%;
     margin: 0 auto;
     padding-bottom: 3rem;
-  }
+    text-align: left !important;
+}
 
-/* Carousel */
+/* Hide the empty column on larger screens to center the content */
+.mvp .col-10.col-sm-8.col-lg-6 {
+    display: none !important;
+}
+
+/* Ensure the text container takes full width when centered */
+.mvp .col-lg-6.text-overlay-container {
+    max-width: 50% !important;
+}
+
+/* Carousel - Warm Sunset Vibes */
 
 .carousel-item {
     height: 425px;
-    background-color: #939FAA;
+    background: transparent !important;
+    position: relative;
+}
+
+.carousel-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(211, 84, 0, 0.1) 0%, rgba(253, 244, 232, 0.3) 50%, rgba(243, 156, 18, 0.1) 100%);
+}
+
+.carousel-caption {
+    position: relative;
+    z-index: 2;
+}
+
+.carousel-caption h2.comment {
+    color: #3d2914 !important;
+    font-weight: 600;
+    text-shadow: none;
+    font-family: "Source Serif 4", serif;
+}
+
+.carousel-caption p {
+    color: #8b4513 !important;
+    font-weight: 500;
+    margin-bottom: 0;
 }
 
 .stars {
     height: 75px;
-    
+    filter: sepia(100%) saturate(150%) hue-rotate(20deg) brightness(1.1);
 }
 
 .comment {
@@ -237,7 +278,24 @@ footer {
 }
 
 #myCarousel {
-    background-color: #939FAA
+    background: linear-gradient(135deg, #fdf4e8 0%, #f7e6d3 100%) !important;
+}
+
+/* Carousel controls styling */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(1) sepia(1) saturate(5) hue-rotate(15deg);
+}
+
+/* Carousel indicators */
+.carousel-indicators button {
+    background-color: #d35400 !important;
+    opacity: 0.6;
+}
+
+.carousel-indicators button.active {
+    opacity: 1;
+    background-color: #e67e22 !important;
 }
 
 /* Footer */
@@ -310,6 +368,12 @@ footer {
 
     .footer_content {
         padding-top: 2rem;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .mvp .col-lg-6.text-overlay-container {
+        max-width: 100% !important;
     }
 }
 
