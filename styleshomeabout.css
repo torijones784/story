@@ -464,10 +464,25 @@ body.preface {
 
 .hidden {
     opacity: 0;
+    visibility: hidden;
+    height: 0;
+    overflow: hidden;
+    margin: 0;
 }
 
 .visible {
     opacity: 1;
+}
+
+/* New styles for grayed out text effect */
+.grayed {
+    color: #666666;
+    opacity: 0.6;
+    transition: color 0.8s ease-in-out, opacity 0.8s ease-in-out;
+}
+
+.lead {
+    transition: color 0.8s ease-in-out, opacity 0.8s ease-in-out;
 }
 
 /* Email Signup */
