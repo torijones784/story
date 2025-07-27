@@ -74,8 +74,8 @@ function initScrollTrigger() {
     let roundThreeTop = false;
     let hasReachedBottom = false;  
     let fifthTriggerActivated = false;
-    let tensionActivated = false;
-    let tensionReset = false;
+    // let tensionActivated = false;
+    // let tensionReset = false;
 
     let startTime = Date.now();
     let activeTime = 0;
@@ -87,7 +87,7 @@ function initScrollTrigger() {
     let lastScrollTime = Date.now();
     let scrollSpeed = 0;
     let currentOpacity = 0;
-    let tensionAnimationFrame;
+    // let tensionAnimationFrame;
 
     let lastViewportHeight = window.innerHeight;
 
@@ -598,34 +598,34 @@ function initScrollTrigger() {
         }
     ];
 
-    function updateTensionEffect() {
-        if (!tensionActivated || !isPageActive) return;
+    // function updateTensionEffect() {
+    //     if (!tensionActivated || !isPageActive) return;
         
-        const now = Date.now();
-        const timeDelta = now - lastScrollTime;
+    //     const now = Date.now();
+    //     const timeDelta = now - lastScrollTime;
         
-        if (timeDelta > 16) { 
-            scrollSpeed = Math.max(0, scrollSpeed - 0.1);
-        }
+    //     if (timeDelta > 16) { 
+    //         scrollSpeed = Math.max(0, scrollSpeed - 0.1);
+    //     }
         
-        const targetOpacity = Math.min(0.15, scrollSpeed * 0.001);
-        const opacityDelta = targetOpacity - currentOpacity;
-        currentOpacity += opacityDelta * 0.1;
+    //     const targetOpacity = Math.min(0.15, scrollSpeed * 0.001);
+    //     const opacityDelta = targetOpacity - currentOpacity;
+    //     currentOpacity += opacityDelta * 0.1;
         
-        if (tensionActivated && !tensionReset) {
-            document.body.style.backgroundColor = `rgba(0, 0, 15, ${currentOpacity})`;
+    //     if (tensionActivated && !tensionReset) {
+    //         document.body.style.backgroundColor = `rgba(0, 0, 15, ${currentOpacity})`;
             
-            const letterSpacing = currentOpacity * 0.13;
-            const paragraphs = document.querySelectorAll('p');
-            paragraphs.forEach(p => {
-                p.style.letterSpacing = `${letterSpacing}em`;
-            });
-        }
+    //         const letterSpacing = currentOpacity * 0.13;
+    //         const paragraphs = document.querySelectorAll('p');
+    //         paragraphs.forEach(p => {
+    //             p.style.letterSpacing = `${letterSpacing}em`;
+    //         });
+    //     }
   
-        if (Math.abs(opacityDelta) > 0.001) {
-            tensionAnimationFrame = requestAnimationFrame(updateTensionEffect);
-        }
-    }
+    //     if (Math.abs(opacityDelta) > 0.001) {
+    //         tensionAnimationFrame = requestAnimationFrame(updateTensionEffect);
+    //     }
+    // }
 
     function handleFadeOut(elements) {
         elements.forEach(element => {
@@ -676,10 +676,10 @@ function initScrollTrigger() {
         lastScrollTop = currentScrollTop;
         lastScrollTime = now;
 
-        if (scrollPercentage > 70 && !tensionActivated && !hasTriggered) {
-            tensionActivated = true;
-            updateTensionEffect();
-        }
+        // if (scrollPercentage > 70 && !tensionActivated && !hasTriggered) {
+        //     tensionActivated = true;
+        //     updateTensionEffect();
+        // }
 
         if (scrollPercentage > 80 && !hasTriggered) { 
             hasTriggered = true;
@@ -709,19 +709,19 @@ function initScrollTrigger() {
             }
         }
 
-        if (scrollPercentage > 95 && !tensionReset && tensionActivated) {
-            tensionReset = true;
-            cancelAnimationFrame(tensionAnimationFrame);
+        // if (scrollPercentage > 95 && !tensionReset && tensionActivated) {
+        //     tensionReset = true;
+        //     cancelAnimationFrame(tensionAnimationFrame);
             
-            document.body.style.transition = 'background-color 5s ease-in-out';
-            document.body.style.backgroundColor = '';
+        //     document.body.style.transition = 'background-color 5s ease-in-out';
+        //     document.body.style.backgroundColor = '';
             
-            const paragraphs = document.querySelectorAll('p');
-            paragraphs.forEach(p => {
-                p.style.transition = 'letter-spacing 5s ease-in-out';
-                p.style.letterSpacing = '';
-            });
-        }
+        //     const paragraphs = document.querySelectorAll('p');
+        //     paragraphs.forEach(p => {
+        //         p.style.transition = 'letter-spacing 5s ease-in-out';
+        //         p.style.letterSpacing = '';
+        //     });
+        // }
 
         if (scrollPercentage < 50 && hasReachedBottom && !roundTwoTop) { 
             roundTwoTop = true;
@@ -988,10 +988,10 @@ function initScrollTrigger() {
             ticking = true;
         }
         
-        if (tensionActivated && !tensionReset && isPageActive) {
-            cancelAnimationFrame(tensionAnimationFrame);
-            tensionAnimationFrame = requestAnimationFrame(updateTensionEffect);
-        }
+        // if (tensionActivated && !tensionReset && isPageActive) {
+        //     cancelAnimationFrame(tensionAnimationFrame);
+        //     tensionAnimationFrame = requestAnimationFrame(updateTensionEffect);
+        // }
     });
 
     window.addEventListener('focus', () => {
