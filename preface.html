@@ -15,7 +15,76 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
-    <link rel="stylesheet" href="styleshomeabout.css">
+    <style>
+        .preface {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            min-height: 100vh;
+            font-family: 'Source Serif 4', serif;
+        }
+        
+        .fade-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 3s ease-in-out, visibility 3s ease-in-out;
+        }
+        
+        .fade-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .fade-overlay.not_active {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .logo {
+            height: 50px;
+        }
+        
+        .about_link {
+            color: #ffffff;
+            text-decoration: none;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .underline {
+            text-decoration: underline;
+        }
+        
+        .value_prop {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .lead {
+            font-size: 1.5rem;
+            line-height: 1.6;
+            transition: opacity 1s ease-in-out, color 1s ease-in-out;
+        }
+        
+        .hidden {
+            opacity: 0;
+            visibility: hidden;
+            height: 0;
+            overflow: hidden;
+            margin: 0;
+        }
+        
+        .grayed {
+            color: #666666;
+            opacity: 0.6;
+        }
+    </style>
 </head>
 
 <body class="preface">
@@ -45,37 +114,37 @@
             setTimeout(() => {
                 const sentence_one = document.getElementById('sentence_one');
                 const sentence_two = document.getElementById('sentence_two');
-                sentence_one.classList.add('hidden');
+                sentence_one.classList.add('grayed');
                 sentence_two.classList.remove('hidden');
 
                 setTimeout(() => {
                     const sentence_three = document.getElementById('sentence_three');
-                    sentence_two.classList.add('hidden');
+                    sentence_two.classList.add('grayed');
                     sentence_three.classList.remove('hidden');
 
                     setTimeout(() => {
                         const sentence_four= document.getElementById('sentence_four');
-                        sentence_three.classList.add('hidden');
+                        sentence_three.classList.add('grayed');
                         sentence_four.classList.remove('hidden');
 
                         setTimeout(() => {
                             const sentence_five= document.getElementById('sentence_five');
-                            sentence_four.classList.add('hidden');
+                            sentence_four.classList.add('grayed');
                             sentence_five.classList.remove('hidden');
 
                             setTimeout(() => {
                                 const sentence_six= document.getElementById('sentence_six');
-                                sentence_five.classList.add('hidden');
+                                sentence_five.classList.add('grayed');
                                 sentence_six.classList.remove('hidden');
 
                                 setTimeout(() => {
                                     const sentence_seven= document.getElementById('sentence_seven');
-                                    sentence_six.classList.add('hidden');
+                                    sentence_six.classList.add('grayed');
                                     sentence_seven.classList.remove('hidden');
 
                                         setTimeout(() => {
                                             const ending_sentence = document.getElementById('ending_sentence');
-                                            sentence_seven.classList.add('hidden');
+                                            sentence_seven.classList.add('grayed');
                                             ending_sentence.classList.remove('hidden');
 
                                             const preface_wordOne = [
