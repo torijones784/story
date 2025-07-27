@@ -241,6 +241,10 @@ function initScrollTrigger() {
             newText: ``
         },
         {
+            elementId: `changing-text-32b`,
+            newText: ``
+        },
+        {
             elementId: `changing-text-37`,
             newText: `You'd only looked away for a second. Didn't you?`
         },
@@ -342,6 +346,10 @@ function initScrollTrigger() {
         {
             elementId: `changing-text-32`,
             newText: `He's perfect, she had said flatly after the first time you brought him home, treating your new love with the enthusiasm of sorting laundry. To her, he was a plot point in your story—your destiny. You didn't care. To you, he was everything.`
+        },
+        {
+            elementId: `changing-text-32b`,
+            newText: ``
         },
         {
             elementId: `changing-text-33`,
@@ -519,6 +527,10 @@ function initScrollTrigger() {
         {
             elementId: `changing-text-32`, 
             newText: `When will you learn?`
+        },
+        {
+            elementId: `changing-text-32b`, 
+            newText: ``
         },
         {
             elementId: `changing-text-33`, 
@@ -728,7 +740,7 @@ function initScrollTrigger() {
             textChangesBottom.forEach(change => {
                 const element = document.getElementById(change.elementId);
                 if (change.newText === '') {
-                    element.remove();
+                    if (element) element.remove();
                 } else if (element) {
                     element.textContent = change.newText;
                 }
@@ -825,12 +837,19 @@ function initScrollTrigger() {
                 }
                 
                 const textElements = [];
-                for (let i = 1; i <= 62; i++) {
+                for (let i = 1; i <= 64; i++) {
                     const element = document.getElementById(`changing-text-${i}`);
                     if (element) {
                         textElements.push(element);
                         element.textContent = '';
                     }
+                }
+                
+                // Also handle the new 32b element
+                const element32b = document.getElementById(`changing-text-32b`);
+                if (element32b) {
+                    textElements.push(element32b);
+                    element32b.textContent = '';
                 }
 
                 let cumulativeDelay = 3000;
